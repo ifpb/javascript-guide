@@ -1,0 +1,27 @@
+{
+  "name": "sass-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && http-server",
+    "build": "npm run clean && npx webpack",
+    "clean": "rm -rf build/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "css-loader": "^0.28.9",
+    "cssnano": "^3.10.0",
+    "extract-loader": "^1.0.2",
+    "file-loader": "^1.1.6",
+    "http-server": "^0.11.1",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.11.0"
+  }
+}

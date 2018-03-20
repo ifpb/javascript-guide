@@ -1,0 +1,15 @@
+{
+  "name": "node-std-esm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@std/esm": "^0.21.7"
+  }
+}
