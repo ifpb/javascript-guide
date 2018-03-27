@@ -373,6 +373,16 @@ console.log(-9 >>  2) //=> 11111111111111111111111111111101  -3
 console.log(-9 >>> 2) //=> 00111111111111111111111111111101  1073741821
 ```
 
+<!-- TODO
+encoding 
+ int color = (A & 0xff) << 24 | (R & 0xff) << 16 | (G & 0xff) << 8 | (B & 0xff);
+
+decoding
+int A = (color >> 24) & 0xff; // or color >>> 24
+int R = (color >> 16) & 0xff;
+int G = (color >>  8) & 0xff;
+int B = (color      ) & 0xff; -->
+
 ### Binary bitwise operators (&, |, ^)
 
 ```js
