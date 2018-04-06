@@ -1143,6 +1143,19 @@ console.log([1,1,1].reduce(function(sum,value){return sum+value}, 0)) //=> 3
 console.log([1,1,1].reduce((sum,value) => sum+value))                 //=> 3
 ```
 
+```js
+Array.prototype.myMap = function(callback) {
+  const array = this
+  const result = []
+  for(let index = 0; index < array.length; index++)
+    result.push(callback(array[index], index, array))
+  return result
+}
+
+const array = [1, 2, 3]
+const double = (e) => e * 2
+array.myMap(double)
+```
 
 #### Higher-Order Function
 
