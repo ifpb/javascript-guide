@@ -1140,6 +1140,19 @@ console.log(func) //=> {a: 1}
 #### Callback
 
 ```js
+function myMap(array, callback) {
+  const result = []
+  for(let value of array)
+    result.push(callback(value))
+  return result
+}
+
+const array = [1, 2, 3]
+const doubleNum = (e) => e * 2
+myMap(array, doubleNum)
+```
+
+```js
 Array.prototype.myMap = function(callback) {
   const array = this
   const result = []
@@ -1149,8 +1162,8 @@ Array.prototype.myMap = function(callback) {
 }
 
 const array = [1, 2, 3]
-const double = (e) => e * 2
-array.myMap(double)
+const doubleNum = (e) => e * 2
+array.myMap(doubleNum)
 ```
 
 ```js
