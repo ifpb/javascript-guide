@@ -1138,10 +1138,6 @@ console.log(func) //=> {a: 1}
 ```
 
 #### Callback
-```js
-console.log([1,1,1].reduce(function(sum,value){return sum+value}, 0)) //=> 3
-console.log([1,1,1].reduce((sum,value) => sum+value))                 //=> 3
-```
 
 ```js
 Array.prototype.myMap = function(callback) {
@@ -1155,6 +1151,15 @@ Array.prototype.myMap = function(callback) {
 const array = [1, 2, 3]
 const double = (e) => e * 2
 array.myMap(double)
+```
+
+```js
+console.log([1,1,1].reduce(function(sum,value){return sum+value}, 0)) //=> 3
+```
+
+```js
+const sum = (sum,value) => sum + value
+console.log([1,1,1].reduce(sum))   //=> 3
 ```
 
 #### Higher-Order Function
@@ -1180,6 +1185,7 @@ let totalDogYears = animals
   .filter(x =>  x.type === 'dog')
   .map(x => x.age)
   .reduce((prev, cur) => prev + cur, 0)
+  
 console.log(totalDogYears) //=> 27
 ```
 
