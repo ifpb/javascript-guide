@@ -1142,6 +1142,20 @@ console.log(func) //=> {a: 1}
 ```js
 const doubleNum = e => e * 2
 
+function myMap(array) {
+  const result = []
+  for(let value of array)
+    result.push(doubleNum(value))
+  return result
+}
+
+const array = [1, 2, 3]
+console.log(myMap(array, doubleNum)) //=> [2, 4, 6]
+```
+
+```js
+const doubleNum = e => e * 2
+
 function myMap(array, callback) {
   const result = []
   for(let value of array)
@@ -2155,21 +2169,13 @@ for([key, value] of [1,2,3].entries()){console.log(`${key} => ${value}`)}
 ><br>
 > callback(currentValue, currentIndex, array)<br>
 
-<img src="assets/array-map.svg" alt="Array.map" width="400">
+<img src="assets/array-map.svg" alt="Array.map" width="600">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
 
 // f(x) = 2x
-console.log(array.map(function(value){ return value * 2 }))
-//=> [ 2, 4, 6, 8, 10, 12 ]
-```
-
-```js
-let array = [1, 2, 3, 4, 5, 6]
-
-console.log(array.map((value) => value * 2))
-//=> [ 2, 4, 6, 8, 10, 12 ]
+console.log(array.map(value => value * 2)) //=> [ 2, 4, 6, 8, 10, 12 ]
 ```
 
 #### Array.prototype.reduce()
@@ -2184,15 +2190,23 @@ Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 ><br>
 > callback(accumulator, currentValue, currentIndex, array)<br>
 
-<img src="assets/array-reduce.svg" alt="Array.reduce" width="400">
+<img src="assets/array-reduce.svg" alt="Array.reduce" width="600">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
 
 console.log(array.reduce((addition, value) => addition + value, 0)) //=> 21
-console.log(array.reduce((addition, value) => addition + value))    //=> 21
+```
 
-console.log(array.reduce((addition, value) => addition * value))    //=> 720
+```js
+let array = [1, 2, 3, 4, 5, 6]
+console.log(array.reduce((addition, value) => addition + value))    //=> 21
+```
+
+```js
+let array = [1, 2, 3, 4, 5, 6]
+
+console.log(array.reduce((addition, value) => addition * value), 1)    //=> 720
 ```
 
 #### Array.prototype.reduceRight()
@@ -2220,11 +2234,11 @@ console.log(array.reduceRight((addition, value) => addition + value)) //=> 21
 ><br>
 > callback(currentValue, currentIndex, array)<br>
 
-<img src="assets/array-filter.svg" alt="Array.filter" width="400">
+<img src="assets/array-filter.svg" alt="Array.filter" width="600">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
-console.log(array.filter((value) => value % 2 == 0)) //=> [ 2, 4, 6 ]
+console.log(array.filter((value) => value % 2 !== 0)) //=> [ 1, 3, 5 ]
 ```
 
 #### Array.prototype.find()
