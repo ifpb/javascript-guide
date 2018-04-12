@@ -1140,6 +1140,8 @@ console.log(func) //=> {a: 1}
 #### Callback
 
 ```js
+const doubleNum = e => e * 2
+
 function myMap(array, callback) {
   const result = []
   for(let value of array)
@@ -1148,11 +1150,12 @@ function myMap(array, callback) {
 }
 
 const array = [1, 2, 3]
-const doubleNum = (e) => e * 2
-myMap(array, doubleNum)
+console.log(myMap(array, doubleNum)) //=> [2, 4, 6]
 ```
 
 ```js
+const doubleNum = e => e * 2
+
 Array.prototype.myMap = function(callback) {
   const array = this
   const result = []
@@ -1162,17 +1165,29 @@ Array.prototype.myMap = function(callback) {
 }
 
 const array = [1, 2, 3]
-const doubleNum = (e) => e * 2
-array.myMap(doubleNum)
+console.log(array.myMap(doubleNum)) //=> [2, 4, 6]
 ```
 
 ```js
-console.log([1,1,1].reduce(function(sum,value){return sum+value}, 0)) //=> 3
+const array = [1, 2, 3]
+const doubleNum = e => e * 2
+console.log(array.map(doubleNum))   //=> [2, 4, 6]
 ```
 
 ```js
-const sum = (sum,value) => sum + value
-console.log([1,1,1].reduce(sum))   //=> 3
+const array = [1, 2, 3]
+const doubleNum = e => e * 2
+console.log(array.map(doubleNum))   //=> [2, 4, 6]
+```
+
+```js
+const array = [1, 2, 3]
+console.log(array.map(e => e * 2))   //=> [2, 4, 6]
+```
+
+```js
+const array = [1, 2, 3]
+console.log(array.map((e, i) => i % 2 == 0))   //=> [true, false, true]
 ```
 
 #### Higher-Order Function
@@ -2140,6 +2155,8 @@ for([key, value] of [1,2,3].entries()){console.log(`${key} => ${value}`)}
 ><br>
 > callback(currentValue, currentIndex, array)<br>
 
+<img src="assets/array-map.svg" alt="Array.map" width="400">
+
 ```js
 let array = [1, 2, 3, 4, 5, 6]
 
@@ -2166,6 +2183,8 @@ Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 >   arr.reduce(callback, initialValue)<br>
 ><br>
 > callback(accumulator, currentValue, currentIndex, array)<br>
+
+<img src="assets/array-reduce.svg" alt="Array.reduce" width="400">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2200,6 +2219,8 @@ console.log(array.reduceRight((addition, value) => addition + value)) //=> 21
 > let new_arr = old_arr.filter(callback, thisArg)
 ><br>
 > callback(currentValue, currentIndex, array)<br>
+
+<img src="assets/array-filter.svg" alt="Array.filter" width="400">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]

@@ -1,0 +1,26 @@
+digraph {
+  node [shape=plaintext, fontcolor=red, fontsize=18];
+  "Index:" -> "Array:" -> "Filter:" -> "Return:" [color=white];
+
+  node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
+  indices [label="0 | 1 | 2 | 3 | 4 | 5", color=white];
+  values [label="<f0> 1 | <f1> 2 | <f2> 3 | <f3> 4 | <f4> 5 | <f5> 6", color=blue, fillcolor=lightblue, style=filled];
+  functions [label="<f0> isOdd(x) | <f1> isOdd(x) | <f2> isOdd(x) | <f3> isOdd(x)| <f4> isOdd(x) | <f5> isOdd(x)", color=white];
+  results [label="<f0> 1 | <f2> 3 | <f4> 5", color=blue, fillcolor=lightblue, style=filled];
+
+  { rank=same; "Index:"; indices }
+  { rank=same; "Array:"; values }
+  { rank=same; "Filter:"; functions }
+  { rank=same; "Return:"; results }
+
+  edge [color=blue];
+  values:f0 -> functions:f0;
+  values:f1 -> functions:f1;
+  values:f2 -> functions:f2;
+  values:f3 -> functions:f3;
+  values:f4 -> functions:f4;
+  values:f5 -> functions:f5;
+  functions:f0 -> results:f0;
+  functions:f2 -> results:f2;
+  functions:f4 -> results:f4;
+}
