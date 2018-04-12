@@ -105,16 +105,16 @@
 <!-- results -->
 <g id="node6" class="node">
 <title>results</title>
-<polygon fill="#add8e6" stroke="#0000ff" points="114.9956,-.5 114.9956,-36.5 456.9956,-36.5 456.9956,-.5 114.9956,-.5"/>
+<polygon fill="none" stroke="#ffffff" points="114.9956,-.5 114.9956,-36.5 456.9956,-36.5 456.9956,-.5 114.9956,-.5"/>
 <text text-anchor="middle" x="146.9956" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
-<polyline fill="none" stroke="#0000ff" points="178.9956,-.5 178.9956,-36.5 "/>
+<polyline fill="none" stroke="#ffffff" points="178.9956,-.5 178.9956,-36.5 "/>
 <text text-anchor="middle" x="210.9956" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
-<polyline fill="none" stroke="#0000ff" points="242.9956,-.5 242.9956,-36.5 "/>
+<polyline fill="none" stroke="#ffffff" points="242.9956,-.5 242.9956,-36.5 "/>
 <text text-anchor="middle" x="278.4956" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#000000">10</text>
-<polyline fill="none" stroke="#0000ff" points="313.9956,-.5 313.9956,-36.5 "/>
+<polyline fill="none" stroke="#ffffff" points="313.9956,-.5 313.9956,-36.5 "/>
 <text text-anchor="middle" x="349.4956" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#000000">15</text>
-<polyline fill="none" stroke="#0000ff" points="384.9956,-.5 384.9956,-36.5 "/>
-<text text-anchor="middle" x="420.9956" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#000000">26</text>
+<polyline fill="none" stroke="#ffffff" points="384.9956,-.5 384.9956,-36.5 "/>
+<text text-anchor="middle" x="420.9956" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#000000">21</text>
 </g>
 <!-- functions&#45;&gt;results -->
 <g id="edge9" class="edge">

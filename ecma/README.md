@@ -2169,7 +2169,7 @@ for([key, value] of [1,2,3].entries()){console.log(`${key} => ${value}`)}
 ><br>
 > callback(currentValue, currentIndex, array)<br>
 
-<img src="assets/array-map.svg" alt="Array.map" width="600">
+<img src="assets/array-map-centralized.svg" alt="Array.map" width="600">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2190,7 +2190,7 @@ Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 ><br>
 > callback(accumulator, currentValue, currentIndex, array)<br>
 
-<img src="assets/array-reduce.svg" alt="Array.reduce" width="600">
+<img src="assets/array-reduce-arrows.svg" alt="Array.reduce" width="600">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2234,7 +2234,7 @@ console.log(array.reduceRight((addition, value) => addition + value)) //=> 21
 ><br>
 > callback(currentValue, currentIndex, array)<br>
 
-<img src="assets/array-filter.svg" alt="Array.filter" width="600">
+<img src="assets/array-filter-centralized.svg" alt="Array.filter" width="600">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]

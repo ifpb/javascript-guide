@@ -1,0 +1,27 @@
+digraph {
+  node [shape=plaintext, fontcolor=red, fontsize=18];
+  "Array:" -> "map:" -> "Return:" [color=white];
+
+  node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
+  values [label="<f0> 1 | <f1> 2 | <f2> 3 | <f3> 4 | <f4> 5 | <f5> 6", color=blue, fillcolor=lightblue, style=filled];
+  functions [label="<f0> f(x) = 2x", color=white];
+  results [label="<f0> 2 | <f1> 4 | <f2> 6 | <f3> 8 | <f4> 10 | <f5> 12", color=blue, fillcolor=lightblue, style=filled];
+
+  { rank=same; "Array:"; values }
+  { rank=same; "map:"; functions }
+  { rank=same; "Return:"; results }
+
+  edge [color=blue];
+  values:f0 -> functions:f0;
+  values:f1 -> functions:f0;
+  values:f2 -> functions:f0;
+  values:f3 -> functions:f0;
+  values:f4 -> functions:f0;
+  values:f5 -> functions:f0;
+  functions:f0 -> results:f0;
+  functions:f0 -> results:f1;
+  functions:f0 -> results:f2;
+  functions:f0 -> results:f3;
+  functions:f0 -> results:f4;
+  functions:f0 -> results:f5;
+}

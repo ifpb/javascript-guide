@@ -5,7 +5,7 @@ digraph {
   node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
   values [label="<f0> 1 | <f1> 2 | <f2> 3 | <f3> 4 | <f4> 5 | <f5> 6", color=blue, fillcolor=lightblue, style=filled];
   functions [label="<f0> f(x,y)=x+y | <f1> f(x,y)=x+y | <f2> f(x,y)=x+y | <f3> f(x,y)=x+y| <f4> f(x,y)=x+y", color=white];
-  results [label="<f0> 3 | <f1> 6 | <f2> 10 | <f3> 15 | <f4> 26", color=blue, fillcolor=lightblue, style=filled];
+  results [label="<f0> 3 | <f1> 6 | <f2> 10 | <f3> 15 | <f4> 21", color=white];
 
   { rank=same; "Array:"; values }
   { rank=same; "reduce:"; functions }
