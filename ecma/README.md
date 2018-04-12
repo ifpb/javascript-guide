@@ -2115,6 +2115,7 @@ console.log([ 1, 2].concat([ "hello", true, 7 ])) //=> [ 1, 2, 'hello', true, 7 
 
 References:
 - [Funny map, reduce, filter](type/ArrayFunny.js)
+- [Image Function (Math)](https://en.wikipedia.org/wiki/Image_(mathematics))
 
 #### Array.prototype.map()
 
@@ -2126,13 +2127,13 @@ References:
 ><br>
 > callback(currentValue, currentIndex, array)<br>
 
-##### Double Number
+**Double Number**
 
 ```
 f(x) = 2x
 ```
 
-**Input vs Output**
+Input vs Output
 
 | x | f(x) |
 |-|:-:|
@@ -2143,11 +2144,11 @@ f(x) = 2x
 | 5 | 10 |
 | 6 | 12 |
 
-**Diagram**
+Diagram
 
 <img src="assets/array-map-centralized.svg" alt="Array.map" width="600">
 
-**Code**
+Code
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2166,11 +2167,13 @@ console.log(array.map(value => value * 2)) //=> [ 2, 4, 6, 8, 10, 12 ]
 ><br>
 > callback(currentValue, currentIndex, array)<br>
 
+**Odd Number**
+
 ```
 f(x) = x % 2 != 0 
 ```
 
-**Input vs Output**
+Input vs Output
 
 | x | f(x) |
 |-|:-:|
@@ -2181,11 +2184,11 @@ f(x) = x % 2 != 0
 | 5 | true |
 | 6 | false |
 
-**Diagram**
+Diagram
 
 <img src="assets/array-filter-centralized.svg" alt="Array.filter" width="600">
 
-**Code**
+Code
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2204,13 +2207,13 @@ Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 ><br>
 > callback(accumulator, currentValue, currentIndex, array)<br>
 
-##### Sum Array (zero)
+**Sum Array (zero)**
 
-**Diagram**
+```
+f(x, y) = x + y
+```
 
-<img src="assets/array-reduce-arrows-zero.svg" alt="Array.reduce" width="600">
-
-**Input vs Output**
+Input vs Output
 
 | x | y | f(x, y) |
 |-|-|:-:|
@@ -2221,7 +2224,11 @@ Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 | 10 | 5 | 15 |
 | 15 | 6 | 21 |
 
-**Code**
+Diagram
+
+<img src="assets/array-reduce-arrows-zero.svg" alt="Array.reduce" width="600">
+
+Code
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2229,12 +2236,13 @@ let array = [1, 2, 3, 4, 5, 6]
 console.log(array.reduce((addition, value) => addition + value, 0)) //=> 21
 ```
 
-##### Sum Array
+**Sum Array**
 
-**Diagram**
-<img src="assets/array-reduce-arrows.svg" alt="Array.reduce" width="600">
+```
+f(x, y) = x + y
+```
 
-**Input vs Output**
+Input vs Output
 
 | x | y | f(x, y) |
 |-|-|:-:|
@@ -2244,7 +2252,11 @@ console.log(array.reduce((addition, value) => addition + value, 0)) //=> 21
 | 10 | 5 | 15 |
 | 15 | 6 | 21 |
 
-**Code**
+Diagram
+
+<img src="assets/array-reduce-arrows.svg" alt="Array.reduce" width="600">
+
+Code
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2252,7 +2264,7 @@ let array = [1, 2, 3, 4, 5, 6]
 console.log(array.reduce((addition, value) => addition + value))    //=> 21
 ```
 
-##### Product
+**Product**
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
