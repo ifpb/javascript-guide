@@ -4,8 +4,8 @@ digraph {
 
   node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
   values [label="<v0> 1 | <v1> 2 | <v2> 3 | <v3> 4 | <v4> 5 | <v5> 6", color=blue, fillcolor=lightblue, style=filled];
-  functions [label="<f0> f(x,y) | <f1> = x+y |   | <f2> f(x,y) | <f3> = x+y |   | <f4> f(x,y) | <f5> = x+y |   | <f6> f(x,y) | <f7> = x+y |   | <f8> f(x,y) | <f9> = x+y", color=white, width=5.75];
-  results [label="<r0> 3 | <r1> 6 | <r2> 10 | <r3> 15 | <r4> 21", color=white, width=5];
+  functions [label="<f0> f(x,y) | <f1> =x+y |   | <f2> f(x,y) | <f3> =x+y |   | <f4> f(x,y) | <f5> =x+y |   | <f6> f(x,y) | <f7> =x+y |   | <f8> f(x,y) | <f9> =x+y |   | <f10> f(x,y) | <f11> =x+y", color=white, width=5.75];
+  results [label="<r6> 0 | <r0> 1 | <r1> 3 | <r2> 6 | <r3> 10 | <r4> 15 | <r5> 21", color=white, width=6.2];
 
   { rank=same; "Array:"; values }
   { rank=same; "reduce:"; functions }
@@ -13,18 +13,21 @@ digraph {
 
   edge [color=blue];
   values:v0 -> functions:f0;
-  values:v1 -> functions:f0;
-  values:v2 -> functions:f2;
-  values:v3 -> functions:f4;
-  values:v4 -> functions:f6;
-  values:v5 -> functions:f8;
+  values:v1 -> functions:f2;
+  values:v2 -> functions:f4;
+  values:v3 -> functions:f6;
+  values:v4 -> functions:f8;
+  values:v5 -> functions:f10;
   functions:f1 -> results:r0;
   functions:f3 -> results:r1;
   functions:f5 -> results:r2;
   functions:f7 -> results:r3;
   functions:f9 -> results:r4;
+  functions:f11 -> results:r5;
+  results:r6 -> functions:f0;
   results:r0 -> functions:f2;
   results:r1 -> functions:f4;
   results:r2 -> functions:f6;
   results:r3 -> functions:f8;
+  results:r4 -> functions:f10;
 }

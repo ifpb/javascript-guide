@@ -2190,7 +2190,7 @@ Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 ><br>
 > callback(accumulator, currentValue, currentIndex, array)<br>
 
-<img src="assets/array-reduce-arrows.svg" alt="Array.reduce" width="600">
+<img src="assets/array-reduce-arrows-zero.svg" alt="Array.reduce" width="600">
 
 ```js
 let array = [1, 2, 3, 4, 5, 6]
@@ -2198,8 +2198,11 @@ let array = [1, 2, 3, 4, 5, 6]
 console.log(array.reduce((addition, value) => addition + value, 0)) //=> 21
 ```
 
+<img src="assets/array-reduce-arrows.svg" alt="Array.reduce" width="600">
+
 ```js
 let array = [1, 2, 3, 4, 5, 6]
+
 console.log(array.reduce((addition, value) => addition + value))    //=> 21
 ```
 
