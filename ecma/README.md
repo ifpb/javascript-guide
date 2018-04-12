@@ -2113,21 +2113,166 @@ console.log([ 1, 2].concat([ "hello", true, 7 ])) //=> [ 1, 2, 'hello', true, 7 
 
 ### Iteration: forEach, reduce, filter, map, every, some, find, reduceRight, entries, keys, values
 
-[Funny map, reduce, filter](type/ArrayFunny.js)
+References:
+- [Funny map, reduce, filter](type/ArrayFunny.js)
 
-#### Array.prototype.entries()
+#### Array.prototype.map()
 
-[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries)
+[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
 > Syntax:<br>
->   arr.entries()
+>   var new_array = arr.map(callback)
+>   var new_array = arr.map(callback, thisArg)
+><br>
+> callback(currentValue, currentIndex, array)<br>
+
+##### Double Number
+
+```
+f(x) = 2x
+```
+
+**Input vs Output**
+
+| x | f(x) |
+|-|:-:|
+| 1 | 2 |
+| 2 | 4 |
+| 3 | 6 |
+| 4 | 8 |
+| 5 | 10 |
+| 6 | 12 |
+
+**Diagram**
+
+<img src="assets/array-map-centralized.svg" alt="Array.map" width="600">
+
+**Code**
 
 ```js
-for([key, value] of [1,2,3].entries()){console.log(`${key} => ${value}`)}
-//=>
-// '0 => 1'
-// '1 => 2'
-// '2 => 3'
+let array = [1, 2, 3, 4, 5, 6]
+
+// f(x) = 2x
+console.log(array.map(value => value * 2)) //=> [ 2, 4, 6, 8, 10, 12 ]
+```
+
+#### Array.prototype.filter()
+
+[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+
+> Syntax:<br>
+> let new_arr = old_arr.filter(callback)<br>
+> let new_arr = old_arr.filter(callback, thisArg)
+><br>
+> callback(currentValue, currentIndex, array)<br>
+
+```
+f(x) = x % 2 != 0 
+```
+
+**Input vs Output**
+
+| x | f(x) |
+|-|:-:|
+| 1 | true |
+| 2 | false |
+| 3 | true |
+| 4 | false |
+| 5 | true |
+| 6 | false |
+
+**Diagram**
+
+<img src="assets/array-filter-centralized.svg" alt="Array.filter" width="600">
+
+**Code**
+
+```js
+let array = [1, 2, 3, 4, 5, 6]
+console.log(array.filter((value) => value % 2 !== 0)) //=> [ 1, 3, 5 ]
+```
+
+#### Array.prototype.reduce()
+
+[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
+Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+> Syntax:<br>
+>   arr.reduce(callback)<br>
+>   arr.reduce(callback, initialValue)<br>
+><br>
+> callback(accumulator, currentValue, currentIndex, array)<br>
+
+##### Sum Array (zero)
+
+**Diagram**
+
+<img src="assets/array-reduce-arrows-zero.svg" alt="Array.reduce" width="600">
+
+**Input vs Output**
+
+| x | y | f(x, y) |
+|-|-|:-:|
+| 0 | 1 | 1 |
+| 1 | 2 | 3 |
+| 3 | 3 | 6 |
+| 6 | 4 | 10 |
+| 10 | 5 | 15 |
+| 15 | 6 | 21 |
+
+**Code**
+
+```js
+let array = [1, 2, 3, 4, 5, 6]
+
+console.log(array.reduce((addition, value) => addition + value, 0)) //=> 21
+```
+
+##### Sum Array
+
+**Diagram**
+<img src="assets/array-reduce-arrows.svg" alt="Array.reduce" width="600">
+
+**Input vs Output**
+
+| x | y | f(x, y) |
+|-|-|:-:|
+| 1 | 2 | 3 |
+| 3 | 3 | 6 |
+| 6 | 4 | 10 |
+| 10 | 5 | 15 |
+| 15 | 6 | 21 |
+
+**Code**
+
+```js
+let array = [1, 2, 3, 4, 5, 6]
+
+console.log(array.reduce((addition, value) => addition + value))    //=> 21
+```
+
+##### Product
+
+```js
+let array = [1, 2, 3, 4, 5, 6]
+
+console.log(array.reduce((addition, value) => addition * value), 1)    //=> 720
+```
+
+#### Array.prototype.reduceRight()
+
+[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight)
+
+> Syntax:<br>
+>   arr.reduceRight(callback)<br>
+>   arr.reduceRight(callback, initialValue)
+><br>
+> callback(currentValue, currentIndex, array)<br>
+
+```js
+let array = [1, 2, 3, 4, 5, 6]
+console.log(array.reduceRight((addition, value) => addition + value)) //=> 21
 ```
 
 #### Array.prototype.forEach()
@@ -2159,89 +2304,19 @@ for([key, value] of [1,2,3].entries()){console.log(`${key} => ${value}`)}
 // '2 => 3'
 ```
 
-#### Array.prototype.map()
+#### Array.prototype.entries()
 
-[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-
-> Syntax:<br>
->   var new_array = arr.map(callback)
->   var new_array = arr.map(callback, thisArg)
-><br>
-> callback(currentValue, currentIndex, array)<br>
-
-<img src="assets/array-map-centralized.svg" alt="Array.map" width="600">
-
-```js
-let array = [1, 2, 3, 4, 5, 6]
-
-// f(x) = 2x
-console.log(array.map(value => value * 2)) //=> [ 2, 4, 6, 8, 10, 12 ]
-```
-
-#### Array.prototype.reduce()
-
-[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
-
-Reference: [doc](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries)
 
 > Syntax:<br>
->   arr.reduce(callback)<br>
->   arr.reduce(callback, initialValue)<br>
-><br>
-> callback(accumulator, currentValue, currentIndex, array)<br>
-
-<img src="assets/array-reduce-arrows-zero.svg" alt="Array.reduce" width="600">
+>   arr.entries()
 
 ```js
-let array = [1, 2, 3, 4, 5, 6]
-
-console.log(array.reduce((addition, value) => addition + value, 0)) //=> 21
-```
-
-<img src="assets/array-reduce-arrows.svg" alt="Array.reduce" width="600">
-
-```js
-let array = [1, 2, 3, 4, 5, 6]
-
-console.log(array.reduce((addition, value) => addition + value))    //=> 21
-```
-
-```js
-let array = [1, 2, 3, 4, 5, 6]
-
-console.log(array.reduce((addition, value) => addition * value), 1)    //=> 720
-```
-
-#### Array.prototype.reduceRight()
-
-[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight)
-
-> Syntax:<br>
->   arr.reduceRight(callback)<br>
->   arr.reduceRight(callback, initialValue)
-><br>
-> callback(currentValue, currentIndex, array)<br>
-
-```js
-let array = [1, 2, 3, 4, 5, 6]
-console.log(array.reduceRight((addition, value) => addition + value)) //=> 21
-```
-
-#### Array.prototype.filter()
-
-[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-
-> Syntax:<br>
-> let new_arr = old_arr.filter(callback)<br>
-> let new_arr = old_arr.filter(callback, thisArg)
-><br>
-> callback(currentValue, currentIndex, array)<br>
-
-<img src="assets/array-filter-centralized.svg" alt="Array.filter" width="600">
-
-```js
-let array = [1, 2, 3, 4, 5, 6]
-console.log(array.filter((value) => value % 2 !== 0)) //=> [ 1, 3, 5 ]
+for([key, value] of [1,2,3].entries()){console.log(`${key} => ${value}`)}
+//=>
+// '0 => 1'
+// '1 => 2'
+// '2 => 3'
 ```
 
 #### Array.prototype.find()
