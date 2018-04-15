@@ -1341,6 +1341,8 @@ Reference: [String Object](https://developer.mozilla.org/en-US/docs/Web/JavaScri
 
 ![String](http://json.org/string.gif)
 
+Reference: [JSON ORG](http://json.org)
+
 ### String Literal
 ```js
 console.log('h')           //=> 'h'
@@ -1755,6 +1757,10 @@ console.log("  lorem  ipsum  ".trim()) //=> 'lorem  ipsum'
 Reference: [Array Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) e [Array Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Array_literals)
 
 ![Array](http://json.org/array.gif)
+
+![Value](http://json.org/value.gif)
+
+Reference: [JSON ORG](http://json.org)
 
 ### Create an Array [ ]
 ```js
@@ -2466,40 +2472,6 @@ sicrano, sicrano@gmail.com
 </students>
 ```
 
-#### JSON
-
-![Object](http://json.org/object.gif)
-
-![Value](http://json.org/value.gif)
-
-##### Quoted (.json)
-```js
-[
-    {
-      "name": "fulano",
-      "email": "fulano@gmail.com"
-    },
-    {
-      "name": "sicrano",
-      "email": "sicrano@gmail.com"
-    }
-]
-```
-
-##### (.js)
-```js
-[
-    {
-      name: 'fulano',
-      email: 'fulano@gmail.com'
-    },
-    {
-      name: 'sicrano',
-      email: 'sicrano@gmail.com'
-    }
-]
-```
-
 #### YAML Ain't Markup Language (YAML)
 
 Reference: [doc](http://yaml.org/)
@@ -2513,6 +2485,57 @@ Reference: [doc](http://yaml.org/)
   email: 'sicrano@gmail.com'
 ```
 
+#### JSON
+
+![Object](http://json.org/object.gif)
+
+![Value](http://json.org/value.gif)
+
+Reference: [JSON ORG](http://json.org)
+
+##### .json (Quoted)
+```js
+[
+  {
+    "name": "fulano",
+    "email": "fulano@gmail.com"
+  },
+  {
+    "name": "sicrano",
+    "email": "sicrano@gmail.com"
+  }
+]
+```
+
+##### .js
+```js
+[
+  {
+    name: 'fulano',
+    email: 'fulano@gmail.com'
+  },
+  {
+    name: 'sicrano',
+    email: 'sicrano@gmail.com'
+  }
+]
+```
+
+##### .js (indexed)
+
+```js
+{
+  20181234: {
+    name: 'fulano',
+    email: 'fulano@gmail.com'
+  },
+  20181235: {
+    name: 'sicrano',
+    email: 'sicrano@gmail.com'
+  }
+}
+```
+
 ### Web API
 <!-- RestFull, Web of Data] -->
 
@@ -2522,8 +2545,8 @@ APIs: [Any  API](https://any-api.com/), [abhishekbanthia/Public-APIs](https://gi
 
 Reference: [doc](http://ip-api.com/docs/), [json](http://ip-api.com/docs/api:json)
 
+[http://ip-api.com/json/8.8.8.8](http://ip-api.com/json/8.8.8.8):
 ```js
-// http://ip-api.com/json/8.8.8.8
 {
   "as":"AS15169 Google Inc.",
   "city":"Mountain View",
@@ -2544,8 +2567,8 @@ Reference: [doc](http://ip-api.com/docs/), [json](http://ip-api.com/docs/api:jso
 
 Reference: [doc](http://jsonplaceholder.typicode.com/)
 
+[http://jsonplaceholder.typicode.com/posts/](http://jsonplaceholder.typicode.com/posts/):
 ```js
-// http://jsonplaceholder.typicode.com/posts/
 [
   {
     "userId": 1,
@@ -2573,9 +2596,8 @@ Reference: [doc](http://jsonplaceholder.typicode.com/)
 
 Reference: [doc](https://viacep.com.br/)
 
+[https://viacep.com.br/ws/01001000/json/](https://viacep.com.br/ws/01001000/json/):
 ```js
-// https://viacep.com.br/ws/01001000/json/
-
 {
   "cep": "01001-000",
   "logradouro": "Praça da Sé",
@@ -2588,8 +2610,6 @@ Reference: [doc](https://viacep.com.br/)
   "gia": "1004"
 }
 ```
-
-#### Firebase
 
 ### JSON Methods
 
@@ -3208,6 +3228,8 @@ console.log(-15)    // negative
 `[(+|-)][digits][.digits][(E|e)[(+|-)]digits]`
 
 ![Number](http://json.org/number.gif)
+
+Reference: [JSON ORG](http://json.org)
 
 ```js
 console.log(3.1)      //=> 3.1
