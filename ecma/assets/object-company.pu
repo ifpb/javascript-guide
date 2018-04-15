@@ -3,7 +3,7 @@ skinparam classAttributeIconSize 0
 skinparam monochrome true
 hide circle
 
-class Entity {
+class Company {
   name: String
   founded: Number
   industry: String
