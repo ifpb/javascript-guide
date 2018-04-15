@@ -1150,7 +1150,7 @@ function myMap(array) {
 }
 
 const array = [1, 2, 3]
-console.log(myMap(array, doubleNum)) //=> [2, 4, 6]
+console.log(myMap(array)) //=> [2, 4, 6]
 ```
 
 ```js
@@ -2193,6 +2193,38 @@ Code
 ```js
 let array = [1, 2, 3, 4, 5, 6]
 console.log(array.filter((value) => value % 2 !== 0)) //=> [ 1, 3, 5 ]
+```
+
+**Double Odd Number**
+
+```
+f(x) = x % 2 != 0 
+g(x) = 2x
+```
+
+Input vs Output
+
+| x | f(x) | g(x) |
+|-|:-:|:-:|
+| 1 | true | 2 |
+| 2 | false | |
+| 3 | true | 6 |
+| 4 | false | |
+| 5 | true | 10 |
+| 6 | false | |
+
+Diagram
+
+<img src="assets/array-filter-map-centralized.svg" alt="Array.filter" width="600">
+
+Code
+
+```js
+let array = [1, 2, 3, 4, 5, 6]
+const result = array
+          .filter((value) => value % 2 !== 0)
+          .map(e => 2 * e)
+console.log(result) //=> [ 2, 6, 10 ]
 ```
 
 #### Array.prototype.reduce()
