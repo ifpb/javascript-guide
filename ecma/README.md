@@ -3,7 +3,7 @@
 * [Variable](variable/)
 * [Expression and Operator](expression-and-operator/)
 * [Statements and Declarations](statements-and-declarations/)
-* [Function](#function/)
+* [Function](function/)
 * Types:
   * Primitive
     * [Boolean](boolean/syntax.md)
@@ -15,22 +15,22 @@
   * Object
     * Global Objects
       * [Boolean](boolean/object.md)
-      * Object ([syntax](array/syntax.md), [reference-value](array/reference-value.md), [class](array/class.md))
+      * Object ([syntax](object/syntax.md), [reference-value](object/reference-value.md), [class](object/class.md))
     * Numbers and dates
       * [Number](number/object.md)
       * [Math](math/object.md)
       * [Date](date/object.md)
     * Text processing
       * [String](string/object.md)
-      * RegExp <!-- ([syntax](array/syntax.md), [object](array/object.md), [pattern](array/pattern.md)) -->
+      * RegExp <!-- ([syntax](regexp/syntax.md), [object](regexp/object.md), [pattern](regexp/pattern.md)) -->
     * Indexed collections
       * Array ([syntax](array/syntax.md), [object](array/object.md), [funny-interection](array/funny-interection.md))
       * [Typed Array](array/typed.md)
     * Keyed collections
-      * [Map](map/)
-      * [Set](set/)
+      * [Map](map/syntax.md)
+      * [Set](set/syntax.md)
     * Structured data
-      * JSON: ([syntax](array/syntax.md), [object](array/object.md))
+      * JSON: ([syntax](json/syntax.md), [object](json/object.md))
     * Internationalization
       * [Intl](#)
 * [Modules](#)
@@ -39,14 +39,14 @@
 * [Generator](#)
 * [Handling Error](handling-error/)
 
-## References
+## References JS
 
-* Portais sobre JS: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript) e [WP](https://docs.webplatform.org/wiki/javascript)
-* Guias de JS: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) e [WP](https://docs.webplatform.org/wiki/javascript)
-* Referências de JS: [W3C](http://www.ecma-international.org/publications/standards/Ecma-262.htm),  [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Value_properties) e [WP](https://docs.webplatform.org/wiki/javascript)
-* [Literais](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Literals) do JS
-* [Tabela de Precedência](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
-* Features: ES6 ([es6-features.org](http://es6-features.org/), [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla), [kangax](http://kangax.github.io/compat-table/es6/) e [git.io/es6features](https://github.com/lukehoban/es6features))
+* Portal: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [WP](https://docs.webplatform.org/wiki/javascript)
+* Guide: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide), [WP](https://docs.webplatform.org/wiki/javascript)
+* Reference: [W3C](http://www.ecma-international.org/publications/standards/Ecma-262.htm),  [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Value_properties), [WP](https://docs.webplatform.org/wiki/javascript)
+* [Literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Literals) do JS
+* [Precedence Table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+* Feature: ES6 ([es6-features.org](http://es6-features.org/), [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla), [kangax](http://kangax.github.io/compat-table/es6/), [git.io/es6features](https://github.com/lukehoban/es6features))
 
 <!-- 
   TODO

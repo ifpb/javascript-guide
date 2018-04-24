@@ -1,4 +1,4 @@
-#### Map
+# Map
 
 ```js
 let obj = {name: 'fulano'}
