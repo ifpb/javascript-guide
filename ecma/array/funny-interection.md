@@ -1,3 +1,6 @@
+# Funny Interaction
+
+```js
 // Map, filter, and reduce in Swift, explained with emoji
 // https://gist.github.com/AccordionGuy/61716adbf706801e2a496a12ff19526e
 // http://devhumor.com/media/map-filter-reduce-explained-with-emoji-s
@@ -95,3 +98,4 @@ console.log(aftermath) // "💩"
 '👨‍❤️‍👨'.replace(/👨/g, '👩') // "👩‍❤️‍👩"
 '👨‍👩‍👧‍👦'.match(/./ug) // ["👨", "‍", "👩", "‍", "👧", "‍", "👦"]
 '👨‍👩‍👧‍👦'.replace(/👨/g, '👩') // "👩‍👩‍👧‍👦"
+```
