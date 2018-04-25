@@ -50,7 +50,7 @@ console.log(post.toHMTL()) //=> <div><h1>Lorem ipsum dolor</h1><p>Nunc accumsan 
 
 ### Static methods
 
-<img src="assets/object-point-distance.svg" alt="Point Object" width="200">
+<img src="assets/object-point-distance.svg" alt="Point Object" width="400">
 
 ```js
 class Point {
