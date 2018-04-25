@@ -1,0 +1,17 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+hide circle
+
+object Numbe1
+Numbe1 : l = 100 
+
+object Numbe2
+Numbe2 : l = 10 
+
+hide variable members
+hide variable_temp members
+
+"variable" --> Numbe1
+"variable_temp" --> Numbe2
+@enduml

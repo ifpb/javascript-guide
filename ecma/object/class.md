@@ -171,3 +171,8 @@ Reference:
 * [Object-oriented JavaScript: A Deep Dive into ES6 Classes \| Sitepoint](https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/)
 * [JavaScript ES6 Class Syntax](https://coryrylan.com/blog/javascript-es6-class-syntax)
 * [Classes ES6][https://googlechrome.github.io/samples/classes-es6/)
+
+<!-- 
+object class instance
+http://math.hws.edu/eck/cs124/javanotes6/c5/objectsInHeap.png
+ -->

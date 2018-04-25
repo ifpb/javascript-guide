@@ -1,0 +1,18 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+hide circle
+
+object ipIP
+ipIP : address = "192.168.0.2"
+
+object ip_homeIP
+ip_homeIP : address = "192.168.0.2" 
+ip_homeIP : version = "v4" 
+
+hide ip members
+hide ip_home members
+
+"ip" --> ipIP
+"ip_home" --> ip_homeIP
+@enduml

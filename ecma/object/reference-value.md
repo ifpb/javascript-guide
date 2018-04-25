@@ -1,8 +1,8 @@
 # Reference / Value
 
-* [Primitives values are passed by value](#)
-* [Object values are passed by reference](#)
-* [Clone Object](#)
+* [Primitives values are passed by value](#primitives-values-are-passed-by-value)
+* [Object values are passed by reference](#object-values-are-passed-by-reference)
+* [Clone Object](#clone-object)
 
 ## Primitives values are passed by value
 ---
@@ -24,6 +24,8 @@ console.log(variable)        //=> 100
 console.log(variable_temp)   //=> 10
 ```
 
+<img src="assets/object-value-number.svg" alt="Point Object" width="300">
+
 ```js
 let variable = new String("lorem ipsum")
 
@@ -38,6 +40,8 @@ variable = 10
 console.log(variable)         //=> 10
 console.log(variable_temp)    //=> [String: 'lorem ipsum']
 ```
+
+<img src="assets/object-value-string.svg" alt="Point Object" width="300">
 
 ## Object values are passed by reference
 ---
@@ -62,6 +66,8 @@ console.log(ip)       //=> { address: '192.168.0.3', version: 4 }
 console.log(ip_home)  //=> { address: '192.168.0.3', version: 4 }
 ```
 
+<img src="assets/object-reference.svg" alt="Point Object" width="220">
+
 ## Clone Object
 ---
 
@@ -80,6 +86,8 @@ ip_clone.version = 4
 console.log(ip) //=> { address: '192.168.0.2' }
 console.log(ip_clone) //=> { address: '192.168.0.2', version: 4 }
 ```
+
+<img src="assets/object-clone.svg" alt="Point Object" width="400">
 
 ## References
 ---

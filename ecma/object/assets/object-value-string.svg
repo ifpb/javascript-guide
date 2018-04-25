@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="140px" preserveAspectRatio="none" style="width:199px;height:140px;" version="1.1" viewBox="0 0 199 140" width="199px" zoomAndPan="magnify"><defs><filter height="300%" id="f134m54cevzb79" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#F8F8F8" filter="url(#f134m54cevzb79)" height="37.9102" style="stroke: #383838; stroke-width: 1.5;" width="78" x="11" y="92"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="33" x="33.5" y="105.6016">String</text><line style="stroke: #383838; stroke-width: 1.5;" x1="12" x2="88" y1="110.1328" y2="110.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="66" x="17" y="123.8008">"lorem ipsum"</text><rect fill="#F8F8F8" filter="url(#f134m54cevzb79)" height="37.9102" style="stroke: #383838; stroke-width: 1.5;" width="64" x="124" y="92"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="131" y="105.6016">Number</text><line style="stroke: #383838; stroke-width: 1.5;" x1="125" x2="187" y1="110.1328" y2="110.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="15" x="146" y="123.8008">10</text><!--class variable--><rect fill="#F8F8F8" filter="url(#f134m54cevzb79)" height="24.1328" id="variable" style="stroke: #383838; stroke-width: 1.5;" width="52" x="130" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="46" x="133" y="24.6016">variable</text><!--class variable_temp--><rect fill="#F8F8F8" filter="url(#f134m54cevzb79)" height="24.1328" id="variable_temp" style="stroke: #383838; stroke-width: 1.5;" width="88" x="6" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="82" x="9" y="24.6016">variable_temp</text><!--link variable to Numbe1--><path d="M156,32.2727 C156,46.1658 156,69.1469 156,86.7032 " fill="none" id="variable-Numbe1" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="#383838" points="156,91.9615,160,82.9615,156,86.9615,152,82.9615,156,91.9615" style="stroke: #383838; stroke-width: 1.0;"/><!--link variable_temp to Strin1--><path d="M50,32.2727 C50,46.1658 50,69.1469 50,86.7032 " fill="none" id="variable_temp-Strin1" style="stroke: #383838; stroke-width: 1.0;"/><polygon fill="#383838" points="50,91.9615,54,82.9615,50,86.9615,46,82.9615,50,91.9615" style="stroke: #383838; stroke-width: 1.0;"/><!--
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+hide circle
+
+object Strin1
+Strin1 : l = "m ipsum" 
+
+object Numbe1
+Numbe1 : l = 10 
+
+hide variable members
+hide variable_temp members
+
+"variable" - -> Numbe1
+"variable_temp" - -> Strin1
+@enduml
+
+PlantUML version 1.2017.20(Mon Dec 11 13:57:05 BRT 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_101-b13
+Operating System: Mac OS X
+OS Version: 10.13.4
+Default Encoding: US-ASCII
+Language: en
+Country: US
+--></g></svg>
