@@ -1,0 +1,11 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+hide circle
+
+class ComicsUtil {
+  {static} namesByComics(characters: Array, comics: String): Array
+  {static} weightAvg(characters, comics): Number
+  {static} heightAvg(characters, comics): Number
+}
+@enduml
