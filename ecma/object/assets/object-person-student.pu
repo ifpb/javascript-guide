@@ -5,13 +5,13 @@ hide circle
 
 class Person {
     _name: String
-    constructor(name: String): Person
+    constructor(name: String)
     hello(): String
 }
 
 class Student {
     _id: String
-    constructor(name: String, id: String): Person
+    constructor(name: String, id: String)
 }
 
 Person <|-- Student

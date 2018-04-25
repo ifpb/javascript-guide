@@ -7,7 +7,7 @@ hide circle
 class Point {
   x: Number
   y: Number
-  constructor(x: Number, y: Number): Point
+  constructor(x: Number, y: Number)
   {static} distance(a: Number, b: Number): Number
 }
 @enduml

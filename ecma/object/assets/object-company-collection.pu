@@ -14,9 +14,9 @@ class Company {
 
 class Companies {
   companies: Array<Company>
-  add(company: Company)
-  foundedAfter(year: Number)
-  foundedBefore(year: Number)
+  add(company: Company): Boolean
+  foundedAfter(year: Number): Array<Company>
+  foundedBefore(year: Number): Array<Company>
 }
 
 Companies -- Company
