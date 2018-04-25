@@ -1,5 +1,19 @@
 # Javascript Object Notation (JSON)
 
+* [Reference](#reference)
+* [Data](#data)
+  * [Comma Separated Values (CSV)](#comma-separated-values-csv)
+  * [eXtensible Markup Language (XML)](#extensible-markup-language-xml)
+  * [YAML Ain't Markup Language (YAML)](#yaml-aint-markup-language-yaml)
+  * [JSON](#json)
+    * [.json (Quoted)](#json-quoted)
+    * [.js](#js)
+    * [.js (indexed)](#js-indexed)
+* [Web API](#web-api)
+  * [IP API](#ip-api)
+  * [JSONPlaceholder API](#jsonplaceholder-api)
+  * [Via CEP API](#via-cep-api)
+
 ## Reference
 ---
 

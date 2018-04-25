@@ -1,21 +1,15 @@
-# Defining classes
+# Classes
 
 * [Syntax](#syntax)
 * [Prototype methods](#prototpy-methodos)
 * [Static methods](#static-methods)
 * [Getters & Setters](#getters-and-setters)
-
-## Reference
----
-* [Statements Class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class)
-* [Classes 1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
-* [Classes 2](http://exploringjs.com/es6/ch_classes.html)
-* [Classes 3](https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/)
-* [Classes 4](https://coryrylan.com/blog/javascript-es6-class-syntax)
-* [Classes ES6][https://googlechrome.github.io/samples/classes-es6/)
+* [References](#references)
 
 ## Syntax
 ---
+
+<img src="assets/object-post.svg" alt="Point Object" width="200">
 
 ```js
 class Post {
@@ -31,6 +25,8 @@ console.log(post) //=> Post { title: 'Lorem ipsum dolor', text: 'Nunc accumsan i
 ```
 
 ### Prototype methods
+
+<img src="assets/object-post-tohtml.svg" alt="Point Object" width="200">
 
 ```js
 class Post {
@@ -51,6 +47,8 @@ console.log(post.toHMTL()) //=> <div><h1>Lorem ipsum dolor</h1><p>Nunc accumsan 
 ```
 
 ### Static methods
+
+<img src="assets/object-point-distance.svg" alt="Point Object" width="200">
 
 ```js
 class Point {
@@ -74,6 +72,8 @@ console.log(Point.distance(p1, p2)) //=> 7.0710678118654755
 
 ### getters and setters
 
+<img src="assets/object-post-title.svg" alt="Point Object" width="200">
+
 ```js
 class Post {
   get title() {
@@ -95,6 +95,8 @@ console.log(post.title) //=> 'lorem ipsum dolor' / get
 ```
 
 ### Sub classing with extends / old prototype
+
+<img src="assets/object-person-student.svg" alt="Point Object" width="300">
 
 ```js
 class Person {
@@ -121,23 +123,49 @@ console.log(student.hello()) //=> 'Hello: fulano'
 
 ### Abstract subclasses or mix-ins
 
-Reference: [Mixins with JS](http://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/)
+<img src="assets/object-util-randomize-calculator.svg" alt="Point Object" width="500">
 
 ```js
 let CalculatorMixin = Base => class extends Base {
-  addition(a, b) { return a + b }
-  subtraction(a, b) { return a - b }
+  addition(a, b) { 
+    return a + b 
+  }
+
+  subtraction(a, b) { 
+    return a - b 
+  }
 }
 
 let RandomizerMixin = Base => class extends Base {
-  random() { return Math.random() }
-  randomRange(min, max) { return Math.random() * (max - min) + min }
+  random() { 
+    return Math.random() 
+  }
+
+  randomRange(min, max) { 
+    return Math.random() * (max - min) + min 
+  }
 }
 
-class Util extends CalculatorMixin(RandomizerMixin(Object)) { }
+class Util extends CalculatorMixin(RandomizerMixin(Object)) { 
+  multiplication(a, b) { 
+    return a * b 
+  }
+}
 
 const util = new Util()
 
 console.log(util.randomRange(1,10))   //=> 2.2857742766885556
 console.log(util.subtraction(100,10)) //=> 90
 ```
+
+Reference: 
+* [Mixins with JS](http://justinfagnani.com/2015/12/21/real-mixins-with-javascript-classes/)
+
+## References
+---
+* [Statements Class \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class)
+* [Defining Classes \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+* [Classes \| Exploring JS](http://exploringjs.com/es6/ch_classes.html)
+* [Object-oriented JavaScript: A Deep Dive into ES6 Classes \| Sitepoint](https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/)
+* [JavaScript ES6 Class Syntax](https://coryrylan.com/blog/javascript-es6-class-syntax)
+* [Classes ES6][https://googlechrome.github.io/samples/classes-es6/)

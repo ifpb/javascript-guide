@@ -1,0 +1,12 @@
+@startuml
+scale max 200 width
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+hide circle
+
+class Point {
+  x: Number
+  y: Number
+  {static} toHTML(): Number
+}
+@enduml
