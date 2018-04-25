@@ -9,6 +9,8 @@
 ## Syntax
 ---
 
+### Prototype properties
+
 <img src="assets/object-post.svg" alt="Point Object" width="200">
 
 ```js
@@ -123,7 +125,7 @@ console.log(student.hello()) //=> 'Hello: fulano'
 
 ### Abstract subclasses or mix-ins
 
-<img src="assets/object-util-randomize-calculator.svg" alt="Point Object" width="500">
+<img src="assets/object-util-randomize-calculator.svg" alt="Point Object" width="600">
 
 ```js
 let CalculatorMixin = Base => class extends Base {

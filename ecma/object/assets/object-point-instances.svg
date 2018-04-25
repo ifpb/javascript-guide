@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="251px" preserveAspectRatio="none" style="width:243px;height:251px;" version="1.1" viewBox="0 0 243 251" width="243px" zoomAndPan="magnify"><defs><filter height="300%" id="f2qin2nz9zym6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster Object Class--><rect fill="#FFFFFF" filter="url(#f2qin2nz9zym6)" height="114" style="stroke: #000000; stroke-width: 1.5;" width="218" x="14" y="16"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="91" x="77.5" y="31.5352">Object Class</text><!--cluster Object Instances--><rect fill="#FFFFFF" filter="url(#f2qin2nz9zym6)" height="85" style="stroke: #000000; stroke-width: 1.5;" width="200" x="23" y="155"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="120" x="63" y="170.5352">Object Instances</text><!--class Point--><rect fill="#F8F8F8" filter="url(#f2qin2nz9zym6)" height="78.998" id="Point" style="stroke: #383838; stroke-width: 1.5;" width="201" x="22.5" y="43"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="28" x="109" y="59.6016">Point</text><line style="stroke: #383838; stroke-width: 1.5;" x1="23.5" x2="222.5" y1="67.1328" y2="67.1328"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="56" x="28.5" y="81.7676">x: Number</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="55" x="28.5" y="94.7227">y: Number</text><line style="stroke: #383838; stroke-width: 1.5;" x1="23.5" x2="222.5" y1="101.043" y2="101.043"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="189" x="28.5" y="115.6777">constructor(x: Number, y: Number)</text><rect fill="#F8F8F8" filter="url(#f2qin2nz9zym6)" height="49.6875" style="stroke: #383838; stroke-width: 1.5;" width="38" x="177" y="182"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="16" x="188" y="195.6016">p1</text><line style="stroke: #383838; stroke-width: 1.5;" x1="178" x2="214" y1="200.1328" y2="200.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="26" x="183" y="213.8008">x = 0</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="25" x="183" y="225.5781">y = 0</text><rect fill="#F8F8F8" filter="url(#f2qin2nz9zym6)" height="49.6875" style="stroke: #383838; stroke-width: 1.5;" width="38" x="104" y="182"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="16" x="115" y="195.6016">p2</text><line style="stroke: #383838; stroke-width: 1.5;" x1="105" x2="141" y1="200.1328" y2="200.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="26" x="110" y="213.8008">x = 1</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="25" x="110" y="225.5781">y = 0</text><rect fill="#F8F8F8" filter="url(#f2qin2nz9zym6)" height="49.6875" style="stroke: #383838; stroke-width: 1.5;" width="38" x="31" y="182"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="16" x="42" y="195.6016">p3</text><line style="stroke: #383838; stroke-width: 1.5;" x1="32" x2="68" y1="200.1328" y2="200.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="26" x="37" y="213.8008">x = 1</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="25" x="37" y="225.5781">y = 1</text><!--link Point to p1--><path d="M146.2984,122.2349 C157.7314,141.7337 171.1617,164.6388 181.1772,181.72 " fill="none" id="Point-p1" style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--link Point to p2--><path d="M123,122.2349 C123,141.7337 123,164.6388 123,181.72 " fill="none" id="Point-p2" style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--link Point to p3--><path d="M99.7016,122.2349 C88.2686,141.7337 74.8383,164.6388 64.8228,181.72 " fill="none" id="Point-p3" style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+skinparam packageStyle rectangle
+hide circle
+
+package "Object Class" {
+  class Point {
+    x: Number
+    y: Number
+    constructor(x: Number, y: Number)
+  }
+}
+
+package "Object Instances" {
+  object p1
+  p1 : x = 0
+  p1 : y = 0
+
+  object p2
+  p2 : x = 1
+  p2 : y = 0
+
+  object p3
+  p3 : x = 1
+  p3 : y = 1
+}
+
+Point .. p1
+Point .. p2
+Point .. p3
+
+@enduml
+
+PlantUML version 1.2017.20(Mon Dec 11 13:57:05 BRT 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_101-b13
+Operating System: Mac OS X
+OS Version: 10.13.4
+Default Encoding: US-ASCII
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="287px" preserveAspectRatio="none" style="width:621px;height:287px;" version="1.1" viewBox="0 0 621 287" width="621px" zoomAndPan="magnify"><defs><filter height="300%" id="f1sh3l5agddcot" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster Object--><rect fill="#FFFFFF" filter="url(#f1sh3l5agddcot)" height="127" style="stroke: #000000; stroke-width: 1.5;" width="596" x="14" y="16"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="47" x="25" y="31.5352">Object</text><!--cluster Instances--><rect fill="#FFFFFF" filter="url(#f1sh3l5agddcot)" height="108" style="stroke: #000000; stroke-width: 1.5;" width="596" x="14" y="168"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="68" x="25" y="183.5352">Instances</text><!--class Company--><rect fill="#F8F8F8" filter="url(#f1sh3l5agddcot)" height="91.9531" id="Company" style="stroke: #383838; stroke-width: 1.5;" width="106" x="244" y="43"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="54" x="270" y="59.6016">Company</text><line style="stroke: #383838; stroke-width: 1.5;" x1="245" x2="349" y1="67.1328" y2="67.1328"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="67" x="250" y="81.7676">name: String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="94" x="250" y="94.7227">founded: Number</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="83" x="250" y="107.6777">industry: String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="61" x="250" y="120.6328">kind: String</text><line style="stroke: #383838; stroke-width: 1.5;" x1="245" x2="349" y1="126.9531" y2="126.9531"/><rect fill="#F8F8F8" filter="url(#f1sh3l5agddcot)" height="73.2422" style="stroke: #383838; stroke-width: 1.5;" width="170" x="432" y="195"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="46" x="494" y="208.6016">amazon</text><line style="stroke: #383838; stroke-width: 1.5;" x1="433" x2="601" y1="213.1328" y2="213.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="89" x="438" y="226.8008">name = "Amazon"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="78" x="438" y="238.5781">founded = 1994</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="158" x="438" y="250.3555">industry = "E-Commerce, Cloud"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="128" x="438" y="262.1328">kind = "Internet company"</text><rect fill="#F8F8F8" filter="url(#f1sh3l5agddcot)" height="73.2422" style="stroke: #383838; stroke-width: 1.5;" width="200" x="197" y="195"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="271.5" y="208.6016">alphabet</text><line style="stroke: #383838; stroke-width: 1.5;" x1="198" x2="396" y1="213.1328" y2="213.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="113" x="203" y="226.8008">name = "Alphabet Inc."</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="78" x="203" y="238.5781">founded = 2015</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="188" x="203" y="250.3555">industry = "Search, Cloud, Advertising"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="128" x="203" y="262.1328">kind = "Internet company"</text><rect fill="#F8F8F8" filter="url(#f1sh3l5agddcot)" height="73.2422" style="stroke: #383838; stroke-width: 1.5;" width="140" x="22" y="195"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="53" x="65.5" y="208.6016">facebook</text><line style="stroke: #383838; stroke-width: 1.5;" x1="23" x2="161" y1="213.1328" y2="213.1328"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="95" x="28" y="226.8008">name = "Facebook"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="78" x="28" y="238.5781">founded = 2004</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="89" x="28" y="250.3555">industry = "Social"</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacingAndGlyphs" textLength="128" x="28" y="262.1328">kind = "Internet company"</text><!--link Company to amazon--><path d="M350.2559,123.4953 C383.5737,145.0761 426.4558,172.852 460.3892,194.8316 " fill="none" id="Company-amazon" style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--link Company to alphabet--><path d="M297,135.2657 C297,154.6074 297,176.7616 297,194.9343 " fill="none" id="Company-alphabet" style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--link Company to facebook--><path d="M243.76,124.4396 C223.682,137.9378 200.6992,153.5489 180,168 C167.6418,176.6279 154.4137,186.0645 142.0663,194.9618 " fill="none" id="Company-facebook" style="stroke: #383838; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+skinparam packageStyle rectangle
+hide circle
+
+package "Object" {
+  class Company {
+    name: String
+    founded: Number
+    industry: String
+    kind: String
+  }
+}
+
+package "Instances" {
+  object amazon
+  amazon : name = "Amazon"
+  amazon : founded = 1994
+  amazon : industry = "E-Commerce, Cloud"
+  amazon : kind = "Internet company"
+
+  object alphabet
+  alphabet : name = "Alphabet Inc."
+  alphabet : founded = 2015
+  alphabet : industry = "Search, Cloud, Advertising"
+  alphabet : kind = "Internet company"
+
+  object facebook
+  facebook : name = "Facebook"
+  facebook : founded = 2004
+  facebook : industry = "Social"
+  facebook : kind = "Internet company"
+}
+
+Company .. amazon
+Company .. alphabet
+Company .. facebook
+
+@enduml
+
+PlantUML version 1.2017.20(Mon Dec 11 13:57:05 BRT 2017)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_101-b13
+Operating System: Mac OS X
+OS Version: 10.13.4
+Default Encoding: US-ASCII
+Language: en
+Country: US
+--></g></svg>

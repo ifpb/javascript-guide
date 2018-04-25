@@ -6,6 +6,6 @@ hide circle
 
 class Point {
   x: int
-  x: int
+  y: int
 }
 @enduml
