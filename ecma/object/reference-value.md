@@ -89,6 +89,21 @@ console.log(ip_clone) //=> { address: '192.168.0.2', version: 4 }
 
 <img src="assets/object-clone.svg" alt="Point Object" width="400">
 
+## Array.prototype.map: Reference vs Value
+---
+
+```js
+const array = [1, 2, 3, 4]
+array.map(e => e = 1)    //=> [ 1, 1, 1, 1 ]
+console.log(array)       //=> [ 1, 2, 3, 4 ]
+```
+
+```js
+const array = [{a: 1}, {b:2}, {c:3}, {d:4}]
+array.map(e => e.e = 5)  //=> [ 5, 5, 5, 5 ]
+console.log(array)       //=> [ { a: 1, e: 5 }, { b: 2, e: 5 }, { c: 3, e: 5 }, { d: 4, e: 5 } ]
+```
+
 ## References
 ---
 

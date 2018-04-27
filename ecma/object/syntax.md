@@ -336,26 +336,6 @@ const ips = [
   {address: "192.168.0.30", mask: "255.255.255.0"}
 ]
 
-let row = ''
-
-for(let ip of ips){
-  for(let key of Object.keys(ip)){
-    row += ip[key]+' '
-  }
-}
-
-console.log(row)
-//=> 192.168.0.2 255.255.255.0 192.168.0.10 255.255.255.0 192.168.0.26 255.255.255.0 192.168.0.30 255.255.255.0
-```
-
-```js
-const ips = [
-  {address: "192.168.0.2", mask: "255.255.255.0"},
-  {address: "192.168.0.10", mask: "255.255.255.0"},
-  {address: "192.168.0.26", mask: "255.255.255.0"},
-  {address: "192.168.0.30", mask: "255.255.255.0"}
-]
-
 result = '<table>\n'
 for(let ip of ips){
   result += '  <tr><td>'+ip.address+'</td><td>'+ip.mask+'</td></tr>\n'
@@ -377,12 +357,12 @@ console.log(result)
 
 `for...in`:
 ```js
-const post = {
+const posts = {
   title: 'lorem ipsum dolor',
   text: 'Nunc accumsan in ipsum a mattis...'
 }
 
-for(let field in post){
+for(let field in posts){
   console.log(posts[field])
 }
 //=>
@@ -390,20 +370,20 @@ for(let field in post){
 // 'Nunc accumsan in ipsum a mattis...'
 
 
-for(let field of post){ // TypeError: post[Symbol.iterator] is not a function
+for(let field of posts){ // TypeError: posts[Symbol.iterator] is not a function
   console.log(field)
 }
 ```
 
 `Object.keys()`:
 ```js
-const post = {
+const posts = {
   title: 'lorem ipsum dolor',
   text: 'Nunc accumsan in ipsum a mattis...'
 }
 
-for(let field of Object.keys(post)){
-  console.log(post[field])
+for(let field of Object.keys(posts)){
+  console.log(posts[field])
 }
 //=>
 // 'lorem ipsum dolor',
@@ -412,12 +392,12 @@ for(let field of Object.keys(post)){
 
 `for..of`, `Object.entries()`:
 ```js
-const post = {
+const posts = {
   title: 'lorem ipsum dolor',
   text: 'Nunc accumsan in ipsum a mattis...'
 }
 
-for(let field of Object.entries(post)){
+for(let field of Object.entries(posts)){
   console.log(field)
 }
 //=>
