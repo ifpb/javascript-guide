@@ -18,6 +18,7 @@ class Companies {
   add(company: Company): Boolean
   foundedAfter(year: Number): Array<Company>
   foundedBefore(year: Number): Array<Company>
+  show(): String
 }
 
 Companies -- Company
