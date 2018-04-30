@@ -171,7 +171,7 @@ console.log(typeof post) //=> object
 
 ### Person Data
 
-<img src="assets/object-person.svg" alt="Person Object" width="200">
+<img src="assets/object-person.svg" alt="Person Object" width="300">
 
 ```js
 const person = // creating Person (name: Fulano; email: fulano@email.com)

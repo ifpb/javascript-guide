@@ -28,7 +28,7 @@ console.log(post) //=> Post { title: 'Lorem ipsum dolor', text: 'Nunc accumsan i
 
 ### Prototype methods
 
-<img src="assets/object-post-tohtml.svg" alt="Point Object" width="200">
+<img src="assets/object-post-tohtml.svg" alt="Point Object" width="300">
 
 ```js
 class Post {
@@ -125,7 +125,7 @@ console.log(student.hello()) //=> 'Hello: fulano'
 
 ### Abstract subclasses or mix-ins
 
-<img src="assets/object-util-randomize-calculator.svg" alt="Point Object" width="600">
+<img src="assets/object-util-randomize-calculator.svg" alt="Point Object" width="700">
 
 ```js
 let CalculatorMixin = Base => class extends Base {

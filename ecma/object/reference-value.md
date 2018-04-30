@@ -107,5 +107,5 @@ console.log(array)       //=> [ { a: 1, e: 5 }, { b: 2, e: 5 }, { c: 3, e: 5 }, 
 ## References
 ---
 
-* [Primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values)
+* [Primitive values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values)
 * [Data Structures and Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Data_structures_and_types)
