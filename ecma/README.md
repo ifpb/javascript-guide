@@ -12,8 +12,8 @@
     * [Number](number/syntax.md)
     * [String](string/syntax.md)
     * [Symbol](symbol/syntax.md)
-  * Object
-    * Global Objects
+  * Global Object
+    * Fundamental Objects
       * [Boolean](boolean/object.md)
       * Object ([syntax](object/syntax.md), [reference-value](object/reference-value.md), [class](object/class.md))
     * Numbers and dates

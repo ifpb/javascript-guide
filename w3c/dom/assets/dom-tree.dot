@@ -1,0 +1,17 @@
+graph hierarchy {
+  graph [concentrate=true] // nodesep=0.2
+  node [fontname=Courier,shape=box,width=2]
+
+  "Lorem ispum", "Ispum dolor lorem", "UTF-8", Document, en [shape=ellipse]
+  lang, charset [shape=hexagon]
+
+  html -- {head body lang}
+  lang -- en
+  head -- {meta title}
+  title -- Document
+  meta -- charset
+  charset -- "UTF-8"
+  body -- {h1 p}
+  h1 -- "Lorem ispum"
+  p -- "Ispum dolor lorem"
+}

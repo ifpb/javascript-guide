@@ -1,0 +1,23 @@
+graph hierarchy {
+  graph [rankdir=LR,concentrate=true] // nodesep=0.2
+  node [fontname=Courier,shape=box,width=2.5]
+  edge [dir=none]
+
+  noderoot [label="Node", pos="1,1"]
+  nodepoint [shape=point,width=0.01,height=0.01]
+  characterdatapoint [shape=point,width=0.01,height=0.01]
+  htmlelementpoint [shape=point,width=0.01,height=0.01]
+
+  noderoot--nodepoint
+  nodepoint--{DocumentType DocumentFragment Document Attr CharacterData Entity Element}
+  Element--HTMLElement
+  CharacterData--characterdatapoint
+  characterdatapoint--{Text Comment}
+  Document--HTMLDocument
+  HTMLElement--htmlelementpoint
+  htmlelementpoint--{HTMLHeadElement HTMLBodyElement HTMLParagraphElement HTMLFormElement HTMLInputElement}
+  
+  {rank=same;DocumentType DocumentFragment Document CharacterData Element Attr Entity}
+  {rank=same;HTMLElement Text Comment HTMLDocument}
+  {rank=same;}
+}
