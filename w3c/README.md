@@ -12,6 +12,8 @@
   * [Node](dom/node.md)
   * [Document](dom/document)
   * [Element](dom/element.md)
+  * [HTMLElement](html-element.md)
+  * [HTMLInputElement](html-input-element.md)
   * [Event](dom-event/)
 * [Javascript Web APIs]()
   * [FormData](form-data/)
