@@ -48,3 +48,11 @@ button.onclick = function() {
   window.print()
 }
 ```
+
+## On-event handlers
+---
+
+* onclick
+* onkeyup
+* onload
+* onchange

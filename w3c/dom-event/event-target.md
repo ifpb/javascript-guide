@@ -54,5 +54,6 @@ const element = document.querySelector('button')
 
 const handleMouseDown = function(){}
 
-element.addEventListener("mousedown", handleMouseDown, true);
+element.addEventListener("mousedown", handleMouseDown);
+element.removeEventListener("mousedown", handleMouseDown);
 ```

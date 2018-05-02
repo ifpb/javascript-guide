@@ -3,7 +3,7 @@
 ## Content
 ---
 
-* [Running Javascript in Browser](running-javascrpt-browser/)
+* [Running Javascript in Browser](running-javascript-browser/)
 * [Windows](window/window.md)
   * [Window.history](window/history.md)
   * [Window.location](window/location.md)
@@ -12,7 +12,7 @@
   * [Node](dom/node.md)
   * [Document](dom/document)
   * [Element](dom/element.md)
-  * [Event](dom/event.md)
+  * [Event](dom-event/)
 * [Javascript Web APIs]()
   * [FormData](form-data/)
   * [Fetch API]()

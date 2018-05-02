@@ -23,7 +23,7 @@
 <!-- globalpoint&#45;&gt;HTMLElement -->
 <g id="edge2" class="edge">
 <title>globalpoint&#45;&gt;HTMLElement</title>
-<path fill="none" stroke="#000000" d="M386.5182,-72.2718C378.2201,-70.753 264.4672,-49.9328 180.3195,-34.5312"/>
+<path fill="none" stroke="#000000" d="M386.9459,-72C382.3775,-72 90,-72 90,-72 90,-72 90,-51.9478 90,-36.2819"/>
 </g>
 <!-- Document -->
 <g id="node4" class="node">
@@ -34,7 +34,7 @@
 <!-- globalpoint&#45;&gt;Document -->
 <g id="edge3" class="edge">
 <title>globalpoint&#45;&gt;Document</title>
-<path fill="none" stroke="#000000" d="M386.3678,-72.0129C381.3616,-69.264 347.6218,-50.7378 321.0344,-36.1389"/>
+<path fill="none" stroke="#000000" d="M387,-71.7495C387,-65.7773 387,-18 387,-18 387,-18 383.663,-18 378.2144,-18"/>
 </g>
 <!-- Window -->
 <g id="node5" class="node">
@@ -45,7 +45,7 @@
 <!-- globalpoint&#45;&gt;Window -->
 <g id="edge4" class="edge">
 <title>globalpoint&#45;&gt;Window</title>
-<path fill="none" stroke="#000000" d="M387.6322,-72.0129C392.6384,-69.264 426.3782,-50.7378 452.9656,-36.1389"/>
+<path fill="none" stroke="#000000" d="M387.142,-72C390.0454,-72 436.5,-72 436.5,-72 436.5,-72 436.5,-51.9478 436.5,-36.2819"/>
 </g>
 <!-- others -->
 <g id="node6" class="node">
@@ -56,7 +56,7 @@
 <!-- globalpoint&#45;&gt;others -->
 <g id="edge5" class="edge">
 <title>globalpoint&#45;&gt;others</title>
-<path fill="none" stroke="#000000" d="M387.4818,-72.2718C395.7799,-70.753 509.5328,-49.9328 593.6805,-34.5312"/>
+<path fill="none" stroke="#000000" d="M387.0541,-72C391.6225,-72 684,-72 684,-72 684,-72 684,-51.9478 684,-36.2819"/>
 </g>
 <!-- GlobalEventHandlers -->
 <g id="node2" class="node">

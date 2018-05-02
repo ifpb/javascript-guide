@@ -1,5 +1,5 @@
 digraph hierarchy {
-  graph [rankdir=TB,concentrate=true] // nodesep=0.2
+  graph [rankdir=TB,splines=ortho,concentrate=true] // nodesep=0.2
   node [fontname=Courier,shape=box,width=2.5]
   edge [dir=none]
 
