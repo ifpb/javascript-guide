@@ -9,6 +9,7 @@
 * [Document.getElementById()](#documentgetelementbyid)
 * [Document.querySelector()](#documentqueryselector)
 * [Document.querySelectorAll()](#documentqueryselectorall)
+* [Document.write()](#documentwrite)
 
 ## [Document.body](https://developer.mozilla.org/en-US/docs/Web/API/Document/body)
 ---
@@ -74,4 +75,11 @@ console.log(passwordElement.value)
 ```js
 const inputs = document.querySelector('input')
 Array.from(inputs).map(i => i.value)
+```
+
+## [Document.write()](https://developer.mozilla.org/en-US/docs/Web/API/Document/write)
+---
+
+```js
+document.write('<h1>Lorem ipsum</h1>')
 ```
