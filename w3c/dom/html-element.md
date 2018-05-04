@@ -4,6 +4,24 @@
 * [HTMLElement.click()](#HTMLElement.click())
 * [HTMLElement.focus()](#HTMLElement.focus())
 
+## [HTMLElement.dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
+---
+
+```html
+<article id="article-10" data-created="2018-05-02" data-author="Alice">
+  ...
+</article>
+```
+
+```js
+const article = document.querySelector('article')
+console.log(article.dataset.created) //=> 2018-05-02
+console.log(article.dataset.author)  //=> Alice
+```
+
+References:
+* [Using data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+
 ## [HTMLElement.style](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style)
 ---
 
