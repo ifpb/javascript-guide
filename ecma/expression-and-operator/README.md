@@ -22,11 +22,14 @@
 ---
 
 ```js
+// object.property
 let obj = {number: 10}
 console.log(obj.number)       //=> 10
+```
 
-let numbers = [1, 2, 3]
+```js
 // spread operator
+let numbers = [1, 2, 3]
 console.log(...numbers, 4, 5) //=> [1, 2, 3, 4, 5]
 ```
 
@@ -51,18 +54,37 @@ console.log(numbers)        //=> [ 1, 2, 3 ]
 
 delete numbers[1]
 console.log(numbers)        //=> [ 1, , 3 ]
+```
 
+```js
+let number = 1
+console.log(typeof number) //=> number
+
+let name = 'Lorem ipsum'
+console.log(typeof name)    //=> string
+
+
+let numbers = [1, 2, 3]
 console.log(typeof numbers) //=> object
+```
 
+```js
 let number = 15
-console.log(number)  //=>  15
-console.log(-number) //=> -15
-console.log(+number) //=>  15 01111111111111111111111111111111
+console.log(number)  //=>  15 00000000000000000000000000001111
+console.log(-number) //=> -15 11111111111111111111111111110001
+console.log(+number) //=>  15 00000000000000000000000000001111
+```
 
+```js
 // Bitwise NOT
-console.log(~number) //=> -16 10000000000000000000000000000000
+let number = 16
+console.log(number)  //=>  16 00000000000000000000000000010000
+console.log(~number) //=> -17 11111111111111111111111111101111
+```
 
+```js
 // Logical NOT
+let number = 16
 console.log(!number) //=> false
 ```
 
@@ -72,15 +94,29 @@ console.log(!number) //=> false
 ```js
 console.log(10 + 3)             //=> 13
 console.log(true + 3)           //=> 4
+```
+
+```js
 console.log(10 - 3)             //=> 7
 console.log(1.4 - 1.2)          //=> 0.19999999999999996 (IEEE 754)
+```
+
+```js
 console.log(10 * 3)             //=> 30
+```
+
+```js
 console.log(10 / 3)             //=> 3.3333333333333335
-console.log(parseInt(10 / 3))   //=> 3
+console.log(parseInt(10 / 3))   //=> 3 - Integer division
 console.log(Math.trunc(10 / 3)) //=> 3 - Integer division
+```
+
+```js
 console.log(10 % 3)             //=> 1
-console.log(10 ** 3)            //=> 1000
-console.log(Math.pow(10, 3))    //=> 1000
+```
+
+```js
+console.log(10 ** 3)            //=> 1000  Math.pow(10, 3)
 ```
 
 ## Relational operators (in, instanceof, <, <=, >, >=)
@@ -88,14 +124,19 @@ console.log(Math.pow(10, 3))    //=> 1000
 
 ```js
 let numbers = [1, 2, 3]
-
 console.log(0 in numbers)                   //=> true
 console.log(1 in numbers)                   //=> true
 console.log(3 in numbers)                   //=> false
 console.log("value" in {value: 1})          //=> true
 console.log("PI" in Math)                   //=> true
+```
+
+```js
 console.log("" instanceof String)           //=> false
 console.log(new String() instanceof String) //=> true
+```
+
+```js
 console.log(1 < 10)                         //=> true
 console.log(1 <= 10)                        //=> true
 console.log(10 > 1)                         //=> true
@@ -106,9 +147,8 @@ console.log(10 >= 1)                        //=> true
 ---
 
 ```js
-//  false == false, 0, "0", "", [], [0]
-
 //  Equality: type–converting comparisons
+//  false == false, 0, "0", "", [], [0]
 console.log(1 == 1)                 //=> true
 console.log(1 == "1")               //=> true
 console.log(1 == "1a")              //=> false
@@ -127,14 +167,19 @@ console.log(NaN == NaN)             //=> false
 console.log(Object.is(NaN, NaN))    //=> true
 console.log(Object.is([], []))      //=> false / Not comapre Array
 console.log(Object.is({}, {}))      //=> false / Not comapre Object
+```
 
+```js
 //  Identity/strict equality: strict and type–converting comparisons
 console.log(1 === 1)     //=> true
 console.log(1 === "1")   //=> false
 console.log("1" === "1") //=> true
 ```
 
-Reference: [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators), [Equality Comparisons and Sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness), [JavaScript Equality Table](http://dorey.github.io/JavaScript-Equality-Table/)
+References: 
+* [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
+* [Equality Comparisons and Sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+* [JavaScript Equality Table](http://dorey.github.io/JavaScript-Equality-Table/)
 
 ## Bitwise shift operators (<<, >>, >>>)
 ---
@@ -241,7 +286,6 @@ console.log(14 ^ 9)   //=> 00000000000000000000000000000101   7
 
 ```js
 //  false == false, 0, "", null, undefined, NaN
-
 console.log(true  && true )     // t && t returns true
 console.log(true  && false)     // t && f returns false
 console.log(false && true )     // f && t returns false
@@ -257,7 +301,9 @@ console.log(1     && true )     // t && f returns true
 console.log(false && 2    )     // f && t returns false
 console.log(1     && false)     // t && f returns false
 console.log(""    && false)     // returns ""
-console.log(false && ||   )     // returns false
+```
+
+```js
 console.log(true  || true)      // t || t returns true
 console.log(false || true)      // f || t returns true
 console.log(true  || false)     // t || f returns true
@@ -269,7 +315,9 @@ console.log(""    || false)     // t || f returns false
 console.log(false || "")        // f || t returns ""
 console.log(false && true  || true)   //=> true
 console.log(false && (true  || true)) //=> false
+```
 
+```js
 let variable
 let temp = variable || 10
 console.log(temp) //=> 10
@@ -289,6 +337,12 @@ console.log(true ? 'true' : 'false') //=> 'true'
 ## Assignment operators (=, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=)
 ---
 
+```js
+let variable = 10
+variable += 1
+console.log(temp) //=> 11
+```
+
 ## Destructuring Assignment
 ---
 
@@ -297,49 +351,66 @@ console.log(true ? 'true' : 'false') //=> 'true'
 let [a, b] = [8, 80]
 console.log(a) //=> 8
 console.log(b) //=> 80
+```
 
+```js
 let [a, , b] = [8, 80, 800] // Ignoring some values
 console.log(a) //=> 8
 console.log(b) //=> 80
+```
 
-let a = 1 // Swapping variables
+```js
+// Swapping variables
+let a = 1 
 let b = 3
 [a, b] = [b, a]
 console.log(a) //=> 3
 console.log(b) //=> 1
+```
 
+```js
 let [number, string] = [8, 'fulano']
 console.log(number) //=> 8
 console.log(string) //=> 'fulano'
+```
 
+```js
 let [ip, mask = '255.255.255.0'] = ['192.168.0.2'] // Fail-Soft Destructuring
 console.log(ip)     //=> '192.168.0.2'
 console.log(mask)   //=> '255.255.255.0'
+```
 
+```js
 let [ip, mask = '255.255.255.0'] = ['192.168.0.2', '255.255.0.0']
 console.log(ip)     //=> '192.168.0.2'
 console.log(mask)   //=> '255.255.0.0'
+```
 
+```js
 // {a, b} = {a:1, b:2} / Object Matching
 let {ip, mask} = {ip: '192.168.0.2', mask: '255.255.255.0'}
 console.log(ip)     //=> '192.168.0.2'
 console.log(mask)   //=> '255.255.255.0'
 ```
 
-Reference: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+Reference: 
+* [Destructuring assignment \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ### Deep Matching
----
 
 ```js
 let {ip: ipAdd, mask: maskAdd} = {ip: '192.168.0.2', mask: '255.255.255.0'}
 console.log(ipAdd)   //=> '192.168.0.2'
 console.log(maskAdd) //=> '255.255.255.0'
+```
 
+```js
 let {mask: maskAdd, ip: ipAdd} = {ip: '192.168.0.2', mask: '255.255.255.0'}
 console.log(ipAdd)   //=> '192.168.0.2'
 console.log(maskAdd) //=> '255.255.255.0'
+```
 
+```js
 let {mask: maskAdd, ip: ipAdd, ip: ipAdd2} = {ip: '192.168.0.2', mask: '255.255.255.0'}
 console.log(ipAdd)   //=> '192.168.0.2'
 console.log(ipAdd2)  //=> '192.168.0.2'

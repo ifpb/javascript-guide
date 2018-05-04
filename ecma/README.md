@@ -30,7 +30,7 @@
       * [Map](map/syntax.md)
       * [Set](set/syntax.md)
     * Structured data
-      * JSON: ([syntax](json/syntax.md), [object](json/object.md))
+      * JSON ([syntax](json/syntax.md), [object](json/object.md))
     * Internationalization
       * [Intl](#)
 * [Modules](#)

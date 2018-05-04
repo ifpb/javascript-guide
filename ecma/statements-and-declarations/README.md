@@ -177,7 +177,7 @@ for(const [key, value] of Object.entries(student)){
 ### while
 
 ```js
-let result = ""
+let result = ''
 
 while(result.length < 4){
   result += 'x'
@@ -188,14 +188,15 @@ while(result.length < 4){
 ### do...while
 
 ```js
-let result = ""
+let result = ''
 do {
   result += 'x'
   console.log(result)
 } while(result.length < 4)
 ```
 
-<!-- ## Others (debugger, export, import, label)
+<!-- 
+## Others (debugger, export, import, label)
 ---
 
 ## Declarations (var, let, const)
