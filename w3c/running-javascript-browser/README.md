@@ -9,7 +9,7 @@
 
 ### Body
 
-[running-javascript-browser/hello-body.html](running-javascript-browser/hello-body.html):
+[hello-body.html](hello-body.html):
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@
 
 ### Body (file.js)
 
-[running-javascript-browser/hello-body-file.html](running-javascript-browser/hello-body-file.html):
+[hello-body-file.html](hello-body-file.html):
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -47,14 +47,14 @@
 </html>
 ```
 
-[running-javascript-browser/js/main.js](running-javascript-browser/js/main.js):
+[js/main.js](js/main.js):
 ```js
 console.log('Hello World!')
 ```
 
 ### Head (file.js)
 
-[running-javascript-browser/hello-head-file.html](running-javascript-browser/hello-head-file.html):
+[hello-head-file.html](hello-head-file.html):
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +74,7 @@ console.log('Hello World!')
 ## onEvents
 ---
 
-[running-javascript-browser/event-print.html](running-javascript-browser/event-print.html):
+[event-print.html](event-print.html):
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -94,7 +94,7 @@ console.log('Hello World!')
 ## URL (JS)
 ---
 
-[running-javascript-browser/url-print.html](running-javascript-browser/url-print.html):
+[url-print.html](url-print.html):
 ```html
 <!DOCTYPE html>
 <html lang="en">
