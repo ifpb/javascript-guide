@@ -1,24 +1,61 @@
 # [Expression and Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
   
-<!-- * [Primary expressions](#primary-expressions-this-function-class-function-yield-yield---abci--): `this`, `function`, `class`, `function*`, `yield`, `yield*`, `[]`, `{}`, `/ab+c/i`, `( )` -->
-* [Left-hand-side expressions](#left-hand-side-expressions-objectproperty-new-newtarget-super-obj): `object.property`, `new`, `new.target`, `super`, `...obj`
-* [Increment and decrement](#increment-and-decrement-a-a-a-a): `A++`, `A--`, `++A`, `--A`
-* [Unary operators](#unary-operators-delete-void-typeof-----): `delete`, `void`, `typeof`, `+`, `-`, `~`, `!`
-* [Arithmetic operators](#arithmetic-operators-------): `+`, `-`, `*`, `/`, `%`, `**`
-* [Relational operators](#relational-operators-in-instanceof----): `in`, `instanceof`, `<`, `<=`, `>`, `>=`
-* [Equality operators](#equality-operators----): `==`, `!=`, `===`, `!==`
-* [Bitwise shift operators](#bitwise-shift-operators-): `<<`, `>>`, `>>>`
-* [Binary bitwise operators](#binary-bitwise-operators---): `&`, `|`, `^`
-* [Binary logical operators](#binary-logical-operators--): `&&`, `||`
-* [Conditional operator](#conditional-ternary-operator-condition--iftrue--iffalse): `? :`
-* [Assignment operators](#assignment-operators-----------): `=`, `*=`, `/=`, `%=`, `+=`, `-=`, `<<=`, `>>=`, `>>>=`, `&=`, `^=`, `|=`
-* [Destructuring Assignment](#destructuring-assignment)
-* [Comma operator](#comma-operator-): `,`
+* [Primary expressions](#primary-expressions)
+* [Left-hand-side expressions](#left-hand-side-expressions)
+* [Increment and decrement](#increment-and-decrement)
+* [Unary operators](#unary-operators)
+* [Arithmetic operators](#arithmetic-operators)
+* [Relational operators](#relational-operators)
+* [Equality operators](#equality-operators)
+* [Bitwise shift operators](#bitwise-shift-operators)
+* [Binary bitwise operators](#binary-bitwise-operators)
+* [Binary logical operators](#binary-logical-operators)
+* [Conditional operator](#conditional-operator-ternary)
+* [Assignment operators](#assignment-operators)
+* [Comma operator](#comma-operator)
+* [Recap](#recap)
 
-<!-- ## Primary expressions (this, function, class, function*, yield, yield*, [], {}, /ab+c/i, ( )) 
---- -->
+## [Primary expressions]()
+---
 
-## Left-hand-side expressions (object.property, new, new.target, super, ...obj)
+### Celsius to Fahrenheit conversion
+
+<!-- 
+\begin{align*}
+C = \frac{F - 32}{1.8}
+\end{align*}
+ -->
+![](assets/celsius2fahrenheit.png)
+
+#### Option 1
+
+```js
+let fahrenheit = 50
+let celsius = fahrenheit - 32 / 1.8
+console.log(celsisu) //=> 32.2
+``` 
+
+![](assets/celsius2fahrenheit1.svg)
+
+#### Option 2
+
+```js
+// grouping operator
+let fahrenheit = 50
+let celsius = (fahrenheit - 32) / 1.8
+console.log(celsisu) //=> 10
+```
+
+![](assets/celsius2fahrenheit2.svg)
+
+References:
+* [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+* [Abstract syntax trees on Javascript](https://medium.com/@jotadeveloper/abstract-syntax-trees-on-javascript-534e33361fc7)
+* [Esprima](http://esprima.org/demo/parse.html#)
+* [Javascript AST Visualizer](https://resources.jointjs.com/demos/javascript-ast)
+* [AST Explorer](https://astexplorer.net)
+
+## [Left-hand-side expressions]()
 ---
 
 ```js
@@ -33,22 +70,38 @@ let numbers = [1, 2, 3]
 console.log(...numbers, 4, 5) //=> [1, 2, 3, 4, 5]
 ```
 
-## Increment and decrement (A++, A--, ++A, --A)
+## [Increment and decrement]()
 ---
 
 ```js
+// postfix increment
 let number = 10
-
 console.log(number++)      //=> 10
-console.log(++number)      //=> 12
-console.log(number--)      //=> 12
-console.log(--number)      //=> 10
 ```
 
-## Unary operators (delete, void, typeof, +, -, ~, !)
+```js
+// prefix increment
+let number = 10
+console.log(++number)      //=> 11
+```
+
+```js
+// postfix decrement
+let number = 10
+console.log(number--)      //=> 10
+```
+
+```js
+// prefix decrement
+let number = 10
+console.log(--number)      //=> 9
+```
+
+## [Unary operators]()
 ---
 
 ```js
+// delete operator
 let numbers = [1, 2, 3]
 console.log(numbers)        //=> [ 1, 2, 3 ]
 
@@ -57,72 +110,86 @@ console.log(numbers)        //=> [ 1, , 3 ]
 ```
 
 ```js
+// typeof operator
 let number = 1
 console.log(typeof number) //=> number
 
 let name = 'Lorem ipsum'
 console.log(typeof name)    //=> string
 
-
 let numbers = [1, 2, 3]
 console.log(typeof numbers) //=> object
 ```
 
 ```js
+// unary plus operator
 let number = 15
 console.log(number)  //=>  15 00000000000000000000000000001111
 console.log(-number) //=> -15 11111111111111111111111111110001
+```
+
+```js
+// unary negation operator
+let number = -15
+console.log(number)  //=> -15 11111111111111111111111111110001
 console.log(+number) //=>  15 00000000000000000000000000001111
 ```
 
 ```js
-// Bitwise NOT
+// bitwise not
 let number = 16
 console.log(number)  //=>  16 00000000000000000000000000010000
 console.log(~number) //=> -17 11111111111111111111111111101111
 ```
 
 ```js
-// Logical NOT
+// logical not
 let number = 16
 console.log(!number) //=> false
 ```
 
-## Arithmetic operators (+, -, *, /, %, **)
+## [Arithmetic operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators)
 ---
 
 ```js
+// addition operator
 console.log(10 + 3)             //=> 13
 console.log(true + 3)           //=> 4
 ```
 
 ```js
+// subtraction operator
 console.log(10 - 3)             //=> 7
 console.log(1.4 - 1.2)          //=> 0.19999999999999996 (IEEE 754)
 ```
 
 ```js
+// multiplication operator
 console.log(10 * 3)             //=> 30
 ```
 
 ```js
+// division operator
 console.log(10 / 3)             //=> 3.3333333333333335
 console.log(parseInt(10 / 3))   //=> 3 - Integer division
 console.log(Math.trunc(10 / 3)) //=> 3 - Integer division
 ```
 
 ```js
+// remainder operator
 console.log(10 % 3)             //=> 1
 ```
 
 ```js
+// exponentiation operator
 console.log(10 ** 3)            //=> 1000  Math.pow(10, 3)
 ```
 
-## Relational operators (in, instanceof, <, <=, >, >=)
+## [Relational operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Relacional_Operators)
 ---
 
 ```js
+// in operator
 let numbers = [1, 2, 3]
 console.log(0 in numbers)                   //=> true
 console.log(1 in numbers)                   //=> true
@@ -132,191 +199,148 @@ console.log("PI" in Math)                   //=> true
 ```
 
 ```js
+// instanceof operator
 console.log("" instanceof String)           //=> false
 console.log(new String() instanceof String) //=> true
 ```
 
 ```js
+// less than operator
 console.log(1 < 10)                         //=> true
+
+// less than or equal operator 
 console.log(1 <= 10)                        //=> true
+
+// greater than operator
 console.log(10 > 1)                         //=> true
+
+// greater than or equal operator 
 console.log(10 >= 1)                        //=> true
 ```
 
-## Equality operators (==, !=, ===, !==)
+## [Equality operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality_Operators)
 ---
 
+> false == false, 0, "0", "", [], [0]
+
 ```js
-//  Equality: type–converting comparisons
-//  false == false, 0, "0", "", [], [0]
-console.log(1 == 1)                 //=> true
-console.log(1 == "1")               //=> true
-console.log(1 == "1a")              //=> false
-console.log(1 == true)              //=> true
-console.log(0 == false)             //=> false
-console.log(false == "")            //=> true
-console.log(false == [])            //=> true
-console.log(false == null)          //=> false
-console.log(false == undefined)     //=> false
-console.log({"value":1} == {"value":1}) //=> false
-let obj = {"value":1}
-console.log(obj == obj)             //=> true
-console.log(undefined == undefined) //=> true
-console.log(null == null)           //=> true
-console.log(NaN == NaN)             //=> false
-console.log(Object.is(NaN, NaN))    //=> true
-console.log(Object.is([], []))      //=> false / Not comapre Array
-console.log(Object.is({}, {}))      //=> false / Not comapre Object
+// equality operator: type–converting comparisons
+console.log(1 == 1)        //=> true
+console.log(1 == "1")      //=> true
+console.log(1 == "1a")     //=> false
+console.log(1 == true)     //=> true
+console.log(0 == false)    //=> true
 ```
 
 ```js
-//  Identity/strict equality: strict and type–converting comparisons
-console.log(1 === 1)     //=> true
-console.log(1 === "1")   //=> false
-console.log("1" === "1") //=> true
+// inequality operator
+console.log(1 != "a")     //=> true
+console.log(1 != false)   //=> true
+console.log(1 != true)    //=> false
+```
+
+```js
+// identity/strict equality: strict and type–converting comparisons
+console.log(1 === 1)       //=> true
+console.log(1 === "1")     //=> false
+console.log("1" === "1")   //=> true
+```
+
+```js
+// Non-identity / strict inequality
+console.log(1 !== "1")     //=> true
+console.log('' !== true)   //=> true
+console.log(1 !== 1)       //=> false
 ```
 
 References: 
+* [Other comparations](comparations.md)
 * [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
 * [Equality Comparisons and Sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 * [JavaScript Equality Table](http://dorey.github.io/JavaScript-Equality-Table/)
 
-## Bitwise shift operators (<<, >>, >>>)
+## [Bitwise shift operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 ---
 
-```js
-//  Bitwise operators treat their operands as a sequence of 32 bits
-//  -(2 ** 32)  até 2 ** 31 - 1
-//  -2147483648 até 2147483647
+> Bitwise operators treat their operands as a sequence of 32 bits<br>
+> -(2 ** 32) to 2 ** 31 - 1<br>
+> -2147483648 to 2147483647
 
+```js
+// left shitf operator
 console.log( 9 )      //=> 00000000000000000000000000001001   9
 console.log( 9 <<  2) //=> 00000000000000000000000000100100  36
+```
+
+```js
+// sign-propagating right shift
+console.log( 9 )      //=> 00000000000000000000000000001001   9
 console.log( 9 >>  2) //=> 00000000000000000000000000000010   2
-console.log( 9 >>> 2) //=> 00000000000000000000000000000010   2
 console.log(-9 )      //=> 11111111111111111111111111110110  -9
 console.log(-9 >>  2) //=> 11111111111111111111111111111101  -3
+```
+
+```js
+// zero-fill right shift
+console.log( 9 )      //=> 00000000000000000000000000001001   9
+console.log( 9 >>> 2) //=> 00000000000000000000000000000010   2
+console.log(-9 )      //=> 11111111111111111111111111110110  -9
 console.log(-9 >>> 2) //=> 00111111111111111111111111111101  1073741821
 ```
 
-### Encoding Mantis green ARGB - rgba(116, 195, 101, 0)
+> Example: [ARGB](argb.md)
 
-```js
-const alfa  = 0
-const red   = 116
-const green = 195
-const blue  = 101
-const color = (alfa & 0xff) << 24 | (red & 0xff) << 16 | (green & 0xff) << 8 | (blue & 0xff)
-
-// 00000000000000000000000011111111 (0)
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000000000000 (& 0xff)
-// 11111111000000000000000000000000 (<< 24)
-
-// 00000000000000000000000001110100 (116)
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000001110100 (& 0xff)
-// 00000000011101000000000000000000 (<< 16)
-
-// 00000000000000000000000011000011 (195)
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000011000011 (& 0xff)
-// 00000000000000001100001100000000 (<< 8)
-
-// 00000000000000000000000001100101 (101)
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000001100101 (& 0xff)
-
-// 11111111000000000000000000000000 (alfa)
-// 00000000011101000000000000000000 (red)
-// 00000000000000001100001100000000 (green)
-// 00000000000000000000000001100101 (blue)
-// 11111111011101001100001101100101 (|) 
-// 0x74C365 (alfa 100%)
-```
-
-Reference:
-* [RGBA color space](https://en.wikipedia.org/wiki/RGBA_color_space)
-
-### Decoding Mantis green ARGB - #74C365
-```js
-const color = 0x74C365;
-// 11111111011101001100001101100101 (alfa 100%)
-
-const alfa  = (color >>> 24) & 0xff
-// 11111111011101001100001101100101 
-// 00000000000000000000000011111111 (>>> 24)
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000000000000 (& 0xff)
-// 255
-
-const red   = (color >> 16) & 0xff
-// 00000000011101001100001101100101
-// 00000000000000000000000001110100 (>> 16)
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000001110100 (& 0xff)
-// 116
-
-const green = (color >>  8) & 0xff
-// 00000000011101001100001101100101
-// 00000000000000000111010011000011 (>> 8)
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000011000011 (& 0xff)
-// 195
-
-const blue  = color & 0xff
-// 00000000011101001100001101100101
-// 00000000000000000000000011111111 (0xff)
-// 00000000000000000000000001100101 (& 0xff)
-// 101
-```
-
-## Binary bitwise operators (&, |, ^)
+## [Binary bitwise operators]()
 ---
 
 ```js
-console.log(9     )   //=> 00000000000000000000000000001001   9
-console.log(14    )   //=> 00000000000000000000000000001110  14
+// bitwise and operator
+console.log(9)        //=> 00000000000000000000000000001001   9
+console.log(14)       //=> 00000000000000000000000000001110  14
 console.log(14 & 9)   //=> 00000000000000000000000000000100   8
+```
+
+```js
+// bitwise or operator
+console.log(9)        //=> 00000000000000000000000000001001   9
+console.log(14)       //=> 00000000000000000000000000001110  14
 console.log(14 | 9)   //=> 00000000000000000000000000001111  15
+```
+
+```js
+// bitwise xor operator
+console.log(9)        //=> 00000000000000000000000000001001   9
+console.log(14)       //=> 00000000000000000000000000001110  14
 console.log(14 ^ 9)   //=> 00000000000000000000000000000101   7
 ```
 
-## Binary logical operators (&&, ||)
+## [Binary logical operators]()
 ---
 
+> false == false, 0, "", null, undefined, NaN
+
 ```js
-//  false == false, 0, "", null, undefined, NaN
-console.log(true  && true )     // t && t returns true
-console.log(true  && false)     // t && f returns false
-console.log(false && true )     // f && t returns false
-console.log(false && (3 == 4))  // f && f returns false
-console.log("Cat" && "Dog")     // t && t returns "Dog"
-console.log(true  && "Cat")     // f && t returns "Cat"
-console.log("Cat" && true )     // t && f returns true
-console.log(false && "Cat")     // f && t returns false
-console.log("Cat" && false)     // t && f returns false
-console.log(1     && 2    )     // t && t returns 2
-console.log(true  && 2    )     // f && t returns 2
-console.log(1     && true )     // t && f returns true
-console.log(false && 2    )     // f && t returns false
-console.log(1     && false)     // t && f returns false
-console.log(""    && false)     // returns ""
+// logical and operator
+true && true   //=> true
+true && 10     //=> 10
+false && 10    //=> false
 ```
 
 ```js
-console.log(true  || true)      // t || t returns true
-console.log(false || true)      // f || t returns true
-console.log(true  || false)     // t || f returns true
-console.log(false || (3 == 4))  // f || f returns false
-console.log("Cat" || "Dog")     // t || t returns "Cat"
-console.log(false || "Cat")     // f || t returns "Cat"
-console.log("Cat" || false)     // t || f returns "Cat"
-console.log(""    || false)     // t || f returns false
-console.log(false || "")        // f || t returns ""
-console.log(false && true  || true)   //=> true
-console.log(false && (true  || true)) //=> false
+// logical or operator
+false || false //=> false
+false || true  //=> true
+false || 10    //=> 10
 ```
 
+### Precedence
+```js
+// Logical AND > Logical OR
+false && true || true)   //=> true
+false && (true || true)) //=> false
+```
+
+### Value Default
 ```js
 let variable
 let temp = variable || 10
@@ -327,99 +351,273 @@ let temp = variable || 10
 console.log(temp) //=> 1
 ```
 
-## Conditional (ternary) operator (condition ? ifTrue : ifFalse)
+## [Conditional operator (ternary)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 ---
 
 ```js
-console.log(true ? 'true' : 'false') //=> 'true'
+// conditional operator
+let number = 10
+let kind = (number % 2 == 0) ? 'even' : 'odd'
+console.log(kind) //=> 'even'
 ```
 
-## Assignment operators (=, *=, /=, %=, +=, -=, <<=, >>=, >>>=, &=, ^=, |=)
+## [Assignment operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators)
 ---
 
 ```js
+// assign operator
 let variable = 10
-variable += 1
+console.log(temp) //=> 10
+```
+```js
+// addition assignment (shorthand operator)
+let variable = 10 // 10
+variable += 1     // variable = variable + 1
 console.log(temp) //=> 11
 ```
 
-## Destructuring Assignment
+> [Destructuring Assignment](destructuring-assignment.md), [Deep Matching](deep-matching.md)
+
+## [Comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator)
 ---
 
 ```js
-// [a, b] = [1, 2] / Array Matching
-let [a, b] = [8, 80]
-console.log(a) //=> 8
-console.log(b) //=> 80
-```
-
-```js
-let [a, , b] = [8, 80, 800] // Ignoring some values
-console.log(a) //=> 8
-console.log(b) //=> 80
-```
-
-```js
-// Swapping variables
-let a = 1 
-let b = 3
-[a, b] = [b, a]
-console.log(a) //=> 3
-console.log(b) //=> 1
-```
-
-```js
-let [number, string] = [8, 'fulano']
-console.log(number) //=> 8
-console.log(string) //=> 'fulano'
-```
-
-```js
-let [ip, mask = '255.255.255.0'] = ['192.168.0.2'] // Fail-Soft Destructuring
-console.log(ip)     //=> '192.168.0.2'
-console.log(mask)   //=> '255.255.255.0'
-```
-
-```js
-let [ip, mask = '255.255.255.0'] = ['192.168.0.2', '255.255.0.0']
-console.log(ip)     //=> '192.168.0.2'
-console.log(mask)   //=> '255.255.0.0'
-```
-
-```js
-// {a, b} = {a:1, b:2} / Object Matching
-let {ip, mask} = {ip: '192.168.0.2', mask: '255.255.255.0'}
-console.log(ip)     //=> '192.168.0.2'
-console.log(mask)   //=> '255.255.255.0'
-```
-
-Reference: 
-* [Destructuring assignment \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
-
-### Deep Matching
-
-```js
-let {ip: ipAdd, mask: maskAdd} = {ip: '192.168.0.2', mask: '255.255.255.0'}
-console.log(ipAdd)   //=> '192.168.0.2'
-console.log(maskAdd) //=> '255.255.255.0'
-```
-
-```js
-let {mask: maskAdd, ip: ipAdd} = {ip: '192.168.0.2', mask: '255.255.255.0'}
-console.log(ipAdd)   //=> '192.168.0.2'
-console.log(maskAdd) //=> '255.255.255.0'
-```
-
-```js
-let {mask: maskAdd, ip: ipAdd, ip: ipAdd2} = {ip: '192.168.0.2', mask: '255.255.255.0'}
-console.log(ipAdd)   //=> '192.168.0.2'
-console.log(ipAdd2)  //=> '192.168.0.2'
-console.log(maskAdd) //=> '255.255.255.0'
-```
-
-## Comma operator (,)
----
-
-```js
+// comma operator
 let x, y
 ```
+
+## Recap
+---
+
+### Groups
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator type</th>
+      <th>Operator</th>
+      <th>Operator Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="12">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators">Arithmetic Operators</a>
+      </td>
+      <td>… + …</td>
+      <td>Addition</td>
+    </tr>
+    <tr>
+      <td>… / …</td>
+      <td>Division</td>
+    </tr>
+    <tr>
+      <td>… ** …</td>
+      <td>Exponentiation</td>
+    </tr>
+    <tr>
+      <td>… * …</td>
+      <td>Multiplication</td>
+    </tr>
+    <tr>
+      <td>… % …</td>
+      <td>Remainder</td>
+    </tr>
+    <tr>
+      <td>… - …</td>
+      <td>Subtraction</td>
+    </tr>
+    <tr>
+      <td>… ++</td>
+      <td>Postfix Increment</td>
+    </tr>
+    <tr>
+      <td>… --</td>
+      <td>Postfix Decrement</td>
+    </tr>
+    <tr>
+      <td>- …</td>
+      <td>Prefix Decrement</td>
+    </tr>
+    <tr>
+      <td>+ …</td>
+      <td>Prefix Increment</td>
+    </tr>
+    <tr>
+      <td>- …</td>
+      <td>Unary negation</td>
+    </tr>
+    <tr>
+      <td>+ …</td>
+      <td>Unary plus</td>
+    </tr>
+    <tr>
+      <td rowspan="13">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators">Assignment Operators</a>
+      </td>
+      <td>… += …</td>
+      <td>Addition assignment</td>
+    </tr>
+    <tr>
+      <td>… &= …</td>
+      <td>Bitwise AND assignment</td>
+    </tr>
+    <tr>
+      <td>… |= …</td>
+      <td>Bitwise OR assignment</td>
+    </tr>
+    <tr>
+      <td>… ^= …</td>
+      <td>Bitwise XOR assignment</td>
+    </tr>
+    <tr>
+      <td>… /= …</td>
+      <td>Division assignment</td>
+    </tr>
+    <tr>
+      <td>… **= …</td>
+      <td>Exponentiation assignment</td>
+    </tr>
+    <tr>
+      <td>… <<= …</td>
+      <td>Left shift assignment</td>
+    </tr>
+    <tr>
+      <td>… *= …</td>
+      <td>Multiplication assignment</td>
+    </tr>
+    <tr>
+      <td>… %= …</td>
+      <td>Remainder assignment</td>
+    </tr>
+    <tr>
+      <td>… >>= …</td>
+      <td>Right shift assignment</td>
+    </tr>
+    <tr>
+      <td>… = …</td>
+      <td>Assignment</td>
+    </tr>
+    <tr>
+      <td>… -= …</td>
+      <td>Subtraction assignment</td>
+    </tr>
+    <tr>
+      <td>… >>>= …</td>
+      <td>Unsigned right shift assignment</td>
+    </tr>
+    <tr>
+      <td rowspan="7">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators">Bitwise Operators</a>
+      </td>
+      <td>… & …</td>
+      <td>Bitwise AND</td>
+    </tr>
+    <tr>
+      <td>… << …</td>
+      <td>Bitwise left shift</td>
+    </tr>
+    <tr>
+      <td>~ …</td>
+      <td>Bitwise NOT</td>
+    </tr>
+    <tr>
+      <td>… | …</td>
+      <td>Bitwise OR</td>
+    </tr>
+    <tr>
+      <td>… >> …</td>
+      <td>Bitwise right shift</td>
+    </tr>
+    <tr>
+      <td>… >>> …</td>
+      <td>Bitwise unsigned right shift</td>
+    </tr>
+    <tr>
+      <td>… ^ …</td>
+      <td>Bitwise XOR</td>
+    </tr>
+    <tr>
+      <td rowspan="8">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">Comparison Operators</a>
+      </td>
+      <td>… == …</td>
+      <td>Equality</td>
+    </tr>
+    <tr>
+      <td>… != …</td>
+      <td>Inequality</td>
+    </tr>
+    <tr>
+      <td>… === …</td>
+      <td>Identity</td>
+    </tr>
+    <tr>
+      <td>… !== …</td>
+      <td>Non-identity</td>
+    </tr>
+    <tr>
+      <td>… > …</td>
+      <td>Greater than</td>
+    </tr>
+    <tr>
+      <td>… >= …</td>
+      <td>Greater than or equal</td>
+    </tr>
+    <tr>
+      <td>… < …</td>
+      <td>Less than</td>
+    </tr>
+    <tr>
+      <td>… <= …</td>
+      <td>Less than or equal</td>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators">Logical Operators</a>
+      </td>
+      <td>… && …</td>
+      <td>Logical AND </td>
+    </tr>
+    <tr>
+      <td>… || …</td>
+      <td>Logical OR</td>
+    </tr>
+    <tr>
+      <td>! …</td>
+      <td>Logical NOT</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">Conditional Operator</a>
+      </td>
+      <td>… ? … : …</td>
+      <td>Conditional / Ternary</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator">Comma Operator</a>
+      </td>
+      <td>… , …</td>
+      <td>Comma / Sequence</td>
+    </tr>
+  </tbody>
+</table>
+
+### [MDN Groups]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators))
+
+| Operator type | Operators |
+|-|-|
+| Primary expressions | `this`, `function`, `class`, `function*`, `yield`, `yield*`, `async function*`, `await`, `[]`, `{}`, `/ab+c/i`, `( )` |
+| Left-hand-side expressions | `object.property` or `object["property"]`, `new`, `new.target`, `super`, `...obj` |
+| Increment and decrement | `A++`, `A--`, `++A`, `--A` |
+| Unary operators | `delete`, `void`, `typeof`, `+`, `-`, `~`, `!` |
+| Arithmetic operators | `+`, `-`, `*`, `/`, `%`, `**` |
+| Relational operators | `in`, `instanceof`, `<`, `<=`, `>`, `>=` |
+| Equality operators | `==`, `!=`, `===`, `!==` |
+| Bitwise shift operators | `<<`, `>>`, `>>>` |
+| Binary bitwise operators | `&`, `|`, `^` |
+| Binary logical operators | `&&`, `||` |
+| Assignment operators | `=`, `*=`, `/=`, `%=`, `+=`, `-=`, `<<=`, `>>=`, `>>>=`, `&=`, `^=`, `|=` `[a, b] = [1, 2]`, `{a, b} = {a:1, b:2}` |
+| Conditional operator | ` (condition ? ifTrue : ifFalse)` |
+| Comma operator | `,` |
