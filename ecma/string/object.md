@@ -1,16 +1,11 @@
-# String
+# [String Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-* [String Object](#string-object)
-* [String Syntax](#string-syntax)
-* [String Method](#string-methods): [`fromCharCode()`](#string.fromCharCode), [`fromCharPoint()`](#string.fromCharPoint)
-* [String Instance](#string-instances): [`includes()`](#stringprototypeincludes), [`repeat()`](#stringprototyperepeat), [`starstWith()`](#stringprototypestarstwith), [`endsWith()`](#stringprototypeendswith), [`substr()`](#stringprototypesubstr), [`substring()`](#stringprototypesubstring), [`slice()`](#stringprototypeslice), [`split()`](#stringprototypesplit), [`toLowerCase()`](#stringprototypetolowercase), [`toUpperCase()`](#stringprototypetouppercase), [`match()`](#stringprototypematch), [`replace()`](#stringprototypereplace), [`search()`](#stringprototypesearch), [`trim()`](#stringprototypetrim)
+* [Creating String](#creating-string)
+* [String Object](#string-syntax)
+  * [String](#string-methods): [`fromCharCode()`](#string.fromCharCode), [`fromCharPoint()`](#string.fromCharPoint)
+  * [String Instance](#string-instances): [`includes()`](#stringprototypeincludes), [`repeat()`](#stringprototyperepeat), [`starstWith()`](#stringprototypestarstwith), [`endsWith()`](#stringprototypeendswith), [`substr()`](#stringprototypesubstr), [`substring()`](#stringprototypesubstring), [`slice()`](#stringprototypeslice), [`split()`](#stringprototypesplit), [`toLowerCase()`](#stringprototypetolowercase), [`toUpperCase()`](#stringprototypetouppercase), [`match()`](#stringprototypematch), [`replace()`](#stringprototypereplace), [`search()`](#stringprototypesearch), [`trim()`](#stringprototypetrim)
 
-## Reference
----
-
-* [String Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-
-## String Syntax
+## Creating String
 ---
 
 ```js
@@ -34,10 +29,10 @@ console.log(string)        //=> [String: 'lorem ipsum']
 console.log(typeof string) //=> object
 ```
 
-## OBJECT
+## String Object
 ---
 
-### String Methods
+### String
 
 #### [String.fromCharCode()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
 

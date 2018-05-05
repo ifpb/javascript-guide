@@ -1,7 +1,6 @@
 # Javascript Object Notation (JSON)
 
-* [Reference](#reference)
-* [Data](#data)
+* [Creating data sets](#creating-data-sets)
   * [Comma Separated Values (CSV)](#comma-separated-values-csv)
   * [eXtensible Markup Language (XML)](#extensible-markup-language-xml)
   * [YAML Ain't Markup Language (YAML)](#yaml-aint-markup-language-yaml)
@@ -14,13 +13,7 @@
   * [JSONPlaceholder API](#jsonplaceholder-api)
   * [Via CEP API](#via-cep-api)
 
-## Reference
----
-
-* [json.org](http://json.org/)
-* [JSON MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/json)
-
-## Data
+## Creating data sets
 ---
 
 |NAME|EMAIL|
@@ -62,7 +55,7 @@ Reference: [doc](http://yaml.org/)
   email: 'sicrano@gmail.com'
 ```
 
-### JSON
+### Javascript Object Notation (JSON)
 
 ![Object](http://json.org/object.gif)
 
@@ -70,7 +63,7 @@ Reference: [doc](http://yaml.org/)
 
 Reference: [JSON ORG](http://json.org)
 
-#### .json (Quoted)
+#### .json, .js (Quoted)
 ```js
 [
   {
@@ -84,7 +77,7 @@ Reference: [JSON ORG](http://json.org)
 ]
 ```
 
-#### .js
+#### .js (Unquoted)
 ```js
 [
   {
@@ -98,7 +91,7 @@ Reference: [JSON ORG](http://json.org)
 ]
 ```
 
-#### .js (indexed)
+#### .js (Indexed)
 
 ```js
 {
@@ -113,11 +106,34 @@ Reference: [JSON ORG](http://json.org)
 }
 ```
 
+References:
+* [json.org](http://json.org/)
+* [JSON MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/json)
+
+
 ## Web API
 ---
-<!-- TODO RestFull, Web of Data] -->
 
-APIs: [Any  API](https://any-api.com/), [abhishekbanthia/Public-APIs](https://github.com/abhishekbanthia/Public-APIs), [toddmotto/public-apis](https://github.com/toddmotto/public-apis)
+> APIs: [Any  API](https://any-api.com/), [abhishekbanthia/Public-APIs](https://github.com/abhishekbanthia/Public-APIs), [toddmotto/public-apis](https://github.com/toddmotto/public-apis)
+
+### Via CEP API
+
+Reference: [doc](https://viacep.com.br/)
+
+[https://viacep.com.br/ws/01001000/json/](https://viacep.com.br/ws/01001000/json/):
+```js
+{
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "unidade": "",
+  "ibge": "3550308",
+  "gia": "1004"
+}
+```
 
 ### IP API
 
@@ -170,21 +186,4 @@ Reference: [doc](http://jsonplaceholder.typicode.com/)
 ]
 ```
 
-### Via CEP API
-
-Reference: [doc](https://viacep.com.br/)
-
-[https://viacep.com.br/ws/01001000/json/](https://viacep.com.br/ws/01001000/json/):
-```js
-{
-  "cep": "01001-000",
-  "logradouro": "Praça da Sé",
-  "complemento": "lado ímpar",
-  "bairro": "Sé",
-  "localidade": "São Paulo",
-  "uf": "SP",
-  "unidade": "",
-  "ibge": "3550308",
-  "gia": "1004"
-}
-```
+<!-- TODO RestFull, Web of Data] -->

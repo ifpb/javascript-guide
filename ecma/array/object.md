@@ -1,17 +1,16 @@
 # Array
 
-* [Array Object](#array)
-* [Create an Array [ ]](#create-an-array--)
-* [Changing Array](#changing-array)
-* [Defining Empty Array](#defining-empty-array)
-* [Accessing Array Elements](#accessing-array-elements)
-* [Multiple Types](#multiple-types)
-* [String Index](#string-index)
-* [Nth Dimentions](#nth-dimentions)
-* [Spread Operator](#spread-operator)
-* [Interaction: `for`, `for...of`, `for...in`)](#interaction-for-forof-forin-forkey-value-of-entries)
+* [Creating Array](#creating-array)
+* [Array Object](#array-object)
+  * [Array](#array): [`Array.from()`](#Array.from())
+  * [Array Instances](#array-instances)
+    * Properties: [`length`](#Array.prototype.length)
+    * [Methods Mutator](#mutator-pop-push-reverse-shift-unshift-sort-splice): [`push()`](#arrayprototypepush), [`unshift()`](#arrayprototypeunshift), [`pop()`](#arrayprototypepop), [`shift()`](#arrayprototypeshift), [`reverse()`](#arrayprototypereverse), [`sort()`](#arrayprototypesort), [`splice()`](#arrayprototypesplice)
+    * [Methods Accessor](#accessor-includes-join-concat-slice): [`includes()`](#arrayprototypeincludes), [`join()`](#arrayprototypejoin), [`slice()`](#arrayprototypeslice), [`concat()`](#arrayprototypeconcat)
+    * [Methods Iteration](#iteration-foreach-reduce-filter-map-every-some-find-reduceright-entries-keys-values): [`map()`](#arrayprototypemap), [`filter()`](#arrayprototypefilter), [`reduce()`](#arrayprototypereduce), [`reduceRight()`](#arrayprototypereduceright), [`forEach()`](#arrayprototypeforeach), [`entries()`](#arrayprototypeentries), [`find()`](#arrayprototypefind), [`every()`](#arrayprototypeevery), [`some()`](#arrayprototypesome)
 
-## Array Object
+
+## Creating Array
 ---
 
 ```js
@@ -40,10 +39,10 @@ numbers[2] = 3
 console.log(numbers)    //=> [ 1, 2, 3 ]
 ```
 
-## OBJECT
+## Array Object
 ---
 
-### Array Methods
+### Array
 
 #### [Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
 
@@ -68,7 +67,7 @@ Array.from([1, 2, 3]) //=> [1, 2, 3]
 console.log([1, 2, 3].length)   //=> 3
 ```
 
-### Mutator: pop, push, reverse, shift, unshift, sort, splice
+### Mutator: pop(), push(), reverse(), shift(), unshift(), sort(), splice()
 
 #### [Array.prototype.push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
 
@@ -142,7 +141,7 @@ console.log(numbers.sort())     //=> [ 1, 2, 3 ]
 console.log(numbers)            //=> [ 1, 2, 3 ]
 ```
 
-> Impementação: Merge Sort, Selection Sort<br>
+> References: Merge Sort, Selection Sort<br>
 > [Javascript Array.sort implementation?](https://stackoverflow.com/questions/234683/javascript-array-sort-implementation#answer-236534)<br>
 > [Algoritmos de ordenação e o seu JavaScript](https://medium.com/tableless/algoritmos-de-ordenação-e-o-seu-javascript-65d50723ae57)<br>
 > [Sorting algorithms in JavaScript](https://medium.com/front-end-hacking/sorting-algorithms-in-javascript-2fb985af6880)<br>
@@ -162,7 +161,7 @@ console.log(numbers.splice(1, 2)) //=> [ 2, 3 ]
 console.log(numbers)              //=> [1]
 ```
 
-### Accessor: includes, join, concat, slice
+### Accessor: includes(), join(), concat(), slice()
 
 #### [Array.prototype.includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
 
@@ -205,7 +204,7 @@ console.log([1, 2, 3].slice(1,2))  //=> 2
 console.log([ 1, 2].concat([ "hello", true, 7 ])) //=> [ 1, 2, 'hello', true, 7 ]
 ```
 
-### Iteration: forEach, reduce, filter, map, every, some, find, reduceRight, entries, keys, values
+### Iteration: forEach(), reduce(), filter(), map(), every(), some(), find(), reduceRight(), entries(), keys(), values()
 
 References:
 - [Funny map, reduce, filter](type/ArrayFunny.js)

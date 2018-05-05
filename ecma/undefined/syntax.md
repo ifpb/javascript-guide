@@ -1,10 +1,4 @@
-## undefined
-
-* * *
-
-Reference: [literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
-
-### Literal (undefined)
+## [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
 
 ```js
 let variable

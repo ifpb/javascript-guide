@@ -1,5 +1,16 @@
 # Array
 
+* [Syntax](#syntax)
+* [Create an Array [ ]](#create-an-array--)
+* [Changing Array](#changing-array)
+* [Defining Empty Array](#defining-empty-array)
+* [Accessing Array Elements](#accessing-array-elements)
+* [Multiple Types](#multiple-types)
+* [String Index](#string-index)
+* [Nth Dimentions](#nth-dimentions)
+* [Spread Operator](#spread-operator)
+* [Interaction](#interaction-for-forof-forin-forkey-value-of-entries)
+
 ## Syntax
 ---
 

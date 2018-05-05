@@ -207,13 +207,19 @@ console.log(new String() instanceof String) //=> true
 ```js
 // less than operator
 console.log(1 < 10)                         //=> true
+```
 
+```js
 // less than or equal operator 
 console.log(1 <= 10)                        //=> true
+```
 
+```js
 // greater than operator
 console.log(10 > 1)                         //=> true
+```
 
+```js
 // greater than or equal operator 
 console.log(10 >= 1)                        //=> true
 ```
@@ -350,6 +356,8 @@ let variable = 1
 let temp = variable || 10
 console.log(temp) //=> 1
 ```
+
+> [Other examples](logical-operators.md)
 
 ## [Conditional operator (ternary)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 ---
@@ -604,7 +612,7 @@ let x, y
   </tbody>
 </table>
 
-### [MDN Groups]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators))
+### [Operators List]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators))
 
 | Operator type | Operators |
 |-|-|

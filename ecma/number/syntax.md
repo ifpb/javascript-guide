@@ -1,12 +1,8 @@
 # Number
 
-## Reference
----
-
-* [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [Numeric Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Numeric_literals)
-* [Integers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Integers)
-* [Floating](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Floating-point_literals)
+* [Literal 15](#literal-15)
+* [Pattern](#pattern)
+* [IEEE 754](#ieee-754)
 
 ## Literal 15
 ---
@@ -50,3 +46,11 @@ console.log(-3.1e+12) //=> -3100000000000
 ```js
 console.log(1.4 - 1.2) //=> 0.19999999999999996
 ```
+
+## Reference
+---
+
+* [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [Numeric Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Numeric_literals)
+* [Integers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Integers)
+* [Floating](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Floating-point_literals)

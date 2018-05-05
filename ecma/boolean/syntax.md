@@ -1,9 +1,4 @@
-# Boolean
-
-## Reference
----
-
-* [Boolean Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Boolean_literals)
+# [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Boolean_literals)
 
 ## Literal (true|false)
 ---

@@ -1,9 +1,4 @@
-# Boolean Object
-
-## Reference
----
-
-* [Boolean Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+# [Boolean Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ## Syntax
 ---

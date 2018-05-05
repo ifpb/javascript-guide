@@ -1,14 +1,14 @@
-# Number Object
+# [Number Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
-## Reference
----
+* [Creating Number](#creating-number)
+* [Number Object](#number-object)
+  * Number 
+    * Properties: [`MIN_SAFE_INTEGER`](#numberminsafeinteger), [`MAX_SAFE_INTEGER`](#numbermaxsafeinteger), [`MIN_VALUE`](#numberminvalue), [`MAX_VALUE`](#numbermaxvalue), [`POSITIVE_INFINITY`](#numberpositiveinfinity), [`NEGATIVE_INFINITY`](#numbernegativeinfinity), [`NaN`](#numbernan)
+    * Methods: [`isInteger()`](#numberisinteger), [`isSafeInteger()`](#numberissafeinteger), [`isFinite()`](#numberisfinite), [`isNaN()`](#numberisnan), [`parseInt()`](#numberparseint), [`parseFloat()`](#numberparsefloat)
+  * Number Instance
+    * Methods: [`toString()`](#numberprototypetostring), [`toExponential()`](#numberprototypetoexponential)
 
-* [Literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Literals)
-* [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [Integer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Integers)
-* [Float](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Floating-point_literals)
-
-## Number Syntax
+## Creating Number
 ---
 
 ```js
@@ -32,7 +32,7 @@ console.log(number)          //=> [Number: 15]
 console.log(typeof number)   //=> object
 ```
 
-## NUMBER
+## Number Object
 ---
 
 ### NUMBER PROPERTIES
@@ -86,13 +86,13 @@ console.log(0/0) //=> NaN
 
 ### NUMBER METHODS
 
-#### Number.isInteger
+#### Number.isInteger()
 
 ```js
 console.log(Number.isInteger(15)) //=> true
 ```
 
-#### Number.isSafeInteger
+#### Number.isSafeInteger()
 
 > -(2^53 - 1) and 2^53 - 1
 
@@ -100,13 +100,13 @@ console.log(Number.isInteger(15)) //=> true
 console.log(Number.isSafeInteger(15)) //=> true
 ```
 
-#### Number.isFinite
+#### Number.isFinite()
 
 ```js
 console.log(Number.isFinite(Infinity)) //=> false
 ```
 
-#### Number.isNaN
+#### Number.isNaN()
 
 ```js
 console.log(NaN == (0/0)) //=> false
@@ -118,7 +118,7 @@ console.log(Number.isNaN(parseInt('a1'))) //=> true
 console.log(Number.isNaN(parseInt(true))) //=> true
 ```
 
-#### Number.parseInt / parseInt
+#### Number.parseInt() / parseInt()
 
 ```js
 console.log(parseInt(1))         //=> 1
@@ -139,7 +139,7 @@ console.log(parseInt("F"))       //=> NaN
 console.log(parseInt("F", 16))   //=> 15
 ```
 
-#### Number.parseFloat / parseFloat
+#### Number.parseFloat() / parseFloat()
 
 ```js
 console.log(parseFloat(1.1))    //=> 1.1
@@ -186,3 +186,11 @@ console.log(Number(2.22222222).toPrecision(3))
 console.log(Number(2222.22222).toPrecision(1))
 console.log(Number(2222.22222).toPrecision(5))
 ```
+
+## Reference
+---
+
+* [Literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Literals)
+* [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [Integer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Integers)
+* [Float](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Floating-point_literals)

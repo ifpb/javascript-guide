@@ -1,11 +1,5 @@
 # Typed Array
 
-## Reference
----
-
-* [Typed Array Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [Array Literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Array_literals)
-
 ## Syntax
 ---
 
@@ -25,3 +19,9 @@ let arr = new Int8Array([21,31])
 
 console.log(arr[1])                 // 31
 ```
+
+## Reference
+---
+
+* [Typed Array Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [Array Literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Array_literals)
