@@ -22,7 +22,7 @@
       * [Date](date/object.md)
     * Text processing
       * [String](string/object.md)
-      * RegExp <!-- ([syntax](regexp/syntax.md), [object](regexp/object.md), [pattern](regexp/pattern.md)) -->
+      * RegExp ([syntax](regexp/syntax.md), [object](regexp/object.md), [pattern](regexp/pattern.md))
     * Indexed collections
       * Array ([syntax](array/syntax.md), [object](array/object.md), [funny-interection](array/funny-interection.md))
       * [Typed Array](array/typed.md)
