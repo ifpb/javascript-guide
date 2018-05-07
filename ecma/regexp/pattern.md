@@ -24,7 +24,7 @@
 ![](assets/byte.png)
 
 ```js
-let pattern = /[01]{8}/
+const pattern = /[01]{8}/
 console.log(pattern.test('01010101'))      //=> true
 console.log(pattern.test('11110000'))      //=> true
 console.log(pattern.test('11110002'))      //=> false
@@ -38,7 +38,7 @@ console.log(pattern.test('11110002'))      //=> false
 ![](assets/cep.png)
 
 ```js
-let pattern = /^(\d{8}|\d{2}\.?\d{3}-\d{3})$/
+const pattern = /^(\d{8}|\d{2}\.?\d{3}-\d{3})$/
 console.log(pattern.test('01001000'))       //=> true
 console.log(pattern.test('01001-000'))      //=> true
 console.log(pattern.test('01.001-000'))     //=> true
@@ -55,7 +55,7 @@ console.log(pattern.test('01.001000'))      //=> false
 ![](assets/hexa.png)
 
 ```js
-let pattern = /^0[xX][\dA-Fa-f]+$/
+const pattern = /^0[xX][\dA-Fa-f]+$/
 console.log(pattern.test('0x1f'))            //=> true
 console.log(pattern.test('0x1F'))            //=> true
 console.log(pattern.test('0X1f'))            //=> true
@@ -71,7 +71,7 @@ console.log(pattern.test('01FFFF'))          //=> false
 ![](assets/ip.png)
 
 ```js
-let pattern = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
+const pattern = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
 console.log(pattern.test('255.255.255.255')) //=> true
 console.log(pattern.test('192.168.0.1'))     //=> true
 console.log(pattern.test('10.0.24.1'))       //=> true
@@ -83,7 +83,7 @@ console.log(pattern.test('300.8.8.8'))       //=> true?
 ![](assets/ip-group.png)
 
 ```js
-let pattern = /^(\d{1,3}\.){3}\d{1,3}$/
+const pattern = /^(\d{1,3}\.){3}\d{1,3}$/
 console.log(pattern.test('255.255.255.255')) //=> true
 console.log(pattern.test('192.168.0.1'))     //=> true
 console.log(pattern.test('10.0.24.1'))       //=> true
@@ -98,7 +98,7 @@ console.log(pattern.test('8.8.8.8'))         //=> true
 ![](assets/cpf.png)
 
 ```js
-let pattern = /^(\d{11}|\d{3}\.\d{3}\.\d{3}-\d{2})$/
+const pattern = /^(\d{11}|\d{3}\.\d{3}\.\d{3}-\d{2})$/
 console.log(pattern.test('11122233344'))     //=> true
 console.log(pattern.test('111.222.333-44'))  //=> true
 console.log(pattern.test('1112223334'))      //=> false
@@ -111,7 +111,7 @@ console.log(pattern.test('11122233344X'))    //=> false
 ![](assets/cpf-group.png)
 
 ```js
-let pattern = /^(\d{11}|\d{3}(\.\d{3}){2}-\d{2})$/
+const pattern = /^(\d{11}|\d{3}(\.\d{3}){2}-\d{2})$/
 console.log(pattern.test('11122233344'))     //=> true
 console.log(pattern.test('111.222.333-44'))  //=> true
 console.log(pattern.test('1112223334'))      //=> false
@@ -127,7 +127,7 @@ console.log(pattern.test('11122233344X'))    //=> false
 ![](assets/hour.png)
 
 ```js
-let pattern = /^([0-1]\d|2[0-3])(:[0-5]\d){1,2}$/
+const pattern = /^([0-1]\d|2[0-3])(:[0-5]\d){1,2}$/
 console.log(pattern.test('12:12'))           //=> true
 console.log(pattern.test('23:12'))           //=> true
 console.log(pattern.test('23:62'))           //=> false
@@ -138,12 +138,12 @@ console.log(pattern.test('32:12:12'))        //=> false
 ## Date (locale pt-BR)
 ---
 
-### `/^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}|(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-\d{4})$/`
+### /^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}|(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-\d{4})$/
 
 ![](assets/date-pt-br.png)
 
 ```js
-let pattern = /^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}|(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-\d{4})$/
+const pattern = /^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}|(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-\d{4})$/
 console.log(pattern.test('31/01/1970'))        //=> true
 console.log(pattern.test('01/31/1970'))        //=> false
 console.log(pattern.test('31-01-1970'))        //=> true
@@ -162,7 +162,7 @@ References:
 ![](assets/week-name.png)
 
 ```js
-let pattern = /^((segunda|terça|quarta|quinta|sexta)(-feira)?|(sábado|domingo))?$/
+const pattern = /^((segunda|terça|quarta|quinta|sexta)(-feira)?|(sábado|domingo))?$/
 console.log(pattern.test("segunda-feira"))     //=> true
 console.log(pattern.test("segunda"))           //=> true
 console.log(pattern.test("domingo"))           //=> true
@@ -172,10 +172,12 @@ console.log(pattern.test("janeiro"))           //=> false
 ## Number (locale pt-BR)
 ---
 
+### /^(\d+|\d{1,3}(\.\d{3})*)(,\d{1,2})?$/
+
 ![](assets/number.png)
 
 ```js
-let pattern = /^(\d+|\d{1,3}(\.\d{3})*)(,\d{1,2})?$/
+const pattern = /^(\d+|\d{1,3}(\.\d{3})*)(,\d{1,2})?$/
 // console.log(pattern.test("000"))            //=> true???
 console.log(pattern.test("0"))                 //=> true
 console.log(pattern.test("a10,000"))           //=> false
@@ -193,8 +195,12 @@ console.log(pattern.test("1.100"))             //=> true
 ## Currency (locale pt-BR)
 ---
 
+### /^R\$\s?(\d+|\d{1,3}(\.\d{3})*)(,\d{1,2})?$/
+
+![](assets/currency.png)
+
 ```js
-let pattern = //
+const pattern = /^R\$\s?(\d+|\d{1,3}(\.\d{3})*)(,\d{1,2})?$/
 console.log(pattern.test('R$ 1.000.000,10'))   //=> true
 console.log(pattern.test('R$10,10'))           //=> true
 ```
@@ -202,17 +208,20 @@ console.log(pattern.test('R$10,10'))           //=> true
 ## Phone (locale pt-BR)
 ---
 
+![](assets/phone.png)
+
+### /^([\+0]\d{2}\s?)?(\(\d{2,3}\)\s?|\d{2,3}\s?)?(\d[\s\.]?)?\d{4}[\s-]?\d{4}$/
+
 ```js
-let pattern = //
+const pattern = /^([\+0]\d{2}\s?)?(\(\d{2,3}\)\s?|\d{2,3}\s?)?(\d[\s\.]?)?\d{4}[\s-]?\d{4}$/
 console.log(pattern.test('12341234'))          //=> true
 console.log(pattern.test('1234 1234'))         //=> true
 console.log(pattern.test('(83) 1234 1234'))    //=> true
 console.log(pattern.test('(83) 1234-1234'))    //=> true
 console.log(pattern.test('(83)1234-1234'))     //=> true
-console.log(pattern.test('(83)9 1234-1234'))   //=> true
-console.log(pattern.test('(83) 9 1234-1234'))  //=> true
 console.log(pattern.test('(83)9.1234-1234'))   //=> true
 console.log(pattern.test('(83) 9.1234-1234'))  //=> true
+console.log(pattern.test('(83) 9 1234-1234'))  //=> true
 console.log(pattern.test('(83)91234-1234'))    //=> true
 console.log(pattern.test('055 83 91234-1234')) //=> true
 console.log(pattern.test('05583912341234'))    //=> true
@@ -224,8 +233,12 @@ console.log(pattern.test('+5583912341234'))    //=> true
 ## Username
 ---
 
+### /^[\w\.]+$/
+
+![](assets/username.png)
+
 ```js
-let pattern = //
+const pattern = /^[\w\.]+$/
 console.log(pattern.test('fulano'))            //=> true
 console.log(pattern.test('fulano.sicrano'))    //=> true
 console.log(pattern.test('fulano.007'))        //=> true
@@ -237,17 +250,28 @@ console.log(pattern.test('fulano.00(+'))       //=> false
 ## URL
 ---
 
+### /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}\/?$/
+
+![](assets/url.png)
+
 ```js
-let pattern = //
+const pattern = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}\/?$/
 console.log(pattern.test('www.ifpb.edu.br'))         //=> true
 console.log(pattern.test('http://www.ifpb.edu.br/')) //=> true
 ```
 
+Reference:
+* [In search of the perfect URL validation regex](https://mathiasbynens.be/demo/url-regex)
+
 ## Email
 ---
 
+### /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}$/
+
+![](assets/email.png)
+
 ```js
-let pattern = //
+const pattern = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}$/
 console.log(pattern.test('fulano@gmail.com'))         //=> true
 console.log(pattern.test('fulano.sicrano@gmail.com')) //=> true
 ```
@@ -255,81 +279,125 @@ console.log(pattern.test('fulano.sicrano@gmail.com')) //=> true
 ## Password
 ---
 
+### /^[a-z0-9_-]{8,10}$/
+
+> Minimum 8 anda maximum 10 characters with Lowercase Alphabet, Underscore Character and Hyphen Character
+
+![](assets/password-la-uc-hc.png)
+
 ```js
-let pattern = /^[a-z0-9_-]{8,10}$/
+const pattern = /^[a-z0-9_-]{8,10}$/
 console.log(pattern.test('abc0_-'))                     //=> false
 console.log(pattern.test('abcABC0_-'))                  //=> false
-console.log(pattern.test('abcabc0_-'))                  //=> true
 console.log(pattern.test('abcabc012_-'))                //=> false
+console.log(pattern.test('abcabc0_-'))                  //=> true
 ```
 
-```js
-let pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-console.log(pattern.test('abAB09?!'))                    //=> true
-console.log(pattern.test('abABab?!'))                    //=> false
-console.log(pattern.test('abAB09ab'))                    //=> false
-console.log(pattern.test('abab09?!'))                    //=> false
-console.log(pattern.test('ABAB09?!'))                    //=> false
-```
+### /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+
+> Minimum 8 characters at least 1 Alphabet and 1 Number
+
+![](assets/password-a-n.png)
 
 ```js
-// Minimum 8 characters at least 1 Alphabet and 1 Number
-let pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 console.log(pattern.test('abAB09?!'))                    //=> false
 console.log(pattern.test('abABab?!'))                    //=> false
-console.log(pattern.test('abAB09ab'))                    //=> true
 console.log(pattern.test('abab09?!'))                    //=> false
 console.log(pattern.test('ABAB09?!'))                    //=> false
+console.log(pattern.test('abAB09ab'))                    //=> true
 ```
 
+### /^(?=.*[A-Za-z])(?=.*\d{2})[A-Za-z\d]{8,}$/
+
+> Minimum 8 characters at least 1 Alphabet and 2 Number
+
+![](assets/password-a-2n.png)
+
 ```js
-// Minimum 8 characters at least 1 Alphabet and 2 Number
-let pattern = /^(?=.*[A-Za-z])(?=.*\d{2})[A-Za-z\d]{8,}$/
-console.log(pattern.test('abAB0910'))                    //=> true
+const pattern = /^(?=.*[A-Za-z])(?=.*\d{2})[A-Za-z\d]{8,}$/
 console.log(pattern.test('abABabz9'))                    //=> false
-console.log(pattern.test('abAB09ab'))                    //=> true
 console.log(pattern.test('abab09?!'))                    //=> false
 console.log(pattern.test('ABAB09?!'))                    //=> false
+console.log(pattern.test('abAB09ab'))                    //=> true
+console.log(pattern.test('abAB0910'))                    //=> true
 ```
 
+### /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/
+
+> Minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character
+
+![](assets/password-a-n-sc.png)
+
 ```js
-// Minimum 8 characters at least 1 Alphabet, 1 Number and 1 Special Character:
-let pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/
-console.log(pattern.test('abAB09?!'))                    //=> true
+const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/
 console.log(pattern.test('abABab?!'))                    //=> false
 console.log(pattern.test('abAB09ab'))                    //=> false
+console.log(pattern.test('abAB09?!'))                    //=> true
 console.log(pattern.test('abab09?!'))                    //=> true
 console.log(pattern.test('ABAB09?!'))                    //=> true
 ```
 
-```js
-// Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number:
-let pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
-console.log(pattern.test('abAB09?!'))                    //=> false
-console.log(pattern.test('abABab?!'))                    //=> false
-console.log(pattern.test('abAB09ab'))                    //=> true
-console.log(pattern.test('abab09?!'))                    //=> false
-console.log(pattern.test('ABAB09?!'))                    //=> false
-```
+### /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
+
+> Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet and 1 Number
+
+![](assets/password-ua-la-n.png)
 
 ```js
-// Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character:
-let pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/
-console.log(pattern.test('abAB09?!'))                    //=> true
+const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
+console.log(pattern.test('abAB09?!'))                    //=> false
+console.log(pattern.test('abABab?!'))                    //=> false
+console.log(pattern.test('abab09?!'))                    //=> false
+console.log(pattern.test('ABAB09?!'))                    //=> false
+console.log(pattern.test('abAB09ab'))                    //=> true
+```
+
+### /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/
+
+> Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character
+
+![](assets/password-ua-la-n-sc.png)
+
+```js
+const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/
 console.log(pattern.test('abABab?!'))                    //=> false
 console.log(pattern.test('abAB09ab'))                    //=> false
 console.log(pattern.test('abab09?!'))                    //=> false
 console.log(pattern.test('ABAB09?!'))                    //=> false
+console.log(pattern.test('abAB09?!'))                    //=> true
 ```
 
+<!--
+### /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+
+> Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character
+
+![](assets/password-required-1ua-1la-1n-1sc-non-greedy.png)
+
 ```js
-// Minimum 8 and Maximum 10 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character:
-let pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}/
-console.log(pattern.test('abAB09?!'))                    //=> true
+const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
 console.log(pattern.test('abABab?!'))                    //=> false
-console.log(pattern.test('abAB09ab'))                    //=> true
+console.log(pattern.test('abAB09ab'))                    //=> false
 console.log(pattern.test('abab09?!'))                    //=> false
 console.log(pattern.test('ABAB09?!'))                    //=> false
+console.log(pattern.test('abAB09?!'))                    //=> true
+```
+-->
+
+### /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}/
+
+> Minimum 8 and Maximum 10 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character
+
+![](assets/password-ua-la-n-sc-8-10.png)
+
+```js
+const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}/
+console.log(pattern.test('abABab?!'))                    //=> false
+console.log(pattern.test('abab09?!'))                    //=> false
+console.log(pattern.test('ABAB09?!'))                    //=> false
+console.log(pattern.test('abAB09?!'))                    //=> true
+console.log(pattern.test('abAB09ab'))                    //=> true
 ```
 
 References:
