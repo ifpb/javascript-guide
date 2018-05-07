@@ -2,7 +2,6 @@
 
 * [Regexp](#Regexp): [`lastIndex`](#RegExp.lastIndex), [`flags`](#RegExp.prototype.flags), [`flags`](#RegExp.prototype.flags), [`test()`](#RegExp.prototype.test()), [`exec()`](#RegExp.prototype.exec())
 * [String](#String): [`match()`](#String.prototype.match()), [`replace()`](#String.prototype.replace()), [`search()`](#String.prototype.search()), [`split()`](#String.prototype.split())
-
 * [HTML](#HTML): [input pattern](#html-input-pattern)
 
 ## Regexp

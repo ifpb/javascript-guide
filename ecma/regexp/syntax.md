@@ -20,6 +20,7 @@
 | u | unicode |
 | y | sticky |
 
+
 ```js
 let phrase = "\nIs th\nis h\nis?"
 let pattern = /is/
@@ -120,7 +121,7 @@ References:
 ## CHARACTER CLASSES / METACHARACTERS
 ---
 
-### dot .
+### Dot .
 
 > matches any single character except line terminators: \n, \r, \u2028 or \u2029.
 
@@ -130,7 +131,9 @@ let pattern = /l.t/g
 console.log(message.match(pattern)) //=> [ 'let', 'lot' ]
 ```
 
-### \d digit [0-9]
+### Digit \d 
+
+> [0-9]
 
 ```js
 let message = "ifpb1 ifpb2 ifpb@"
@@ -138,7 +141,9 @@ let pattern = /ifpb\d/g
 console.log(message.match(pattern)) //=>  [ 'ifpb1', 'ifpb2' ]
 ```
 
-### \D digit [^0-9]
+### Not digit \D
+
+> [^0-9]
 
 ```js
 let message = "ifpb1 ifpb2 ifpb@"
@@ -146,7 +151,9 @@ let pattern = /ifpb\D/g
 console.log(message.match(pattern)) //=> [ 'ifpb@' ]
 ```
 
-### \w  word [A-Za-z0-9_]
+### Word \w
+
+> [A-Za-z0-9_]
 
 ```js
 let message = "w@ a@ ?@"
@@ -154,14 +161,17 @@ let pattern = /\w@/g
 console.log(message.match(pattern)) //=> [ 'w@', 'a@' ]
 ```
 
-### \W  not word [^A-Za-z0-9_]
+### Not word \W
+
+> [^A-Za-z0-9_]
+
 ```js
 let message = "w@ a@ ?@"
 let pattern = /\W@/g
 console.log(message.match(pattern)) //=> [ '?@' ]
 ```
 
-### \s whitespace
+### Whitespace \s
 
 > [single white space character, including space, tab, form feed, line feed and other Unicode spaces](http://www.fileformat.info/info/unicode/category/Zs/list.htm)<br>
 > [ \f\n\r\t\v\u00a0\u1680\u180e\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]
@@ -172,14 +182,14 @@ let pattern = /a\sa/g
 console.log(message.match(pattern)) //=> [ 'a a' ]
 ```
 
-### \S not whitespace
+### Not whitespace \S
 
 ```js
 let message = "a a aba"
 let pattern = /a\Sa/g
 console.log(message.match(pattern)) //=> [ 'aba' ]
 ```
-### \
+### Escape \
 
 ```js
 let message = "a.a aba"
@@ -412,10 +422,13 @@ console.log(message.match(pattern))
 ## QUANTIFIER
 ---
 
-### 
+### x*
 
-### NON-GREEDY
-
+```js
+let pattern = /<.*>/g
+let message = '<foo> <bar> <>'
+console.log(message.match(pattern)) //=> [ '<foo> <bar> <>' ]
+```
 
 ### x*?
 

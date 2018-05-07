@@ -6,11 +6,11 @@
 * [IP](#ip)
 * [CPF](#cpf)
 * [Hour](#hour)
-* [Date pt-BR](#date-pt-br)
-* [Week Name](#week-name)
-* [Number](#number)
-* [Currency](#currency)
-* [Phone](#phone)
+* [Date (locale pt-BR)](#date-locale-pt-br)
+* [Week Name (locale pt-BR)](#week-name-locale-pt-br)
+* [Number (locale pt-BR)](#number-locale-pt-br)
+* [Currency (locale pt-BR)](#currency-locale-pt-br)
+* [Phone (locale pt-BR)](#phone-locale-pt-br)
 * [User](#user)
 * [URL](#url)
 * [Email](#email)
@@ -18,6 +18,8 @@
 
 ## Byte
 ---
+
+### /[01]{8}/
 
 ![](assets/byte.png)
 
@@ -30,6 +32,8 @@ console.log(pattern.test('11110002'))      //=> false
 
 ## CEP
 ---
+
+### /^(\d{8}|\d{2}\.?\d{3}-\d{3})$/
 
 ![](assets/cep.png)
 
@@ -46,6 +50,8 @@ console.log(pattern.test('01.001000'))      //=> false
 ## Hexa Number
 ---
 
+### /^0[xX][\dA-Fa-f]+$/
+
 ![](assets/hexa.png)
 
 ```js
@@ -60,6 +66,8 @@ console.log(pattern.test('01FFFF'))          //=> false
 ## IP
 ---
 
+### /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
+
 ![](assets/ip.png)
 
 ```js
@@ -71,6 +79,7 @@ console.log(pattern.test('8.8.8.8'))         //=> true
 console.log(pattern.test('300.8.8.8'))       //=> true?
 ```
 
+### /^(\d{1,3}\.){3}\d{1,3}$/
 ![](assets/ip-group.png)
 
 ```js
@@ -84,6 +93,8 @@ console.log(pattern.test('8.8.8.8'))         //=> true
 ## CPF
 ---
 
+### /^(\d{11}|\d{3}\.\d{3}\.\d{3}-\d{2})$/
+
 ![](assets/cpf.png)
 
 ```js
@@ -94,6 +105,8 @@ console.log(pattern.test('1112223334'))      //=> false
 console.log(pattern.test('111222333440'))    //=> false
 console.log(pattern.test('11122233344X'))    //=> false
 ```
+
+### /^(\d{11}|\d{3}(\.\d{3}){2}-\d{2})$/
 
 ![](assets/cpf-group.png)
 
@@ -109,6 +122,8 @@ console.log(pattern.test('11122233344X'))    //=> false
 ## Hour
 ---
 
+### /^([0-1]\d|2[0-3])(:[0-5]\d){1,2}$/
+
 ![](assets/hour.png)
 
 ```js
@@ -120,8 +135,10 @@ console.log(pattern.test('12:12:12'))        //=> true
 console.log(pattern.test('32:12:12'))        //=> false
 ```
 
-## Date pt-BR
+## Date (locale pt-BR)
 ---
+
+### /^((0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}|(0[1-9]|[12]\d|3[01])-(0[1-9]|1[0-2])-\d{4})$/
 
 ![](assets/date-pt-br.png)
 
@@ -137,18 +154,22 @@ References:
 * [Railroad Diagram](https://regexper.com/#%2F%5E((0%5B1-9%5D%7C%5B12%5D%5Cd%7C3%5B01%5D)%5C%2F(0%5B1-9%5D%7C1%5B0-2%5D)%5C%2F%5Cd%7B4%7D%7C(0%5B1-9%5D%7C%5B12%5D%5Cd%7C3%5B01%5D)-(0%5B1-9%5D%7C1%5B0-2%5D)-%5Cd%7B4%7D)%24%2F)
 * [Date Root Level](http://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy)
 
-## Week Name pt-BR
+## Week Name (locale pt-BR)
 ---
 
+### /^((segunda|terça|quarta|quinta|sexta)(-feira)?|(sábado|domingo))?$/
+
+![](assets/week-name.png)
+
 ```js
-let pattern = //
+let pattern = /^((segunda|terça|quarta|quinta|sexta)(-feira)?|(sábado|domingo))?$/
 console.log(pattern.test("segunda-feira"))     //=> true
 console.log(pattern.test("segunda"))           //=> true
 console.log(pattern.test("domingo"))           //=> true
 console.log(pattern.test("janeiro"))           //=> false
 ```
 
-## Number
+## Number (locale pt-BR)
 ---
 
 ![](assets/number.png)
@@ -169,7 +190,7 @@ console.log(pattern.test("1.000.000,10"))      //=> true
 console.log(pattern.test("1.100"))             //=> true
 ```
 
-## Currency
+## Currency (locale pt-BR)
 ---
 
 ```js
@@ -178,7 +199,7 @@ console.log(pattern.test('R$ 1.000.000,10'))   //=> true
 console.log(pattern.test('R$10,10'))           //=> true
 ```
 
-## Phone
+## Phone (locale pt-BR)
 ---
 
 ```js
