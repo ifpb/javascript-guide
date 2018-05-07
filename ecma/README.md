@@ -1,5 +1,8 @@
 # EcmaScript
 
+## Content
+---
+
 * [Variable](variable/)
 * [Expression and Operator](expression-and-operator/)
 * [Statements and Declarations](statements-and-declarations/)
@@ -39,7 +42,8 @@
 * [Generator](#)
 * [Handling Error](handling-error/)
 
-## References JS
+## References
+---
 
 * Portal: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [WP](https://docs.webplatform.org/wiki/javascript)
 * Guide: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide), [WP](https://docs.webplatform.org/wiki/javascript)
@@ -50,8 +54,9 @@
 
 <!-- 
   TODO
-  Tipos
-  Precedence Table, Reserved Token, Comment 
+  Types
+  Coersion
+  Reserved Token, Comment 
   https://resources.jointjs.com/demos/javascript-ast
   https://astexplorer.net
   http://esprima.org/demo/parse.html
