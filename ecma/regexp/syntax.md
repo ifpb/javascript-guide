@@ -28,6 +28,7 @@ console.log(phrase.match(pattern)) //=> [ 'is', index: 7, input: '\nIs th\nis h\
 ```
 
 ### Global match
+
 ```js
 let phrase = "\nIs th\nis h\nis?"
 let pattern = /is/g
@@ -35,6 +36,7 @@ console.log(phrase.match(pattern)) //=> [ 'is', 'is' ]
 ```
 
 ### Ignore case
+
 ```js
 let phrase = "\nIs th\nis h\nis?"
 let pattern = /is/gi
@@ -58,7 +60,7 @@ console.log(phrase.match(pattern)) //=> [ 'Is', 'is', 'is' ]
 ### Unicode
 ```js
 let phrase = "\nIs th\nis h\nis?"
-let pattern = /^\u{69}s/gim // '\u{69}' == 'i'
+let pattern = /^\u{69}s/gim        // '\u{69}' == 'i'
 console.log(phrase.match(pattern)) //=> null
 ```
 
