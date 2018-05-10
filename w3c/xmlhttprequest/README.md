@@ -89,8 +89,9 @@ cep:58015-430|logradouro:Avenida Primeiro de Maio|complemento:até 469/470|bairr
 {% include_relative get-viacep-piped/js/main.js %}
 ```
 
-> No Access-Control-Allow-Origin:<br>
+[Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS):
 > <b>Safari</b>: Origin http://127.0.0.1:5500 is not allowed by Access-Control-Allow-Origin.<br>
+><br>
 > <b>Chrome</b>: Failed to load https://viacep.com.br/ws/58015430/piped/: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://127.0.0.1:5500' is therefore not allowed access.
 
 ## Request HTTP (GET JSON)
@@ -168,7 +169,7 @@ showContent({
 ```
 
 [get-viacep-jsonp/index.html](relative get-viacep-jsonp/index.html)
-```js
+```html
 {% include_relative get-viacep-jsonp/index.html %}
 ```
 
