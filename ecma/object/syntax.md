@@ -355,7 +355,7 @@ console.log(result)
 ## Object Interaction
 ---
 
-`for...in`:
+### for...in
 ```js
 const posts = {
   title: 'lorem ipsum dolor',
@@ -375,7 +375,7 @@ for(let field of posts){ // TypeError: posts[Symbol.iterator] is not a function
 }
 ```
 
-`Object.keys()`:
+### for..of (Object.keys())
 ```js
 const posts = {
   title: 'lorem ipsum dolor',
@@ -390,7 +390,7 @@ for(let field of Object.keys(posts)){
 // 'Nunc accumsan in ipsum a mattis...'
 ```
 
-`for..of`, `Object.entries()`:
+### for..of (Object.entries())
 ```js
 const posts = {
   title: 'lorem ipsum dolor',
@@ -405,7 +405,7 @@ for(let field of Object.entries(posts)){
 // 'Nunc accumsan in ipsum a mattis...'
 ```
 
-`for..of`, `Object.entries()`
+### for..of (Object.entries())
 ```js
 const people = [
   {
