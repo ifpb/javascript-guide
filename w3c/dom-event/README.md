@@ -1,5 +1,7 @@
 # Event
 
+* [Event](event.md)
+* [KeyboardEvent](keyboardevent.md)
 * [EventTarget](event-target.md)
 * [GlobalEventHandlers](global-event-handlers.md)
 

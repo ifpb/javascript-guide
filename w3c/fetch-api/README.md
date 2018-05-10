@@ -122,6 +122,7 @@ $ curl --request POST \
 ```
 
 ## References
+---
 
 * [Fetch API \| MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 * [Using Fetch \| MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)

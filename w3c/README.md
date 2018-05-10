@@ -17,8 +17,8 @@
   * [Event](dom-event/)
 * [Javascript Web APIs]()
   * [FormData](form-data/)
-  * [Fetch API]()
-  * [XMLHttpRequest]()
+  * [Fetch API](fetch-api/)
+  * [XMLHttpRequest](xmlhttprequest/)
   * [Geolocation]()
   * [WebSocket]()
   * [Indexed Database API]()
@@ -26,6 +26,7 @@
   * [Web Notification]()
   * [Service Worker API]()
   * [Web Components]()
+  * [Progressive Web Application (PWA)]()
 
 ## References
 ---
