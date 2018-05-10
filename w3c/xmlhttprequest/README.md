@@ -147,7 +147,7 @@ showContent({
 });%
 ```
 
-[get-viacep-jsonp/](include_relative get-viacep-jsonp/)
+[get-viacep-jsonp/](relative get-viacep-jsonp/)
 ```js
 {% include_relative get-viacep-jsonp/js/main.js %}
 ```
@@ -161,7 +161,7 @@ showContent({
 ## Handling Request HTTP
 ---
 
-[handling-request/](include_relative handling-request/):
+[handling-request/](relative handling-request/):
 ```js
 {% include_relative handling-request/js/main.js %}
 ```
