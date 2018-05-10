@@ -3,7 +3,7 @@ const xhr = new XMLHttpRequest();
 function makeRequest(method, url) {
 
   if (!xhr) {
-    console.log('Giving up :( Cannot create an XMLHTTP instance');
+    console.log('Cannot create an XMLHTTP instance');
     return false;
   }
   xhr.onreadystatechange = showContents;

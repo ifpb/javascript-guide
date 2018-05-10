@@ -1,6 +1,26 @@
 # [XMLHttpRequest (XHR)](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
 
-Failed to load https://viacep.com.br/ws/58015430/piped/: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://127.0.0.1:5500' is therefore not allowed access.
+* [Asynchronous JavaScript and XML (AJAX)](#asynchronous-javaScript-and-xml-ajax)
+* [Request HTTP (GET XML)](#request-http-get-xml)
+* [Request HTTP (GET PIPED)](#request-http-get-piped)
+* [Request HTTP (GET JSON)](#request-http-get-json)
+* [Request HTTP (GET JSONP)](#request-http-get-jsonp)
+* [Request HTTP (POST JSON, Token)](#request-http-post-json-token)
+* [Handling Request HTTP](#handling-request-http)
+
+## Asynchronous JavaScript and XML (AJAX)
+---
+
+![](https://upload.wikimedia.org/wikipedia/commons/0/0b/Ajax-vergleich-en.svg)<br>
+Reference: [Wikipedia](https://en.wikipedia.org/wiki/Ajax_(programming))
+
+Classic web application model (synchronous)<br>
+![](http://www.httpdebugger.com/upload/images/classic_model.jpg)<br>
+Reference: [HTTP Debug](http://www.httpdebugger.com/articles/introduction_of_ajax.html)
+
+Ajax web application model (asynchronous)<br>
+![](http://www.httpdebugger.com/upload/images/async_model.jpg)<br>
+Reference: [HTTP Debug](http://www.httpdebugger.com/articles/introduction_of_ajax.html)
 
 ## Request HTTP (GET XML)
 ---
@@ -14,7 +34,7 @@ Date: Thu, 10 May 2018 19:36:06 GMT
 Content-Type: application/xhtml+xml
 Transfer-Encoding: chunked
 Connection: keep-alive
-<b>Access-Control-Allow-Origin: *</b>
+Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: GET, OPTIONS
 Access-Control-Allow-Headers: Content-Type, X-Request-With, X-Requested-By
 Access-Control-Allow-Credentials: true
@@ -69,9 +89,9 @@ cep:58015-430|logradouro:Avenida Primeiro de Maio|complemento:até 469/470|bairr
 {% include_relative get-viacep-piped/js/main.js %}
 ```
 
-> No Access-Control-Allow-Origin:
-> <b>Safari<b>: Origin http://127.0.0.1:5500 is not allowed by Access-Control-Allow-Origin.<br>
-> <b>Chrome<b>: Failed to load https://viacep.com.br/ws/58015430/piped/: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://127.0.0.1:5500' is therefore not allowed access.
+> No Access-Control-Allow-Origin:<br>
+> <b>Safari</b>: Origin http://127.0.0.1:5500 is not allowed by Access-Control-Allow-Origin.<br>
+> <b>Chrome</b>: Failed to load https://viacep.com.br/ws/58015430/piped/: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://127.0.0.1:5500' is therefore not allowed access.
 
 ## Request HTTP (GET JSON)
 ---
@@ -85,7 +105,7 @@ Date: Thu, 10 May 2018 19:27:14 GMT
 Content-Type: application/json; charset=utf-8
 Transfer-Encoding: chunked
 Connection: keep-alive
-<b>Access-Control-Allow-Origin: *</b>
+Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: GET, OPTIONS
 Access-Control-Allow-Headers: Content-Type, X-Request-With, X-Requested-By
 Access-Control-Allow-Credentials: true
@@ -147,16 +167,54 @@ showContent({
 });%
 ```
 
-[get-viacep-jsonp/](relative get-viacep-jsonp/)
+[get-viacep-jsonp/index.html](relative get-viacep-jsonp/index.html)
+```js
+{% include_relative get-viacep-jsonp/index.html %}
+```
+
+[get-viacep-jsonp/js/main.js](relative get-viacep-jsonp/js/main.js)
 ```js
 {% include_relative get-viacep-jsonp/js/main.js %}
 ```
 
-## Request HTTP (POST JSON)
+## Request HTTP (POST JSON, Token)
 ---
 
-## Request HTTP (Token)
----
+[SendGrid API V3](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html): [https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html](https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html):
+```
+$ curl --request POST \
+  --url https://api.sendgrid.com/v3/mail/send \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --data '{"personalizations": [{"to": [{"email": "example@example.com"}]}],"from": {"email": "example@example.com"},"subject": "Hello, World!","content": [{"type": "text/plain", "value": "Heya!"}]}'
+```
+
+```js
+{
+  "personalizations": [
+    {
+      "to": [
+        { "email": "example@example.com" }
+      ]
+    }
+  ],
+  "from": { "email": "example@example.com" },
+  "subject": "Hello, World!",
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Heya!"
+    }
+  ]
+}
+```
+
+> [SendGrid API Keys - Create API Key](https://app.sendgrid.com/settings/api_keys)
+
+[post-sendgrid-json/](relative post-sendgrid-json/):
+```js
+{% include_relative post-sendgrid-json/js/main.js %}
+```
 
 ## Handling Request HTTP
 ---
@@ -169,7 +227,7 @@ showContent({
 ## References
 ---
 
+* [AJAX \| MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
 * [XMLHttpRequest \| MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
 * [Using XMLHttpRequest \| MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
-* [AJAX \| MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
 * [HTML in XMLHttpRequest \| MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/HTML_in_XMLHttpRequest)
