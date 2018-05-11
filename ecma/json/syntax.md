@@ -186,4 +186,9 @@ Reference: [doc](http://jsonplaceholder.typicode.com/)
 ]
 ```
 
-<!-- TODO RestFull, Web of Data] -->
+<!-- 
+TODO RestFull, Web of Data
+https://www.weatherbit.io/api
+https://developer.github.com/v3/
+http://www.omdbapi.com/#usage
+ -->

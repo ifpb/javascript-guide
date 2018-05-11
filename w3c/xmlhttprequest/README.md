@@ -1,6 +1,6 @@
 # [XMLHttpRequest (XHR)](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
 
-* [Asynchronous JavaScript and XML (AJAX)](#asynchronous-javaScript-and-xml-ajax)
+* [Asynchronous JavaScript and XML (AJAX)](#asynchronous-javascript-and-xml-ajax)
 * [Request HTTP (GET XML)](#request-http-get-xml)
 * [Request HTTP (GET PIPED)](#request-http-get-piped)
 * [Request HTTP (GET JSON)](#request-http-get-json)
