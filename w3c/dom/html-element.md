@@ -1,5 +1,6 @@
 # [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
+* [HTMLElement.dataset](#HTMLElement.dataset)
 * [HTMLElement.style](#HTMLElement.style)
 * [HTMLElement.click()](#HTMLElement.click())
 * [HTMLElement.focus()](#HTMLElement.focus())
@@ -28,7 +29,7 @@ References:
 [CSSStyleDeclaration](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration):
 ```js
 const p = document.querySelector('p')
-p.style = "color: blue;"
+p.style.cssText = "color: blue;"
 ```
 
 [CSSStyleDeclaration.cssText](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/cssText):
@@ -47,6 +48,11 @@ p.style.fontSize = "1.1rem"
 ```js
 const p = document.querySelector('p')
 p.setAttribute("style", "color: blue; font-size: 1.1rem;")
+```
+
+```js
+const p = document.querySelector('p')
+p.setAttribute("class", "active red")
 ```
 
 [Element.classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) (Alternative):

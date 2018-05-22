@@ -5,6 +5,7 @@
 * [Element.id](#elementid)
 * [Element.innerHTML](#elementinnerhtml)
 * [Element.hasAttribute()](#elementhasattribute)
+* [Element.setAttribute()](#elementsetattribute)
 * [Element.insertAdjacentHTML()](#elementinsertadjacenthtml)
 * [Element.querySelector()](#elementqueryselector)
 * [Element.querySelectorAll()](#elementqueryselectorall)
@@ -45,6 +46,13 @@ document.body.innerHTML = '<h1>Lorem ipsum</h1>'
 
 ```js
 document.body.hasAttribute('id')
+```
+
+## [Element.setAttribute()](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute)
+---
+
+```js
+document.body.setAttribute('class', 'active red')
 ```
 
 ## [Element.insertAdjacentHTML()](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)

@@ -30,9 +30,7 @@ button.addEventListener('click', function() {
 
 Keyup ([KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent), [Key Values](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values)):
 ```js
-const input = document.querySelector('input')
-
-button.addEventListener('keyup', function(event) {
+document.addEventListener('keyup', function(event) {
   if (event.key == 'Enter') {
     console.log('Enter key')
   }
