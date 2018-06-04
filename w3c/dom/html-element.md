@@ -1,9 +1,9 @@
 # [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
-* [HTMLElement.dataset](#HTMLElement.dataset)
-* [HTMLElement.style](#HTMLElement.style)
-* [HTMLElement.click()](#HTMLElement.click())
-* [HTMLElement.focus()](#HTMLElement.focus())
+* [HTMLElement.dataset](#htmlelementdataset)
+* [HTMLElement.style](#htmlelementstyle)
+* [HTMLElement.click()](#htmlelementclick)
+* [HTMLElement.focus()](#htmlelementfocus)
 
 ## [HTMLElement.dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset)
 ---
