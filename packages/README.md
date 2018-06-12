@@ -1,5 +1,8 @@
 # PACKAGES
 
+## Contents
+---
+
 * Utils
   * [jQuery](util/jquery/)
 * Charts
@@ -9,7 +12,8 @@
 * CSS Toolkit
   * [Bootstrap](css-toolkit/bootstrap/)
 
-## Reference
+## References
+---
 
 * [https://www.javascripting.com](https://www.javascripting.com)
 * [https://bestofjs.org](https://bestofjs.org)
