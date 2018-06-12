@@ -1,24 +1,25 @@
-const email = {
-  "personalizations": [
-    {
-      "to": [
-        { "email": "example@example.com" }
-      ]
-    }
-  ],
-  "from": { "email": "example@example.com" },
-  "subject": "Hello, World!",
-  "content": [
-    {
-      "type": "text/plain",
-      "value": "Heya!"
-    }
-  ]
-}
 
-async function makeRequest(method, url, data, callback) {
+async function sendMail(email, title, body) {
+  const url = 'https://api.sendgrid.com/v3/mail/send'
+  const data = {
+    "personalizations": [
+      {
+        "to": [
+          { "email": "example@example.com" }
+        ]
+      }
+    ],
+    "from": { "email": "example@example.com" },
+    "subject": title,
+    "content": [
+      {
+        "type": "text/plain",
+        "value": body
+      }
+    ]
+  }
   const init = {
-    method: method,
+    method: 'POST',
     headers: {
       'Authorization': 'Bearer YOUR_API_KEY',
       'Content-Type': 'application/json'
@@ -27,16 +28,7 @@ async function makeRequest(method, url, data, callback) {
   }
   const response = await fetch(url, init)
   const json = await response.json()
-  callback(json)
-}
-
-function showContent(response) {
   console.log(response)
 }
 
-makeRequest(
-  'POST', 
-  'https://api.sendgrid.com/v3/mail/send',
-  email,
-  response => showContent(response)
-)
+sendMail(email, "Hello, World!", "Heya!")

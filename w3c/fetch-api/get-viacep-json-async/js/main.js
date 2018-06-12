@@ -1,16 +1,12 @@
 
-async function makeRequest(method, url, callback) {
+async function getCEP(url) {
   const response = await fetch(url)
   const json = await response.json()
-  callback(json)
+  showContent(json)
 }
 
 function showContent(cep) {
   console.log(cep.localidade)
 }
 
-makeRequest(
-  'GET',
-  'https://viacep.com.br/ws/58015430/json/',
-  response => showContent(response)
-)
+getCEP('https://viacep.com.br/ws/58015430/json/')

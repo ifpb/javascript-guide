@@ -1,16 +1,12 @@
 
-function makeRequest(method, url, callback) {
+function getCEP(url) {
   fetch(url)
     .then(res => res.json())
-    .then(json => callback(json))
+    .then(json => showContent(json))
 }
 
 function showContent(cep) {
   console.log(cep.localidade)
 }
 
-makeRequest(
-  'GET',
-  'https://viacep.com.br/ws/58015430/json/',
-  response => showContent(response)
-)
+getCEP('https://viacep.com.br/ws/58015430/json/')
