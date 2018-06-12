@@ -27,6 +27,12 @@ document.body.classList.remove('color-red')
 document.body.classList.add('color-blue')
 ```
 
+## [Element.className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className)
+---
+```js
+document.body.className = 'text-center'
+```
+
 ## [Element.id](https://developer.mozilla.org/en-US/docs/Web/API/Element/id)
 ---
 

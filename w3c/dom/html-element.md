@@ -61,7 +61,21 @@ const p = document.querySelector('p')
 p.classList.add('color-blue')
 ```
 
-[CSS Typed Object Model](https://developers.google.com/web/updates/2018/04/nic66#cssom) (Alternative)
+[Element.className](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) (Alternative):
+```js
+const p = document.querySelector('p')
+p.className = 'text-center'
+```
+
+[CSS Typed Object Model](https://developers.google.com/web/updates/2018/04/nic66#cssom) (Alternative):
+```js
+const p = document.querySelector('p')
+p.attributeStyleMap.set('opacity', 0.3)
+p.attributeStyleMap.get('opacity').value //=> 0.3
+p.attributeStyleMap.has('opacity');      //=> true
+p.attributeStyleMap.delete('opacity');
+p.attributeStyleMap.clear();             // remove all styles
+```
 
 ## [HTMLElement.click()](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click)
 ---
