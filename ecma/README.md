@@ -37,8 +37,8 @@
     * Internationalization
       * [Intl](#)
 * [Modules](#)
-* [Async & Await](#)
-* [Promise](#)
+* [Async & Await](async-await/)
+* [Promise](promise/)
 * [Generator](#)
 * [Handling Error](handling-error/)
 
