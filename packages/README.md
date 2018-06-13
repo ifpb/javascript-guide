@@ -1,4 +1,4 @@
-# PACKAGES
+# Packages
 
 ## Contents
 ---
@@ -8,9 +8,13 @@
 * Charts
   * [chartjs](chart/chartjs/)
   * [gaugejs](chart/gaugejs/)
-  * [jquery-sparkline](chart/jquery-sparkline/)
+  * [jquery-sparkline (jQuery)](chart/jquery-sparkline/)
 * CSS Toolkit
   * [Bootstrap](css-toolkit/bootstrap/)
+* Table
+  * [DataTables (jQuery)](table/datatables/)
+* Form
+  * [jQuery Mask Plugin (jQuery)](form/jquery-mask-plugin/)
 
 ## References
 ---
