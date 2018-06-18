@@ -149,6 +149,7 @@ async function getJSON(url) {
   const cep = await getJSON('https://viacep.com.br/ws/01001000/json/')
   console.log(cep.localidade) //=> São Paulo
 })()
+```
 
 ## Reference
 ---
