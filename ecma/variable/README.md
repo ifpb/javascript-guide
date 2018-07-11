@@ -16,6 +16,7 @@
 var number;
 var number      // Automatic semicolon insertion (ASI)
 var number = 10 // int number = 10; (C language)
+console.log(number) //=> 10
 ```
 
 ### let

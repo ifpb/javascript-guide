@@ -32,7 +32,7 @@ C = \frac{F - 32}{1.8}
 ```js
 let fahrenheit = 50
 let celsius = fahrenheit - 32 / 1.8
-console.log(celsisu) //=> 32.2
+console.log(celsius) //=> 32.2
 ``` 
 
 ![](assets/celsius2fahrenheit1.svg)
@@ -123,16 +123,16 @@ console.log(typeof numbers) //=> object
 
 ```js
 // unary plus operator
-let number = 15
-console.log(number)  //=>  15 00000000000000000000000000001111
-console.log(-number) //=> -15 11111111111111111111111111110001
+let number = "15"
+console.log(number)  //=> "15"
+console.log(+number) //=>  15 
 ```
 
 ```js
 // unary negation operator
 let number = -15
 console.log(number)  //=> -15 11111111111111111111111111110001
-console.log(+number) //=>  15 00000000000000000000000000001111
+console.log(-number) //=>  15 00000000000000000000000000001111
 ```
 
 ```js
@@ -253,7 +253,7 @@ console.log("1" === "1")   //=> true
 ```
 
 ```js
-// Non-identity / strict inequality
+// non-identity
 console.log(1 !== "1")     //=> true
 console.log('' !== true)   //=> true
 console.log(1 !== 1)       //=> false
@@ -273,13 +273,13 @@ References:
 > -2147483648 to 2147483647
 
 ```js
-// left shitf operator
+// left shitf operator - each step means "multiply by two"
 console.log( 9 )      //=> 00000000000000000000000000001001   9
 console.log( 9 <<  2) //=> 00000000000000000000000000100100  36
 ```
 
 ```js
-// sign-propagating right shift
+// sign-propagating right shift operator - each step means "divide by two"
 console.log( 9 )      //=> 00000000000000000000000000001001   9
 console.log( 9 >>  2) //=> 00000000000000000000000000000010   2
 console.log(-9 )      //=> 11111111111111111111111111110110  -9
@@ -287,7 +287,7 @@ console.log(-9 >>  2) //=> 11111111111111111111111111111101  -3
 ```
 
 ```js
-// zero-fill right shift
+// zero-fill right shift operator
 console.log( 9 )      //=> 00000000000000000000000000001001   9
 console.log( 9 >>> 2) //=> 00000000000000000000000000000010   2
 console.log(-9 )      //=> 11111111111111111111111111110110  -9
@@ -375,13 +375,16 @@ console.log(kind) //=> 'even'
 ```js
 // assign operator
 let variable = 10
-console.log(temp) //=> 10
+console.log(variable) //=> 10
 ```
+
+Shorthand: `*=`, `/=`, `%=`, `+=`, `-=`, `<<=`, `>>=`, `>>>=`, `&=`, `^=`, `|=`
+
 ```js
-// addition assignment (shorthand operator)
-let variable = 10 // 10
-variable += 1     // variable = variable + 1
-console.log(temp) //=> 11
+// addition assignment operator
+let variable = 10     // 10
+variable += 1         // variable = variable + 1
+console.log(variable) //=> 11
 ```
 
 > [Destructuring Assignment](destructuring-assignment.md), [Deep Matching](deep-matching.md)
@@ -612,7 +615,7 @@ let x, y
   </tbody>
 </table>
 
-### [Operators List]((https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators))
+### [Operators List](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
 
 | Operator type | Operators |
 |-|-|
@@ -626,6 +629,6 @@ let x, y
 | Bitwise shift operators | `<<`, `>>`, `>>>` |
 | Binary bitwise operators | `&`, `|`, `^` |
 | Binary logical operators | `&&`, `||` |
-| Assignment operators | `=`, `*=`, `/=`, `%=`, `+=`, `-=`, `<<=`, `>>=`, `>>>=`, `&=`, `^=`, `|=` `[a, b] = [1, 2]`, `{a, b} = {a:1, b:2}` |
+| Assignment operators | `=`, `*=`, `/=`, `%=`, `+=`, `-=`, `<<=`, `>>=`, `>>>=`, `&=`, `^=`, `|=`, `[a, b] = [1, 2]`, `{a, b} = {a:1, b:2}` |
 | Conditional operator | ` (condition ? ifTrue : ifFalse)` |
 | Comma operator | `,` |

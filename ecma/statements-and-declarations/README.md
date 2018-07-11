@@ -28,14 +28,14 @@ let result
 
 // does not executes: false, 0, "", null, undefined, NaN
 if(number < 0) {
-  result = "menor que zero"
+  result = 'greater than zero'
 } else if (number > 0) {
-  result = "maior que zero"
+  result = 'less than zero'
 } else {
-  result = "igual a zero"
+  result = 'equal to zero'
 }
 
-console.log(result) //=> maior que zero
+console.log(result) //=> greater than zero
 ```
 
 ### switch
@@ -46,7 +46,7 @@ let number2 = 10
 let operator = '+' // (+, -, *, /)
 let result
 
-switch(operator) { // strict comparison
+switch (operator) { // strict comparison
   case 'add':
   case '+':
     result = number1 + number2

@@ -1,5 +1,7 @@
 # Modules
 
+https://developers.google.com/web/fundamentals/primers/modules?ct=t(BrazilJS_Weekly_468_9_2013_COPY_01)
+
 <!--
 ## Node @std/esm
 ---

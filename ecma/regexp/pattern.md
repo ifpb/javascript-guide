@@ -33,7 +33,7 @@ console.log(pattern.test('11110002'))      //=> false
 ## CEP
 ---
 
-### /^(\d{8}|\d{2}\.?\d{3}-\d{3})$/
+### /^(\d{8}|\d{2}\\.?\d{3}-\d{3})$/
 
 ![](assets/cep.png)
 
@@ -66,7 +66,7 @@ console.log(pattern.test('01FFFF'))          //=> false
 ## IP
 ---
 
-### /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/
+### /^\d{1,3}\\.\d{1,3}\\.\d{1,3}\\.\d{1,3}$/
 
 ![](assets/ip.png)
 
@@ -79,7 +79,7 @@ console.log(pattern.test('8.8.8.8'))         //=> true
 console.log(pattern.test('300.8.8.8'))       //=> true?
 ```
 
-### /^(\d{1,3}\.){3}\d{1,3}$/
+### /^(\d{1,3}\\.){3}\d{1,3}$/
 ![](assets/ip-group.png)
 
 ```js
@@ -93,7 +93,7 @@ console.log(pattern.test('8.8.8.8'))         //=> true
 ## CPF
 ---
 
-### /^(\d{11}|\d{3}\.\d{3}\.\d{3}-\d{2})$/
+### /^(\d{11}|\d{3}\\.\d{3}\\.\d{3}-\d{2})$/
 
 ![](assets/cpf.png)
 
@@ -106,7 +106,7 @@ console.log(pattern.test('111222333440'))    //=> false
 console.log(pattern.test('11122233344X'))    //=> false
 ```
 
-### /^(\d{11}|\d{3}(\.\d{3}){2}-\d{2})$/
+### /^(\d{11}|\d{3}(\\.\d{3}){2}-\d{2})$/
 
 ![](assets/cpf-group.png)
 
@@ -172,7 +172,7 @@ console.log(pattern.test("janeiro"))           //=> false
 ## Number (locale pt-BR)
 ---
 
-### /^(\d+|\d{1,3}(\.\d{3})*)(,\d{1,2})?$/
+### /^(\d+|\d{1,3}(\\.\d{3})*)(,\d{1,2})?$/
 
 ![](assets/number.png)
 
@@ -195,7 +195,7 @@ console.log(pattern.test("1.100"))             //=> true
 ## Currency (locale pt-BR)
 ---
 
-### /^R\$\s?(\d+|\d{1,3}(\.\d{3})*)(,\d{1,2})?$/
+### /^R\$\s?(\d+|\d{1,3}(\\.\d{3})*)(,\d{1,2})?$/
 
 ![](assets/currency.png)
 
@@ -210,7 +210,7 @@ console.log(pattern.test('R$10,10'))           //=> true
 
 ![](assets/phone.png)
 
-### /^([\+0]\d{2}\s?)?(\(\d{2,3}\)\s?|\d{2,3}\s?)?(\d[\s\.]?)?\d{4}[\s-]?\d{4}$/
+### /^([\+0]\d{2}\s?)?(\(\d{2,3}\)\s?|\d{2,3}\s?)?(\d[\s\\.]?)?\d{4}[\s-]?\d{4}$/
 
 ```js
 const pattern = /^([\+0]\d{2}\s?)?(\(\d{2,3}\)\s?|\d{2,3}\s?)?(\d[\s\.]?)?\d{4}[\s-]?\d{4}$/
@@ -233,7 +233,7 @@ console.log(pattern.test('+5583912341234'))    //=> true
 ## Username
 ---
 
-### /^[\w\.]+$/
+### /^[\w\\.]+$/
 
 ![](assets/username.png)
 
@@ -250,7 +250,7 @@ console.log(pattern.test('fulano.00(+'))       //=> false
 ## URL
 ---
 
-### /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}\/?$/
+### /^(https?:\/\/)?(www\\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\\.[a-z]{2,6}\/?$/
 
 ![](assets/url.png)
 
@@ -266,7 +266,7 @@ Reference:
 ## Email
 ---
 
-### /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}$/
+### /^(https?:\/\/)?(www\\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\\.[a-z]{2,6}$/
 
 ![](assets/email.png)
 

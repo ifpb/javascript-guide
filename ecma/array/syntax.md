@@ -2,9 +2,9 @@
 
 * [Syntax](#syntax)
 * [Create an Array [ ]](#create-an-array--)
+* [Accessing Array Elements](#accessing-array-elements)
 * [Changing Array](#changing-array)
 * [Defining Empty Array](#defining-empty-array)
-* [Accessing Array Elements](#accessing-array-elements)
 * [Multiple Types](#multiple-types)
 * [String Index](#string-index)
 * [Nth Dimentions](#nth-dimentions)
@@ -25,6 +25,15 @@ References:
 Reference: [JSON ORG](http://json.org)
 
 ## Create an Array [ ]
+---
+
+```js
+let numbers = [1, 2, 4, 7]
+
+console.log(numbers)    //=> [ 1, 2, 4, 7 ]
+```
+
+## Accessing Array Elements
 ---
 
 ```js
@@ -64,17 +73,6 @@ numbers[1] = 20
 numbers[10] = 100
 
 console.log(numbers) //=> [ 10, 20, , , , , , , , , 100 ]
-```
-
-## Accessing Array Elements
----
-
-```js
-console.log(numbers[0])  //=> 10
-console.log(numbers[1])  //=> 20
-console.log(numbers[2])  //=> undefined
-console.log(numbers[10]) //=> 100
-console.log(numbers)     //=> [ 10, 20, , , , , , , , , 100 ]
 ```
 
 ## Multiple Types

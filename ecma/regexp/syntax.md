@@ -3,8 +3,9 @@
 * [FLAGS](#flags)
 * [CHARACTER CLASSES / METACHARACTERS](#character-classes--metacharacters)
 * [CHARACTER SET](#character-set)
+* [ALTERNATION](#alternation)
 * [BOUNDARIES](#boundaries)
-* [GROUPING AND BACK REGERENCES](#grouping-and-back-regerences)
+* [GROUPING AND BACK REFERENCES](#grouping-and-back-references)
 * [QUANTIFIER](#quantifier)
 * [ASSERTION](#assertion)
 * [RECAP](#recap)
@@ -355,7 +356,7 @@ let pattern = /\w*rr\B\w*/g
 console.log(message.match(pattern)) //=> [ 'blackberry', 'cherry' ]
 ```
 
-## GROUPING AND BACK REGERENCES
+## GROUPING AND BACK REFERENCES
 ---
 
 ### Capturing group ()
@@ -583,7 +584,7 @@ console.log(message.match(pattern)) //=> [ '1', '2', '3', '4', '4', '3' ]
 | CHARACTER SET     | `[]`, `[^]` |
 | BOUNDARIES        | `^`, `$`, `\b`, `\B` |
 | ALTERNATION       | `|` |
-| GROUPING AND BACK REGERENCES | `()`, `\n`, `(?:x)` |
+| GROUPING AND BACK REFERENCES | `()`, `\n`, `(?:x)` |
 | QUANTIFIERS       | Greedy (`*`, `+`, `?`, `{n}`, `{n,}`, `{n, m}`), Non-Greedy (`x*?`, `x+?`, `x??`, `x{n}?`, `x{n,}?`, `x{n,m}?`) |
 | ASSERTIONS        | `x(?=y)`, `x(?!y)` |
 

@@ -1,11 +1,11 @@
 # Function
 
 * [Defining Functions / Function Statement](#defining-functions--function-statement)
-* [Recursion](#recursion)
 * [Scope](#scope)
 * [Hoisting](#hoisting-1)
 * [Case Sensitive](#case-sensitive-1)
 * [Overload](#overload)
+* [Recursion](#recursion)
 * [Default Parameters](#default-parameters)
 * [Destructuring Assignment](#destructuring-assignment)
 * [Named Parameters / Keyword Parameters](#named-parameters--keyword-parameters)
@@ -35,16 +35,6 @@ console.log(addition(1, 1, 3)) //=> 2
 Reference:
 * [Function Reference \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
 * [Function Guide \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
-
-## Recursion
----
-```js
-function factorial(n) {
-  return n == 0 ? 1 : n * factorial(n - 1)
-}
-
-console.log(factorial(4)) //=> 24
-```
 
 ## Scope
 ---
@@ -116,6 +106,16 @@ function addition(param){
 
 console.log(addition(1))    //=> 2
 console.log(addition(1, 2)) //=> 2
+```
+
+## Recursion
+---
+```js
+function factorial(n) {
+  return n == 0 ? 1 : n * factorial(n - 1)
+}
+
+console.log(factorial(4)) //=> 24
 ```
 
 ## Default Parameters
