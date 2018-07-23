@@ -18,74 +18,74 @@
 
 ### Default export
 
-[node-esm/default-export/lib.js](node-esm/default-export/lib.js):
+[node-esm/default-export/lib.mjs](node-esm/default-export/lib.mjs):
 ```js
-{% include_relative node-esm/default-export/lib.js %}
+{% include_relative node-esm/default-export/lib.mjs %}
 ```
 
-[node-esm/default-export/main.js](node-esm/default-export/main.js):
+[node-esm/default-export/main.mjs](node-esm/default-export/main.mjs):
 ```js
-{% include_relative node-esm/default-export/main.js %}
+{% include_relative node-esm/default-export/main.mjs %}
 ```
 
 ### Default named exports
 
-[node-esm/default-named-exports/lib.js](node-esm/default-named-exports/lib.js):
+[node-esm/default-named-exports/lib.mjs](node-esm/default-named-exports/lib.mjs):
 ```js
-{% include_relative node-esm/default-named-exports/lib.js %}
+{% include_relative node-esm/default-named-exports/lib.mjs %}
 ```
 
-[node-esm/default-named-exports/main.js](node-esm/default-named-exports/main.js):
+[node-esm/default-named-exports/main.mjs](node-esm/default-named-exports/main.mjs):
 ```js
-{% include_relative node-esm/default-named-exports/main.js %}
+{% include_relative node-esm/default-named-exports/main.mjs %}
 ```
 
 ### Named as exports
 
-[node-esm/named-as-exports/lib.js](node-esm/named-as-exports/lib.js):
+[node-esm/named-as-exports/lib.mjs](node-esm/named-as-exports/lib.mjs):
 ```js
-{% include_relative node-esm/named-as-exports/lib.js %}
+{% include_relative node-esm/named-as-exports/lib.mjs %}
 ```
 
-[node-esm/named-as-exports/main.js](node-esm/named-as-exports/main.js):
+[node-esm/named-as-exports/main.mjs](node-esm/named-as-exports/main.mjs):
 ```js
-{% include_relative node-esm/named-as-exports/main.js %}
+{% include_relative node-esm/named-as-exports/main.mjs %}
 ```
 
 ### Named export
 
-[node-esm/named-export/lib.js](node-esm/named-export/lib.js):
+[node-esm/named-export/lib.mjs](node-esm/named-export/lib.mjs):
 ```js
-{% include_relative node-esm/named-export/lib.js %}
+{% include_relative node-esm/named-export/lib.mjs %}
 ```
 
-[node-esm/named-export/main.js](node-esm/named-export/main.js):
+[node-esm/named-export/main.mjs](node-esm/named-export/main.mjs):
 ```js
-{% include_relative node-esm/named-export/main.js %}
+{% include_relative node-esm/named-export/main.mjs %}
 ```
 
 ### Named exports
 
-[node-esm/named-exports/lib.js](node-esm/named-exports/lib.js):
+[node-esm/named-exports/lib.mjs](node-esm/named-exports/lib.mjs):
 ```js
-{% include_relative node-esm/named-exports/lib.js %}
+{% include_relative node-esm/named-exports/lib.mjs %}
 ```
 
-[node-esm/named-exports/main.js](node-esm/named-exports/main.js):
+[node-esm/named-exports/main.mjs](node-esm/named-exports/main.mjs):
 ```js
-{% include_relative node-esm/named-exports/main.js %}
+{% include_relative node-esm/named-exports/main.mjs %}
 ```
 
 ### Named uniq exports
 
-[node-esm/named-uniq-exports/lib.js](node-esm/named-uniq-exports/lib.js):
+[node-esm/named-uniq-exports/lib.mjs](node-esm/named-uniq-exports/lib.mjs):
 ```js
-{% include_relative node-esm/named-uniq-exports/lib.js %}
+{% include_relative node-esm/named-uniq-exports/lib.mjs %}
 ```
 
-[node-esm/named-uniq-exports/main.js](node-esm/named-uniq-exports/main.js):
+[node-esm/named-uniq-exports/main.mjs](node-esm/named-uniq-exports/main.mjs):
 ```js
-{% include_relative node-esm/named-uniq-exports/main.js %}
+{% include_relative node-esm/named-uniq-exports/main.mjs %}
 ```
 
 ## References
