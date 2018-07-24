@@ -327,29 +327,29 @@ html-webpack-esm-babel
 
 ```
 
-[html-webpack-esm/js/lib.js](html-webpack-esm/js/lib.js):
+[html-webpack-esm-babel/js/lib.js](html-webpack-esm-babel/js/lib.js):
 ```js
-{% include_relative html-webpack-esm/js/lib.js %}
+{% include_relative html-webpack-esm-babel/js/lib.js %}
 ```
 
-[html-webpack-esm/js/main.js](html-webpack-esm/js/main.js):
+[html-webpack-esm-babel/js/main.js](html-webpack-esm-babel/js/main.js):
 ```js
-{% include_relative html-webpack-esm/js/main.js %}
+{% include_relative html-webpack-esm-babel/js/main.js %}
 ```
 
-[html-webpack-esm/index.html](html-webpack-esm/index.html):
+[html-webpack-esm-babel/index.html](html-webpack-esm-babel/index.html):
 ```html
-{% include_relative html-webpack-esm/index.html %}
+{% include_relative html-webpack-esm-babel/index.html %}
 ```
 
-[html-webpack-esm/package.json](html-webpack-esm/package.json):
+[html-webpack-esm-babel/package.json](html-webpack-esm-babel/package.json):
 ```js
-{% include_relative html-webpack-esm/package.json %}
+{% include_relative html-webpack-esm-babel/package.json %}
 ```
 
-[html-webpack-esm/webpack.config.js](html-webpack-esm/webpack.config.js):
+[html-webpack-esm-babel/webpack.dev.js](html-webpack-esm-babel/webpack.dev.js):
 ```js
-{% include_relative html-webpack-esm/webpack.config.js %}
+{% include_relative html-webpack-esm-babel/webpack.dev.js %}
 ```
 
 ```
