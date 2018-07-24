@@ -3,6 +3,12 @@
 ## [Node Modules - CJS](https://nodejs.org/api/modules.html)
 ---
 
+```
+node-modules
+├── lib.js
+└── main.js
+```
+
 [node-modules/lib.js](node-modules/lib.js):
 ```js
 {% include_relative node-modules/lib.js %}
@@ -22,6 +28,12 @@ $ node main.js
 
 ### Default export
 
+```
+default-export
+├── lib.mjs
+└── main.mjs
+```
+
 [node-esm/default-export/lib.mjs](node-esm/default-export/lib.mjs):
 ```js
 {% include_relative node-esm/default-export/lib.mjs %}
@@ -37,6 +49,12 @@ $ node --experimental-modules main.mjs
 ```
 
 ### Default and named exports
+
+```
+default-named-exports
+├── lib.mjs
+└── main.mjs
+```
 
 [node-esm/default-named-exports/lib.mjs](node-esm/default-named-exports/lib.mjs):
 ```js
@@ -54,6 +72,12 @@ $ node --experimental-modules main.mjs
 
 ### Named as exports
 
+```
+default-as-exports
+├── lib.mjs
+└── main.mjs
+```
+
 [node-esm/named-as-exports/lib.mjs](node-esm/named-as-exports/lib.mjs):
 ```js
 {% include_relative node-esm/named-as-exports/lib.mjs %}
@@ -69,6 +93,12 @@ $ node --experimental-modules main.mjs
 ```
 
 ### Named export
+
+```
+named-export
+├── lib.mjs
+└── main.mjs
+```
 
 [node-esm/named-export/lib.mjs](node-esm/named-export/lib.mjs):
 ```js
@@ -86,6 +116,12 @@ $ node --experimental-modules main.mjs
 
 ### Named exports
 
+```
+named-exports
+├── lib.mjs
+└── main.mjs
+```
+
 [node-esm/named-exports/lib.mjs](node-esm/named-exports/lib.mjs):
 ```js
 {% include_relative node-esm/named-exports/lib.mjs %}
@@ -101,6 +137,13 @@ $ node --experimental-modules main.mjs
 ```
 
 ### Named uniq exports
+
+```
+named-uniq-exports
+├── lib.mjs
+└── main.mjs
+```
+
 
 [node-esm/named-uniq-exports/lib.mjs](node-esm/named-uniq-exports/lib.mjs):
 ```js
@@ -132,18 +175,14 @@ $ node --experimental-modules main.mjs
 ## Node @std/esm
 ---
 
-[node-std-esm/sum.js](node-std-esm/sum.js):
+[node-std-esm/lib.mjs](node-std-esm/lib.mjs):
 ```js
-export function sum(a, b) {
-  return a + b;
-}
+{% include_relative node-std-esm/lib.mjs %}
 ```
 
-[node-std-esm/main.mjs](node-std-esm/main.mjs)
+[node-std-esm/main.mjs](node-std-esm/main.mjs):
 ```js
-import { sum } from './sum'
-
-console.log(sum(1, 2))
+{% include_relative node-std-esm/main.mjs %}
 ```
 
 ```
@@ -151,18 +190,17 @@ $ npm i --save @std/esm
 $ node -r @std/esm main.mjs
 ```
 
-[node-std-esm/main.js](node-std-esm/main.js)
+[node-std-esm/main.js](node-std-esm/main.js):
 ```js
-require("@std/esm")
-module.exports = require("./main.mjs").default
+{% include_relative node-std-esm/main.js %}
 ```
 
 ```
 $ node main.js
 ```
 
-[ES Modules in Node Today!](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/#3OStq1rD4uTKgPiL.97)
-[Suportando Módules EcmaScript ESM no Node a partir de Hoje](http://walde.co/2017/08/21/suportando-modulos-ecmascript-esm-no-node-js-partir-de-hoje/)
-[Native ESM Node](http://2ality.com/2017/09/native-esm-node.html)
-[standard-things/esm](https://github.com/standard-things/esm)
+- [ES Modules in Node Today!](https://blogs.windows.com/msedgedev/2017/08/10/es-modules-node-today/#3OStq1rD4uTKgPiL.97)
+- [Suportando Módules EcmaScript ESM no Node a partir de Hoje](http://walde.co/2017/08/21/suportando-modulos-ecmascript-esm-no-node-js-partir-de-hoje/)
+- [Native ESM Node](http://2ality.com/2017/09/native-esm-node.html)
+- [standard-things/esm](https://github.com/standard-things/esm)
 -->
