@@ -119,14 +119,15 @@ html-parcel-esm
 ```
 
 [html-parcel-esm/package.json](html-parcel-esm/package.json):
-```js
-{% include_relative html-parcel-esm/package.json %}
-```
 
 ```
 $ npm init -y
 $ npm i date-fns -s
 $ npm i parcel-bundler -D
+```
+
+```js
+{% include_relative html-parcel-esm/package.json %}
 ```
 
 ```
@@ -188,14 +189,15 @@ html-webpack-esm
 ```
 
 [html-webpack-esm/package.json](html-webpack-esm/package.json):
-```js
-{% include_relative html-webpack-esm/package.json %}
-```
 
 ```
 $ npm init -y
 $ npm i date-fns -s
 $ npm i webpack webpack-cli -D
+```
+
+```js
+{% include_relative html-webpack-esm/package.json %}
 ```
 
 ```
@@ -278,6 +280,13 @@ html-webpack-esm-config
 ```
 
 [html-webpack-esm-config/package.json](html-webpack-esm-config/package.json):
+
+```
+$ npm init -y
+$ npm i date-fns -s
+$ npm i webpack webpack-cli -D
+```
+
 ```js
 {% include_relative html-webpack-esm-config/package.json %}
 ```
@@ -285,12 +294,6 @@ html-webpack-esm-config
 [html-webpack-esm-config/webpack.config.js](html-webpack-esm-config/webpack.config.js):
 ```js
 {% include_relative html-webpack-esm-config/webpack.config.js %}
-```
-
-```
-$ npm init -y
-$ npm i date-fns -s
-$ npm i webpack webpack-cli -D
 ```
 
 ```
@@ -343,14 +346,6 @@ html-webpack-esm-babel
 ```
 
 [html-webpack-esm-babel/package.json](html-webpack-esm-babel/package.json):
-```js
-{% include_relative html-webpack-esm-babel/package.json %}
-```
-
-[html-webpack-esm-babel/webpack.dev.js](html-webpack-esm-babel/webpack.dev.js):
-```js
-{% include_relative html-webpack-esm-babel/webpack.dev.js %}
-```
 
 ```
 $ npm init -y
@@ -358,33 +353,25 @@ $ npm i date-fns -s
 $ npm i webpack webpack-cli @webpack-cli/init -D
 ```
 
+```js
+{% include_relative html-webpack-esm-babel/package.json %}
+```
+
+[html-webpack-esm-babel/webpack.dev.js](html-webpack-esm-babel/webpack.dev.js):
+
 ```
 $ npx webpack init
-
-ℹ INFO For more information and a detailed description of each question, have a look at https://github.com/webpack/webpack-cli/blob/master/INIT.md
-ℹ INFO Alternatively, run `webpack(-cli) --help` for usage info.
-
 ? Will your application have multiple bundles? No
 ? Which module will be the first to enter the application? [default: ./src/index] ./js/main.js
 ? Which folder will your generated bundles be in? [default: dist]:
 ? Will you be using ES2015? Yes
 ? Will you use one of the below CSS solutions? No
-npm WARN ajv-keywords@3.2.0 requires a peer of ajv@^6.0.0 but none is installed. You must install peer dependencies yourself.
-npm WARN html-webpack-esm-babel@1.0.0 No description
-npm WARN html-webpack-esm-babel@1.0.0 No repository field.
-
-+ babel-plugin-syntax-dynamic-import@6.18.0
-+ babel-loader@7.1.5
-+ uglifyjs-webpack-plugin@1.2.7
-+ webpack-cli@3.1.0
-+ babel-preset-env@1.7.0
-+ babel-core@6.26.3
-+ webpack@4.16.2
-added 5 packages from 5 contributors, updated 5 packages and audited 68206 packages in 24.534s
-found 0 vulnerabilities
-
-
+...
 Congratulations! Your new webpack configuration file has been created!
+```
+
+```js
+{% include_relative html-webpack-esm-babel/webpack.dev.js %}
 ```
 
 ```
@@ -427,7 +414,7 @@ $ chrome index.html
 ---
 
 ```
-html-webpack-esm
+html-webpack-node-modules
 ├── index.html
 ├── js
 │   ├── lib.js
@@ -489,6 +476,7 @@ $ chrome index.html
 - [Using JavaScript modules on the web](https://developers.google.com/web/fundamentals/primers/modules)
 - [Parcel](https://parceljs.org)
 - [Webpack](https://webpack.js.org)
+- [Babel.js](https://babeljs.io)
 
 <!--
 
