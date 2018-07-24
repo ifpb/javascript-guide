@@ -1,11 +1,11 @@
 {
-  "name": "test",
+  "name": "html-webpapck-node-modules",
   "version": "1.0.0",
   "description": "",
   "main": "js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-js": "npx webpack js/main.js dist/bundle.js"
+    "build-js": "npx webpack"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "date-fns": "^1.29.0"
   },
   "devDependencies": {
-    "webpack": "^3.11.0"
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
   }
 }

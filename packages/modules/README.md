@@ -1,5 +1,17 @@
 # Modules
 
+- [HTML Scripts](#html-scripts)
+- HTML ESM
+  - [Simple](#html-esm)
+  - [Include packages (fail)](#html-esm-fail)
+- Bundler
+  - [Parcel](#html-esm---parcel-bundler)
+  - Webpack
+    - [Simple](#html-esm---webpack-bundler)
+    - [Config file](#html-escm---webpack-bundler---config)
+    - [Babel](#html-esm---webpack-bundler---babel)
+    - [Node modules](#node-modules---webpack-bundler)
+
 ## HTML Scripts
 ---
 
@@ -125,8 +137,11 @@ $ npm list | grep date-fns
 
 ```
 $ npx parcel index.html
+```
+
+```
 $ tree .
-html-webpack-esm
+html-parcel-esm
 ├── dist
 │   ├── index.html
 │   ├── main.b0ab085c.js
@@ -152,8 +167,8 @@ $ chrome http://localhost:1234
 html-webpack-esm
 ├── index.html
 ├── js
-│   ├── lib.mjs
-│   └── main.mjs
+│   ├── lib.js
+│   └── main.js
 └── package.json
 ```
 
@@ -185,6 +200,19 @@ $ npm i webpack webpack-cli -D
 
 ```
 $ npx webpack js/main.js --mode development
+Hash: 0efd707d06341ed4a9fe
+Version: webpack 4.16.2
+Time: 633ms
+Built at: 07/24/2018 10:38:19 AM
+  Asset     Size  Chunks             Chunk Names
+main.js  271 KiB    main  [emitted]  main
+Entrypoint main = main.js
+[./js/lib.js] 94 bytes {main} [built]
+[./js/main.js] 175 bytes {main} [built]
+    + 159 hidden modules
+```
+
+```
 $ tree .
 html-webpack-esm
 ├── dist
@@ -197,6 +225,258 @@ html-webpack-esm
 ├── index.html
 └── package-lock.json
 └── package.json
+```
+
+```
+$ chrome index.html
+```
+
+```
+$ npm run build-dev
+
+> html-webpack-esm@1.0.0 build-dev /home/user/html-webpack-esm
+> npx webpack js/main.js --mode development
+
+Hash: 0efd707d06341ed4a9fe
+Version: webpack 4.16.2
+Time: 587ms
+Built at: 07/24/2018 10:37:33 AM
+  Asset     Size  Chunks             Chunk Names
+main.js  271 KiB    main  [emitted]  main
+Entrypoint main = main.js
+[./js/lib.js] 94 bytes {main} [built]
+[./js/main.js] 175 bytes {main} [built]
+    + 159 hidden modules
+```
+
+## HTML ESM - Webpack Bundler - Config
+---
+
+```
+html-webpack-esm-config
+├── index.html
+├── js
+│   ├── lib.js
+│   └── main.js
+├── package.json
+└── webpack.config.js
+```
+
+[html-webpack-esm-config/js/lib.js](html-webpack-esm-config/js/lib.js):
+```js
+{% include_relative html-webpack-esm-config/js/lib.js %}
+```
+
+[html-webpack-esm-config/js/main.js](html-webpack-esm-config/js/main.js):
+```js
+{% include_relative html-webpack-esm-config/js/main.js %}
+```
+
+[html-webpack-esm-config/index.html](html-webpack-esm-config/index.html):
+```html
+{% include_relative html-webpack-esm-config/index.html %}
+```
+
+[html-webpack-esm-config/package.json](html-webpack-esm-config/package.json):
+```js
+{% include_relative html-webpack-esm-config/package.json %}
+```
+
+[html-webpack-esm-config/webpack.config.js](html-webpack-esm-config/webpack.config.js):
+```js
+{% include_relative html-webpack-esm-config/webpack.config.js %}
+```
+
+```
+$ npm init -y
+$ npm i date-fns -s
+$ npm i webpack webpack-cli -D
+```
+
+```
+$ npm run build-dev
+
+> html-webpack-esm@1.0.0 build-dev /home/user/html-webpack-esm-config
+> npx webpack --mode development
+
+Hash: 381cb32daa0a9b43ac50
+Version: webpack 4.16.2
+Time: 692ms
+Built at: 07/24/2018 12:21:38 PM
+    Asset     Size  Chunks             Chunk Names
+bundle.js  271 KiB    main  [emitted]  main
+Entrypoint main = bundle.js
+[./js/lib.js] 94 bytes {main} [built]
+[./js/main.js] 175 bytes {main} [built]
+    + 159 hidden modules
+```
+
+```
+$ chrome index.html
+```
+
+## HTML ESM - Webpack Bundler - Babel
+---
+
+```
+html-webpack-esm-babel
+├── index.html
+└── js
+    ├── lib.js
+    └── main.js
+
+```
+
+[html-webpack-esm/js/lib.js](html-webpack-esm/js/lib.js):
+```js
+{% include_relative html-webpack-esm/js/lib.js %}
+```
+
+[html-webpack-esm/js/main.js](html-webpack-esm/js/main.js):
+```js
+{% include_relative html-webpack-esm/js/main.js %}
+```
+
+[html-webpack-esm/index.html](html-webpack-esm/index.html):
+```html
+{% include_relative html-webpack-esm/index.html %}
+```
+
+[html-webpack-esm/package.json](html-webpack-esm/package.json):
+```js
+{% include_relative html-webpack-esm/package.json %}
+```
+
+[html-webpack-esm/webpack.config.js](html-webpack-esm/webpack.config.js):
+```js
+{% include_relative html-webpack-esm/webpack.config.js %}
+```
+
+```
+$ npm init -y
+$ npm i date-fns -s
+$ npm i webpack webpack-cli @webpack-cli/init -D
+```
+
+```
+$ npx webpack init
+
+ℹ INFO For more information and a detailed description of each question, have a look at https://github.com/webpack/webpack-cli/blob/master/INIT.md
+ℹ INFO Alternatively, run `webpack(-cli) --help` for usage info.
+
+? Will your application have multiple bundles? No
+? Which module will be the first to enter the application? [default: ./src/index] ./js/main.js
+? Which folder will your generated bundles be in? [default: dist]:
+? Will you be using ES2015? Yes
+? Will you use one of the below CSS solutions? No
+npm WARN ajv-keywords@3.2.0 requires a peer of ajv@^6.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN html-webpack-esm-babel@1.0.0 No description
+npm WARN html-webpack-esm-babel@1.0.0 No repository field.
+
++ babel-plugin-syntax-dynamic-import@6.18.0
++ babel-loader@7.1.5
++ uglifyjs-webpack-plugin@1.2.7
++ webpack-cli@3.1.0
++ babel-preset-env@1.7.0
++ babel-core@6.26.3
++ webpack@4.16.2
+added 5 packages from 5 contributors, updated 5 packages and audited 68206 packages in 24.534s
+found 0 vulnerabilities
+
+
+Congratulations! Your new webpack configuration file has been created!
+```
+
+```
+$ npx webpack --config webpack.dev.js
+Hash: cf61f9a11c1734bbe58f
+Version: webpack 4.16.2
+Time: 1470ms
+Built at: 07/24/2018 6:27:30 PM
+    Asset     Size  Chunks             Chunk Names
+bundle.js  271 KiB    main  [emitted]  main
+Entrypoint main = bundle.js
+[./js/lib.js] 151 bytes {main} [built]
+[./js/main.js] 214 bytes {main} [built]
+    + 159 hidden modules
+```
+
+```
+$ npm run build-dev
+
+> html-webpack-esm-babel@1.0.0 build-dev /home/user/html-webpack-esm-babel
+> npx webpack --config webpack.dev.js
+
+Hash: cf61f9a11c1734bbe58f
+Version: webpack 4.16.2
+Time: 1732ms
+Built at: 07/24/2018 6:28:45 PM
+    Asset     Size  Chunks             Chunk Names
+bundle.js  271 KiB    main  [emitted]  main
+Entrypoint main = bundle.js
+[./js/lib.js] 151 bytes {main} [built]
+[./js/main.js] 214 bytes {main} [built]
+    + 159 hidden modules
+```
+
+```
+$ chrome index.html
+```
+
+## Node Modules - Webpack Bundler
+---
+
+```
+html-webpack-esm
+├── index.html
+├── js
+│   ├── lib.js
+│   └── main.js
+├── package.json
+└── webpack.config.js
+```
+
+[html-webpack-node-modules/js/lib.js](html-webpack-node-modules/js/lib.js):
+```js
+{% include_relative html-webpack-node-modules/js/lib.js %}
+```
+
+[html-webpack-node-modules/js/main.js](html-webpack-node-modules/js/main.js):
+```js
+{% include_relative html-webpack-node-modules/js/main.js %}
+```
+
+[html-webpack-node-modules/index.html](html-webpack-node-modules/index.html):
+```html
+{% include_relative html-webpack-node-modules/index.html %}
+```
+
+[html-webpack-node-modules/package.json](html-webpack-node-modules/package.json):
+```js
+{% include_relative html-webpack-node-modules/package.json %}
+```
+
+[html-webpack-node-modules/webpack.config.js](html-webpack-node-modules/webpack.config.js):
+```js
+{% include_relative html-webpack-node-modules/webpack.config.js %}
+```
+
+```
+$ npm run build-dev
+
+> html-webpack-esm@1.0.0 build-dev /home/user/html-webpack-esm-config
+> npx webpack --mode development
+
+Hash: 381cb32daa0a9b43ac50
+Version: webpack 4.16.2
+Time: 692ms
+Built at: 07/24/2018 12:21:38 PM
+    Asset     Size  Chunks             Chunk Names
+bundle.js  271 KiB    main  [emitted]  main
+Entrypoint main = bundle.js
+[./js/lib.js] 94 bytes {main} [built]
+[./js/main.js] 175 bytes {main} [built]
+    + 159 hidden modules
 ```
 
 ```
