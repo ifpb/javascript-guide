@@ -1,9 +1,214 @@
 # Modules
 
+## HTML Scripts
+---
+
+```
+html-script
+├── index.html
+└── js
+    ├── lib.js
+    └── main.js
+```
+
+[html-script/js/lib.js](html-script/js/lib.js):
+```js
+{% include_relative html-script/js/lib.js %}
+```
+
+[html-script/js/main.js](html-script/js/main.js):
+```js
+{% include_relative html-script/js/main.js %}
+```
+
+[html-script/index.html](html-script/index.html):
+```html
+{% include_relative html-script/index.html %}
+```
+
+## HTML ESM
+---
+
+```
+html-esm
+├── index.html
+└── js
+    ├── lib.mjs
+    └── main.mjs
+```
+
+[html-esm/js/lib.mjs](html-esm/js/lib.mjs):
+```js
+{% include_relative html-esm/js/lib.mjs %}
+```
+
+[html-esm/js/main.mjs](html-esm/js/main.mjs):
+```js
+{% include_relative html-esm/js/main.mjs %}
+```
+
+[html-esm/index.html](html-esm/index.html):
+```html
+{% include_relative html-esm/index.html %}
+```
+
+## HTML ESM FAIL
+---
+
+```
+html-esm-fail
+├── index.html
+└── js
+    ├── date_fns.js
+    ├── lib.mjs
+    └── main.mjs
+```
+
+[html-esm-fail/js/lib.mjs](html-esm-fail/js/lib.mjs):
+```js
+{% include_relative html-esm-fail/js/lib.mjs %}
+```
+
+[html-esm-fail/js/main.mjs](html-esm-fail/js/main.mjs):
+```js
+{% include_relative html-esm-fail/js/main.mjs %}
+```
+
+[html-esm-fail/index.html](html-esm-fail/index.html):
+```html
+{% include_relative html-esm-fail/index.html %}
+```
+
+## HTML ESM - Parcel Bundler
+---
+
+```
+html-parcel-esm
+├── index.html
+├── js
+│   ├── lib.mjs
+│   └── main.mjs
+└── package.json
+```
+
+[html-parcel-esm/js/lib.mjs](html-parcel-esm/js/lib.mjs):
+```js
+{% include_relative html-parcel-esm/js/lib.mjs %}
+```
+
+[html-parcel-esm/js/main.mjs](html-parcel-esm/js/main.mjs):
+```js
+{% include_relative html-parcel-esm/js/main.mjs %}
+```
+
+[html-parcel-esm/index.html](html-parcel-esm/index.html):
+```html
+{% include_relative html-parcel-esm/index.html %}
+```
+
+[html-parcel-esm/package.json](html-parcel-esm/package.json):
+```js
+{% include_relative html-parcel-esm/package.json %}
+```
+
+```
+$ npm init -y
+$ npm i date-fns -s
+$ npm i parcel-bundler -D
+```
+
+```
+$ npm install
+$ npm list | grep date-fns
+└── date-fns@1.29.0
+```
+
+```
+$ npx parcel index.html
+$ tree .
+html-webpack-esm
+├── dist
+│   ├── index.html
+│   ├── main.b0ab085c.js
+│   └── main.b0ab085c.map
+├── js
+│   ├── lib.js
+│   └── main.js
+├── node_modues
+│   └── ...
+├── index.html
+└── package-lock.json
+└── package.json
+```
+
+```
+$ chrome http://localhost:1234
+```
+
+## HTML ESM - Webpack Bundler
+---
+
+```
+html-webpack-esm
+├── index.html
+├── js
+│   ├── lib.mjs
+│   └── main.mjs
+└── package.json
+```
+
+[html-webpack-esm/js/lib.js](html-webpack-esm/js/lib.js):
+```js
+{% include_relative html-webpack-esm/js/lib.js %}
+```
+
+[html-webpack-esm/js/main.js](html-webpack-esm/js/main.js):
+```js
+{% include_relative html-webpack-esm/js/main.js %}
+```
+
+[html-webpack-esm/index.html](html-webpack-esm/index.html):
+```html
+{% include_relative html-webpack-esm/index.html %}
+```
+
+[html-webpack-esm/package.json](html-webpack-esm/package.json):
+```js
+{% include_relative html-webpack-esm/package.json %}
+```
+
+```
+$ npm init -y
+$ npm i date-fns -s
+$ npm i webpack webpack-cli -D
+```
+
+```
+$ npx webpack js/main.js --mode development
+$ tree .
+html-webpack-esm
+├── dist
+│   └── main.js
+├── js
+│   ├── lib.js
+│   └── main.js
+├── node_modues
+│   └── ...
+├── index.html
+└── package-lock.json
+└── package.json
+```
+
+```
+$ chrome index.html
+```
+
 ## References
 ---
 
 - [Using JavaScript modules on the web](https://developers.google.com/web/fundamentals/primers/modules)
+- [Parcel](https://parceljs.org)
+- [Webpack](https://webpack.js.org)
 
 <!--
 

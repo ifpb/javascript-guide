@@ -1,4 +1,4 @@
-import {sum, minus} from './lib.mjs'
+import {sum, minus} from './lib.js'
 import {format} from 'date-fns'
 
 console.log(sum(10, 5))

@@ -7,9 +7,10 @@
 // orig method which is the require for previous bundles
 
 // eslint-disable-next-line no-global-assign
-require = (function (modules, cache, entry) {
+parcelRequire = (function (modules, cache, entry, globalName) {
   // Save the require from previous bundle to this closure if any
-  var previousRequire = typeof require === "function" && require;
+  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
+  var nodeRequire = typeof require === 'function' && require;
 
   function newRequire(name, jumped) {
     if (!cache[name]) {
@@ -17,7 +18,7 @@ require = (function (modules, cache, entry) {
         // if we cannot find the module within our internal map or
         // cache jump to the current global require ie. the last bundle
         // that was added to the page.
-        var currentRequire = typeof require === "function" && require;
+        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
         if (!jumped && currentRequire) {
           return currentRequire(name, true);
         }
@@ -30,6 +31,11 @@ require = (function (modules, cache, entry) {
           return previousRequire(name, true);
         }
 
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
         var err = new Error('Cannot find module \'' + name + '\'');
         err.code = 'MODULE_NOT_FOUND';
         throw err;
@@ -39,7 +45,7 @@ require = (function (modules, cache, entry) {
 
       var module = cache[name] = new newRequire.Module(name);
 
-      modules[name][0].call(module.exports, localRequire, module, module.exports);
+      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
     }
 
     return cache[name].exports;
@@ -64,14 +70,40 @@ require = (function (modules, cache, entry) {
   newRequire.modules = modules;
   newRequire.cache = cache;
   newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [function (require, module) {
+      module.exports = exports;
+    }, {}];
+  };
 
   for (var i = 0; i < entry.length; i++) {
     newRequire(entry[i]);
   }
 
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === "object" && typeof module !== "undefined") {
+      module.exports = mainExports;
+
+    // RequireJS
+    } else if (typeof define === "function" && define.amd) {
+     define(function () {
+       return mainExports;
+     });
+
+    // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+
   // Override the current require with this new one
   return newRequire;
-})({3:[function(require,module,exports) {
+})({"js/lib.mjs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86,7 +118,7 @@ function sum(x, y) {
 function minus(x, y) {
   return x - y;
 }
-},{}],76:[function(require,module,exports) {
+},{}],"node_modules/date-fns/is_date/index.js":[function(require,module,exports) {
 /**
  * @category Common Helpers
  * @summary Is the given argument an instance of Date?
@@ -108,7 +140,7 @@ function isDate (argument) {
 
 module.exports = isDate
 
-},{}],124:[function(require,module,exports) {
+},{}],"node_modules/date-fns/parse/index.js":[function(require,module,exports) {
 var isDate = require('../is_date/index.js')
 
 var MILLISECONDS_IN_HOUR = 3600000
@@ -430,7 +462,7 @@ function dayOfISOYear (isoYear, week, day) {
 
 module.exports = parse
 
-},{"../is_date/index.js":76}],7:[function(require,module,exports) {
+},{"../is_date/index.js":"node_modules/date-fns/is_date/index.js"}],"node_modules/date-fns/add_days/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -458,7 +490,7 @@ function addDays (dirtyDate, dirtyAmount) {
 
 module.exports = addDays
 
-},{"../parse/index.js":124}],9:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/add_milliseconds/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -485,7 +517,7 @@ function addMilliseconds (dirtyDate, dirtyAmount) {
 
 module.exports = addMilliseconds
 
-},{"../parse/index.js":124}],8:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/add_hours/index.js":[function(require,module,exports) {
 var addMilliseconds = require('../add_milliseconds/index.js')
 
 var MILLISECONDS_IN_HOUR = 3600000
@@ -513,7 +545,7 @@ function addHours (dirtyDate, dirtyAmount) {
 
 module.exports = addHours
 
-},{"../add_milliseconds/index.js":9}],147:[function(require,module,exports) {
+},{"../add_milliseconds/index.js":"node_modules/date-fns/add_milliseconds/index.js"}],"node_modules/date-fns/start_of_week/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -553,7 +585,7 @@ function startOfWeek (dirtyDate, dirtyOptions) {
 
 module.exports = startOfWeek
 
-},{"../parse/index.js":124}],139:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/start_of_iso_week/index.js":[function(require,module,exports) {
 var startOfWeek = require('../start_of_week/index.js')
 
 /**
@@ -580,7 +612,7 @@ function startOfISOWeek (dirtyDate) {
 
 module.exports = startOfISOWeek
 
-},{"../start_of_week/index.js":147}],65:[function(require,module,exports) {
+},{"../start_of_week/index.js":"node_modules/date-fns/start_of_week/index.js"}],"node_modules/date-fns/get_iso_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var startOfISOWeek = require('../start_of_iso_week/index.js')
 
@@ -627,7 +659,7 @@ function getISOYear (dirtyDate) {
 
 module.exports = getISOYear
 
-},{"../parse/index.js":124,"../start_of_iso_week/index.js":139}],140:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../start_of_iso_week/index.js":"node_modules/date-fns/start_of_iso_week/index.js"}],"node_modules/date-fns/start_of_iso_year/index.js":[function(require,module,exports) {
 var getISOYear = require('../get_iso_year/index.js')
 var startOfISOWeek = require('../start_of_iso_week/index.js')
 
@@ -661,7 +693,7 @@ function startOfISOYear (dirtyDate) {
 
 module.exports = startOfISOYear
 
-},{"../get_iso_year/index.js":65,"../start_of_iso_week/index.js":139}],137:[function(require,module,exports) {
+},{"../get_iso_year/index.js":"node_modules/date-fns/get_iso_year/index.js","../start_of_iso_week/index.js":"node_modules/date-fns/start_of_iso_week/index.js"}],"node_modules/date-fns/start_of_day/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -688,7 +720,7 @@ function startOfDay (dirtyDate) {
 
 module.exports = startOfDay
 
-},{"../parse/index.js":124}],21:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/difference_in_calendar_days/index.js":[function(require,module,exports) {
 var startOfDay = require('../start_of_day/index.js')
 
 var MILLISECONDS_IN_MINUTE = 60000
@@ -731,7 +763,7 @@ function differenceInCalendarDays (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInCalendarDays
 
-},{"../start_of_day/index.js":137}],130:[function(require,module,exports) {
+},{"../start_of_day/index.js":"node_modules/date-fns/start_of_day/index.js"}],"node_modules/date-fns/set_iso_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var startOfISOYear = require('../start_of_iso_year/index.js')
 var differenceInCalendarDays = require('../difference_in_calendar_days/index.js')
@@ -769,7 +801,7 @@ function setISOYear (dirtyDate, dirtyISOYear) {
 
 module.exports = setISOYear
 
-},{"../parse/index.js":124,"../start_of_iso_year/index.js":140,"../difference_in_calendar_days/index.js":21}],6:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../start_of_iso_year/index.js":"node_modules/date-fns/start_of_iso_year/index.js","../difference_in_calendar_days/index.js":"node_modules/date-fns/difference_in_calendar_days/index.js"}],"node_modules/date-fns/add_iso_years/index.js":[function(require,module,exports) {
 var getISOYear = require('../get_iso_year/index.js')
 var setISOYear = require('../set_iso_year/index.js')
 
@@ -798,7 +830,7 @@ function addISOYears (dirtyDate, dirtyAmount) {
 
 module.exports = addISOYears
 
-},{"../get_iso_year/index.js":65,"../set_iso_year/index.js":130}],10:[function(require,module,exports) {
+},{"../get_iso_year/index.js":"node_modules/date-fns/get_iso_year/index.js","../set_iso_year/index.js":"node_modules/date-fns/set_iso_year/index.js"}],"node_modules/date-fns/add_minutes/index.js":[function(require,module,exports) {
 var addMilliseconds = require('../add_milliseconds/index.js')
 
 var MILLISECONDS_IN_MINUTE = 60000
@@ -826,7 +858,7 @@ function addMinutes (dirtyDate, dirtyAmount) {
 
 module.exports = addMinutes
 
-},{"../add_milliseconds/index.js":9}],59:[function(require,module,exports) {
+},{"../add_milliseconds/index.js":"node_modules/date-fns/add_milliseconds/index.js"}],"node_modules/date-fns/get_days_in_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -856,7 +888,7 @@ function getDaysInMonth (dirtyDate) {
 
 module.exports = getDaysInMonth
 
-},{"../parse/index.js":124}],11:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/add_months/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var getDaysInMonth = require('../get_days_in_month/index.js')
 
@@ -892,7 +924,7 @@ function addMonths (dirtyDate, dirtyAmount) {
 
 module.exports = addMonths
 
-},{"../parse/index.js":124,"../get_days_in_month/index.js":59}],13:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../get_days_in_month/index.js":"node_modules/date-fns/get_days_in_month/index.js"}],"node_modules/date-fns/add_quarters/index.js":[function(require,module,exports) {
 var addMonths = require('../add_months/index.js')
 
 /**
@@ -919,7 +951,7 @@ function addQuarters (dirtyDate, dirtyAmount) {
 
 module.exports = addQuarters
 
-},{"../add_months/index.js":11}],12:[function(require,module,exports) {
+},{"../add_months/index.js":"node_modules/date-fns/add_months/index.js"}],"node_modules/date-fns/add_seconds/index.js":[function(require,module,exports) {
 var addMilliseconds = require('../add_milliseconds/index.js')
 
 /**
@@ -945,7 +977,7 @@ function addSeconds (dirtyDate, dirtyAmount) {
 
 module.exports = addSeconds
 
-},{"../add_milliseconds/index.js":9}],14:[function(require,module,exports) {
+},{"../add_milliseconds/index.js":"node_modules/date-fns/add_milliseconds/index.js"}],"node_modules/date-fns/add_weeks/index.js":[function(require,module,exports) {
 var addDays = require('../add_days/index.js')
 
 /**
@@ -972,7 +1004,7 @@ function addWeeks (dirtyDate, dirtyAmount) {
 
 module.exports = addWeeks
 
-},{"../add_days/index.js":7}],15:[function(require,module,exports) {
+},{"../add_days/index.js":"node_modules/date-fns/add_days/index.js"}],"node_modules/date-fns/add_years/index.js":[function(require,module,exports) {
 var addMonths = require('../add_months/index.js')
 
 /**
@@ -998,7 +1030,7 @@ function addYears (dirtyDate, dirtyAmount) {
 
 module.exports = addYears
 
-},{"../add_months/index.js":11}],17:[function(require,module,exports) {
+},{"../add_months/index.js":"node_modules/date-fns/add_months/index.js"}],"node_modules/date-fns/are_ranges_overlapping/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1044,7 +1076,7 @@ function areRangesOverlapping (dirtyInitialRangeStartDate, dirtyInitialRangeEndD
 
 module.exports = areRangesOverlapping
 
-},{"../parse/index.js":124}],16:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/closest_index_to/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1095,7 +1127,7 @@ function closestIndexTo (dirtyDateToCompare, dirtyDatesArray) {
 
 module.exports = closestIndexTo
 
-},{"../parse/index.js":124}],18:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/closest_to/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1144,7 +1176,7 @@ function closestTo (dirtyDateToCompare, dirtyDatesArray) {
 
 module.exports = closestTo
 
-},{"../parse/index.js":124}],19:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/compare_asc/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1197,7 +1229,7 @@ function compareAsc (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = compareAsc
 
-},{"../parse/index.js":124}],20:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/compare_desc/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1250,7 +1282,7 @@ function compareDesc (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = compareDesc
 
-},{"../parse/index.js":124}],22:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/difference_in_calendar_iso_weeks/index.js":[function(require,module,exports) {
 var startOfISOWeek = require('../start_of_iso_week/index.js')
 
 var MILLISECONDS_IN_MINUTE = 60000
@@ -1294,7 +1326,7 @@ function differenceInCalendarISOWeeks (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInCalendarISOWeeks
 
-},{"../start_of_iso_week/index.js":139}],23:[function(require,module,exports) {
+},{"../start_of_iso_week/index.js":"node_modules/date-fns/start_of_iso_week/index.js"}],"node_modules/date-fns/difference_in_calendar_iso_years/index.js":[function(require,module,exports) {
 var getISOYear = require('../get_iso_year/index.js')
 
 /**
@@ -1324,7 +1356,7 @@ function differenceInCalendarISOYears (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInCalendarISOYears
 
-},{"../get_iso_year/index.js":65}],24:[function(require,module,exports) {
+},{"../get_iso_year/index.js":"node_modules/date-fns/get_iso_year/index.js"}],"node_modules/date-fns/difference_in_calendar_months/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1358,7 +1390,7 @@ function differenceInCalendarMonths (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInCalendarMonths
 
-},{"../parse/index.js":124}],69:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_quarter/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1384,7 +1416,7 @@ function getQuarter (dirtyDate) {
 
 module.exports = getQuarter
 
-},{"../parse/index.js":124}],25:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/difference_in_calendar_quarters/index.js":[function(require,module,exports) {
 var getQuarter = require('../get_quarter/index.js')
 var parse = require('../parse/index.js')
 
@@ -1419,7 +1451,7 @@ function differenceInCalendarQuarters (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInCalendarQuarters
 
-},{"../get_quarter/index.js":69,"../parse/index.js":124}],26:[function(require,module,exports) {
+},{"../get_quarter/index.js":"node_modules/date-fns/get_quarter/index.js","../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/difference_in_calendar_weeks/index.js":[function(require,module,exports) {
 var startOfWeek = require('../start_of_week/index.js')
 
 var MILLISECONDS_IN_MINUTE = 60000
@@ -1473,7 +1505,7 @@ function differenceInCalendarWeeks (dirtyDateLeft, dirtyDateRight, dirtyOptions)
 
 module.exports = differenceInCalendarWeeks
 
-},{"../start_of_week/index.js":147}],27:[function(require,module,exports) {
+},{"../start_of_week/index.js":"node_modules/date-fns/start_of_week/index.js"}],"node_modules/date-fns/difference_in_calendar_years/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1504,7 +1536,7 @@ function differenceInCalendarYears (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInCalendarYears
 
-},{"../parse/index.js":124}],28:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/difference_in_days/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var differenceInCalendarDays = require('../difference_in_calendar_days/index.js')
 var compareAsc = require('../compare_asc/index.js')
@@ -1545,7 +1577,7 @@ function differenceInDays (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInDays
 
-},{"../parse/index.js":124,"../difference_in_calendar_days/index.js":21,"../compare_asc/index.js":19}],31:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../difference_in_calendar_days/index.js":"node_modules/date-fns/difference_in_calendar_days/index.js","../compare_asc/index.js":"node_modules/date-fns/compare_asc/index.js"}],"node_modules/date-fns/difference_in_milliseconds/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -1576,7 +1608,7 @@ function differenceInMilliseconds (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInMilliseconds
 
-},{"../parse/index.js":124}],30:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/difference_in_hours/index.js":[function(require,module,exports) {
 var differenceInMilliseconds = require('../difference_in_milliseconds/index.js')
 
 var MILLISECONDS_IN_HOUR = 3600000
@@ -1607,7 +1639,7 @@ function differenceInHours (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInHours
 
-},{"../difference_in_milliseconds/index.js":31}],151:[function(require,module,exports) {
+},{"../difference_in_milliseconds/index.js":"node_modules/date-fns/difference_in_milliseconds/index.js"}],"node_modules/date-fns/sub_iso_years/index.js":[function(require,module,exports) {
 var addISOYears = require('../add_iso_years/index.js')
 
 /**
@@ -1635,7 +1667,7 @@ function subISOYears (dirtyDate, dirtyAmount) {
 
 module.exports = subISOYears
 
-},{"../add_iso_years/index.js":6}],29:[function(require,module,exports) {
+},{"../add_iso_years/index.js":"node_modules/date-fns/add_iso_years/index.js"}],"node_modules/date-fns/difference_in_iso_years/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var differenceInCalendarISOYears = require('../difference_in_calendar_iso_years/index.js')
 var compareAsc = require('../compare_asc/index.js')
@@ -1679,7 +1711,7 @@ function differenceInISOYears (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInISOYears
 
-},{"../parse/index.js":124,"../difference_in_calendar_iso_years/index.js":23,"../compare_asc/index.js":19,"../sub_iso_years/index.js":151}],32:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../difference_in_calendar_iso_years/index.js":"node_modules/date-fns/difference_in_calendar_iso_years/index.js","../compare_asc/index.js":"node_modules/date-fns/compare_asc/index.js","../sub_iso_years/index.js":"node_modules/date-fns/sub_iso_years/index.js"}],"node_modules/date-fns/difference_in_minutes/index.js":[function(require,module,exports) {
 var differenceInMilliseconds = require('../difference_in_milliseconds/index.js')
 
 var MILLISECONDS_IN_MINUTE = 60000
@@ -1710,7 +1742,7 @@ function differenceInMinutes (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInMinutes
 
-},{"../difference_in_milliseconds/index.js":31}],33:[function(require,module,exports) {
+},{"../difference_in_milliseconds/index.js":"node_modules/date-fns/difference_in_milliseconds/index.js"}],"node_modules/date-fns/difference_in_months/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var differenceInCalendarMonths = require('../difference_in_calendar_months/index.js')
 var compareAsc = require('../compare_asc/index.js')
@@ -1750,7 +1782,7 @@ function differenceInMonths (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInMonths
 
-},{"../parse/index.js":124,"../difference_in_calendar_months/index.js":24,"../compare_asc/index.js":19}],35:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../difference_in_calendar_months/index.js":"node_modules/date-fns/difference_in_calendar_months/index.js","../compare_asc/index.js":"node_modules/date-fns/compare_asc/index.js"}],"node_modules/date-fns/difference_in_quarters/index.js":[function(require,module,exports) {
 var differenceInMonths = require('../difference_in_months/index.js')
 
 /**
@@ -1779,7 +1811,7 @@ function differenceInQuarters (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInQuarters
 
-},{"../difference_in_months/index.js":33}],34:[function(require,module,exports) {
+},{"../difference_in_months/index.js":"node_modules/date-fns/difference_in_months/index.js"}],"node_modules/date-fns/difference_in_seconds/index.js":[function(require,module,exports) {
 var differenceInMilliseconds = require('../difference_in_milliseconds/index.js')
 
 /**
@@ -1809,7 +1841,7 @@ function differenceInSeconds (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInSeconds
 
-},{"../difference_in_milliseconds/index.js":31}],36:[function(require,module,exports) {
+},{"../difference_in_milliseconds/index.js":"node_modules/date-fns/difference_in_milliseconds/index.js"}],"node_modules/date-fns/difference_in_weeks/index.js":[function(require,module,exports) {
 var differenceInDays = require('../difference_in_days/index.js')
 
 /**
@@ -1838,7 +1870,7 @@ function differenceInWeeks (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInWeeks
 
-},{"../difference_in_days/index.js":28}],37:[function(require,module,exports) {
+},{"../difference_in_days/index.js":"node_modules/date-fns/difference_in_days/index.js"}],"node_modules/date-fns/difference_in_years/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var differenceInCalendarYears = require('../difference_in_calendar_years/index.js')
 var compareAsc = require('../compare_asc/index.js')
@@ -1878,7 +1910,7 @@ function differenceInYears (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = differenceInYears
 
-},{"../parse/index.js":124,"../difference_in_calendar_years/index.js":27,"../compare_asc/index.js":19}],315:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../difference_in_calendar_years/index.js":"node_modules/date-fns/difference_in_calendar_years/index.js","../compare_asc/index.js":"node_modules/date-fns/compare_asc/index.js"}],"node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js":[function(require,module,exports) {
 function buildDistanceInWordsLocale () {
   var distanceInWordsLocale = {
     lessThanXSeconds: {
@@ -1979,7 +2011,7 @@ function buildDistanceInWordsLocale () {
 
 module.exports = buildDistanceInWordsLocale
 
-},{}],317:[function(require,module,exports) {
+},{}],"node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js":[function(require,module,exports) {
 var commonFormatterKeys = [
   'M', 'MM', 'Q', 'D', 'DD', 'DDD', 'DDDD', 'd',
   'E', 'W', 'WW', 'YY', 'YYYY', 'GG', 'GGGG',
@@ -2009,7 +2041,7 @@ function buildFormattingTokensRegExp (formatters) {
 
 module.exports = buildFormattingTokensRegExp
 
-},{}],316:[function(require,module,exports) {
+},{}],"node_modules/date-fns/locale/en/build_format_locale/index.js":[function(require,module,exports) {
 var buildFormattingTokensRegExp = require('../../_lib/build_formatting_tokens_reg_exp/index.js')
 
 function buildFormatLocale () {
@@ -2099,7 +2131,7 @@ function ordinal (number) {
 
 module.exports = buildFormatLocale
 
-},{"../../_lib/build_formatting_tokens_reg_exp/index.js":317}],314:[function(require,module,exports) {
+},{"../../_lib/build_formatting_tokens_reg_exp/index.js":"node_modules/date-fns/locale/_lib/build_formatting_tokens_reg_exp/index.js"}],"node_modules/date-fns/locale/en/index.js":[function(require,module,exports) {
 var buildDistanceInWordsLocale = require('./build_distance_in_words_locale/index.js')
 var buildFormatLocale = require('./build_format_locale/index.js')
 
@@ -2112,7 +2144,7 @@ module.exports = {
   format: buildFormatLocale()
 }
 
-},{"./build_distance_in_words_locale/index.js":315,"./build_format_locale/index.js":316}],38:[function(require,module,exports) {
+},{"./build_distance_in_words_locale/index.js":"node_modules/date-fns/locale/en/build_distance_in_words_locale/index.js","./build_format_locale/index.js":"node_modules/date-fns/locale/en/build_format_locale/index.js"}],"node_modules/date-fns/distance_in_words/index.js":[function(require,module,exports) {
 var compareDesc = require('../compare_desc/index.js')
 var parse = require('../parse/index.js')
 var differenceInSeconds = require('../difference_in_seconds/index.js')
@@ -2317,7 +2349,7 @@ function distanceInWords (dirtyDateToCompare, dirtyDate, dirtyOptions) {
 
 module.exports = distanceInWords
 
-},{"../compare_desc/index.js":20,"../parse/index.js":124,"../difference_in_seconds/index.js":34,"../difference_in_months/index.js":33,"../locale/en/index.js":314}],39:[function(require,module,exports) {
+},{"../compare_desc/index.js":"node_modules/date-fns/compare_desc/index.js","../parse/index.js":"node_modules/date-fns/parse/index.js","../difference_in_seconds/index.js":"node_modules/date-fns/difference_in_seconds/index.js","../difference_in_months/index.js":"node_modules/date-fns/difference_in_months/index.js","../locale/en/index.js":"node_modules/date-fns/locale/en/index.js"}],"node_modules/date-fns/distance_in_words_strict/index.js":[function(require,module,exports) {
 var compareDesc = require('../compare_desc/index.js')
 var parse = require('../parse/index.js')
 var differenceInSeconds = require('../difference_in_seconds/index.js')
@@ -2495,7 +2527,7 @@ function distanceInWordsStrict (dirtyDateToCompare, dirtyDate, dirtyOptions) {
 
 module.exports = distanceInWordsStrict
 
-},{"../compare_desc/index.js":20,"../parse/index.js":124,"../difference_in_seconds/index.js":34,"../locale/en/index.js":314}],40:[function(require,module,exports) {
+},{"../compare_desc/index.js":"node_modules/date-fns/compare_desc/index.js","../parse/index.js":"node_modules/date-fns/parse/index.js","../difference_in_seconds/index.js":"node_modules/date-fns/difference_in_seconds/index.js","../locale/en/index.js":"node_modules/date-fns/locale/en/index.js"}],"node_modules/date-fns/distance_in_words_to_now/index.js":[function(require,module,exports) {
 var distanceInWords = require('../distance_in_words/index.js')
 
 /**
@@ -2582,7 +2614,7 @@ function distanceInWordsToNow (dirtyDate, dirtyOptions) {
 
 module.exports = distanceInWordsToNow
 
-},{"../distance_in_words/index.js":38}],41:[function(require,module,exports) {
+},{"../distance_in_words/index.js":"node_modules/date-fns/distance_in_words/index.js"}],"node_modules/date-fns/each_day/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2638,7 +2670,7 @@ function eachDay (dirtyStartDate, dirtyEndDate, dirtyStep) {
 
 module.exports = eachDay
 
-},{"../parse/index.js":124}],42:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_day/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2665,7 +2697,7 @@ function endOfDay (dirtyDate) {
 
 module.exports = endOfDay
 
-},{"../parse/index.js":124}],43:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_hour/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2692,7 +2724,7 @@ function endOfHour (dirtyDate) {
 
 module.exports = endOfHour
 
-},{"../parse/index.js":124}],52:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_week/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2732,7 +2764,7 @@ function endOfWeek (dirtyDate, dirtyOptions) {
 
 module.exports = endOfWeek
 
-},{"../parse/index.js":124}],44:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_iso_week/index.js":[function(require,module,exports) {
 var endOfWeek = require('../end_of_week/index.js')
 
 /**
@@ -2759,7 +2791,7 @@ function endOfISOWeek (dirtyDate) {
 
 module.exports = endOfISOWeek
 
-},{"../end_of_week/index.js":52}],45:[function(require,module,exports) {
+},{"../end_of_week/index.js":"node_modules/date-fns/end_of_week/index.js"}],"node_modules/date-fns/end_of_iso_year/index.js":[function(require,module,exports) {
 var getISOYear = require('../get_iso_year/index.js')
 var startOfISOWeek = require('../start_of_iso_week/index.js')
 
@@ -2794,7 +2826,7 @@ function endOfISOYear (dirtyDate) {
 
 module.exports = endOfISOYear
 
-},{"../get_iso_year/index.js":65,"../start_of_iso_week/index.js":139}],46:[function(require,module,exports) {
+},{"../get_iso_year/index.js":"node_modules/date-fns/get_iso_year/index.js","../start_of_iso_week/index.js":"node_modules/date-fns/start_of_iso_week/index.js"}],"node_modules/date-fns/end_of_minute/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2821,7 +2853,7 @@ function endOfMinute (dirtyDate) {
 
 module.exports = endOfMinute
 
-},{"../parse/index.js":124}],47:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2850,7 +2882,7 @@ function endOfMonth (dirtyDate) {
 
 module.exports = endOfMonth
 
-},{"../parse/index.js":124}],48:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_quarter/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2880,7 +2912,7 @@ function endOfQuarter (dirtyDate) {
 
 module.exports = endOfQuarter
 
-},{"../parse/index.js":124}],49:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_second/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2907,7 +2939,7 @@ function endOfSecond (dirtyDate) {
 
 module.exports = endOfSecond
 
-},{"../parse/index.js":124}],50:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_today/index.js":[function(require,module,exports) {
 var endOfDay = require('../end_of_day/index.js')
 
 /**
@@ -2930,7 +2962,7 @@ function endOfToday () {
 
 module.exports = endOfToday
 
-},{"../end_of_day/index.js":42}],51:[function(require,module,exports) {
+},{"../end_of_day/index.js":"node_modules/date-fns/end_of_day/index.js"}],"node_modules/date-fns/end_of_tomorrow/index.js":[function(require,module,exports) {
 /**
  * @category Day Helpers
  * @summary Return the end of tomorrow.
@@ -2959,7 +2991,7 @@ function endOfTomorrow () {
 
 module.exports = endOfTomorrow
 
-},{}],53:[function(require,module,exports) {
+},{}],"node_modules/date-fns/end_of_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -2988,7 +3020,7 @@ function endOfYear (dirtyDate) {
 
 module.exports = endOfYear
 
-},{"../parse/index.js":124}],55:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/end_of_yesterday/index.js":[function(require,module,exports) {
 /**
  * @category Day Helpers
  * @summary Return the end of yesterday.
@@ -3017,7 +3049,7 @@ function endOfYesterday () {
 
 module.exports = endOfYesterday
 
-},{}],149:[function(require,module,exports) {
+},{}],"node_modules/date-fns/start_of_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3046,7 +3078,7 @@ function startOfYear (dirtyDate) {
 
 module.exports = startOfYear
 
-},{"../parse/index.js":124}],58:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_day_of_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var startOfYear = require('../start_of_year/index.js')
 var differenceInCalendarDays = require('../difference_in_calendar_days/index.js')
@@ -3075,7 +3107,7 @@ function getDayOfYear (dirtyDate) {
 
 module.exports = getDayOfYear
 
-},{"../parse/index.js":124,"../start_of_year/index.js":149,"../difference_in_calendar_days/index.js":21}],63:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../start_of_year/index.js":"node_modules/date-fns/start_of_year/index.js","../difference_in_calendar_days/index.js":"node_modules/date-fns/difference_in_calendar_days/index.js"}],"node_modules/date-fns/get_iso_week/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var startOfISOWeek = require('../start_of_iso_week/index.js')
 var startOfISOYear = require('../start_of_iso_year/index.js')
@@ -3111,7 +3143,7 @@ function getISOWeek (dirtyDate) {
 
 module.exports = getISOWeek
 
-},{"../parse/index.js":124,"../start_of_iso_week/index.js":139,"../start_of_iso_year/index.js":140}],110:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../start_of_iso_week/index.js":"node_modules/date-fns/start_of_iso_week/index.js","../start_of_iso_year/index.js":"node_modules/date-fns/start_of_iso_year/index.js"}],"node_modules/date-fns/is_valid/index.js":[function(require,module,exports) {
 var isDate = require('../is_date/index.js')
 
 /**
@@ -3148,7 +3180,7 @@ function isValid (dirtyDate) {
 
 module.exports = isValid
 
-},{"../is_date/index.js":76}],54:[function(require,module,exports) {
+},{"../is_date/index.js":"node_modules/date-fns/is_date/index.js"}],"node_modules/date-fns/format/index.js":[function(require,module,exports) {
 var getDayOfYear = require('../get_day_of_year/index.js')
 var getISOWeek = require('../get_iso_week/index.js')
 var getISOYear = require('../get_iso_year/index.js')
@@ -3478,7 +3510,7 @@ function addLeadingZeros (number, targetLength) {
 
 module.exports = format
 
-},{"../get_day_of_year/index.js":58,"../get_iso_week/index.js":63,"../get_iso_year/index.js":65,"../parse/index.js":124,"../is_valid/index.js":110,"../locale/en/index.js":314}],57:[function(require,module,exports) {
+},{"../get_day_of_year/index.js":"node_modules/date-fns/get_day_of_year/index.js","../get_iso_week/index.js":"node_modules/date-fns/get_iso_week/index.js","../get_iso_year/index.js":"node_modules/date-fns/get_iso_year/index.js","../parse/index.js":"node_modules/date-fns/parse/index.js","../is_valid/index.js":"node_modules/date-fns/is_valid/index.js","../locale/en/index.js":"node_modules/date-fns/locale/en/index.js"}],"node_modules/date-fns/get_date/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3504,7 +3536,7 @@ function getDate (dirtyDate) {
 
 module.exports = getDate
 
-},{"../parse/index.js":124}],56:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_day/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3530,7 +3562,7 @@ function getDay (dirtyDate) {
 
 module.exports = getDay
 
-},{"../parse/index.js":124}],82:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_leap_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3556,7 +3588,7 @@ function isLeapYear (dirtyDate) {
 
 module.exports = isLeapYear
 
-},{"../parse/index.js":124}],60:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_days_in_year/index.js":[function(require,module,exports) {
 var isLeapYear = require('../is_leap_year/index.js')
 
 /**
@@ -3580,7 +3612,7 @@ function getDaysInYear (dirtyDate) {
 
 module.exports = getDaysInYear
 
-},{"../is_leap_year/index.js":82}],61:[function(require,module,exports) {
+},{"../is_leap_year/index.js":"node_modules/date-fns/is_leap_year/index.js"}],"node_modules/date-fns/get_hours/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3606,7 +3638,7 @@ function getHours (dirtyDate) {
 
 module.exports = getHours
 
-},{"../parse/index.js":124}],62:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_iso_day/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3640,7 +3672,7 @@ function getISODay (dirtyDate) {
 
 module.exports = getISODay
 
-},{"../parse/index.js":124}],64:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_iso_weeks_in_year/index.js":[function(require,module,exports) {
 var startOfISOYear = require('../start_of_iso_year/index.js')
 var addWeeks = require('../add_weeks/index.js')
 
@@ -3675,7 +3707,7 @@ function getISOWeeksInYear (dirtyDate) {
 
 module.exports = getISOWeeksInYear
 
-},{"../start_of_iso_year/index.js":140,"../add_weeks/index.js":14}],66:[function(require,module,exports) {
+},{"../start_of_iso_year/index.js":"node_modules/date-fns/start_of_iso_year/index.js","../add_weeks/index.js":"node_modules/date-fns/add_weeks/index.js"}],"node_modules/date-fns/get_milliseconds/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3701,7 +3733,7 @@ function getMilliseconds (dirtyDate) {
 
 module.exports = getMilliseconds
 
-},{"../parse/index.js":124}],67:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_minutes/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3727,7 +3759,7 @@ function getMinutes (dirtyDate) {
 
 module.exports = getMinutes
 
-},{"../parse/index.js":124}],68:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3753,7 +3785,7 @@ function getMonth (dirtyDate) {
 
 module.exports = getMonth
 
-},{"../parse/index.js":124}],70:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_overlapping_days_in_ranges/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 var MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000
@@ -3817,7 +3849,7 @@ function getOverlappingDaysInRanges (dirtyInitialRangeStartDate, dirtyInitialRan
 
 module.exports = getOverlappingDaysInRanges
 
-},{"../parse/index.js":124}],71:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_seconds/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3843,7 +3875,7 @@ function getSeconds (dirtyDate) {
 
 module.exports = getSeconds
 
-},{"../parse/index.js":124}],72:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_time/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3869,7 +3901,7 @@ function getTime (dirtyDate) {
 
 module.exports = getTime
 
-},{"../parse/index.js":124}],74:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/get_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3895,7 +3927,7 @@ function getYear (dirtyDate) {
 
 module.exports = getYear
 
-},{"../parse/index.js":124}],73:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_after/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3922,7 +3954,7 @@ function isAfter (dirtyDate, dirtyDateToCompare) {
 
 module.exports = isAfter
 
-},{"../parse/index.js":124}],75:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_before/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3949,7 +3981,7 @@ function isBefore (dirtyDate, dirtyDateToCompare) {
 
 module.exports = isBefore
 
-},{"../parse/index.js":124}],77:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_equal/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -3979,7 +4011,7 @@ function isEqual (dirtyLeftDate, dirtyRightDate) {
 
 module.exports = isEqual
 
-},{"../parse/index.js":124}],78:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_first_day_of_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4003,7 +4035,7 @@ function isFirstDayOfMonth (dirtyDate) {
 
 module.exports = isFirstDayOfMonth
 
-},{"../parse/index.js":124}],79:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_friday/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4027,7 +4059,7 @@ function isFriday (dirtyDate) {
 
 module.exports = isFriday
 
-},{"../parse/index.js":124}],80:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_future/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4051,7 +4083,7 @@ function isFuture (dirtyDate) {
 
 module.exports = isFuture
 
-},{"../parse/index.js":124}],81:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_last_day_of_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var endOfDay = require('../end_of_day/index.js')
 var endOfMonth = require('../end_of_month/index.js')
@@ -4078,7 +4110,7 @@ function isLastDayOfMonth (dirtyDate) {
 
 module.exports = isLastDayOfMonth
 
-},{"../parse/index.js":124,"../end_of_day/index.js":42,"../end_of_month/index.js":47}],83:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../end_of_day/index.js":"node_modules/date-fns/end_of_day/index.js","../end_of_month/index.js":"node_modules/date-fns/end_of_month/index.js"}],"node_modules/date-fns/is_monday/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4102,7 +4134,7 @@ function isMonday (dirtyDate) {
 
 module.exports = isMonday
 
-},{"../parse/index.js":124}],84:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_past/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4126,7 +4158,7 @@ function isPast (dirtyDate) {
 
 module.exports = isPast
 
-},{"../parse/index.js":124}],85:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_same_day/index.js":[function(require,module,exports) {
 var startOfDay = require('../start_of_day/index.js')
 
 /**
@@ -4157,7 +4189,7 @@ function isSameDay (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameDay
 
-},{"../start_of_day/index.js":137}],138:[function(require,module,exports) {
+},{"../start_of_day/index.js":"node_modules/date-fns/start_of_day/index.js"}],"node_modules/date-fns/start_of_hour/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4184,7 +4216,7 @@ function startOfHour (dirtyDate) {
 
 module.exports = startOfHour
 
-},{"../parse/index.js":124}],86:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_same_hour/index.js":[function(require,module,exports) {
 var startOfHour = require('../start_of_hour/index.js')
 
 /**
@@ -4215,7 +4247,7 @@ function isSameHour (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameHour
 
-},{"../start_of_hour/index.js":138}],93:[function(require,module,exports) {
+},{"../start_of_hour/index.js":"node_modules/date-fns/start_of_hour/index.js"}],"node_modules/date-fns/is_same_week/index.js":[function(require,module,exports) {
 var startOfWeek = require('../start_of_week/index.js')
 
 /**
@@ -4258,7 +4290,7 @@ function isSameWeek (dirtyDateLeft, dirtyDateRight, dirtyOptions) {
 
 module.exports = isSameWeek
 
-},{"../start_of_week/index.js":147}],87:[function(require,module,exports) {
+},{"../start_of_week/index.js":"node_modules/date-fns/start_of_week/index.js"}],"node_modules/date-fns/is_same_iso_week/index.js":[function(require,module,exports) {
 var isSameWeek = require('../is_same_week/index.js')
 
 /**
@@ -4288,7 +4320,7 @@ function isSameISOWeek (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameISOWeek
 
-},{"../is_same_week/index.js":93}],88:[function(require,module,exports) {
+},{"../is_same_week/index.js":"node_modules/date-fns/is_same_week/index.js"}],"node_modules/date-fns/is_same_iso_year/index.js":[function(require,module,exports) {
 var startOfISOYear = require('../start_of_iso_year/index.js')
 
 /**
@@ -4321,7 +4353,7 @@ function isSameISOYear (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameISOYear
 
-},{"../start_of_iso_year/index.js":140}],141:[function(require,module,exports) {
+},{"../start_of_iso_year/index.js":"node_modules/date-fns/start_of_iso_year/index.js"}],"node_modules/date-fns/start_of_minute/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4348,7 +4380,7 @@ function startOfMinute (dirtyDate) {
 
 module.exports = startOfMinute
 
-},{"../parse/index.js":124}],89:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_same_minute/index.js":[function(require,module,exports) {
 var startOfMinute = require('../start_of_minute/index.js')
 
 /**
@@ -4380,7 +4412,7 @@ function isSameMinute (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameMinute
 
-},{"../start_of_minute/index.js":141}],92:[function(require,module,exports) {
+},{"../start_of_minute/index.js":"node_modules/date-fns/start_of_minute/index.js"}],"node_modules/date-fns/is_same_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4411,7 +4443,7 @@ function isSameMonth (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameMonth
 
-},{"../parse/index.js":124}],145:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/start_of_quarter/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4441,7 +4473,7 @@ function startOfQuarter (dirtyDate) {
 
 module.exports = startOfQuarter
 
-},{"../parse/index.js":124}],90:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_same_quarter/index.js":[function(require,module,exports) {
 var startOfQuarter = require('../start_of_quarter/index.js')
 
 /**
@@ -4472,7 +4504,7 @@ function isSameQuarter (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameQuarter
 
-},{"../start_of_quarter/index.js":145}],143:[function(require,module,exports) {
+},{"../start_of_quarter/index.js":"node_modules/date-fns/start_of_quarter/index.js"}],"node_modules/date-fns/start_of_second/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4499,7 +4531,7 @@ function startOfSecond (dirtyDate) {
 
 module.exports = startOfSecond
 
-},{"../parse/index.js":124}],91:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_same_second/index.js":[function(require,module,exports) {
 var startOfSecond = require('../start_of_second/index.js')
 
 /**
@@ -4531,7 +4563,7 @@ function isSameSecond (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameSecond
 
-},{"../start_of_second/index.js":143}],94:[function(require,module,exports) {
+},{"../start_of_second/index.js":"node_modules/date-fns/start_of_second/index.js"}],"node_modules/date-fns/is_same_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4561,7 +4593,7 @@ function isSameYear (dirtyDateLeft, dirtyDateRight) {
 
 module.exports = isSameYear
 
-},{"../parse/index.js":124}],95:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_saturday/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4585,7 +4617,7 @@ function isSaturday (dirtyDate) {
 
 module.exports = isSaturday
 
-},{"../parse/index.js":124}],96:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_sunday/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4609,7 +4641,7 @@ function isSunday (dirtyDate) {
 
 module.exports = isSunday
 
-},{"../parse/index.js":124}],97:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_this_hour/index.js":[function(require,module,exports) {
 var isSameHour = require('../is_same_hour/index.js')
 
 /**
@@ -4634,7 +4666,7 @@ function isThisHour (dirtyDate) {
 
 module.exports = isThisHour
 
-},{"../is_same_hour/index.js":86}],98:[function(require,module,exports) {
+},{"../is_same_hour/index.js":"node_modules/date-fns/is_same_hour/index.js"}],"node_modules/date-fns/is_this_iso_week/index.js":[function(require,module,exports) {
 var isSameISOWeek = require('../is_same_iso_week/index.js')
 
 /**
@@ -4660,7 +4692,7 @@ function isThisISOWeek (dirtyDate) {
 
 module.exports = isThisISOWeek
 
-},{"../is_same_iso_week/index.js":87}],99:[function(require,module,exports) {
+},{"../is_same_iso_week/index.js":"node_modules/date-fns/is_same_iso_week/index.js"}],"node_modules/date-fns/is_this_iso_year/index.js":[function(require,module,exports) {
 var isSameISOYear = require('../is_same_iso_year/index.js')
 
 /**
@@ -4687,7 +4719,7 @@ function isThisISOYear (dirtyDate) {
 
 module.exports = isThisISOYear
 
-},{"../is_same_iso_year/index.js":88}],101:[function(require,module,exports) {
+},{"../is_same_iso_year/index.js":"node_modules/date-fns/is_same_iso_year/index.js"}],"node_modules/date-fns/is_this_minute/index.js":[function(require,module,exports) {
 var isSameMinute = require('../is_same_minute/index.js')
 
 /**
@@ -4712,7 +4744,7 @@ function isThisMinute (dirtyDate) {
 
 module.exports = isThisMinute
 
-},{"../is_same_minute/index.js":89}],100:[function(require,module,exports) {
+},{"../is_same_minute/index.js":"node_modules/date-fns/is_same_minute/index.js"}],"node_modules/date-fns/is_this_month/index.js":[function(require,module,exports) {
 var isSameMonth = require('../is_same_month/index.js')
 
 /**
@@ -4736,7 +4768,7 @@ function isThisMonth (dirtyDate) {
 
 module.exports = isThisMonth
 
-},{"../is_same_month/index.js":92}],102:[function(require,module,exports) {
+},{"../is_same_month/index.js":"node_modules/date-fns/is_same_month/index.js"}],"node_modules/date-fns/is_this_quarter/index.js":[function(require,module,exports) {
 var isSameQuarter = require('../is_same_quarter/index.js')
 
 /**
@@ -4760,7 +4792,7 @@ function isThisQuarter (dirtyDate) {
 
 module.exports = isThisQuarter
 
-},{"../is_same_quarter/index.js":90}],103:[function(require,module,exports) {
+},{"../is_same_quarter/index.js":"node_modules/date-fns/is_same_quarter/index.js"}],"node_modules/date-fns/is_this_second/index.js":[function(require,module,exports) {
 var isSameSecond = require('../is_same_second/index.js')
 
 /**
@@ -4785,7 +4817,7 @@ function isThisSecond (dirtyDate) {
 
 module.exports = isThisSecond
 
-},{"../is_same_second/index.js":91}],104:[function(require,module,exports) {
+},{"../is_same_second/index.js":"node_modules/date-fns/is_same_second/index.js"}],"node_modules/date-fns/is_this_week/index.js":[function(require,module,exports) {
 var isSameWeek = require('../is_same_week/index.js')
 
 /**
@@ -4817,7 +4849,7 @@ function isThisWeek (dirtyDate, dirtyOptions) {
 
 module.exports = isThisWeek
 
-},{"../is_same_week/index.js":93}],105:[function(require,module,exports) {
+},{"../is_same_week/index.js":"node_modules/date-fns/is_same_week/index.js"}],"node_modules/date-fns/is_this_year/index.js":[function(require,module,exports) {
 var isSameYear = require('../is_same_year/index.js')
 
 /**
@@ -4841,7 +4873,7 @@ function isThisYear (dirtyDate) {
 
 module.exports = isThisYear
 
-},{"../is_same_year/index.js":94}],106:[function(require,module,exports) {
+},{"../is_same_year/index.js":"node_modules/date-fns/is_same_year/index.js"}],"node_modules/date-fns/is_thursday/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4865,7 +4897,7 @@ function isThursday (dirtyDate) {
 
 module.exports = isThursday
 
-},{"../parse/index.js":124}],107:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_today/index.js":[function(require,module,exports) {
 var startOfDay = require('../start_of_day/index.js')
 
 /**
@@ -4889,7 +4921,7 @@ function isToday (dirtyDate) {
 
 module.exports = isToday
 
-},{"../start_of_day/index.js":137}],108:[function(require,module,exports) {
+},{"../start_of_day/index.js":"node_modules/date-fns/start_of_day/index.js"}],"node_modules/date-fns/is_tomorrow/index.js":[function(require,module,exports) {
 var startOfDay = require('../start_of_day/index.js')
 
 /**
@@ -4915,7 +4947,7 @@ function isTomorrow (dirtyDate) {
 
 module.exports = isTomorrow
 
-},{"../start_of_day/index.js":137}],109:[function(require,module,exports) {
+},{"../start_of_day/index.js":"node_modules/date-fns/start_of_day/index.js"}],"node_modules/date-fns/is_tuesday/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4939,7 +4971,7 @@ function isTuesday (dirtyDate) {
 
 module.exports = isTuesday
 
-},{"../parse/index.js":124}],112:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_wednesday/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4963,7 +4995,7 @@ function isWednesday (dirtyDate) {
 
 module.exports = isWednesday
 
-},{"../parse/index.js":124}],114:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_weekend/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -4989,7 +5021,7 @@ function isWeekend (dirtyDate) {
 
 module.exports = isWeekend
 
-},{"../parse/index.js":124}],111:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_within_range/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5033,7 +5065,7 @@ function isWithinRange (dirtyDate, dirtyStartDate, dirtyEndDate) {
 
 module.exports = isWithinRange
 
-},{"../parse/index.js":124}],113:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/is_yesterday/index.js":[function(require,module,exports) {
 var startOfDay = require('../start_of_day/index.js')
 
 /**
@@ -5059,7 +5091,7 @@ function isYesterday (dirtyDate) {
 
 module.exports = isYesterday
 
-},{"../start_of_day/index.js":137}],119:[function(require,module,exports) {
+},{"../start_of_day/index.js":"node_modules/date-fns/start_of_day/index.js"}],"node_modules/date-fns/last_day_of_week/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5099,7 +5131,7 @@ function lastDayOfWeek (dirtyDate, dirtyOptions) {
 
 module.exports = lastDayOfWeek
 
-},{"../parse/index.js":124}],115:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/last_day_of_iso_week/index.js":[function(require,module,exports) {
 var lastDayOfWeek = require('../last_day_of_week/index.js')
 
 /**
@@ -5126,7 +5158,7 @@ function lastDayOfISOWeek (dirtyDate) {
 
 module.exports = lastDayOfISOWeek
 
-},{"../last_day_of_week/index.js":119}],117:[function(require,module,exports) {
+},{"../last_day_of_week/index.js":"node_modules/date-fns/last_day_of_week/index.js"}],"node_modules/date-fns/last_day_of_iso_year/index.js":[function(require,module,exports) {
 var getISOYear = require('../get_iso_year/index.js')
 var startOfISOWeek = require('../start_of_iso_week/index.js')
 
@@ -5161,7 +5193,7 @@ function lastDayOfISOYear (dirtyDate) {
 
 module.exports = lastDayOfISOYear
 
-},{"../get_iso_year/index.js":65,"../start_of_iso_week/index.js":139}],118:[function(require,module,exports) {
+},{"../get_iso_year/index.js":"node_modules/date-fns/get_iso_year/index.js","../start_of_iso_week/index.js":"node_modules/date-fns/start_of_iso_week/index.js"}],"node_modules/date-fns/last_day_of_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5190,7 +5222,7 @@ function lastDayOfMonth (dirtyDate) {
 
 module.exports = lastDayOfMonth
 
-},{"../parse/index.js":124}],116:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/last_day_of_quarter/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5220,7 +5252,7 @@ function lastDayOfQuarter (dirtyDate) {
 
 module.exports = lastDayOfQuarter
 
-},{"../parse/index.js":124}],122:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/last_day_of_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5249,7 +5281,7 @@ function lastDayOfYear (dirtyDate) {
 
 module.exports = lastDayOfYear
 
-},{"../parse/index.js":124}],120:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/max/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5283,7 +5315,7 @@ function max () {
 
 module.exports = max
 
-},{"../parse/index.js":124}],121:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/min/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5317,7 +5349,7 @@ function min () {
 
 module.exports = min
 
-},{"../parse/index.js":124}],123:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/set_date/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5345,7 +5377,7 @@ function setDate (dirtyDate, dirtyDayOfMonth) {
 
 module.exports = setDate
 
-},{"../parse/index.js":124}],125:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/set_day/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var addDays = require('../add_days/index.js')
 
@@ -5387,7 +5419,7 @@ function setDay (dirtyDate, dirtyDay, dirtyOptions) {
 
 module.exports = setDay
 
-},{"../parse/index.js":124,"../add_days/index.js":7}],126:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../add_days/index.js":"node_modules/date-fns/add_days/index.js"}],"node_modules/date-fns/set_day_of_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5416,7 +5448,7 @@ function setDayOfYear (dirtyDate, dirtyDayOfYear) {
 
 module.exports = setDayOfYear
 
-},{"../parse/index.js":124}],127:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/set_hours/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5444,7 +5476,7 @@ function setHours (dirtyDate, dirtyHours) {
 
 module.exports = setHours
 
-},{"../parse/index.js":124}],128:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/set_iso_day/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var addDays = require('../add_days/index.js')
 var getISODay = require('../get_iso_day/index.js')
@@ -5477,7 +5509,7 @@ function setISODay (dirtyDate, dirtyDay) {
 
 module.exports = setISODay
 
-},{"../parse/index.js":124,"../add_days/index.js":7,"../get_iso_day/index.js":62}],129:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../add_days/index.js":"node_modules/date-fns/add_days/index.js","../get_iso_day/index.js":"node_modules/date-fns/get_iso_day/index.js"}],"node_modules/date-fns/set_iso_week/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var getISOWeek = require('../get_iso_week/index.js')
 
@@ -5509,7 +5541,7 @@ function setISOWeek (dirtyDate, dirtyISOWeek) {
 
 module.exports = setISOWeek
 
-},{"../parse/index.js":124,"../get_iso_week/index.js":63}],131:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../get_iso_week/index.js":"node_modules/date-fns/get_iso_week/index.js"}],"node_modules/date-fns/set_milliseconds/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5537,7 +5569,7 @@ function setMilliseconds (dirtyDate, dirtyMilliseconds) {
 
 module.exports = setMilliseconds
 
-},{"../parse/index.js":124}],132:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/set_minutes/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5565,7 +5597,7 @@ function setMinutes (dirtyDate, dirtyMinutes) {
 
 module.exports = setMinutes
 
-},{"../parse/index.js":124}],134:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/set_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var getDaysInMonth = require('../get_days_in_month/index.js')
 
@@ -5603,7 +5635,7 @@ function setMonth (dirtyDate, dirtyMonth) {
 
 module.exports = setMonth
 
-},{"../parse/index.js":124,"../get_days_in_month/index.js":59}],133:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../get_days_in_month/index.js":"node_modules/date-fns/get_days_in_month/index.js"}],"node_modules/date-fns/set_quarter/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 var setMonth = require('../set_month/index.js')
 
@@ -5633,7 +5665,7 @@ function setQuarter (dirtyDate, dirtyQuarter) {
 
 module.exports = setQuarter
 
-},{"../parse/index.js":124,"../set_month/index.js":134}],136:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js","../set_month/index.js":"node_modules/date-fns/set_month/index.js"}],"node_modules/date-fns/set_seconds/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5661,7 +5693,7 @@ function setSeconds (dirtyDate, dirtySeconds) {
 
 module.exports = setSeconds
 
-},{"../parse/index.js":124}],135:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/set_year/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5689,7 +5721,7 @@ function setYear (dirtyDate, dirtyYear) {
 
 module.exports = setYear
 
-},{"../parse/index.js":124}],142:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/start_of_month/index.js":[function(require,module,exports) {
 var parse = require('../parse/index.js')
 
 /**
@@ -5717,7 +5749,7 @@ function startOfMonth (dirtyDate) {
 
 module.exports = startOfMonth
 
-},{"../parse/index.js":124}],144:[function(require,module,exports) {
+},{"../parse/index.js":"node_modules/date-fns/parse/index.js"}],"node_modules/date-fns/start_of_today/index.js":[function(require,module,exports) {
 var startOfDay = require('../start_of_day/index.js')
 
 /**
@@ -5740,7 +5772,7 @@ function startOfToday () {
 
 module.exports = startOfToday
 
-},{"../start_of_day/index.js":137}],146:[function(require,module,exports) {
+},{"../start_of_day/index.js":"node_modules/date-fns/start_of_day/index.js"}],"node_modules/date-fns/start_of_tomorrow/index.js":[function(require,module,exports) {
 /**
  * @category Day Helpers
  * @summary Return the start of tomorrow.
@@ -5769,7 +5801,7 @@ function startOfTomorrow () {
 
 module.exports = startOfTomorrow
 
-},{}],148:[function(require,module,exports) {
+},{}],"node_modules/date-fns/start_of_yesterday/index.js":[function(require,module,exports) {
 /**
  * @category Day Helpers
  * @summary Return the start of yesterday.
@@ -5798,7 +5830,7 @@ function startOfYesterday () {
 
 module.exports = startOfYesterday
 
-},{}],150:[function(require,module,exports) {
+},{}],"node_modules/date-fns/sub_days/index.js":[function(require,module,exports) {
 var addDays = require('../add_days/index.js')
 
 /**
@@ -5824,7 +5856,7 @@ function subDays (dirtyDate, dirtyAmount) {
 
 module.exports = subDays
 
-},{"../add_days/index.js":7}],152:[function(require,module,exports) {
+},{"../add_days/index.js":"node_modules/date-fns/add_days/index.js"}],"node_modules/date-fns/sub_hours/index.js":[function(require,module,exports) {
 var addHours = require('../add_hours/index.js')
 
 /**
@@ -5850,7 +5882,7 @@ function subHours (dirtyDate, dirtyAmount) {
 
 module.exports = subHours
 
-},{"../add_hours/index.js":8}],153:[function(require,module,exports) {
+},{"../add_hours/index.js":"node_modules/date-fns/add_hours/index.js"}],"node_modules/date-fns/sub_milliseconds/index.js":[function(require,module,exports) {
 var addMilliseconds = require('../add_milliseconds/index.js')
 
 /**
@@ -5876,7 +5908,7 @@ function subMilliseconds (dirtyDate, dirtyAmount) {
 
 module.exports = subMilliseconds
 
-},{"../add_milliseconds/index.js":9}],154:[function(require,module,exports) {
+},{"../add_milliseconds/index.js":"node_modules/date-fns/add_milliseconds/index.js"}],"node_modules/date-fns/sub_minutes/index.js":[function(require,module,exports) {
 var addMinutes = require('../add_minutes/index.js')
 
 /**
@@ -5902,7 +5934,7 @@ function subMinutes (dirtyDate, dirtyAmount) {
 
 module.exports = subMinutes
 
-},{"../add_minutes/index.js":10}],155:[function(require,module,exports) {
+},{"../add_minutes/index.js":"node_modules/date-fns/add_minutes/index.js"}],"node_modules/date-fns/sub_months/index.js":[function(require,module,exports) {
 var addMonths = require('../add_months/index.js')
 
 /**
@@ -5928,7 +5960,7 @@ function subMonths (dirtyDate, dirtyAmount) {
 
 module.exports = subMonths
 
-},{"../add_months/index.js":11}],157:[function(require,module,exports) {
+},{"../add_months/index.js":"node_modules/date-fns/add_months/index.js"}],"node_modules/date-fns/sub_quarters/index.js":[function(require,module,exports) {
 var addQuarters = require('../add_quarters/index.js')
 
 /**
@@ -5954,7 +5986,7 @@ function subQuarters (dirtyDate, dirtyAmount) {
 
 module.exports = subQuarters
 
-},{"../add_quarters/index.js":13}],156:[function(require,module,exports) {
+},{"../add_quarters/index.js":"node_modules/date-fns/add_quarters/index.js"}],"node_modules/date-fns/sub_seconds/index.js":[function(require,module,exports) {
 var addSeconds = require('../add_seconds/index.js')
 
 /**
@@ -5980,7 +6012,7 @@ function subSeconds (dirtyDate, dirtyAmount) {
 
 module.exports = subSeconds
 
-},{"../add_seconds/index.js":12}],158:[function(require,module,exports) {
+},{"../add_seconds/index.js":"node_modules/date-fns/add_seconds/index.js"}],"node_modules/date-fns/sub_weeks/index.js":[function(require,module,exports) {
 var addWeeks = require('../add_weeks/index.js')
 
 /**
@@ -6006,7 +6038,7 @@ function subWeeks (dirtyDate, dirtyAmount) {
 
 module.exports = subWeeks
 
-},{"../add_weeks/index.js":14}],159:[function(require,module,exports) {
+},{"../add_weeks/index.js":"node_modules/date-fns/add_weeks/index.js"}],"node_modules/date-fns/sub_years/index.js":[function(require,module,exports) {
 var addYears = require('../add_years/index.js')
 
 /**
@@ -6032,7 +6064,7 @@ function subYears (dirtyDate, dirtyAmount) {
 
 module.exports = subYears
 
-},{"../add_years/index.js":15}],4:[function(require,module,exports) {
+},{"../add_years/index.js":"node_modules/date-fns/add_years/index.js"}],"node_modules/date-fns/index.js":[function(require,module,exports) {
 module.exports = {
   addDays: require('./add_days/index.js'),
   addHours: require('./add_hours/index.js'),
@@ -6190,7 +6222,7 @@ module.exports = {
   subYears: require('./sub_years/index.js')
 }
 
-},{"./add_days/index.js":7,"./add_hours/index.js":8,"./add_iso_years/index.js":6,"./add_milliseconds/index.js":9,"./add_minutes/index.js":10,"./add_months/index.js":11,"./add_quarters/index.js":13,"./add_seconds/index.js":12,"./add_weeks/index.js":14,"./add_years/index.js":15,"./are_ranges_overlapping/index.js":17,"./closest_index_to/index.js":16,"./closest_to/index.js":18,"./compare_asc/index.js":19,"./compare_desc/index.js":20,"./difference_in_calendar_days/index.js":21,"./difference_in_calendar_iso_weeks/index.js":22,"./difference_in_calendar_iso_years/index.js":23,"./difference_in_calendar_months/index.js":24,"./difference_in_calendar_quarters/index.js":25,"./difference_in_calendar_weeks/index.js":26,"./difference_in_calendar_years/index.js":27,"./difference_in_days/index.js":28,"./difference_in_hours/index.js":30,"./difference_in_iso_years/index.js":29,"./difference_in_milliseconds/index.js":31,"./difference_in_minutes/index.js":32,"./difference_in_months/index.js":33,"./difference_in_quarters/index.js":35,"./difference_in_seconds/index.js":34,"./difference_in_weeks/index.js":36,"./difference_in_years/index.js":37,"./distance_in_words/index.js":38,"./distance_in_words_strict/index.js":39,"./distance_in_words_to_now/index.js":40,"./each_day/index.js":41,"./end_of_day/index.js":42,"./end_of_hour/index.js":43,"./end_of_iso_week/index.js":44,"./end_of_iso_year/index.js":45,"./end_of_minute/index.js":46,"./end_of_month/index.js":47,"./end_of_quarter/index.js":48,"./end_of_second/index.js":49,"./end_of_today/index.js":50,"./end_of_tomorrow/index.js":51,"./end_of_week/index.js":52,"./end_of_year/index.js":53,"./end_of_yesterday/index.js":55,"./format/index.js":54,"./get_date/index.js":57,"./get_day/index.js":56,"./get_day_of_year/index.js":58,"./get_days_in_month/index.js":59,"./get_days_in_year/index.js":60,"./get_hours/index.js":61,"./get_iso_day/index.js":62,"./get_iso_week/index.js":63,"./get_iso_weeks_in_year/index.js":64,"./get_iso_year/index.js":65,"./get_milliseconds/index.js":66,"./get_minutes/index.js":67,"./get_month/index.js":68,"./get_overlapping_days_in_ranges/index.js":70,"./get_quarter/index.js":69,"./get_seconds/index.js":71,"./get_time/index.js":72,"./get_year/index.js":74,"./is_after/index.js":73,"./is_before/index.js":75,"./is_date/index.js":76,"./is_equal/index.js":77,"./is_first_day_of_month/index.js":78,"./is_friday/index.js":79,"./is_future/index.js":80,"./is_last_day_of_month/index.js":81,"./is_leap_year/index.js":82,"./is_monday/index.js":83,"./is_past/index.js":84,"./is_same_day/index.js":85,"./is_same_hour/index.js":86,"./is_same_iso_week/index.js":87,"./is_same_iso_year/index.js":88,"./is_same_minute/index.js":89,"./is_same_month/index.js":92,"./is_same_quarter/index.js":90,"./is_same_second/index.js":91,"./is_same_week/index.js":93,"./is_same_year/index.js":94,"./is_saturday/index.js":95,"./is_sunday/index.js":96,"./is_this_hour/index.js":97,"./is_this_iso_week/index.js":98,"./is_this_iso_year/index.js":99,"./is_this_minute/index.js":101,"./is_this_month/index.js":100,"./is_this_quarter/index.js":102,"./is_this_second/index.js":103,"./is_this_week/index.js":104,"./is_this_year/index.js":105,"./is_thursday/index.js":106,"./is_today/index.js":107,"./is_tomorrow/index.js":108,"./is_tuesday/index.js":109,"./is_valid/index.js":110,"./is_wednesday/index.js":112,"./is_weekend/index.js":114,"./is_within_range/index.js":111,"./is_yesterday/index.js":113,"./last_day_of_iso_week/index.js":115,"./last_day_of_iso_year/index.js":117,"./last_day_of_month/index.js":118,"./last_day_of_quarter/index.js":116,"./last_day_of_week/index.js":119,"./last_day_of_year/index.js":122,"./max/index.js":120,"./min/index.js":121,"./parse/index.js":124,"./set_date/index.js":123,"./set_day/index.js":125,"./set_day_of_year/index.js":126,"./set_hours/index.js":127,"./set_iso_day/index.js":128,"./set_iso_week/index.js":129,"./set_iso_year/index.js":130,"./set_milliseconds/index.js":131,"./set_minutes/index.js":132,"./set_month/index.js":134,"./set_quarter/index.js":133,"./set_seconds/index.js":136,"./set_year/index.js":135,"./start_of_day/index.js":137,"./start_of_hour/index.js":138,"./start_of_iso_week/index.js":139,"./start_of_iso_year/index.js":140,"./start_of_minute/index.js":141,"./start_of_month/index.js":142,"./start_of_quarter/index.js":145,"./start_of_second/index.js":143,"./start_of_today/index.js":144,"./start_of_tomorrow/index.js":146,"./start_of_week/index.js":147,"./start_of_year/index.js":149,"./start_of_yesterday/index.js":148,"./sub_days/index.js":150,"./sub_hours/index.js":152,"./sub_iso_years/index.js":151,"./sub_milliseconds/index.js":153,"./sub_minutes/index.js":154,"./sub_months/index.js":155,"./sub_quarters/index.js":157,"./sub_seconds/index.js":156,"./sub_weeks/index.js":158,"./sub_years/index.js":159}],2:[function(require,module,exports) {
+},{"./add_days/index.js":"node_modules/date-fns/add_days/index.js","./add_hours/index.js":"node_modules/date-fns/add_hours/index.js","./add_iso_years/index.js":"node_modules/date-fns/add_iso_years/index.js","./add_milliseconds/index.js":"node_modules/date-fns/add_milliseconds/index.js","./add_minutes/index.js":"node_modules/date-fns/add_minutes/index.js","./add_months/index.js":"node_modules/date-fns/add_months/index.js","./add_quarters/index.js":"node_modules/date-fns/add_quarters/index.js","./add_seconds/index.js":"node_modules/date-fns/add_seconds/index.js","./add_weeks/index.js":"node_modules/date-fns/add_weeks/index.js","./add_years/index.js":"node_modules/date-fns/add_years/index.js","./are_ranges_overlapping/index.js":"node_modules/date-fns/are_ranges_overlapping/index.js","./closest_index_to/index.js":"node_modules/date-fns/closest_index_to/index.js","./closest_to/index.js":"node_modules/date-fns/closest_to/index.js","./compare_asc/index.js":"node_modules/date-fns/compare_asc/index.js","./compare_desc/index.js":"node_modules/date-fns/compare_desc/index.js","./difference_in_calendar_days/index.js":"node_modules/date-fns/difference_in_calendar_days/index.js","./difference_in_calendar_iso_weeks/index.js":"node_modules/date-fns/difference_in_calendar_iso_weeks/index.js","./difference_in_calendar_iso_years/index.js":"node_modules/date-fns/difference_in_calendar_iso_years/index.js","./difference_in_calendar_months/index.js":"node_modules/date-fns/difference_in_calendar_months/index.js","./difference_in_calendar_quarters/index.js":"node_modules/date-fns/difference_in_calendar_quarters/index.js","./difference_in_calendar_weeks/index.js":"node_modules/date-fns/difference_in_calendar_weeks/index.js","./difference_in_calendar_years/index.js":"node_modules/date-fns/difference_in_calendar_years/index.js","./difference_in_days/index.js":"node_modules/date-fns/difference_in_days/index.js","./difference_in_hours/index.js":"node_modules/date-fns/difference_in_hours/index.js","./difference_in_iso_years/index.js":"node_modules/date-fns/difference_in_iso_years/index.js","./difference_in_milliseconds/index.js":"node_modules/date-fns/difference_in_milliseconds/index.js","./difference_in_minutes/index.js":"node_modules/date-fns/difference_in_minutes/index.js","./difference_in_months/index.js":"node_modules/date-fns/difference_in_months/index.js","./difference_in_quarters/index.js":"node_modules/date-fns/difference_in_quarters/index.js","./difference_in_seconds/index.js":"node_modules/date-fns/difference_in_seconds/index.js","./difference_in_weeks/index.js":"node_modules/date-fns/difference_in_weeks/index.js","./difference_in_years/index.js":"node_modules/date-fns/difference_in_years/index.js","./distance_in_words/index.js":"node_modules/date-fns/distance_in_words/index.js","./distance_in_words_strict/index.js":"node_modules/date-fns/distance_in_words_strict/index.js","./distance_in_words_to_now/index.js":"node_modules/date-fns/distance_in_words_to_now/index.js","./each_day/index.js":"node_modules/date-fns/each_day/index.js","./end_of_day/index.js":"node_modules/date-fns/end_of_day/index.js","./end_of_hour/index.js":"node_modules/date-fns/end_of_hour/index.js","./end_of_iso_week/index.js":"node_modules/date-fns/end_of_iso_week/index.js","./end_of_iso_year/index.js":"node_modules/date-fns/end_of_iso_year/index.js","./end_of_minute/index.js":"node_modules/date-fns/end_of_minute/index.js","./end_of_month/index.js":"node_modules/date-fns/end_of_month/index.js","./end_of_quarter/index.js":"node_modules/date-fns/end_of_quarter/index.js","./end_of_second/index.js":"node_modules/date-fns/end_of_second/index.js","./end_of_today/index.js":"node_modules/date-fns/end_of_today/index.js","./end_of_tomorrow/index.js":"node_modules/date-fns/end_of_tomorrow/index.js","./end_of_week/index.js":"node_modules/date-fns/end_of_week/index.js","./end_of_year/index.js":"node_modules/date-fns/end_of_year/index.js","./end_of_yesterday/index.js":"node_modules/date-fns/end_of_yesterday/index.js","./format/index.js":"node_modules/date-fns/format/index.js","./get_date/index.js":"node_modules/date-fns/get_date/index.js","./get_day/index.js":"node_modules/date-fns/get_day/index.js","./get_day_of_year/index.js":"node_modules/date-fns/get_day_of_year/index.js","./get_days_in_month/index.js":"node_modules/date-fns/get_days_in_month/index.js","./get_days_in_year/index.js":"node_modules/date-fns/get_days_in_year/index.js","./get_hours/index.js":"node_modules/date-fns/get_hours/index.js","./get_iso_day/index.js":"node_modules/date-fns/get_iso_day/index.js","./get_iso_week/index.js":"node_modules/date-fns/get_iso_week/index.js","./get_iso_weeks_in_year/index.js":"node_modules/date-fns/get_iso_weeks_in_year/index.js","./get_iso_year/index.js":"node_modules/date-fns/get_iso_year/index.js","./get_milliseconds/index.js":"node_modules/date-fns/get_milliseconds/index.js","./get_minutes/index.js":"node_modules/date-fns/get_minutes/index.js","./get_month/index.js":"node_modules/date-fns/get_month/index.js","./get_overlapping_days_in_ranges/index.js":"node_modules/date-fns/get_overlapping_days_in_ranges/index.js","./get_quarter/index.js":"node_modules/date-fns/get_quarter/index.js","./get_seconds/index.js":"node_modules/date-fns/get_seconds/index.js","./get_time/index.js":"node_modules/date-fns/get_time/index.js","./get_year/index.js":"node_modules/date-fns/get_year/index.js","./is_after/index.js":"node_modules/date-fns/is_after/index.js","./is_before/index.js":"node_modules/date-fns/is_before/index.js","./is_date/index.js":"node_modules/date-fns/is_date/index.js","./is_equal/index.js":"node_modules/date-fns/is_equal/index.js","./is_first_day_of_month/index.js":"node_modules/date-fns/is_first_day_of_month/index.js","./is_friday/index.js":"node_modules/date-fns/is_friday/index.js","./is_future/index.js":"node_modules/date-fns/is_future/index.js","./is_last_day_of_month/index.js":"node_modules/date-fns/is_last_day_of_month/index.js","./is_leap_year/index.js":"node_modules/date-fns/is_leap_year/index.js","./is_monday/index.js":"node_modules/date-fns/is_monday/index.js","./is_past/index.js":"node_modules/date-fns/is_past/index.js","./is_same_day/index.js":"node_modules/date-fns/is_same_day/index.js","./is_same_hour/index.js":"node_modules/date-fns/is_same_hour/index.js","./is_same_iso_week/index.js":"node_modules/date-fns/is_same_iso_week/index.js","./is_same_iso_year/index.js":"node_modules/date-fns/is_same_iso_year/index.js","./is_same_minute/index.js":"node_modules/date-fns/is_same_minute/index.js","./is_same_month/index.js":"node_modules/date-fns/is_same_month/index.js","./is_same_quarter/index.js":"node_modules/date-fns/is_same_quarter/index.js","./is_same_second/index.js":"node_modules/date-fns/is_same_second/index.js","./is_same_week/index.js":"node_modules/date-fns/is_same_week/index.js","./is_same_year/index.js":"node_modules/date-fns/is_same_year/index.js","./is_saturday/index.js":"node_modules/date-fns/is_saturday/index.js","./is_sunday/index.js":"node_modules/date-fns/is_sunday/index.js","./is_this_hour/index.js":"node_modules/date-fns/is_this_hour/index.js","./is_this_iso_week/index.js":"node_modules/date-fns/is_this_iso_week/index.js","./is_this_iso_year/index.js":"node_modules/date-fns/is_this_iso_year/index.js","./is_this_minute/index.js":"node_modules/date-fns/is_this_minute/index.js","./is_this_month/index.js":"node_modules/date-fns/is_this_month/index.js","./is_this_quarter/index.js":"node_modules/date-fns/is_this_quarter/index.js","./is_this_second/index.js":"node_modules/date-fns/is_this_second/index.js","./is_this_week/index.js":"node_modules/date-fns/is_this_week/index.js","./is_this_year/index.js":"node_modules/date-fns/is_this_year/index.js","./is_thursday/index.js":"node_modules/date-fns/is_thursday/index.js","./is_today/index.js":"node_modules/date-fns/is_today/index.js","./is_tomorrow/index.js":"node_modules/date-fns/is_tomorrow/index.js","./is_tuesday/index.js":"node_modules/date-fns/is_tuesday/index.js","./is_valid/index.js":"node_modules/date-fns/is_valid/index.js","./is_wednesday/index.js":"node_modules/date-fns/is_wednesday/index.js","./is_weekend/index.js":"node_modules/date-fns/is_weekend/index.js","./is_within_range/index.js":"node_modules/date-fns/is_within_range/index.js","./is_yesterday/index.js":"node_modules/date-fns/is_yesterday/index.js","./last_day_of_iso_week/index.js":"node_modules/date-fns/last_day_of_iso_week/index.js","./last_day_of_iso_year/index.js":"node_modules/date-fns/last_day_of_iso_year/index.js","./last_day_of_month/index.js":"node_modules/date-fns/last_day_of_month/index.js","./last_day_of_quarter/index.js":"node_modules/date-fns/last_day_of_quarter/index.js","./last_day_of_week/index.js":"node_modules/date-fns/last_day_of_week/index.js","./last_day_of_year/index.js":"node_modules/date-fns/last_day_of_year/index.js","./max/index.js":"node_modules/date-fns/max/index.js","./min/index.js":"node_modules/date-fns/min/index.js","./parse/index.js":"node_modules/date-fns/parse/index.js","./set_date/index.js":"node_modules/date-fns/set_date/index.js","./set_day/index.js":"node_modules/date-fns/set_day/index.js","./set_day_of_year/index.js":"node_modules/date-fns/set_day_of_year/index.js","./set_hours/index.js":"node_modules/date-fns/set_hours/index.js","./set_iso_day/index.js":"node_modules/date-fns/set_iso_day/index.js","./set_iso_week/index.js":"node_modules/date-fns/set_iso_week/index.js","./set_iso_year/index.js":"node_modules/date-fns/set_iso_year/index.js","./set_milliseconds/index.js":"node_modules/date-fns/set_milliseconds/index.js","./set_minutes/index.js":"node_modules/date-fns/set_minutes/index.js","./set_month/index.js":"node_modules/date-fns/set_month/index.js","./set_quarter/index.js":"node_modules/date-fns/set_quarter/index.js","./set_seconds/index.js":"node_modules/date-fns/set_seconds/index.js","./set_year/index.js":"node_modules/date-fns/set_year/index.js","./start_of_day/index.js":"node_modules/date-fns/start_of_day/index.js","./start_of_hour/index.js":"node_modules/date-fns/start_of_hour/index.js","./start_of_iso_week/index.js":"node_modules/date-fns/start_of_iso_week/index.js","./start_of_iso_year/index.js":"node_modules/date-fns/start_of_iso_year/index.js","./start_of_minute/index.js":"node_modules/date-fns/start_of_minute/index.js","./start_of_month/index.js":"node_modules/date-fns/start_of_month/index.js","./start_of_quarter/index.js":"node_modules/date-fns/start_of_quarter/index.js","./start_of_second/index.js":"node_modules/date-fns/start_of_second/index.js","./start_of_today/index.js":"node_modules/date-fns/start_of_today/index.js","./start_of_tomorrow/index.js":"node_modules/date-fns/start_of_tomorrow/index.js","./start_of_week/index.js":"node_modules/date-fns/start_of_week/index.js","./start_of_year/index.js":"node_modules/date-fns/start_of_year/index.js","./start_of_yesterday/index.js":"node_modules/date-fns/start_of_yesterday/index.js","./sub_days/index.js":"node_modules/date-fns/sub_days/index.js","./sub_hours/index.js":"node_modules/date-fns/sub_hours/index.js","./sub_iso_years/index.js":"node_modules/date-fns/sub_iso_years/index.js","./sub_milliseconds/index.js":"node_modules/date-fns/sub_milliseconds/index.js","./sub_minutes/index.js":"node_modules/date-fns/sub_minutes/index.js","./sub_months/index.js":"node_modules/date-fns/sub_months/index.js","./sub_quarters/index.js":"node_modules/date-fns/sub_quarters/index.js","./sub_seconds/index.js":"node_modules/date-fns/sub_seconds/index.js","./sub_weeks/index.js":"node_modules/date-fns/sub_weeks/index.js","./sub_years/index.js":"node_modules/date-fns/sub_years/index.js"}],"js/main.mjs":[function(require,module,exports) {
 'use strict';
 
 var _lib = require('./lib.mjs');
@@ -6200,20 +6232,27 @@ var _dateFns = require('date-fns');
 console.log((0, _lib.sum)(10, 5));
 console.log((0, _lib.minus)(10, 5));
 console.log((0, _dateFns.format)(new Date(2014, 1, 11), 'MM/DD/YYYY'));
-},{"./lib.mjs":3,"date-fns":4}],318:[function(require,module,exports) {
+},{"./lib.mjs":"js/lib.mjs","date-fns":"node_modules/date-fns/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var global = arguments[3];
+var OVERLAY_ID = '__parcel__error__overlay__';
 
-var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
+
 function Module(moduleName) {
   OldModule.call(this, moduleName);
   this.hot = {
+    data: module.bundle.hotData,
+    _acceptCallbacks: [],
+    _disposeCallbacks: [],
     accept: function (fn) {
-      this._acceptCallback = fn || function () {};
+      this._acceptCallbacks.push(fn || function () {});
     },
     dispose: function (fn) {
-      this._disposeCallback = fn;
+      this._disposeCallbacks.push(fn);
     }
   };
+
+  module.bundle.hotData = null;
 }
 
 module.bundle.Module = Module;
@@ -6221,19 +6260,21 @@ module.bundle.Module = Module;
 var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
-  var protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51622' + '/');
+  var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55196' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
     if (data.type === 'update') {
+      console.clear();
+
       data.assets.forEach(function (asset) {
-        hmrApply(global.require, asset);
+        hmrApply(global.parcelRequire, asset);
       });
 
       data.assets.forEach(function (asset) {
         if (!asset.isNew) {
-          hmrAccept(global.require, asset.id);
+          hmrAccept(global.parcelRequire, asset.id);
         }
       });
     }
@@ -6247,12 +6288,41 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
 
     if (data.type === 'error-resolved') {
       console.log('[parcel] ✨ Error resolved');
+
+      removeErrorOverlay();
     }
 
     if (data.type === 'error') {
-      console.error('[parcel] 🚨  ' + data.error.message + '\n' + 'data.error.stack');
+      console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
+
+      removeErrorOverlay();
+
+      var overlay = createErrorOverlay(data);
+      document.body.appendChild(overlay);
     }
   };
+}
+
+function removeErrorOverlay() {
+  var overlay = document.getElementById(OVERLAY_ID);
+  if (overlay) {
+    overlay.remove();
+  }
+}
+
+function createErrorOverlay(data) {
+  var overlay = document.createElement('div');
+  overlay.id = OVERLAY_ID;
+
+  // html encode message and stack trace
+  var message = document.createElement('div');
+  var stackTrace = document.createElement('pre');
+  message.innerText = data.error.message;
+  stackTrace.innerText = data.error.stack;
+
+  overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
+
+  return overlay;
 }
 
 function getParents(bundle, id) {
@@ -6268,7 +6338,7 @@ function getParents(bundle, id) {
     for (d in modules[k][1]) {
       dep = modules[k][1][d];
       if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
-        parents.push(+k);
+        parents.push(k);
       }
     }
   }
@@ -6306,22 +6376,31 @@ function hmrAccept(bundle, id) {
   }
 
   var cached = bundle.cache[id];
-  if (cached && cached.hot._disposeCallback) {
-    cached.hot._disposeCallback();
+  bundle.hotData = {};
+  if (cached) {
+    cached.hot.data = bundle.hotData;
+  }
+
+  if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
+    cached.hot._disposeCallbacks.forEach(function (cb) {
+      cb(bundle.hotData);
+    });
   }
 
   delete bundle.cache[id];
   bundle(id);
 
   cached = bundle.cache[id];
-  if (cached && cached.hot && cached.hot._acceptCallback) {
-    cached.hot._acceptCallback();
+  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+    cached.hot._acceptCallbacks.forEach(function (cb) {
+      cb();
+    });
     return true;
   }
 
-  return getParents(global.require, id).some(function (id) {
-    return hmrAccept(global.require, id);
+  return getParents(global.parcelRequire, id).some(function (id) {
+    return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[318,2])
-//# sourceMappingURL=/dist/389f7716001f268925932eb067fae8e6.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.mjs"], null)
+//# sourceMappingURL=/main.b0ab085c.map

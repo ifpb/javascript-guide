@@ -11,10 +11,16 @@
   * [jquery-sparkline (jQuery)](chart/jquery-sparkline/)
 * CSS Toolkit
   * [Bootstrap](css-toolkit/bootstrap/)
+* Date & Time
+  * [moment.js](https://momentjs.com)
+  * [date-fns](https://github.com/date-fns/date-fns)
 * Table
   * [DataTables (jQuery)](table/datatables/)
 * Form
   * [jQuery Mask Plugin (jQuery)](form/jquery-mask-plugin/)
+* Modules & Bundler
+  * [Basic](modules)
+
 
 ## References
 ---

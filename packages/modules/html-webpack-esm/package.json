@@ -2,10 +2,9 @@
   "name": "html-webpack-esm",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-js": "npx webpack js/main.mjs dist/bundle.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +13,13 @@
     "date-fns": "^1.29.0"
   },
   "devDependencies": {
-    "webpack": "^3.11.0"
+    "@webpack-cli/init": "^0.1.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0"
   }
 }
