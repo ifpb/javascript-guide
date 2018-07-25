@@ -126,7 +126,7 @@ $ npx webpack --config webpack.dev.js
 $ npm run build-dev
 ```
 
-[postcss/postcss-simple/dist/css/bundle.scss](postcss/postcss-simple/dist/css/bundle.scss):
-```scss
-{% include_relative postcss/postcss-simple/dist/css/bundle.scss %}
+[postcss/postcss-simple/dist/css/bundle.css](postcss/postcss-simple/dist/css/bundle.css):
+```css
+{% include_relative postcss/postcss-simple/dist/css/bundle.css %}
 ```
