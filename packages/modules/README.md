@@ -477,6 +477,7 @@ $ chrome index.html
 - [Parcel](https://parceljs.org)
 - [Webpack](https://webpack.js.org)
 - [Babel.js](https://babeljs.io)
+  - [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env/)
 
 <!--
 
