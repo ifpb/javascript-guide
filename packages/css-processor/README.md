@@ -12,9 +12,9 @@ sass/sass-simple
     └── main.scss
 ```
 
-[sass/sass-simple/css/main.scss](sass/sass-simple/css/main.scss):
+[sass/sass-simple/scss/main.scss](sass/sass-simple/scss/main.scss):
 ```scss
-{% include_relative sass/sass-simple/css/main.scss %}
+{% include_relative sass/sass-simple/scss/main.scss %}
 ```
 
 [sass/sass-simple/index.html](sass/sass-simple/index.html):
@@ -75,9 +75,9 @@ postcss/sass-simple
     └── main.scss
 ```
 
-[postcss/postcss-simple/css/main.scss](postcss/postcss-simple/css/main.scss):
+[postcss/postcss-simple/scss/main.scss](postcss/postcss-simple/scss/main.scss):
 ```scss
-{% include_relative postcss/postcss-simple/css/main.scss %}
+{% include_relative postcss/postcss-simple/scss/main.scss %}
 ```
 
 [postcss/postcss-simple/index.html](postcss/postcss-simple/index.html):
