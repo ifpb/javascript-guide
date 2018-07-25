@@ -118,6 +118,11 @@ $ npm r style-loader -D
 {% include_relative postcss/postcss-simple/webpack.dev.js %}
 ```
 
+[postcss/postcss-simple/postcss.config.js](postcss/postcss-simple/postcss.config.js):
+```js
+{% include_relative postcss/postcss-simple/postcss.config.js %}
+```
+
 ```
 $ npx webpack --config webpack.dev.js
 ```
