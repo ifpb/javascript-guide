@@ -1,0 +1,6 @@
+body {
+  background-color: green; }
+  body p {
+    color: red;
+    font-size: 40px;
+    display: flex; }
