@@ -48,7 +48,7 @@ module.exports = {
     }]
   },
 
-  entry: './js/main.js',
+  entry: './js/main.mjs',
 
   output: {
     filename: 'bundle.js',

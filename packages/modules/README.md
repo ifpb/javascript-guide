@@ -168,19 +168,19 @@ $ chrome http://localhost:1234
 html-webpack-esm
 ├── index.html
 ├── js
-│   ├── lib.js
-│   └── main.js
+│   ├── lib.mjs
+│   └── main.mjs
 └── package.json
 ```
 
-[html-webpack-esm/js/lib.js](html-webpack-esm/js/lib.js):
+[html-webpack-esm/js/lib.mjs](html-webpack-esm/js/lib.mjs):
 ```js
-{% include_relative html-webpack-esm/js/lib.js %}
+{% include_relative html-webpack-esm/js/lib.mjs %}
 ```
 
-[html-webpack-esm/js/main.js](html-webpack-esm/js/main.js):
+[html-webpack-esm/js/main.mjs](html-webpack-esm/js/main.mjs):
 ```js
-{% include_relative html-webpack-esm/js/main.js %}
+{% include_relative html-webpack-esm/js/main.mjs %}
 ```
 
 [html-webpack-esm/index.html](html-webpack-esm/index.html):
@@ -201,7 +201,7 @@ $ npm i webpack webpack-cli -D
 ```
 
 ```
-$ npx webpack js/main.js --mode development
+$ npx webpack js/main.mjs --mode development
 Hash: 0efd707d06341ed4a9fe
 Version: webpack 4.16.2
 Time: 633ms
@@ -220,8 +220,8 @@ html-webpack-esm
 ├── dist
 │   └── main.js
 ├── js
-│   ├── lib.js
-│   └── main.js
+│   ├── lib.mjs
+│   └── main.mjs
 ├── node_modues
 │   └── ...
 ├── index.html
@@ -258,20 +258,20 @@ Entrypoint main = main.js
 html-webpack-esm-config
 ├── index.html
 ├── js
-│   ├── lib.js
-│   └── main.js
+│   ├── lib.mjs
+│   └── main.mjs
 ├── package.json
 └── webpack.config.js
 ```
 
-[html-webpack-esm-config/js/lib.js](html-webpack-esm-config/js/lib.js):
+[html-webpack-esm-config/js/lib.mjs](html-webpack-esm-config/js/lib.mjs):
 ```js
-{% include_relative html-webpack-esm-config/js/lib.js %}
+{% include_relative html-webpack-esm-config/js/lib.mjs %}
 ```
 
-[html-webpack-esm-config/js/main.js](html-webpack-esm-config/js/main.js):
+[html-webpack-esm-config/js/main.mjs](html-webpack-esm-config/js/main.mjs):
 ```js
-{% include_relative html-webpack-esm-config/js/main.js %}
+{% include_relative html-webpack-esm-config/js/main.mjs %}
 ```
 
 [html-webpack-esm-config/index.html](html-webpack-esm-config/index.html):
@@ -330,14 +330,14 @@ html-webpack-esm-babel
 
 ```
 
-[html-webpack-esm-babel/js/lib.js](html-webpack-esm-babel/js/lib.js):
+[html-webpack-esm-babel/js/lib.mjs](html-webpack-esm-babel/js/lib.mjs):
 ```js
-{% include_relative html-webpack-esm-babel/js/lib.js %}
+{% include_relative html-webpack-esm-babel/js/lib.mjs %}
 ```
 
-[html-webpack-esm-babel/js/main.js](html-webpack-esm-babel/js/main.js):
+[html-webpack-esm-babel/js/main.mjs](html-webpack-esm-babel/js/main.mjs):
 ```js
-{% include_relative html-webpack-esm-babel/js/main.js %}
+{% include_relative html-webpack-esm-babel/js/main.mjs %}
 ```
 
 [html-webpack-esm-babel/index.html](html-webpack-esm-babel/index.html):
@@ -362,7 +362,7 @@ $ npm i webpack webpack-cli @webpack-cli/init -D
 ```
 $ npx webpack init
 ? Will your application have multiple bundles? No
-? Which module will be the first to enter the application? [default: ./src/index] ./js/main.js
+? Which module will be the first to enter the application? [default: ./src/index] ./js/main.mjs
 ? Which folder will your generated bundles be in? [default: dist]:
 ? Will you be using ES2015? Yes
 ? Will you use one of the below CSS solutions? No
@@ -544,10 +544,6 @@ define(function () {
 require(['bar'], function(bar) {
     console.log(bar); // bar
 });
-
-// CommonJs
-
-// ES6: export, import
 
 // Babeljs
 // es2015-modules-amd

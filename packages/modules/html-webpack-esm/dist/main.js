@@ -81,32 +81,32 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./js/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./js/main.mjs");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./js/lib.js":
-/*!*******************!*\
-  !*** ./js/lib.js ***!
-  \*******************/
+/***/ "./js/lib.mjs":
+/*!********************!*\
+  !*** ./js/lib.mjs ***!
+  \********************/
 /*! exports provided: sum, minus */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sum\", function() { return sum; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"minus\", function() { return minus; });\n\nfunction sum(x, y) {\n  return x + y\n}\n\nfunction minus(x, y) {\n  return x - y\n}\n\n\n//# sourceURL=webpack:///./js/lib.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sum\", function() { return sum; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"minus\", function() { return minus; });\n\nfunction sum(x, y) {\n  return x + y\n}\n\nfunction minus(x, y) {\n  return x - y\n}\n\n\n//# sourceURL=webpack:///./js/lib.mjs?");
 
 /***/ }),
 
-/***/ "./js/main.js":
-/*!********************!*\
-  !*** ./js/main.js ***!
-  \********************/
+/***/ "./js/main.mjs":
+/*!*********************!*\
+  !*** ./js/main.mjs ***!
+  \*********************/
 /*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib.js */ \"./js/lib.js\");\n/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ \"./node_modules/date-fns/index.js\");\n/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nconsole.log(Object(_lib_js__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(10, 5))\nconsole.log(Object(_lib_js__WEBPACK_IMPORTED_MODULE_0__[\"minus\"])(10, 5))\nconsole.log(Object(date_fns__WEBPACK_IMPORTED_MODULE_1__[\"format\"])(new Date(2014, 1, 11), 'MM/DD/YYYY'))\n\n//# sourceURL=webpack:///./js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib.mjs */ \"./js/lib.mjs\");\n/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ \"./node_modules/date-fns/index.js\");\n\n\n\nconsole.log(Object(_lib_mjs__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(10, 5))\nconsole.log(Object(_lib_mjs__WEBPACK_IMPORTED_MODULE_0__[\"minus\"])(10, 5))\nconsole.log(date_fns__WEBPACK_IMPORTED_MODULE_1__.format(new Date(2014, 1, 11), 'MM/DD/YYYY'))\n\n//# sourceURL=webpack:///./js/main.mjs?");
 
 /***/ }),
 

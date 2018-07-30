@@ -1,6 +1,6 @@
-const webpack = require('webpack')
+const webpack = require('../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/webpack')
 const path = require('path')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/uglifyjs-webpack-plugin');
 
 module.exports = {
   module: {
@@ -16,7 +16,7 @@ module.exports = {
     }]
   },
 
-  entry: './js/main.js',
+  entry: './js/main.mjs',
 
   output: {
     filename: 'bundle.js',
