@@ -10,8 +10,7 @@
   * [gaugejs](chart/gaugejs/)
   * [jquery-sparkline (jQuery)](chart/jquery-sparkline/)
 * CSS Toolkit
-  * [Sass](css-processor/sass/)
-  * [PostCSS](css-processor/postcss/)
+  * [CSS Preprocessor](css-processor/)
   * [Bootstrap](css-toolkit/bootstrap/)
 * Date & Time
   * [moment.js](https://momentjs.com)
