@@ -595,6 +595,7 @@ console.log(message.match(pattern)) //=> [ '1', '2', '3', '4', '4', '3' ]
 * [regexr](https://regexr.com)
 * [regex101](https://regex101.com/)
 * [regextester](https://www.regextester.com)
+* [A Practical Guide to Regular Expressions (RegEx) In JavaScript](https://blog.bitsrc.io/a-beginners-guide-to-regular-expressions-regex-in-javascript-9c58feb27eb4)
 * [Railroad diagram](https://github.com/tabatkins/railroad-diagrams)
   * [Syntax diagram](https://en.wikipedia.org/wiki/Syntax_diagram)
   * [Extended Backus-Naur form (EBNF)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)
