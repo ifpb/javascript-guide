@@ -41,7 +41,7 @@ const color = (alfa & 0xff) << 24 | (red & 0xff) << 16 | (green & 0xff) << 8 | (
 ---
 
 ```js
-const color = 0x74C365;
+const color = 0x74C365
 // 11111111011101001100001101100101 (alfa 100%)
 
 const alfa  = (color >>> 24) & 0xff
