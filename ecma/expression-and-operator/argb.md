@@ -71,3 +71,8 @@ const blue  = color & 0xff
 // 00000000000000000000000001100101 (& 0xff)
 // 101
 ```
+
+## Question
+---
+
+> Is there a problem in exchanging `(color >>> 24) & 0xff` for `(color >> 24) & 0xff` into Decoding Mantis green ARGB?

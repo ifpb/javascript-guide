@@ -38,20 +38,11 @@ Reference:
 
 ## Scope
 ---
-```js
-var x = 'outside'
-function f1(){
-  var x = 'inside'
-}
-console.log(x) //=> 'outside'
-f1()
-console.log(x) //=> 'outside'
-```
 
 ```js
 var x = 'outside'
 function f1(){
-  let x = 'inside'
+  var x = 'inside'
 }
 console.log(x) //=> 'outside'
 f1()

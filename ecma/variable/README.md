@@ -1,14 +1,20 @@
 # Variable
 
 * [Declarations](#declaration): [var](#var), [let](#let), [const](#const)
-* [Multiple Declaration](#multiple-declaration)
 * [Dynamic Type](#dynamic-type)
 * [Case Sensitive](#case-sensitive)
 * [Identifier Pattern](#identifier-pattern)
+* [Multiple Declaration](#multiple-declaration)
 * [Hoisting](#hoisting)
 
 ## Declaration
 --- 
+
+| Keyword | Scope | Reassignable | Mutable | Temporal Dead Zone |
+| - | - | - | - | - |
+| [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) | Block | No | Yes* | Yes |
+| [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) | Block | Yes | Yes | Yes |
+| [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var) | Function | Yes | Yes | No |
 
 ### var
 
@@ -36,23 +42,8 @@ console.log(NUMBER) //=> 10
 
 Reference:
   * [Declarations \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference#Declarations)
-
-## Multiple Declaration
----
-
-```js
-var x, y, z
-console.log(x) //=> undefined
-console.log(y) //=> undefined
-console.log(z) //=> undefined
-```
-
-```js
-var a = 1, b = 2, c = 3
-console.log(a); //=> 1
-console.log(b); //=> 2
-console.log(c); //=> 3
-```
+  * [Variable declaration: var, const, let \| Modern JavaScript Cheatsheet](https://github.com/mbeaudru/modern-js-cheatsheet#variable-declaration-var-const-let)
+  * [Variable \| You Don't Know JS: Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/ch1.md#variables)
 
 ## Dynamic Type
 ---
@@ -91,29 +82,51 @@ let $number
 Reference:
   * [Variables \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Variables)
 
+## Multiple Declaration
+---
+
+```js
+var x, y, z
+console.log(x) //=> undefined
+console.log(y) //=> undefined
+console.log(z) //=> undefined
+```
+
+```js
+var a = 1, b = 2, c = 3
+console.log(a); //=> 1
+console.log(b); //=> 2
+console.log(c); //=> 3
+```
+
 ## Hoisting
 ---
 
 ```js
-nome = 'fulano'
-console.log(nome)      //=> 'fulano'
+name = 'fulano'
+console.log(name)      //=> 'fulano'
 ```
 
 ```js
-console.log(outroNome) // ReferenceError
-outroNome = 10
+console.log(name) // ReferenceError: name is not defined
+name = 10
 ```
 
 ```js
-console.log(outroNome) // undefined
-let outroNome = 10
+console.log(name) // undefined
+var name = 10
+```
+
+```js
+console.log(name) // ReferenceError: name is not defined
+let name = 10
 ```
 
 Reference:
   * [Variable hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Variable_hoisting)
 
 <!-- TODO
-https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch1.md
+You Don't Know JS: Up & Going https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch1.md
 Values & Types 
 Converting Between Types (coercion, implicitly coerce) https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md
 -->

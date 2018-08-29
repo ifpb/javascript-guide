@@ -294,7 +294,7 @@ console.log(-9 )      //=> 11111111111111111111111111110110  -9
 console.log(-9 >>> 2) //=> 00111111111111111111111111111101  1073741821
 ```
 
-> Example: [ARGB](argb.md)
+> [Decoding Mantis green ARGB](argb.md)
 
 ## [Binary bitwise operators]()
 ---
@@ -620,7 +620,7 @@ let x, y
 | Operator type | Operators |
 |-|-|
 | Primary expressions | `this`, `function`, `class`, `function*`, `yield`, `yield*`, `async function*`, `await`, `[]`, `{}`, `/ab+c/i`, `( )` |
-| Left-hand-side expressions | `object.property` or `object["property"]`, `new`, `new.target`, `super`, `...obj` |
+| Left-hand-side expressions | `object.property`, `object["property"]`, `new`, `new.target`, `super`, `...obj` |
 | Increment and decrement | `A++`, `A--`, `++A`, `--A` |
 | Unary operators | `delete`, `void`, `typeof`, `+`, `-`, `~`, `!` |
 | Arithmetic operators | `+`, `-`, `*`, `/`, `%`, `**` |
