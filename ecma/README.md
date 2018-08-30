@@ -7,7 +7,7 @@
 * [Expression and Operator](expression-and-operator/)
 * [Statements and Declarations](statements-and-declarations/)
 * [Function](function/)
-* Types:
+* [Values & Types](values-and-types/):
   * Primitive
     * [Boolean](boolean/syntax.md)
     * [null](null/syntax.md)
