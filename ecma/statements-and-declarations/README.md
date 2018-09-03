@@ -1,13 +1,9 @@
 # Statements and Declarations
 
-* [Control flow](#control-flow-block-break-continue-empty-ifesle-switch-throw-trycatch): `block`, `break`, `continue`, `empty`, `if...esle`, `switch`, `throw`, `try...catch`)
-* [Iterations](#iterations-dowhile-for-forin-forof-while): `do...while`, `for`, `for...in`, `for...of`, `while`, `do...while`
+* [Control flow](#control-flow)
+* [Iterations](#iterations)
 
-<!-- * Others: `debugger`, `export`, `import`, `label`(#)
-* Declarations: `var`, `let`, `const`
-* Functions and classes: `function`, `function*`, `return`, `class` -->
-
-## Control flow (block, break, continue, empty, if...esle, switch, throw, try...catch)
+## Control flow
 ---
 
 <!-- 
@@ -67,14 +63,14 @@ switch (operator) { // strict comparison
 console.log(result) //=> 20
 ```
 
-## Iterations (do...while, for, for...in, for...of, while)
+## Iterations
 ---
 
 ### for
 
 ```js
 for(let flag = 0; flag < 100; flag++){
-    console.log(flag)
+  console.log(flag)
 }
 //=>
 // 0
@@ -90,9 +86,8 @@ for(let flag = 0; flag < 100; flag++){
 let result = ''
 
 for(let flag = 0; flag < 100; flag++){
-    result += (flag < 10)? '0' + flag + ' ' : flag + ' '
-    if((flag + 1) % 10 == 0)
-      result += '\n'
+  result += (flag < 10)? '0' + flag : flag
+  result += flag % 10 === 9 ? '\n' : ' '
 }
 
 console.log(result)
@@ -258,12 +253,13 @@ do {
 // xxxx
 ```
 
-<!-- 
-## Others (debugger, export, import, label)
+## Recap
 ---
 
-## Declarations (var, let, const)
----
-
-## Functions and classes (function, function*, return, class)
---- -->
+| Category | Statements |
+|-|-|
+| [Control flow](#control-flow-block-break-continue-empty-ifesle-switch-throw-trycatch) | `block`, `break`, `continue`, `empty`, `if...esle`, `switch`, `throw`, `try...catch` |
+| [Iterations](#iterations-dowhile-for-forin-forof-while) | `do...while`, `for`, `for...in`, `for...of`, `while`, `do...while` |
+| Others | `debugger`, `export`, `import`, `label` |
+| Declarations | `var`, `let`, `const` |
+| Functions and classes | `function`, `function*`, `return`, `class` |
