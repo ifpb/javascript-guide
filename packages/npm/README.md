@@ -60,6 +60,7 @@
 └─────────────┘
 ```
 
+**package.json**:
 ```js
 {
   "name": "reuseble-code",
@@ -110,6 +111,7 @@ $ cd project
 $ npm i date-fns
 ```
 
+**package.json**:
 ```js
 {
   "name": "project",
@@ -120,10 +122,12 @@ $ npm i date-fns
 }
 ```
 
+**show packages**:
 ```
 $ ls node_modules
 ```
 
+**install packages**:
 ```
 $ rm -rf node_modues
 $ npm install
@@ -137,6 +141,8 @@ $ cd project
 $ npm i -D jest
 ```
 
+**package.json**:
+
 ```js
 {
   "name": "project",
@@ -146,6 +152,8 @@ $ npm i -D jest
   }
 }
 ```
+
+**Running jest**:
 
 ```
 $ npx jest --version
@@ -157,6 +165,20 @@ $ npx jest --version
 ```
 $ cd project
 $ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
+```
+
+**Project:**
+```
+$ tree . -I node_modules
+.
+├── lib
+│   ├── sum.js
+│   ├── sum.print.mjs
+│   └── sum.test.js
+├── package-lock.json
+└── package.json
+
+1 directory, 5 files
 ```
 
 **.babelrc**
@@ -192,19 +214,7 @@ describe('Number Tools', () => {
 })
 ```
 
-```
-$ tree . -I node_modules
-.
-├── lib
-│   ├── sum.js
-│   ├── sum.print.mjs
-│   └── sum.test.js
-├── package-lock.json
-└── package.json
-
-1 directory, 5 files
-```
-
+**Running jest**:
 ```
 $ npx jest
  PASS  lib/sum.test.js
