@@ -6,6 +6,7 @@
 * [CLI](#cli)
 
 ## Architecture
+---
 
 ### Package Managers
 
@@ -23,11 +24,13 @@
 ```
 
 ## Website
+---
 
 [https://www.npmjs.com/search?q=jest](https://www.npmjs.com/search?q=jest):
 ![](assets/npm-search.png)
 
 ## Registry
+---
 
 ### NPM Public Registry
 
@@ -69,6 +72,7 @@
 ```
 
 ## CLI
+---
 
 ### Generate a plain old package.json
 
