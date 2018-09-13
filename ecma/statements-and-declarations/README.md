@@ -8,11 +8,7 @@
   * [`do...while`](#dowhile)
   * [`for`](#for)
   * [`for...in`](#forin)
-  * [`for...of`](#forof)
-    * [Array.prototype.entries()](#forof-array.prototype.entries)
-    * [Object.keys](#forof-object.keys)
-    * [Object.values](#forof-object.values)
-    * [Object.entries](#forof-object.entries)
+  * [`for...of`](#forof) ([Array.prototype.entries()](#forof-arrayprototypeentries), [Object.keys()](#forof-objectkeys), [Object.values()](#forof-objectvalues), [Object.entries()](#forof-objectentries))
 
 ## Control flow
 ---
