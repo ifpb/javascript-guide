@@ -130,11 +130,49 @@ Ran all test suites.
 Running Tests and Viewing Results (Automatic)
 ```
 $ npx jest --watch lib/sum.test.js
+ PASS  lib/sum.test.js
+  Number Tools
+    ✓ adding 1 + 2 (5ms)
+    ✓ adding 3 + 2 (1ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.269s
+Ran all test suites matching /lib\/sum.test.js/i.
+
+Active Filters: filename /lib/sum.test.js/
+ › Press c to clear filters.
+
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press o to only run tests related to changed files.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a test name regex pattern.
+ › Press q to quit watch mode.
+ › Press Enter to trigger a test run.
 ```
 
 ### Running jest (coverage)
 
-Running Tests and Viewing Results (Coverage)
+Running Tests and Viewing Results [(Coverage Report)](unit-test-jest/coverage/lcov-report/index.html):
 ```
-$ npx jest --coverage lib/ 
+$ npx jest --coverage lib/
+ PASS  lib/sum.test.js
+  Number Tools
+    ✓ adding 1 + 2 (7ms)
+    ✓ adding 3 + 2 (9ms)
+
+----------|----------|----------|----------|----------|-------------------|
+File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------|----------|----------|----------|----------|-------------------|
+All files |      100 |      100 |      100 |      100 |                   |
+ sum.js   |      100 |      100 |      100 |      100 |                   |
+----------|----------|----------|----------|----------|-------------------|
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.713s
+Ran all test suites matching /lib\//i.
 ```
