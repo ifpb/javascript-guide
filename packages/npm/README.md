@@ -171,64 +171,24 @@ $ cd project
 $ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
 ```
 
-**Project:**
-```
-$ tree . -I node_modules
-.
-├── lib
-│   ├── sum.js
-│   ├── sum.print.mjs
-│   └── sum.test.js
-├── package-lock.json
-└── package.json
+**package.json**:
 
-1 directory, 5 files
-```
-
-**.babelrc**
 ```js
 {
-  "presets": ["env"]
+  "name": "project",
+  "version": "1.0.0",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1"
+  }
 }
-```
-
-**lib/sum.js**:
-```js
-function sum(a, b) {
-  return a + b
-}
-
-export { sum }
-```
-
-**lib/sum.test.js**:
-```js
-import { sum } from './sum.js'
-
-describe('Number Tools', () => {
-
-  test('adding 1 + 2', () => {
-    expect(sum(1, 2)).toBe(3)
-  })
-
-  test('adding 3 + 2', () => {
-    expect(sum(3, 2)).toBe(5)
-  })
-
-})
 ```
 
 **Running jest**:
-```
-$ npx jest
- PASS  lib/sum.test.js
-  Number Tools
-    ✓ adding 1 + 2 (5ms)
-    ✓ adding 3 + 2 (1ms)
 
-Test Suites: 1 passed, 1 total
-Tests:       2 passed, 2 total
-Snapshots:   0 total
-Time:        1.55s
-Ran all test suites.
+```
+$ npx jest --version
 ```
