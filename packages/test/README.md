@@ -23,19 +23,19 @@ $ tree . -I node_modules
 1 directory, 5 files
 ```
 
-.babelrc:
+[unit-test-jest/.babelrc](unit-test-jest/.babelrc):
 ```js
 {% include_relative unit-test-jest/.babelrc %}
 ```
 
-lib/sum.test.js:
+[unit-test-jest/lib/sum.test.js](unit-test-jest/lib/sum.test.js):
 ```js
 {% include_relative unit-test-jest/lib/sum.test.js %}
 ```
 
 ### Running jest (fail)
 
-lib/sum.js:
+unit-test-jest/lib/sum.js:
 ```
 function sum(a, b) {
   // TODO
@@ -103,7 +103,7 @@ Ran all test suites.
 
 ### Running jest (pass)
 
-lib/sum.js:
+[unit-test-jest/lib/sum.js](unit-test-jest/lib/sum.js):
 ```js
 {% include_relative unit-test-jest/lib/sum.js %}
 ```
