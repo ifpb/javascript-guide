@@ -1,20 +1,21 @@
 # Statements and Declarations
 
 * [Control flow](#control-flow)
+  * [`if...else`](#ifelse)
+  * [`switch`](#switch)
 * [Iterations](#iterations)
+  * [`while`](#while)
+  * [`do...while`](#dowhile)
+  * [`for`](#for)
+  * [`for...in`](#forin)
+  * [`for...of`](#forof)
+    * [Array.prototype.entries()](#forof-array.prototype.entries)
+    * [Object.keys](#forof-object.keys)
+    * [Object.values](#forof-object.values)
+    * [Object.entries](#forof-object.entries)
 
 ## Control flow
 ---
-
-<!-- 
-TODO
-# # #
- # #
-# #
- #
-
-continue & break 
--->
 
 ### if...else
 
@@ -22,8 +23,32 @@ continue & break
 let number = 10
 let result
 
-// does not executes: false, 0, "", null, undefined, NaN
-if(number < 0) {
+// if does not executes: false, 0, "", null, undefined, NaN
+if (number < 0) {
+  result = 'greater than zero'
+}
+
+console.log(result) //=> greater than zero
+```
+
+```js
+let number = 10
+let result
+
+if (number < 0) {
+  result = 'greater than zero'
+} else
+  result = 'equal or less than zero'
+}
+
+console.log(result) //=> greater than zero
+```
+
+```js
+let number = 10
+let result
+
+if (number < 0) {
   result = 'greater than zero'
 } else if (number > 0) {
   result = 'less than zero'
@@ -66,6 +91,48 @@ console.log(result) //=> 20
 ## Iterations
 ---
 
+<!-- 
+TODO
+# # #
+ # #
+# #
+ #
+
+continue & break 
+-->
+
+### while
+
+```js
+let result = ''
+
+while(result.length < 4){
+  result += 'x'
+  console.log(result)
+}
+//=>
+// x
+// xx
+// xxx
+// xxxx
+```
+
+### do...while
+
+```js
+let result = ''
+
+do {
+  result += 'x'
+  console.log(result)
+} while(result.length < 4)
+//=>
+// x
+// xx
+// xxx
+// xxxx
+```
+
 ### for
 
 ```js
@@ -104,7 +171,9 @@ console.log(result)
 // 90 91 92 93 94 95 96 97 98 99
 ```
 
-### for...in: Iterates over the enumerable properties of an object
+### for...in
+
+Iterates over the enumerable properties of an object:
 
 ```js
 let numbers = [1, 2, 3, 4]
@@ -135,7 +204,9 @@ for(let index in numbers){
 // number -> 10
 ```
 
-### for...of: Iterates over iterable objects (including arrays, array-like objects, iterators and generators)
+### for...of
+
+Iterates over iterable objects (including arrays, array-like objects, iterators and generators):
 
 ```js
 let numbers = [1, 2, 3, 4]
@@ -150,7 +221,7 @@ for(let number of numbers){
 // 4
 ```
 
-### for...of (Array.prototype.entries())
+#### for...of (Array.prototype.entries())
 
 ```js
 let numbers = [1, 2, 3, 4]
@@ -167,7 +238,7 @@ for(let [index, number] of numbers.entries()){
 // 3 => 4
 ```
 
-### for...of (Object.keys)
+#### for...of (Object.keys)
 
 ```js
 let student = {
@@ -185,7 +256,7 @@ for(let index of Object.keys(student)){
 // fulano@gmail.com
 ```
 
-### for...of (Object.values)
+#### for...of (Object.values)
 
 ```js
 let student = {
@@ -203,7 +274,7 @@ for(let values of Object.values(student)){
 // fulano@gmail.com
 ```
 
-### for...of (Object.entries)
+#### for...of (Object.entries)
 
 ```js
 let student = {
@@ -219,38 +290,6 @@ for(const [key, value] of Object.entries(student)){
 // id -> 1
 // name -> fulano
 // email -> fulano@gmail.com
-```
-
-### while
-
-```js
-let result = ''
-
-while(result.length < 4){
-  result += 'x'
-  console.log(result)
-}
-//=>
-// x
-// xx
-// xxx
-// xxxx
-```
-
-### do...while
-
-```js
-let result = ''
-
-do {
-  result += 'x'
-  console.log(result)
-} while(result.length < 4)
-//=>
-// x
-// xx
-// xxx
-// xxxx
 ```
 
 ## Recap
