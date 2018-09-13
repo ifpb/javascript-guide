@@ -23,7 +23,12 @@ $ tree . -I node_modules
 1 directory, 5 files
 ```
 
-
+[unit-test-jest/.babelrc](unit-test-jest/.babelrc):
+```js
+{
+  "presets": ["env"]
+}
+```
 
 [unit-test-jest/lib/sum.test.js](unit-test-jest/lib/sum.test.js):
 ```js
