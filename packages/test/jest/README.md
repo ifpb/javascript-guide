@@ -23,21 +23,21 @@ $ tree . -I node_modules
 1 directory, 5 files
 ```
 
-[unit-test-jest/.babelrc](unit-test-jest/.babelrc):
+[unit-test/.babelrc](unit-test/.babelrc):
 ```js
 {
   "presets": ["env"]
 }
 ```
 
-[unit-test-jest/lib/sum.test.js](unit-test-jest/lib/sum.test.js):
+[unit-test/lib/sum.test.js](unit-test/lib/sum.test.js):
 ```js
-{% include_relative unit-test-jest/lib/sum.test.js %}
+{% include_relative unit-test/lib/sum.test.js %}
 ```
 
 ### Running jest (fail)
 
-unit-test-jest/lib/sum.js:
+unit-test/lib/sum.js:
 ```js
 function sum(a, b) {
   // TODO
@@ -105,9 +105,9 @@ Ran all test suites.
 
 ### Running jest (pass)
 
-[unit-test-jest/lib/sum.js](unit-test-jest/lib/sum.js):
+[unit-test/lib/sum.js](unit-test/lib/sum.js):
 ```js
-{% include_relative unit-test-jest/lib/sum.js %}
+{% include_relative unit-test/lib/sum.js %}
 ```
 
 Running Tests and Viewing Results (test passed):
@@ -156,7 +156,7 @@ Watch Usage
 
 ### Running jest (coverage)
 
-Running Tests and Viewing Results [(Coverage Report)](unit-test-jest/coverage/lcov-report/index.html):
+Running Tests and Viewing Results [(Coverage Report)](unit-test/coverage/lcov-report/index.html):
 ```
 $ npx jest --coverage lib/
  PASS  lib/sum.test.js
