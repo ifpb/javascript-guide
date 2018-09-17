@@ -5,14 +5,17 @@
 
 ### Install dependencies
 ```
+$ mkdir project
 $ cd project
+$ npm init -y
 $ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
 ```
 
 ### Project
 ```
-$ tree . -I node_modules
+$ tree . -a -I node_modules
 .
+├── .babelrc
 ├── lib
 │   ├── sum.js
 │   ├── sum.print.mjs
@@ -20,7 +23,7 @@ $ tree . -I node_modules
 ├── package-lock.json
 └── package.json
 
-1 directory, 5 files
+1 directory, 6 files
 ```
 
 [unit-test/.babelrc](unit-test/.babelrc):

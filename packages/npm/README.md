@@ -111,7 +111,9 @@ $ npm init -y
 
 [date-fns](https://date-fns.org):
 ```
+$ mkdir project
 $ cd project
+$ npm init -y
 $ npm i date-fns
 ```
 
@@ -141,7 +143,9 @@ $ npm install
 
 [Jest](https://jestjs.io/en):
 ```
+$ mkdir project
 $ cd project
+$ npm init -y
 $ npm i -D jest
 ```
 
@@ -167,7 +171,9 @@ $ npx jest --version
 
 [Jest using babel (ESM)](https://jestjs.io/docs/en/getting-started#using-babel):
 ```
+$ mkdir project
 $ cd project
+$ npm init -y
 $ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
 ```
 
