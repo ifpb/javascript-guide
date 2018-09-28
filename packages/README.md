@@ -11,7 +11,7 @@
   * [jquery-sparkline (jQuery)](chart/jquery-sparkline/)
 * CSS Toolkit
   * [CSS Preprocessor](css-processor/)
-  * [Bootstrap](css-toolkit/bootstrap/)
+  * [Bootstrap](css-toolkit/)
 * Date & Time
   * [moment.js](https://momentjs.com)
   * [date-fns](https://github.com/date-fns/date-fns)
