@@ -10,7 +10,7 @@
   * [Person Data](#person-data) ([JSON](#person-json), [Object](#person-object), [Constructor function](#person-constructor-function), [class](#person-class))
 * [Prototype](#prototype)
 * [Changing Object](#changing-object)
-* [Object Array Interaction](#object-array-interection)
+* [Object Array Interaction](#object-array-interaction)
 * [Object Interaction](#object-interaction)
 * [References](#references)
 
@@ -355,7 +355,9 @@ console.log(result)
 ## Object Interaction
 ---
 
-### for...in
+### Keys
+
+#### for...in
 ```js
 const posts = {
   title: 'lorem ipsum dolor',
@@ -375,7 +377,7 @@ for(let field of posts){ // TypeError: posts[Symbol.iterator] is not a function
 }
 ```
 
-### for..of (Object.keys())
+#### for..of - Object.keys()
 ```js
 const posts = {
   title: 'lorem ipsum dolor',
@@ -390,7 +392,68 @@ for(let field of Object.keys(posts)){
 // 'Nunc accumsan in ipsum a mattis...'
 ```
 
-### for..of (Object.entries())
+### Values
+
+#### for..of
+```js
+const posts = {
+  title: 'lorem ipsum dolor',
+  text: 'Nunc accumsan in ipsum a mattis...'
+}
+
+for(let value of posts) {
+  console.log(value)
+}
+//=> TypeError: posts is not iterable
+```
+
+#### for..of - Object.values()
+```js
+const posts = {
+  title: 'lorem ipsum dolor',
+  text: 'Nunc accumsan in ipsum a mattis...'
+}
+
+for(let value of Object.values(posts)){
+  console.log(value)
+}
+//=>
+// 'lorem ipsum dolor',
+// 'Nunc accumsan in ipsum a mattis...'
+```
+
+#### for..of - destructuring assignment
+```js
+const posts = [
+  {
+    title: 'lorem ipsum dolor',
+    text: 'Nunc accumsan in ipsum a mattis...',
+    author: {
+      name: 'Alice',
+      email: 'alice@email.com'
+    }
+  },
+  {
+    title: 'Ipsum dolor',
+    text: 'Accumsan in ipsum a mattis...',
+    author: {
+      name: 'Bob',
+      email: 'bob@email.com'
+    }
+  }
+]
+
+for(let {title: t, author: {name: n}} of posts) {
+  console.log(`${t} (${n})`)
+}
+//=> 
+// lorem ipsum dolor (Alice)
+// Ipsum dolor (Bob)
+```
+
+### Key & Value
+
+#### for..of - Object.entries()
 ```js
 const posts = {
   title: 'lorem ipsum dolor',
@@ -403,37 +466,6 @@ for(let field of Object.entries(posts)){
 //=>
 // 'lorem ipsum dolor',
 // 'Nunc accumsan in ipsum a mattis...'
-```
-
-### for..of (Object.entries())
-```js
-const people = [
-  {
-    name: 'Mike Smith',
-    family: {
-      mother: 'Jane Smith',
-      father: 'Harry Smith',
-      sister: 'Samantha Smith'
-    },
-    age: 35
-  },
-  {
-    name: 'Tom Jones',
-    family: {
-      mother: 'Norah Jones',
-      father: 'Richard Jones',
-      brother: 'Howard Jones'
-    },
-    age: 25
-  }
-]
-
-for (let {name: n, family: { father: f } } of people) {
-  console.log('Name: ' + n + ', Father: ' + f)
-}
-//=>
-// Name: Mike Smith, Father: Harry Smith
-// Name: Tom Jones, Father: Richard Jones
 ```
 
 > Enumerating all properties of an object (`for...in`, `Object.keys()`, `Object.values()`, `Object.getOwnPropertyNames()`)
