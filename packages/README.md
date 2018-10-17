@@ -22,7 +22,7 @@
 * Modules & Bundler
   * [Basic](modules)
 * Test
-  * [Jest](jest/)
+  * [Jest](test/jest/)
 
 
 ## References
