@@ -170,6 +170,8 @@ for(let index in values){
 
 ```js
 // for..of
+let values = [1, 20, 10]
+
 for(let value of values){
   console.log(value)
 }
