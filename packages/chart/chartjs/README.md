@@ -26,4 +26,4 @@
 
 Output:
 
-<iframe style="border-radius: 0.3rem; border: solid 1px #dce6f0; padding: 0.8rem; width: 100%" src="simple-bar/index.html"></iframe>
+<iframe style="border-radius: 0.3rem; border: solid 1px #dce6f0; padding: 0.8rem; width: 100%; height: 400px" src="simple-bar/index.html"></iframe>
