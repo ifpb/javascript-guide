@@ -23,3 +23,7 @@
 ```css
 {% include_relative simple-gauge/css/master.css %}
 ```
+
+Output:
+
+<iframe style="border-radius: 0.3rem; border: solid 1px #dce6f0; padding: 0.8rem; width: 100%" src="simple-gauge/index.html"></iframe>

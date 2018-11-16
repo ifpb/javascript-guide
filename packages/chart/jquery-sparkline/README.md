@@ -26,4 +26,4 @@
 
 Output:
 
-<iframe style="border-radius: 0.3rem; border: solid 1px #dce6f0; padding: 0.8rem" src="simple-sparkline/index.html"></iframe>
+<iframe style="border-radius: 0.3rem; border: solid 1px #dce6f0; padding: 0.8rem; width: 100%" src="simple-sparkline/index.html"></iframe>

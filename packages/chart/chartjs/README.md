@@ -23,3 +23,7 @@
 ```css
 {% include_relative simple-bar/css/master.css %}
 ```
+
+Output:
+
+<iframe style="border-radius: 0.3rem; border: solid 1px #dce6f0; padding: 0.8rem; width: 100%" src="simple-bar/index.html"></iframe>
