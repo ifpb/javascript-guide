@@ -28,6 +28,8 @@
 ## References
 ---
 
+* [https://libraries.io](https://libraries.io)
+* [https://www.npmjs.com](https://www.npmjs.com)
 * [https://www.javascripting.com](https://www.javascripting.com)
 * [https://bestofjs.org](https://bestofjs.org)
 * [50 recommended frameworks for node js](https://boostlog.io/@nixus89896/50-recommended-frameworks-for-node-js-5aefe14e47018500491f4447)
