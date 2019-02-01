@@ -49,7 +49,7 @@ console.log(phrase.match(pattern)) //=> [ 'Is', 'is', 'is' ]
 ```js
 let phrase = "\nIs th\nis h\nis?"
 let pattern = /^is/gi
-console.log(phrase.match(pattern)) //=> [ 'Is' ]
+console.log(phrase.match(pattern)) //=> null
 ```
 
 ```js
