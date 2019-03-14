@@ -1,6 +1,6 @@
 # Values & Types
 
-![JavaScript’s type hierarchy](http://exploringjs.com/impatient-js/img/b8c834a3420a3b2d2df0d90dfa0c1dfd1f2ffbc9.svg)<br>
+![JavaScript’s type hierarchy](http://exploringjs.com/impatient-js/img-book/b8c834a3420a3b2d2df0d90dfa0c1dfd1f2ffbc9.svg)<br>
 [JavaScript for impatient programmers (Book)](http://exploringjs.com/impatient-js/ch_values.html)
 
 | Types | Values |
