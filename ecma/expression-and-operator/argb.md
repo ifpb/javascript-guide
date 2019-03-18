@@ -1,14 +1,19 @@
 # [ARGB](https://en.wikipedia.org/wiki/RGBA_color_space)
 
 ## Encoding Mantis green ARGB - rgba(116, 195, 101, 0)
+
 ---
 
 ```js
-const alfa  = 255
-const red   = 116
-const green = 195
-const blue  = 101
-const color = (alfa & 0xff) << 24 | (red & 0xff) << 16 | (green & 0xff) << 8 | (blue & 0xff)
+const alfa = 255;
+const red = 116;
+const green = 195;
+const blue = 101;
+const color =
+  ((alfa & 0xff) << 24) |
+  ((red & 0xff) << 16) |
+  ((green & 0xff) << 8) |
+  (blue & 0xff);
 
 // 00000000000000000000000011111111 (255)
 // 00000000000000000000000011111111 (0xff)
@@ -33,39 +38,40 @@ const color = (alfa & 0xff) << 24 | (red & 0xff) << 16 | (green & 0xff) << 8 | (
 // 00000000011101000000000000000000 (red)
 // 00000000000000001100001100000000 (green)
 // 00000000000000000000000001100101 (blue)
-// 11111111011101001100001101100101 (|) 
+// 11111111011101001100001101100101 (|)
 // 0x74C365 (alfa 100%)
 ```
 
 ## Decoding Mantis green ARGB - #74C365
+
 ---
 
 ```js
-const color = 0x74C365
+const color = 0x74c365;
 // 11111111011101001100001101100101 (alfa 100%)
 
-const alfa  = (color >>> 24) & 0xff
-// 11111111011101001100001101100101 
+const alfa = (color >>> 24) & 0xff;
+// 11111111011101001100001101100101
 // 00000000000000000000000011111111 (>>> 24)
 // 00000000000000000000000011111111 (0xff)
 // 00000000000000000000000011111111 (& 0xff)
 // 255
 
-const red   = (color >> 16) & 0xff
+const red = (color >> 16) & 0xff;
 // 00000000011101001100001101100101
 // 00000000000000000000000001110100 (>> 16)
 // 00000000000000000000000011111111 (0xff)
 // 00000000000000000000000001110100 (& 0xff)
 // 116
 
-const green = (color >>  8) & 0xff
+const green = (color >> 8) & 0xff;
 // 00000000011101001100001101100101
 // 00000000000000000111010011000011 (>> 8)
 // 00000000000000000000000011111111 (0xff)
 // 00000000000000000000000011000011 (& 0xff)
 // 195
 
-const blue  = color & 0xff
+const blue = color & 0xff;
 // 00000000011101001100001101100101
 // 00000000000000000000000011111111 (0xff)
 // 00000000000000000000000001100101 (& 0xff)
@@ -73,6 +79,7 @@ const blue  = color & 0xff
 ```
 
 ## Question
+
 ---
 
 > Is there a problem in exchanging `(color >>> 24) & 0xff` for `(color >> 24) & 0xff` into Decoding Mantis green ARGB?
