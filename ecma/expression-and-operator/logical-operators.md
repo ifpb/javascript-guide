@@ -26,12 +26,12 @@
 
 | Operand 1 | Operand 2 | Logical | Return |
 |-|-|-|-|
-| `true`  | `true`     | `t \|\| t` | `true`  |
-| `false` | `true`     | `f \|\| t` | `true`  |
-| `true`  | `false`    | `t \|\| f` | `true`  |
-| `false` | `(3 == 4)` | `f \|\| f` | `false` |
-| `"Cat"` | `"Dog"`    | `t \|\| t` | `"Cat"` |
-| `false` | `"Cat"`    | `f \|\| t` | `"Cat"` |
-| `"Cat"` | `false`    | `t \|\| f` | `"Cat"` |
-| `""`    | `false`    | `t \|\| f` | `false` |
-| `false` | `""`       | `f \|\| t` | `""`    |
+| `true`  | `true`     | `t || t` | `true`  |
+| `false` | `true`     | `f || t` | `true`  |
+| `true`  | `false`    | `t || f` | `true`  |
+| `false` | `(3 == 4)` | `f || f` | `false` |
+| `"Cat"` | `"Dog"`    | `t || t` | `"Cat"` |
+| `false` | `"Cat"`    | `f || t` | `"Cat"` |
+| `"Cat"` | `false`    | `t || f` | `"Cat"` |
+| `""`    | `false`    | `t || f` | `false` |
+| `false` | `""`       | `f || t` | `""`    |
