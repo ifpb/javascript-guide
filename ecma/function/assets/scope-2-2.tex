@@ -1,0 +1,22 @@
+\documentclass[tikz,convert=false]{standalone}
+\begin{document}
+  \begin{tikzpicture}[scale=0.6]
+    % inside scope - f1
+    \draw [magenta] (-1.6,0) circle [radius=1.5] node (i1) {};
+    \node [draw=none,align=center, font=\scriptsize,text width = 2.3cm, name=i2] at (5.8,1.1) {inside scope - f1()};
+    \node[draw=none,align=center, font=\scriptsize,text width = 1.7cm, name=i3] at (-1.6,0) {};
+    \draw [->] (i2) -- (i3);
+
+    % inside scope - f2
+    \draw [magenta] (1.6,0) circle [radius=1.5] node (i4) {};
+    \node [draw=none,align=center, font=\scriptsize,text width = 2.3cm, name=i5] at (5.8,0) {inside scope - f2()};
+    \node[draw=none,align=center, font=\scriptsize,text width = 1.7cm, name=i6] at (1.6,0) {x = 'inside2'};
+    \draw [->] (i5) -- (i6);
+
+    % global scope
+    \draw [green] (0,0) circle [radius=3.3]  node (g1) {};
+    \node [draw=none,align=center, font=\scriptsize,text width = 1.7cm, name=g2] at (5.2,2.2) {global scope};
+    \node [draw=none,align=center, font=\scriptsize,text width = 1.7cm, name=g3] at (0,2.2) {x = 'inside1'};
+    \draw [->] (g2) -- (g3);
+  \end{tikzpicture}
+\end{document}

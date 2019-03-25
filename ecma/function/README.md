@@ -37,8 +37,8 @@ function addition(param1, param2) {
 
 // Calling functions
 console.log(addition(1)); //=> NaN
-console.log(addition(1, 1)); //=> 2
-console.log(addition(1, 1, 3)); //=> 2
+console.log(addition(1, 2)); //=> 3
+console.log(addition(1, 2, 3)); //=> 3
 ```
 
 **Reference:**
@@ -50,25 +50,167 @@ console.log(addition(1, 1, 3)); //=> 2
 
 ---
 
-```js
-var x = 'outside';
-function f1() {
-  var x = 'inside';
-}
-console.log(x); //=> 'outside'
-f1();
-console.log(x); //=> 'outside'
-```
+<!--
+TODO Chart scope(nested circles, concentric circles):
+- https://javascriptissexy.com/understanding-es2015-in-depth-part-1-block-scope-with-let-and-const/
+- https://jsplain.com/javascript/index.php/Thread/110-Encapsulation-in-JavaScript/
+- http://techslides.com/understanding-javascript-closures-and-scope
+- https://www.latex4technics.com/ (tikz)
+-->
+
+### Scope (Global, Inside)
+
+**Example 1**
 
 ```js
-var x = 'outside';
-function f2() {
+let x = 'global';
+
+function f1() {
   x = 'inside';
 }
-console.log(x); //=> 'outside'
-f2();
+
+console.log(x); //=> 'global'
+f1();
 console.log(x); //=> 'inside'
 ```
+
+![Socpe 1](assets/scope-1-2.png)
+
+| Scope  | Hierarchy | Variable       |
+| ------ | --------- | -------------- |
+| global | g         | `x = 'inside'` |
+| inside | g>f1      |                |
+
+**Example 2**
+
+```js
+let x = 'global';
+
+function f1() {
+  let x = 'inside';
+}
+
+console.log(x); //=> 'global'
+f1();
+console.log(x); //=> 'global'
+```
+
+![Socpe 1](assets/scope-1-1.png)
+
+| Scope  | Hierarchy | Variable       |
+| ------ | --------- | -------------- |
+| global | g         | `x = 'global'` |
+| inside | g>f1      | `x = 'inside'` |
+
+### Scope (Global, Inside1, Inside2)
+
+**Example 1**
+
+```js
+let x = 'global';
+
+function f1() {
+  x = 'inside1';
+}
+
+function f2() {
+  let x = 'inside2';
+  f1();
+}
+
+console.log(x); //=> 'global'
+f2();
+console.log(x); //=> 'inside1'
+```
+
+![Socpe 1](assets/scope-2-2.png)
+
+| Scope   | Hierarchy | Variable        |
+| ------- | --------- | --------------- |
+| global  | g         | `x = 'inside1'` |
+| inside1 | g>f1      |                 |
+| inside2 | g>f2      | `x = 'inside2'` |
+
+**Example 2**
+
+```js
+let x = 'global';
+
+function f1() {
+  let x = 'inside1';
+}
+
+function f2() {
+  let x = 'inside2';
+  f1();
+}
+
+console.log(x); //=> 'global'
+f2();
+console.log(x); //=> 'global'
+```
+
+![Socpe 1](assets/scope-2-1.png)
+
+| Scope   | Hierarchy | Variable        |
+| ------- | --------- | --------------- |
+| global  | g         | `x = 'global'`  |
+| inside1 | g>f1      | `x = 'inside1'` |
+| inside2 | g>f2      | `x = 'inside2'` |
+
+### Scope (Global, Outside, Inside)
+
+**Example 1**
+
+```js
+let x = 'global';
+
+function f1() {
+  x = 'outside';
+  function f2() {
+    x = 'inside';
+  }
+  f2();
+}
+
+console.log(x); //=> 'global'
+f1();
+console.log(x); //=> 'global'
+```
+
+![Socpe 1](assets/scope-3-2.png)
+
+| Scope   | Hierarchy | Variable       |
+| ------- | --------- | -------------- |
+| global  | g         | `x = 'inside'` |
+| inside1 | g>f1      |                |
+| inside2 | g>f1>f2   |                |
+
+**Example 2**
+
+```js
+let x = 'global';
+
+function f1() {
+  let x = 'outside';
+  function f2() {
+    let x = 'inside';
+  }
+  f2();
+}
+
+console.log(x); //=> 'global'
+f1();
+console.log(x); //=> 'global'
+```
+
+![Socpe 1](assets/scope-3-1.png)
+
+| Scope   | Hierarchy | Variable        |
+| ------- | --------- | --------------- |
+| global  | g         | `x = 'global'`  |
+| inside1 | g>f1      | `x = 'outside'` |
+| inside2 | g>f1>f2   | `x = 'inside'`  |
 
 ## Hoisting
 
@@ -137,8 +279,8 @@ function addition(param1, param2 = 0) {
   return param1 + param2;
 }
 
-console.log(addition(1, 1)); //=> 2
 console.log(addition(1)); //=> 1
+console.log(addition(1, 2)); //=> 3
 ```
 
 ## Destructuring Assignment
