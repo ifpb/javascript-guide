@@ -120,7 +120,7 @@ console.log(numbers); //=> [ 1, , 3 ]
 let number = 1;
 console.log(typeof number); //=> number
 
-let name = "Lorem ipsum";
+let name = 'Lorem ipsum';
 console.log(typeof name); //=> string
 
 let numbers = [1, 2, 3];
@@ -129,22 +129,22 @@ console.log(typeof numbers); //=> object
 
 ```js
 // unary plus operator
-let number = "15";
-console.log(number);  //=> "15"
+let number = '15';
+console.log(number); //=> "15"
 console.log(+number); //=>  15
 ```
 
 ```js
 // unary negation operator
 let number = -15;
-console.log(number);  //=> -15 11111111111111111111111111110001
+console.log(number); //=> -15 11111111111111111111111111110001
 console.log(-number); //=>  15 00000000000000000000000000001111
 ```
 
 ```js
 // bitwise not
 let number = 16;
-console.log(number);  //=>  16 00000000000000000000000000010000
+console.log(number); //=>  16 00000000000000000000000000010000
 console.log(~number); //=> -17 11111111111111111111111111101111
 ```
 
@@ -160,13 +160,13 @@ console.log(!number); //=> false
 
 ```js
 // addition operator
-console.log(10 + 3);   //=> 13
+console.log(10 + 3); //=> 13
 console.log(true + 3); //=> 4
 ```
 
 ```js
 // subtraction operator
-console.log(10 - 3);    //=> 7
+console.log(10 - 3); //=> 7
 console.log(1.4 - 1.2); //=> 0.19999999999999996 (IEEE 754)
 ```
 
@@ -177,8 +177,8 @@ console.log(10 * 3); //=> 30
 
 ```js
 // division operator
-console.log(10 / 3);             //=> 3.3333333333333335
-console.log(parseInt(10 / 3));   //=> 3 - Integer division
+console.log(10 / 3); //=> 3.3333333333333335
+console.log(parseInt(10 / 3)); //=> 3 - Integer division
 console.log(Math.trunc(10 / 3)); //=> 3 - Integer division
 ```
 
@@ -202,13 +202,13 @@ let numbers = [1, 2, 3];
 console.log(0 in numbers); //=> true
 console.log(1 in numbers); //=> true
 console.log(3 in numbers); //=> false
-console.log("value" in { value: 1 }); //=> true
-console.log("PI" in Math); //=> true
+console.log('value' in { value: 1 }); //=> true
+console.log('PI' in Math); //=> true
 ```
 
 ```js
 // instanceof operator
-console.log("" instanceof String); //=> false
+console.log('' instanceof String); //=> false
 console.log(new String() instanceof String); //=> true
 ```
 
@@ -240,32 +240,32 @@ console.log(10 >= 1); //=> true
 
 ```js
 // equality operator: type–converting comparisons
-console.log(1 == 1);     //=> true
-console.log(1 == "1");   //=> true
-console.log(1 == "1a");  //=> false
-console.log(1 == true);  //=> true
+console.log(1 == 1); //=> true
+console.log(1 == '1'); //=> true
+console.log(1 == '1a'); //=> false
+console.log(1 == true); //=> true
 console.log(0 == false); //=> true
 ```
 
 ```js
 // inequality operator
-console.log(1 != "a");   //=> true
+console.log(1 != 'a'); //=> true
 console.log(1 != false); //=> true
-console.log(1 != true);  //=> false
+console.log(1 != true); //=> false
 ```
 
 ```js
 // identity/strict equality: strict and type–converting comparisons
-console.log(1 === 1);     //=> true
-console.log(1 === "1");   //=> false
-console.log("1" === "1"); //=> true
+console.log(1 === 1); //=> true
+console.log(1 === '1'); //=> false
+console.log('1' === '1'); //=> true
 ```
 
 ```js
 // non-identity
-console.log(1 !== "1");   //=> true
-console.log("" !== true); //=> true
-console.log(1 !== 1);     //=> false
+console.log(1 !== '1'); //=> true
+console.log('' !== true); //=> true
+console.log(1 !== 1); //=> false
 ```
 
 References:
@@ -285,23 +285,23 @@ References:
 
 ```js
 // left shitf operator - each step means "multiply by two"
-console.log(9);      //=> 00000000000000000000000000001001   9
+console.log(9); //=> 00000000000000000000000000001001   9
 console.log(9 << 2); //=> 00000000000000000000000000100100  36
 ```
 
 ```js
 // sign-propagating right shift operator - each step means "divide by two"
-console.log(9);       //=> 00000000000000000000000000001001   9
-console.log(9 >> 2);  //=> 00000000000000000000000000000010   2
-console.log(-9);      //=> 11111111111111111111111111110110  -9
+console.log(9); //=> 00000000000000000000000000001001   9
+console.log(9 >> 2); //=> 00000000000000000000000000000010   2
+console.log(-9); //=> 11111111111111111111111111110110  -9
 console.log(-9 >> 2); //=> 11111111111111111111111111111101  -3
 ```
 
 ```js
 // zero-fill right shift operator
-console.log(9);        //=> 00000000000000000000000000001001   9
-console.log(9 >>> 2);  //=> 00000000000000000000000000000010   2
-console.log(-9);       //=> 11111111111111111111111111110110  -9
+console.log(9); //=> 00000000000000000000000000001001   9
+console.log(9 >>> 2); //=> 00000000000000000000000000000010   2
+console.log(-9); //=> 11111111111111111111111111110110  -9
 console.log(-9 >>> 2); //=> 00111111111111111111111111111101  1073741821
 ```
 
@@ -313,22 +313,22 @@ console.log(-9 >>> 2); //=> 00111111111111111111111111111101  1073741821
 
 ```js
 // bitwise and operator
-console.log(9);      //=> 00000000000000000000000000001001   9
-console.log(14);     //=> 00000000000000000000000000001110  14
+console.log(9); //=> 00000000000000000000000000001001   9
+console.log(14); //=> 00000000000000000000000000001110  14
 console.log(14 & 9); //=> 00000000000000000000000000000100   8
 ```
 
 ```js
 // bitwise or operator
-console.log(9);      //=> 00000000000000000000000000001001   9
-console.log(14);     //=> 00000000000000000000000000001110  14
+console.log(9); //=> 00000000000000000000000000001001   9
+console.log(14); //=> 00000000000000000000000000001110  14
 console.log(14 | 9); //=> 00000000000000000000000000001111  15
 ```
 
 ```js
 // bitwise xor operator
-console.log(9);      //=> 00000000000000000000000000001001   9
-console.log(14);     //=> 00000000000000000000000000001110  14
+console.log(9); //=> 00000000000000000000000000001001   9
+console.log(14); //=> 00000000000000000000000000001110  14
 console.log(14 ^ 9); //=> 00000000000000000000000000000101   7
 ```
 
@@ -341,22 +341,22 @@ console.log(14 ^ 9); //=> 00000000000000000000000000000101   7
 ```js
 // logical and operator
 console.log(true && true); //=> true
-console.log(true && 10);   //=> 10
-console.log(false && 10);  //=> false
+console.log(true && 10); //=> 10
+console.log(false && 10); //=> false
 ```
 
 ```js
 // logical or operator
 console.log(false || false); //=> false
-console.log(false || true);  //=> true
-console.log(false || 10);    //=> 10
+console.log(false || true); //=> true
+console.log(false || 10); //=> 10
 ```
 
 ### Precedence
 
 ```js
 // Logical AND > Logical OR
-console.log(false && true || true);   //=> true
+console.log((false && true) || true); //=> true
 console.log(false && (true || true)); //=> false
 ```
 
@@ -381,7 +381,7 @@ console.log(temp); //=> 1
 ```js
 // conditional operator
 let number = 10;
-let kind = number % 2 == 0 ? "even" : "odd";
+let kind = number % 2 == 0 ? 'even' : 'odd';
 console.log(kind); //=> 'even'
 ```
 
@@ -400,7 +400,7 @@ Shorthand: `*=`, `/=`, `%=`, `+=`, `-=`, `<<=`, `>>=`, `>>>=`, `&=`, `^=`, `|=`
 ```js
 // addition assignment operator
 let variable = 10; // 10
-variable += 1;     // variable = variable + 1
+variable += 1; // variable = variable + 1
 console.log(variable); //=> 11
 ```
 

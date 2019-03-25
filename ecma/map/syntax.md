@@ -1,7 +1,7 @@
 # Map
 
 ```js
-let obj = { name: "fulano" };
+let obj = { name: 'fulano' };
 let map = new Map();
 
 map.set(0, 1);

@@ -23,6 +23,13 @@
 
 ---
 
+**Diagram:**
+
+![Estrutura de Função](assets/function.png)<br>
+Fonte: [Wikipedia](<https://en.wikipedia.org/wiki/Function_(mathematics)>)
+
+**Code:**
+
 ```js
 function addition(param1, param2) {
   return param1 + param2;
@@ -34,7 +41,7 @@ console.log(addition(1, 1)); //=> 2
 console.log(addition(1, 1, 3)); //=> 2
 ```
 
-Reference:
+**Reference:**
 
 - [Function Reference \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
 - [Function Guide \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
@@ -44,9 +51,9 @@ Reference:
 ---
 
 ```js
-var x = "outside";
+var x = 'outside';
 function f1() {
-  var x = "inside";
+  var x = 'inside';
 }
 console.log(x); //=> 'outside'
 f1();
@@ -54,9 +61,9 @@ console.log(x); //=> 'outside'
 ```
 
 ```js
-var x = "outside";
+var x = 'outside';
 function f2() {
-  x = "inside";
+  x = 'inside';
 }
 console.log(x); //=> 'outside'
 f2();
@@ -203,16 +210,16 @@ console.log(addition(1, 1, 1, 1)); //=> 4 ([1, 1, 1, 1])
 ```js
 // operator: '+', '*'
 function calc(operator, ...params) {
-  let result = operator == "+" ? 0 : 1;
+  let result = operator == '+' ? 0 : 1;
   for (let arg of params) {
-    result = operator == "+" ? result + arg : result * arg;
+    result = operator == '+' ? result + arg : result * arg;
   }
   return result;
 }
 
-console.log(calc("+", 1)); //=> 1 ('+', [1])
-console.log(calc("+", 1, 1)); //=> 2 ('+', [1, 1])
-console.log(calc("*", 1, 1, 1)); //=> 1 ('*', [1, 1, 1])
+console.log(calc('+', 1)); //=> 1 ('+', [1])
+console.log(calc('+', 1, 1)); //=> 2 ('+', [1, 1])
+console.log(calc('*', 1, 1, 1)); //=> 1 ('*', [1, 1, 1])
 ```
 
 ## Function Expression / Anonymous Function
@@ -259,11 +266,11 @@ console.log(sum(1, 2)); //  ReferenceError: sum is not defined
 
 ```js
 let ip = {
-  address: "192.168.0.1",
-  mask: "255.255.255.0",
+  address: '192.168.0.1',
+  mask: '255.255.255.0',
   toString: function() {
     return `${this.address}/${this.mask}`;
-  }
+  },
 };
 
 console.log(ip.address); //=> '192.168.0.1'
@@ -510,20 +517,18 @@ console.log(array.map((e, i) => i % 2 == 0)); //=> [true, false, true]
 //  Functions that operate on other functions, either by taking them as arguments
 //  or by returning them, are called higher-order functions
 const animals = [
-  { name: "Waffles", type: "dog", age: 12 },
-  { name: "Fluffy", type: "cat", age: 14 },
-  { name: "Spelunky", type: "dog", age: 4 },
-  { name: "Hank", type: "dog", age: 11 }
+  { name: 'Waffles', type: 'dog', age: 12 },
+  { name: 'Fluffy', type: 'cat', age: 14 },
+  { name: 'Spelunky', type: 'dog', age: 4 },
+  { name: 'Hank', type: 'dog', age: 11 },
 ];
 
-let oldDogNames = animals
-  .filter(x => x.age > 10 && x.type === "dog")
-  .map(x => x.name);
+let oldDogNames = animals.filter(x => x.age > 10 && x.type === 'dog').map(x => x.name);
 
 console.log(oldDogNames); //=> [ 'Waffles', 'Hank' ]
 
 let totalDogYears = animals
-  .filter(x => x.type === "dog")
+  .filter(x => x.type === 'dog')
   .map(x => x.age)
   .reduce((prev, cur) => prev + cur, 0);
 

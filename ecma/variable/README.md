@@ -1,6 +1,7 @@
 # Variable
 
 - [Declarations](#declaration): [var](#var), [let](#let), [const](#const)
+- [Automatic semicolon insertion (ASI)](#automatic-semicolon-insertion-asi)
 - [Dynamic Type](#dynamic-type)
 - [Case Sensitive](#case-sensitive)
 - [Identifier Pattern](#identifier-pattern)
@@ -20,9 +21,15 @@
 ### var
 
 ```js
+// int number = 10; (C language)
+// number = 10      (Pyton language)
+var number = 10;
+console.log(number); //=> 10
+```
+
+```js
 var number;
-var number // Automatic semicolon insertion (ASI)
-var number = 10; // int number = 10; (C language)
+number = 10;
 console.log(number); //=> 10
 ```
 
@@ -33,12 +40,29 @@ let number = 10;
 console.log(number); //=> 10
 ```
 
+```js
+let number;
+number = 10;
+console.log(number); //=> 10
+```
+
+```js
+let number = 10;
+console.log(number); //=> 10
+
+let number = 10; // SyntaxError: Identifier 'number' has already been declared
+```
+
 ### const
 
 ```js
-const NUMBER = 10;
-NUMBER = 100; // TypeError
-console.log(NUMBER); //=> 10
+const number = 10;
+console.log(number); //=> 10
+```
+
+```js
+const number = 10;
+number = 100; // TypeError
 ```
 
 Reference:
@@ -47,18 +71,25 @@ Reference:
 - [Variable declaration: var, const, let \| Modern JavaScript Cheatsheet](https://github.com/mbeaudru/modern-js-cheatsheet#variable-declaration-var-const-let)
 - [Variable \| You Don't Know JS: Up & Going](https://github.com/getify/You-Dont-Know-JS/blob/master/up%20&%20going/ch1.md#variables)
 
+## Automatic semicolon insertion (ASI)
+
+```js
+const number = 10;
+console.log(number); //=> 10
+```
+
 ## Dynamic Type
 
 ---
 
 ```js
 let number = 10;
-console.log(number);        //=> 10
+console.log(number); //=> 10
 console.log(typeof number); //=> number
 
-number = "fulano";
+number = 'fulano';
 console.log(typeof number); //=> string
-console.log(number);        //=> 'fulano'
+console.log(number); //=> 'fulano'
 ```
 
 ## Case Sensitive
@@ -66,8 +97,8 @@ console.log(number);        //=> 'fulano'
 ---
 
 ```js
-let number = 8;
-let NUmber = 80;
+const number = 8;
+const NUmber = 80;
 ```
 
 ## Identifier Pattern
@@ -75,13 +106,13 @@ let NUmber = 80;
 ---
 
 ```js
-let 0number  //=> SyntaxError (^\W)
-let %number  //=> SyntaxError (^\W)
-let var      //=> SyntaxError (keyword)
-let function //=> SyntaxError (keyword)
-let number
-let _number
-let $number
+const 0number  //=> SyntaxError (^\W)
+const %number  //=> SyntaxError (^\W)
+const var      //=> SyntaxError (keyword)
+const function //=> SyntaxError (keyword)
+const number
+const _number
+const $number
 ```
 
 Reference:
@@ -93,14 +124,14 @@ Reference:
 ---
 
 ```js
-var x, y, z;
+let x, y, z;
 console.log(x); //=> undefined
 console.log(y); //=> undefined
 console.log(z); //=> undefined
 ```
 
 ```js
-var a = 1,
+const a = 1,
   b = 2,
   c = 3;
 console.log(a); //=> 1
@@ -113,7 +144,7 @@ console.log(c); //=> 3
 ---
 
 ```js
-name = "fulano";
+name = 'fulano';
 console.log(name); //=> 'fulano'
 ```
 

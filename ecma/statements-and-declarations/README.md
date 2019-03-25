@@ -17,28 +17,33 @@
 ### if...else
 
 ```js
-let number = 10;
-let result;
+const number = 10;
+
+// if does not executes: false, 0, "", null, undefined, NaN
+if (number < 0) console.log('less than zero'); //=> greater than zero
+```
+
+```js
+const number = 10;
 
 // if does not executes: false, 0, "", null, undefined, NaN
 if (number < 0) {
-  result = "greater than zero";
+  console.log('less than zero'); //=> greater than zero
 }
-
-console.log(result); //=> greater than zero
 ```
 
 ```js
-let number = 10
-let result
+const number = 10;
+let result;
 
 if (number < 0) {
-  result = 'greater than zero'
-} else
-  result = 'equal or less than zero'
+  result = 'less than zero';
+}
+if (number >= 0)
+  result = 'equal or greater than zero';
 }
 
-console.log(result) //=> greater than zero
+console.log(result); //=> equal or greater than zero
 ```
 
 ```js
@@ -46,11 +51,24 @@ let number = 10;
 let result;
 
 if (number < 0) {
-  result = "greater than zero";
-} else if (number > 0) {
-  result = "less than zero";
+  result = 'less than zero';
 } else {
-  result = "equal to zero";
+  result = 'equal or greater than zero';
+}
+
+console.log(result); //=> equal or greater than zero
+```
+
+```js
+const number = 10;
+let result;
+
+if (number < 0) {
+  result = 'less than zero';
+} else if (number > 0) {
+  result = 'greater than zero';
+} else {
+  result = 'equal to zero';
 }
 
 console.log(result); //=> greater than zero
@@ -59,25 +77,25 @@ console.log(result); //=> greater than zero
 ### switch
 
 ```js
-let number1 = 10;
-let number2 = 10;
-let operator = "+"; // (+, -, *, /)
+const number1 = 10;
+const number2 = 10;
+const operator = '+'; // (+, -, *, /)
 let result;
 
 switch (
   operator // strict comparison
 ) {
-  case "add":
-  case "+":
+  case 'add':
+  case '+':
     result = number1 + number2;
     break;
-  case "-":
+  case '-':
     result = number1 - number2;
     break;
-  case "*":
+  case '*':
     result = number1 * number2;
     break;
-  case "/":
+  case '/':
     result = number1 / number2;
     break;
   default:
@@ -104,10 +122,10 @@ continue & break
 ### while
 
 ```js
-let result = "";
+let result = '';
 
 while (result.length < 4) {
-  result += "x";
+  result += 'x';
   console.log(result);
 }
 //=>
@@ -120,10 +138,10 @@ while (result.length < 4) {
 ### do...while
 
 ```js
-let result = "";
+let result = '';
 
 do {
-  result += "x";
+  result += 'x';
   console.log(result);
 } while (result.length < 4);
 //=>
@@ -135,8 +153,10 @@ do {
 
 ### for
 
+![loop](assets/loop.png)
+
 ```js
-for (let flag = 0; flag < 100; flag++) {
+for (let flag = 0; flag < 100; flag += 1) {
   console.log(flag);
 }
 //=>
@@ -150,11 +170,11 @@ for (let flag = 0; flag < 100; flag++) {
 ```
 
 ```js
-let result = "";
+let result = '';
 
 for (let flag = 0; flag < 100; flag++) {
-  result += flag < 10 ? "0" + flag : flag;
-  result += flag % 10 === 9 ? "\n" : " ";
+  result += flag < 10 ? '0' + flag : flag;
+  result += flag % 10 === 9 ? '\n' : ' ';
 }
 
 console.log(result);
@@ -176,7 +196,7 @@ console.log(result);
 Iterates over the enumerable properties of an object:
 
 ```js
-let numbers = [1, 2, 3, 4];
+const numbers = [1, 2, 3, 4];
 
 for (let index in numbers) {
   console.log(index);
@@ -189,9 +209,9 @@ for (let index in numbers) {
 ```
 
 ```js
-let numbers = [1, 2, 3, 4];
+const numbers = [1, 2, 3, 4];
 
-numbers["number"] = 10;
+numbers['number'] = 10;
 
 for (let index in numbers) {
   console.log(`${index} -> ${numbers[index]}`);
@@ -209,7 +229,7 @@ for (let index in numbers) {
 Iterates over iterable objects (including arrays, array-like objects, iterators and generators):
 
 ```js
-let numbers = [1, 2, 3, 4];
+const numbers = [1, 2, 3, 4];
 
 for (let number of numbers) {
   console.log(number);
@@ -224,9 +244,9 @@ for (let number of numbers) {
 #### for...of (Array.prototype.entries())
 
 ```js
-let numbers = [1, 2, 3, 4];
+const numbers = [1, 2, 3, 4];
 
-numbers["number"] = 10;
+numbers['number'] = 10;
 
 for (let [index, number] of numbers.entries()) {
   console.log(`${index} => ${number}`);
@@ -241,10 +261,10 @@ for (let [index, number] of numbers.entries()) {
 #### for...of (Object.keys)
 
 ```js
-let student = {
+const student = {
   id: 1,
-  name: "fulano",
-  email: "fulano@gmail.com"
+  name: 'fulano',
+  email: 'fulano@gmail.com',
 };
 
 for (let index of Object.keys(student)) {
@@ -259,10 +279,10 @@ for (let index of Object.keys(student)) {
 #### for...of (Object.values)
 
 ```js
-let student = {
+const student = {
   id: 1,
-  name: "fulano",
-  email: "fulano@gmail.com"
+  name: 'fulano',
+  email: 'fulano@gmail.com',
 };
 
 for (let values of Object.values(student)) {
@@ -277,10 +297,10 @@ for (let values of Object.values(student)) {
 #### for...of (Object.entries)
 
 ```js
-let student = {
+const student = {
   id: 1,
-  name: "fulano",
-  email: "fulano@gmail.com"
+  name: 'fulano',
+  email: 'fulano@gmail.com',
 };
 
 for (const [key, value] of Object.entries(student)) {

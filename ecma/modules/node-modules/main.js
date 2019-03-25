@@ -1,3 +1,3 @@
-const sum = require('./lib.js')
+const sum = require('./lib.js');
 
-console.log(sum(1, 2))
+console.log(sum(1, 2));

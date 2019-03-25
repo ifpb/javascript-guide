@@ -1,19 +1,20 @@
 # Node Package Manager (NPM)
 
-* [Architecture](#architecture)
-* [Website](#website)
-* [Registry](#registry)
-* [CLI](#cli)
+- [Architecture](#architecture)
+- [Website](#website)
+- [Registry](#registry)
+- [CLI](#cli)
 
 ## Architecture
+
 ---
 
 ### Package Managers
 
-* [https://libraries.io/](https://libraries.io/)
-  * [NPM (Javascript)](https://www.npmjs.com/)
-  * [PyPI (Python)](https://pypi.org/)
-  * [Packagist (PHP)](https://packagist.org/)
+- [https://libraries.io/](https://libraries.io/)
+  - [NPM (Javascript)](https://www.npmjs.com/)
+  - [PyPI (Python)](https://pypi.org/)
+  - [Packagist (PHP)](https://packagist.org/)
 
 ### Components
 
@@ -24,12 +25,14 @@
 ```
 
 ## Website
+
 ---
 
 [https://www.npmjs.com/search?q=jest](https://www.npmjs.com/search?q=jest):
 ![](assets/npm-search.png)
 
 ## Registry
+
 ---
 
 ### NPM Public Registry
@@ -43,7 +46,7 @@
 └───────────────┘ │   ╭────────╮  │   │└───────────────┘│
 ┌───────────────┐ │   │ Public │  │   └─────────────────┘
 │reuseble-code-y├─┼──▶│Registry├──┤   ┌─────────────────┐
-└───────────────┘ │   │ (NPM)  │  │   │ Project B       │ 
+└───────────────┘ │   │ (NPM)  │  │   │ Project B       │
 ┌───────────────┐ │   ╰────────╯  │   │┌───────────────┐│
 │reuseble-code-z├─┘               ├──▶││reuseble-code-y││
 └───────────────┘                 │   │└───────────────┘│
@@ -56,7 +59,7 @@
 ### Create a Package
 
 ```
- reuseble-code 
+ reuseble-code
 ┌─────────────┐
 │lib.js       │
 │package.json │
@@ -64,6 +67,7 @@
 ```
 
 **package.json**:
+
 ```js
 {
   "name": "reuseble-code",
@@ -72,6 +76,7 @@
 ```
 
 ## CLI
+
 ---
 
 ### Generate a plain old package.json
@@ -98,18 +103,19 @@ $ npm init -y
 ### Publish/Install Package
 
 ```
-                                                   ┌───────────────────────────┐    
+                                                   ┌───────────────────────────┐
                                 ╭────────╮    ┌───▶│$ npm install reuseble-code│
 ┌───────────────────────────┐   │ Public │    │    └───────────────────────────┘
-│$ npm publish reuseble-code├──▶│Registry├────┤       
+│$ npm publish reuseble-code├──▶│Registry├────┤
 └───────────────────────────┘   │ (NPM)  │    │    ┌───────────────────────────┐
                                 ╰────────╯    └───▶│$ npm install reuseble-code│
-                                                   └───────────────────────────┘ 
+                                                   └───────────────────────────┘
 ```
 
 ### Specifying Dependencies
 
 [date-fns](https://date-fns.org):
+
 ```
 $ mkdir project
 $ cd project
@@ -118,6 +124,7 @@ $ npm i date-fns
 ```
 
 **package.json**:
+
 ```js
 {
   "name": "project",
@@ -129,12 +136,15 @@ $ npm i date-fns
 ```
 
 **show packages**:
+
 ```
 $ ls node_modules
 ```
 
 **install packages**:
+
 ```
+$ rm package-lock.json
 $ rm -rf node_modues
 $ npm install
 ```
@@ -142,6 +152,7 @@ $ npm install
 ### Specifying devDependencies
 
 [Jest](https://jestjs.io/en):
+
 ```
 $ mkdir project
 $ cd project
@@ -170,6 +181,7 @@ $ npx jest --version
 ### Specifying multiples devDependencies
 
 [Jest using babel (ESM)](https://jestjs.io/docs/en/getting-started#using-babel):
+
 ```
 $ mkdir project
 $ cd project

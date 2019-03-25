@@ -1,0 +1,10 @@
+st=>start: Start
+e=>end: End
+op1=>operation: let flag = 0
+op2=>operation: flag += 1
+cond=>condition: flag < 100
+io=>inputoutput: console.log(flag)
+
+st->op1->cond
+cond(yes)->io(left)->op2(top)->cond
+cond(no)->e

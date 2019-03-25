@@ -1,9 +1,11 @@
 # Jest
 
 ## [Jest using babel (ESM)](https://jestjs.io/docs/en/getting-started#using-babel):
+
 ---
 
 ### Install dependencies
+
 ```
 $ mkdir project
 $ cd project
@@ -12,6 +14,7 @@ $ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
 ```
 
 ### Project
+
 ```
 $ tree . -a -I node_modules
 .
@@ -27,6 +30,7 @@ $ tree . -a -I node_modules
 ```
 
 [unit-test/.babelrc](unit-test/.babelrc):
+
 ```js
 {
   "presets": ["env"]
@@ -34,22 +38,25 @@ $ tree . -a -I node_modules
 ```
 
 [unit-test/lib/sum.test.js](unit-test/lib/sum.test.js):
+
 ```js
 {% include_relative unit-test/lib/sum.test.js %}
 ```
 
 ### Running jest (fail)
 
-unit-test/lib/sum.js:
+[unit-test/lib/sum.js](unit-test/lib/sum.js):
+
 ```js
 function sum(a, b) {
   // TODO
 }
 
-export { sum }
+export { sum };
 ```
 
 Running Tests and Viewing Results (test fail):
+
 ```
 $ npx jest
  FAIL  lib/sum.test.js
@@ -109,11 +116,13 @@ Ran all test suites.
 ### Running jest (pass)
 
 [unit-test/lib/sum.js](unit-test/lib/sum.js):
+
 ```js
 {% include_relative unit-test/lib/sum.js %}
 ```
 
 Running Tests and Viewing Results (test passed):
+
 ```
 $ npx jest
  PASS  lib/sum.test.js
@@ -131,6 +140,7 @@ Ran all test suites.
 ### Running jest (watch)
 
 Running Tests and Viewing Results (Automatic)
+
 ```
 $ npx jest --watch lib/sum.test.js
  PASS  lib/sum.test.js
@@ -160,6 +170,7 @@ Watch Usage
 ### Running jest (coverage)
 
 Running Tests and Viewing Results [(Coverage Report)](unit-test/coverage/lcov-report/index.html):
+
 ```
 $ npx jest --coverage lib/
  PASS  lib/sum.test.js

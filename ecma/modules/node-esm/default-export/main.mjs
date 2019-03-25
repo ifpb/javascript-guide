@@ -1,3 +1,3 @@
-import sum from './lib.mjs'
+import sum from './lib.mjs';
 
-console.log(sum(10, 5))
+console.log(sum(10, 5));

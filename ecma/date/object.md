@@ -4,6 +4,7 @@ Date objects are based on a time value that is the number of milliseconds since 
 Range is -100,000,000 days to 100,000,000 days relative to 01 January, 1970 UTC
 
 ### Create Date
+
 ---
 
 ```js
@@ -30,6 +31,7 @@ var birthday = Date(1995, 11, 17); // String
 ```
 
 ## OBJECT
+
 ---
 
 ### Date.now
@@ -39,11 +41,12 @@ console.log(Date.now()); // number of milliseconds since January 1, 1970, 00:00:
 ```
 
 ### Date.parse()
+
 ```js
 // like new Date(dateString)
 // RFC2822 / IETF date syntax (RFC2822 Section 3.3)
 // http://tools.ietf.org/html/rfc2822#section-3.3
-console.log(Date.parse("Dec 25, 1995"));
+console.log(Date.parse('Dec 25, 1995'));
 console.log(Date.parse('12/25/2014'));
 console.log(Date.parse('12 25 2014'));
 console.log(Date.parse('Wed, 09 Aug 1995'));
@@ -56,16 +59,16 @@ console.log(isNaN(Date.parse(`${10}/${40}/${2016}`)));
 
 ```js
 var date = new Date();
-console.log(date.getDate());         // day of the month (1-31)
-console.log(date.getDay());          // day of the week (0-6)
-console.log(date.getFullYear());     // year (4 digits for 4-digit years)
-console.log(date.getHours());        // hour (0-23)
+console.log(date.getDate()); // day of the month (1-31)
+console.log(date.getDay()); // day of the week (0-6)
+console.log(date.getFullYear()); // year (4 digits for 4-digit years)
+console.log(date.getHours()); // hour (0-23)
 console.log(date.getMilliseconds()); // milliseconds (0-999)
-console.log(date.getMinutes());      // minutes (0-59)
-console.log(date.getMonth());        // month (0-11)
-console.log(date.getSeconds());      // seconds (0-59)
-console.log(date.getTime());         // number of milliseconds since January 1, 1970, 00:00:00 UTC
-console.log(date.getYear());         // year (usually 2-3 digits)
+console.log(date.getMinutes()); // minutes (0-59)
+console.log(date.getMonth()); // month (0-11)
+console.log(date.getSeconds()); // seconds (0-59)
+console.log(date.getTime()); // number of milliseconds since January 1, 1970, 00:00:00 UTC
+console.log(date.getYear()); // year (usually 2-3 digits)
 ```
 
 ### Setter
@@ -74,17 +77,17 @@ console.log(date.getYear());         // year (usually 2-3 digits)
 
 ```js
 // toDateString()
-console.log((new Date()).toDateString());
+console.log(new Date().toDateString());
 
 // toJSON()
-console.log((new Date()).toJSON());
+console.log(new Date().toJSON());
 
 // toLocaleString()
-console.log((new Date()).toLocaleString('en-US'));
-console.log((new Date()).toLocaleString('pt-BR'));
+console.log(new Date().toLocaleString('en-US'));
+console.log(new Date().toLocaleString('pt-BR'));
 
 // toString()
-console.log((new Date()).toString());
+console.log(new Date().toString());
 
 // toLocaleFormat(formatString)
 // A format string in the same format expected by the strftime() function in C.

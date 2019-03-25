@@ -9,11 +9,7 @@ const alfa = 255;
 const red = 116;
 const green = 195;
 const blue = 101;
-const color =
-  ((alfa & 0xff) << 24) |
-  ((red & 0xff) << 16) |
-  ((green & 0xff) << 8) |
-  (blue & 0xff);
+const color = ((alfa & 0xff) << 24) | ((red & 0xff) << 16) | ((green & 0xff) << 8) | (blue & 0xff);
 
 // 00000000000000000000000011111111 (255)
 // 00000000000000000000000011111111 (0xff)

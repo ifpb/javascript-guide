@@ -22,26 +22,26 @@ console.log(b); //=> 1
 ```
 
 ```js
-let [number, string] = [8, "fulano"];
+let [number, string] = [8, 'fulano'];
 console.log(number); //=> 8
 console.log(string); //=> 'fulano'
 ```
 
 ```js
-let [ip, mask = "255.255.255.0"] = ["192.168.0.2"]; // Fail-Soft Destructuring
+let [ip, mask = '255.255.255.0'] = ['192.168.0.2']; // Fail-Soft Destructuring
 console.log(ip); //=> '192.168.0.2'
 console.log(mask); //=> '255.255.255.0'
 ```
 
 ```js
-let [ip, mask = "255.255.255.0"] = ["192.168.0.2", "255.255.0.0"];
+let [ip, mask = '255.255.255.0'] = ['192.168.0.2', '255.255.0.0'];
 console.log(ip); //=> '192.168.0.2'
 console.log(mask); //=> '255.255.0.0'
 ```
 
 ```js
 // {a, b} = {a:1, b:2} / Object Matching
-let { ip, mask } = { ip: "192.168.0.2", mask: "255.255.255.0" };
+let { ip, mask } = { ip: '192.168.0.2', mask: '255.255.255.0' };
 console.log(ip); //=> '192.168.0.2'
 console.log(mask); //=> '255.255.255.0'
 ```
