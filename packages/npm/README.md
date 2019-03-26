@@ -85,6 +85,8 @@
 $ npm init -y
 ```
 
+**package.json:**
+
 ```js
 {
   "name": "reuseble-code",
@@ -121,6 +123,16 @@ $ mkdir project
 $ cd project
 $ npm init -y
 $ npm i date-fns
+```
+
+```
+$ tree .
+.
+├── node_modules
+│   ├── date-fns
+│   └── ...
+├── package-lock.json
+└── package.json
 ```
 
 **package.json**:
