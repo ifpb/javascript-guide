@@ -190,6 +190,8 @@ $ node --experimental-modules main.mjs
 - [export \| MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export)
 - [import \| MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 - [ECMAScript Modules](https://nodejs.org/api/esm.html)
+- [ECMAScript modules in Node.js: the new plan](http://2ality.com/2018/12/nodejs-esm-phases.html)
+- [Plan for New Modules Implementation](https://github.com/nodejs/modules/blob/master/doc/plan-for-new-modules-implementation.md)
 - [Exploring JS - Modules](http://exploringjs.com/es6/ch_modules.html)
 - [MDN - ES6 In Depth: Modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/)
 - [ECMAScript 6 modules: the final syntax](http://2ality.com/2014/09/es6-modules-final.html)
