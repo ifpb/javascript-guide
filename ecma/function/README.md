@@ -262,13 +262,34 @@ console.log(addition(1, 2)); //=> 2
 
 ---
 
+```
+n! = n*(n-1)*(n-2)*...*1
+4! = 4*3*2\*1 = 24
+```
+
+<img src="assets/recusion.png" alt="recusion" width="300px">
+
 ```js
 function factorial(n) {
-  return n == 0 ? 1 : n * factorial(n - 1);
+  return n === 0 ? 1 : n * factorial(n - 1);
 }
 
 console.log(factorial(4)); //=> 24
 ```
+
+| f(n) | return  | eval | result |
+| ---- | ------- | ---- | ------ |
+| f(4) | 4\*f(3) | 4\*6 | 24     |
+| f(3) | 3\*f(2) | 3\*2 | 6      |
+| f(2) | 2\*f(1) | 2\*1 | 2      |
+| f(1) | 1\*f(0) | 1\*1 | 1      |
+| f(0) | 1       | 1    | 1      |
+
+<!-- TODO chart
+- http://www.thinkingincrowd.me/2016/06/06/How-to-avoid-Stack-overflow-error-on-recursive/
+- https://stackoverflow.com/questions/32806540/how-does-return-work-exactly-in-factorial
+- https://stackoverflow.com/questions/494594/how-to-write-the-fibonacci-sequence
+ -->
 
 ## Default Parameters
 

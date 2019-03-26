@@ -1,0 +1,8 @@
+st=>start: factorial(n)
+op1=>operation: return 1
+op2=>operation: return n * factorial(n - 1)
+cond=>condition: n === 0
+
+st->cond
+cond(yes)->op1(right)
+cond(no)->op2(top)->cond
