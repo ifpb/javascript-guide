@@ -7,7 +7,8 @@
   - [Named as exports](#named-as-exports)
   - [Named export](#named-export)
   - [Named exports](#named-exports)
-  - [Named uniq exports](#named-uniq-exports)
+  - [Named uniq export](#named-uniq-export)
+  - [Named uniq export alias](#named-uniq-export-alias)
 
 ## [Node Modules - CJS](https://nodejs.org/api/modules.html)
 
@@ -159,24 +160,48 @@ named-exports
 $ node --experimental-modules main.mjs
 ```
 
-### Named uniq exports
+### Named uniq export
 
 ```
-named-uniq-exports
+named-uniq-export
 ├── lib.mjs
 └── main.mjs
 ```
 
-[node-esm/named-uniq-exports/lib.mjs](node-esm/named-uniq-exports/lib.mjs):
+[node-esm/named-uniq-export/lib.mjs](node-esm/named-uniq-export/lib.mjs):
 
 ```js
-{% include_relative node-esm/named-uniq-exports/lib.mjs %}
+{% include_relative node-esm/named-uniq-export/lib.mjs %}
 ```
 
-[node-esm/named-uniq-exports/main.mjs](node-esm/named-uniq-exports/main.mjs):
+[node-esm/named-uniq-export/main.mjs](node-esm/named-uniq-export/main.mjs):
 
 ```js
-{% include_relative node-esm/named-uniq-exports/main.mjs %}
+{% include_relative node-esm/named-uniq-export/main.mjs %}
+```
+
+```
+$ node --experimental-modules main.mjs
+```
+
+### Named uniq export alias
+
+```
+named-uniq-export-alias
+├── lib.mjs
+└── main.mjs
+```
+
+[node-esm/named-uniq-export-alias/lib.mjs](node-esm/named-uniq-export-alias/lib.mjs):
+
+```js
+{% include_relative node-esm/named-uniq-export-alias/lib.mjs %}
+```
+
+[node-esm/named-uniq-export-alias/main.mjs](node-esm/named-uniq-export-alias/main.mjs):
+
+```js
+{% include_relative node-esm/named-uniq-export-alias/main.mjs %}
 ```
 
 ```
