@@ -16,7 +16,7 @@
 
 ### if...else
 
-<img src="assets/decision-if.svg" alt="decision if" width="300px">
+<img src="assets/decision-if.svg" alt="decision if" width="400px">
 
 if does not executes: false, 0, "", null, undefined, NaN:
 
@@ -34,7 +34,7 @@ if (number < 0) {
 }
 ```
 
-<img src="assets/decision-if-if.svg" alt="decision if" width="400px">
+<img src="assets/decision-if-if.svg" alt="decision if" width="600px">
 
 ```js
 const number = 10;
@@ -50,7 +50,7 @@ if (number >= 0)
 console.log(result); //=> equal or greater than zero
 ```
 
-<img src="assets/decision-if-else.svg" alt="decision if" width="500px">
+<img src="assets/decision-if-else.svg" alt="decision if" width="700px">
 
 ```js
 let number = 10;
@@ -65,7 +65,7 @@ if (number < 0) {
 console.log(result); //=> equal or greater than zero
 ```
 
-<img src="assets/decision-if-elseif-else.svg" alt="decision if" width="600px">
+<img src="assets/decision-if-elseif-else.svg" alt="decision if" width="800px">
 
 ```js
 const number = 10;
@@ -84,7 +84,7 @@ console.log(result); //=> greater than zero
 
 ### switch
 
-<img src="assets/decision-switch.svg" alt="decision switch" width="100%">
+<img src="assets/decision-switch.png" alt="decision switch" width="100%">
 
 ```js
 const number1 = 10;
@@ -120,7 +120,7 @@ console.log(result); //=> 20
 
 ### while
 
-<img src="assets/loop-while.svg" alt="loop while" width="500px">
+<img src="assets/loop-while.svg" alt="loop while" width="600px">
 
 ```js
 let result = '';
@@ -206,7 +206,7 @@ continue & break
 
 ### for...in
 
-<img src="assets/loop-for-in.png" alt="loop for in" width="300px">
+<img src="assets/loop-for-in.png" alt="loop for in" width="400px">
 
 Iterates over the enumerable properties of an object:
 
@@ -241,7 +241,7 @@ for (let index in numbers) {
 
 ### for...of
 
-<img src="assets/loop-for-of.png" alt="loop for of" width="300px">
+<img src="assets/loop-for-of.png" alt="loop for of" width="400px">
 
 Iterates over iterable objects (including arrays, array-like objects, iterators and generators):
 
