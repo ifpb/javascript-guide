@@ -16,21 +16,25 @@
 
 ### if...else
 
+<img src="assets/decision-if.svg" alt="decision if" width="300px">
+
+if does not executes: false, 0, "", null, undefined, NaN:
+
 ```js
 const number = 10;
 
-// if does not executes: false, 0, "", null, undefined, NaN
 if (number < 0) console.log('less than zero'); //=> greater than zero
 ```
 
 ```js
 const number = 10;
 
-// if does not executes: false, 0, "", null, undefined, NaN
 if (number < 0) {
   console.log('less than zero'); //=> greater than zero
 }
 ```
+
+<img src="assets/decision-if-if.svg" alt="decision if" width="400px">
 
 ```js
 const number = 10;
@@ -46,6 +50,8 @@ if (number >= 0)
 console.log(result); //=> equal or greater than zero
 ```
 
+<img src="assets/decision-if-else.svg" alt="decision if" width="500px">
+
 ```js
 let number = 10;
 let result;
@@ -58,6 +64,8 @@ if (number < 0) {
 
 console.log(result); //=> equal or greater than zero
 ```
+
+<img src="assets/decision-if-elseif-else.svg" alt="decision if" width="600px">
 
 ```js
 const number = 10;
@@ -76,15 +84,16 @@ console.log(result); //=> greater than zero
 
 ### switch
 
+<img src="assets/decision-switch.svg" alt="decision switch" width="100%">
+
 ```js
 const number1 = 10;
 const number2 = 10;
 const operator = '+'; // (+, -, *, /)
 let result;
 
-switch (
-  operator // strict comparison
-) {
+// strict comparison
+switch (operator) {
   case 'add':
   case '+':
     result = number1 + number2;
@@ -109,17 +118,9 @@ console.log(result); //=> 20
 
 ---
 
-<!--
-TODO
-# # #
- # #
-# #
- #
-
-continue & break
--->
-
 ### while
+
+<img src="assets/loop-while.svg" alt="loop while" width="500px">
 
 ```js
 let result = '';
@@ -137,6 +138,8 @@ while (result.length < 4) {
 
 ### do...while
 
+<img src="assets/loop-do-while.png" alt="loop do while" width="500px">
+
 ```js
 let result = '';
 
@@ -153,7 +156,7 @@ do {
 
 ### for
 
-![loop](assets/loop.png)
+<img src="assets/loop-for-flag.png" alt="loop for flag" width="400px">
 
 ```js
 for (let flag = 0; flag < 100; flag += 1) {
@@ -191,14 +194,26 @@ console.log(result);
 // 90 91 92 93 94 95 96 97 98 99
 ```
 
+<!--
+TODO
+# # #
+ # #
+# #
+ #
+
+continue & break
+-->
+
 ### for...in
+
+<img src="assets/loop-for-in.png" alt="loop for in" width="300px">
 
 Iterates over the enumerable properties of an object:
 
 ```js
 const numbers = [1, 2, 3, 4];
 
-for (let index in numbers) {
+for (const index in numbers) {
   console.log(index);
 }
 //=>
@@ -225,6 +240,8 @@ for (let index in numbers) {
 ```
 
 ### for...of
+
+<img src="assets/loop-for-of.png" alt="loop for of" width="300px">
 
 Iterates over iterable objects (including arrays, array-like objects, iterators and generators):
 
@@ -316,10 +333,10 @@ for (const [key, value] of Object.entries(student)) {
 
 ---
 
-| Category                                                                              | Statements                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [Control flow](#control-flow-block-break-continue-empty-ifesle-switch-throw-trycatch) | `block`, `break`, `continue`, `empty`, `if...esle`, `switch`, `throw`, `try...catch` |
-| [Iterations](#iterations-dowhile-for-forin-forof-while)                               | `do...while`, `for`, `for...in`, `for...of`, `while`, `do...while`                   |
-| Others                                                                                | `debugger`, `export`, `import`, `label`                                              |
-| Declarations                                                                          | `var`, `let`, `const`                                                                |
-| Functions and classes                                                                 | `function`, `function*`, `return`, `class`                                           |
+| Category              | Statements                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| Control flow          | `block`, `break`, `continue`, `empty`, `if...esle`, `switch`, `throw`, `try...catch` |
+| Iterations            | `do...while`, `for`, `for...in`, `for...of`, `while`, `do...while`                   |
+| Others                | `debugger`, `export`, `import`, `label`                                              |
+| Declarations          | `var`, `let`, `const`                                                                |
+| Functions and classes | `function`, `function*`, `return`, `class`                                           |

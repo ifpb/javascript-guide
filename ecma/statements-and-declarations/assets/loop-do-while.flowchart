@@ -1,0 +1,10 @@
+st=>start: Start
+e=>end: End
+op1=>operation: let result = ''
+op2=>operation: result += 'x'
+cond=>condition: result.length < 4
+io=>inputoutput: console.log(result)
+
+st->op1->op2->io(right)->cond
+cond(yes, top)->op2
+cond(no)->e

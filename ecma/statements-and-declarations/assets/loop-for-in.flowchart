@@ -1,0 +1,9 @@
+st=>start: Start
+e=>end: End
+op=>operation: const numbers = [1, 2, 3, 4]
+cond=>condition: index in numbers
+io=>inputoutput: console.log(index)
+
+st->op->cond
+cond(yes, right)->io(top)->cond
+cond(no)->e

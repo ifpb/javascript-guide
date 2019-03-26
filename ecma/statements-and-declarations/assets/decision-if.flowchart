@@ -1,0 +1,8 @@
+st=>start: Start
+e=>end: End
+cond=>condition: number < 0
+io=>inputoutput: console.log('less than zero')
+
+st->cond
+cond(yes)->io(right)->e
+cond(no)->e

@@ -1,0 +1,16 @@
+st=>start: Start
+e=>end: End
+op1=>operation: const number = 10
+op2=>operation: result = 'less than zero'
+op3=>operation: result = 'greater than zero'
+op4=>operation: result = 'equal to zero'
+cond1=>condition: number < 0
+cond2=>condition: number > 0
+io=>inputoutput: console.log(result)
+
+st->op1->cond1
+cond1(yes)->op2->io
+cond1(no)->cond2
+cond2(yes)->op3->io
+cond2(no)->op4->io
+io(right)->e

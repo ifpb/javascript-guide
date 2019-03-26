@@ -1,0 +1,29 @@
+st=>start: Start
+e=>end: End
+op1=>operation: const number1 = 10
+const number2 = 10
+const operator = '+'
+op2=>operation: result = number1 + number2
+op3=>operation: result = number1 - number2
+op4=>operation: result = number1 * number2
+op5=>operation: result = number1 / number2
+op6=>operation: result = 0
+cond1=>condition: operator === 'add'
+cond2=>condition: operator === '+'
+cond3=>condition: operator === '-'
+cond4=>condition: operator === '*'
+cond5=>condition: operator === '/'
+io=>inputoutput: console.log(result)
+
+st->op1->cond1
+cond1(yes)->op2->io
+cond1(no)->cond2
+cond2(yes)->op2->io
+cond2(no)->cond3
+cond3(yes)->op3->io
+cond3(no)->cond4
+cond4(yes)->op4->io
+cond4(no)->cond5
+cond5(yes)->op5->io
+cond5(no)->op6->io
+io(right)->e

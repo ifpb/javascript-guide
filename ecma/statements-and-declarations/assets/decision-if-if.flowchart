@@ -1,0 +1,15 @@
+st=>start: Start
+e=>end: End
+op1=>operation: const number = 10
+op2=>operation: result = 'less than zero'
+op3=>operation: result = 'equal or greater than zero'
+cond1=>condition: number < 0
+cond2=>condition: number >= 0
+io=>inputoutput: console.log(result)
+
+st->op1->cond1
+cond1(yes)->op2(right)->cond2
+cond1(no)->cond2
+cond2(yes)->op3(right)->io
+cond2(no)->io
+io->e
