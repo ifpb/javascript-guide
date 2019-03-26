@@ -140,13 +140,13 @@ function f1() {
   let x = 'inside1';
 }
 
-function f2() {
+function f1() {
   let x = 'inside2';
   f1();
 }
 
 console.log(x); //=> 'global'
-f2();
+f1();
 console.log(x); //=> 'global'
 ```
 
@@ -165,16 +165,16 @@ console.log(x); //=> 'global'
 ```js
 let x = 'global';
 
-function f1() {
+function f2() {
   x = 'outside';
-  function f2() {
+  function f1() {
     x = 'inside';
   }
-  f2();
+  f1();
 }
 
 console.log(x); //=> 'global'
-f1();
+f2();
 console.log(x); //=> 'global'
 ```
 
@@ -206,11 +206,11 @@ console.log(x); //=> 'global'
 
 ![Socpe 1](assets/scope-3-1.png)
 
-| Scope   | Hierarchy | Variable        |
-| ------- | --------- | --------------- |
-| global  | g         | `x = 'global'`  |
-| inside1 | g>f1      | `x = 'outside'` |
-| inside2 | g>f1>f2   | `x = 'inside'`  |
+| Scope   | Hierarchy | Variable       |
+| ------- | --------- | -------------- |
+| global  | g         | `x = 'inside'` |
+| inside1 | g>f1      | `x = 'inside'` |
+| inside2 | g>f1>f2   | `x = 'inside'` |
 
 ## Hoisting
 
