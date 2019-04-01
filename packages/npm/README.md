@@ -198,7 +198,7 @@ $ npx jest --version
 $ mkdir project
 $ cd project
 $ npm init -y
-$ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
+$ npm i -D jest babel-jest @babel/core @babel/preset-env
 ```
 
 **package.json**:
@@ -208,11 +208,10 @@ $ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
   "name": "project",
   "version": "1.0.0",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.6.0",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^23.6.0",
-    "regenerator-runtime": "^0.12.1"
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-jest": "^24.5.0",
+    "jest": "^24.5.0"
   }
 }
 ```

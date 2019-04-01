@@ -10,7 +10,7 @@
 $ mkdir project
 $ cd project
 $ npm init -y
-$ npm i -D jest babel-jest babel-core regenerator-runtime babel-preset-env
+$ npm i -D jest babel-jest @babel/core @babel/preset-env
 ```
 
 ### Project
@@ -33,7 +33,7 @@ $ tree . -a -I node_modules
 
 ```js
 {
-  "presets": ["env"]
+  "presets": ["@babel/preset-env"]
 }
 ```
 
