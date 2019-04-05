@@ -512,7 +512,8 @@ console.log(sum(2, 2)); //=> 4
 ```
 
 ```js
-const sum = (param1, param2) => param1 + param2;
+const sum = (param1, param2) => 
+                param1 + param2;
 console.log(sum(2, 2)); //=> 4
 ```
 
@@ -529,7 +530,8 @@ console.log(sum(2)); //=> 3
 ```
 
 ```js
-const sum = number => number + 1;
+const sum = number => 
+                number + 1;
 console.log(sum(2)); //=> 3
 ```
 
