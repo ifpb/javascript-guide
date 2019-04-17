@@ -11,7 +11,7 @@
 
 ```js
 function summation(...numbers) {
-  hasNaN = numbers.some(number => Number.isNaN(parseInt(number)));
+  const hasNaN = numbers.some(number => Number.isNaN(parseInt(number)));
   if (hasNaN) throw 'Contains NaN';
   return numbers.reduce((addition, number) => addition + number);
 }
