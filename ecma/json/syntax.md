@@ -69,20 +69,20 @@ Reference: [JSON ORG](http://json.org)
 ```js
 [
   {
-    name: 'fulano',
-    email: 'fulano@gmail.com',
+    "name": "fulano",
+    "email": "fulano@gmail.com",
   },
   {
-    name: 'sicrano',
-    email: 'sicrano@gmail.com',
-  },
-];
+    "name": "sicrano",
+    "email": "sicrano@gmail.com",
+  }
+]
 ```
 
 #### .js (Unquoted)
 
 ```js
-[
+const students = [
   {
     name: 'fulano',
     email: 'fulano@gmail.com',
