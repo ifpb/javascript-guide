@@ -20,9 +20,9 @@ References:
 - [Array Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [Array Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Array_literals)
 
-![Array](http://json.org/array.gif)
+![Array](https://www.json.org/img/array.png)
 
-![Value](http://json.org/value.gif)
+![Value](https://www.json.org/img/value.png)
 
 Reference: [JSON ORG](http://json.org)
 
