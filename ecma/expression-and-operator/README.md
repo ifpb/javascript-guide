@@ -466,11 +466,11 @@ let x, y;
       <td>Postfix Decrement</td>
     </tr>
     <tr>
-      <td>- …</td>
+      <td>-- …</td>
       <td>Prefix Decrement</td>
     </tr>
     <tr>
-      <td>+ …</td>
+      <td>++ …</td>
       <td>Prefix Increment</td>
     </tr>
     <tr>
