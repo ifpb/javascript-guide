@@ -570,22 +570,6 @@ console.log([1, 1, 1].reduce(sum)); //=> 3
 ```
 
 ```js
-const sum = (x, y) => {
-  z = x + y;
-  return z;
-};
-console.log([1, 1, 1].reduce(sum)); //=> 3
-```
-
-```js
-const sum = (x, y) => {
-  z = x + y;
-  return z;
-};
-console.log([1, 1, 1].reduce(sum)); //=> 3
-```
-
-```js
 const sum = (x, y) => (z = x + y);
 return z; // SyntaxError: Illegal return statement
 console.log([1, 1, 1].reduce(sum));
