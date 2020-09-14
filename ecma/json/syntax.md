@@ -1,17 +1,17 @@
 # Javascript Object Notation (JSON)
 
-- [Creating data sets](#creating-data-sets)
-  - [Comma Separated Values (CSV)](#comma-separated-values-csv)
-  - [eXtensible Markup Language (XML)](#extensible-markup-language-xml)
-  - [YAML Ain't Markup Language (YAML)](#yaml-aint-markup-language-yaml)
-  - [Javascript Object Notation (JSON)](#javascript-object-notation-json):
-    - [.json, .js (Quoted)](#json-js-quoted)
-    - [.js (Unquoted)](#js-unquoted)
-    - [.js (Indexed)](#js-indexed)
-- [Web API](#web-api)
-  - [IP API](#ip-api)
-  - [JSONPlaceholder API](#jsonplaceholder-api)
-  - [Via CEP API](#via-cep-api)
+  - [Creating data sets](#creating-data-sets)
+    - [Comma Separated Values (CSV)](#comma-separated-values-csv)
+    - [eXtensible Markup Language (XML)](#extensible-markup-language-xml)
+    - [YAML Ain't Markup Language (YAML)](#yaml-aint-markup-language-yaml)
+    - [Javascript Object Notation (JSON)](#javascript-object-notation-json-1)
+      - [Quoted (.json, .js)](#quoted-json-js)
+      - [Unquoted (.js)](#unquoted-js)
+      - [Indexed & Unquoted (.js)](#indexed--unquoted-js)
+  - [Web API](#web-api)
+    - [Via CEP API](#via-cep-api)
+    - [IP API](#ip-api)
+    - [JSONPlaceholder API](#jsonplaceholder-api)
 
 ## Creating data sets
 
@@ -58,13 +58,13 @@ Reference: [doc](http://yaml.org/)
 
 ### Javascript Object Notation (JSON)
 
-![Object](http://json.org/object.gif)
+![Object](https://www.json.org/img/object.png)
 
-![Value](http://json.org/value.gif)
+![Value](https://www.json.org/img/value.png)
 
 Reference: [JSON ORG](http://json.org)
 
-#### .json, .js (Quoted)
+#### Quoted (.json, .js)
 
 ```js
 [
@@ -79,7 +79,7 @@ Reference: [JSON ORG](http://json.org)
 ]
 ```
 
-#### .js (Unquoted)
+#### Unquoted (.js)
 
 ```js
 const students = [
@@ -94,10 +94,10 @@ const students = [
 ];
 ```
 
-#### .js (Indexed)
+#### Indexed & Unquoted (.js)
 
 ```js
-{
+const students = {
   20181234: {
     name: 'fulano',
     email: 'fulano@gmail.com'

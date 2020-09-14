@@ -1,15 +1,15 @@
 # Array
 
-- [Syntax](#syntax)
-- [Create an Array [ ]](#create-an-array--)
-- [Accessing Array Elements](#accessing-array-elements)
-- [Changing Array](#changing-array)
-- [Defining Empty Array](#defining-empty-array)
-- [Multiple Types](#multiple-types)
-- [String Index](#string-index)
-- [Nth Dimentions](#nth-dimentions)
-- [Spread Operator](#spread-operator)
-- [Interaction](#interaction-for-forof-forin-forkey-value-of-entries)
+  - [Syntax](#syntax)
+  - [Create an Array [ ]](#create-an-array--)
+  - [Accessing Array Elements](#accessing-array-elements)
+  - [Changing Array](#changing-array)
+  - [Defining Empty Array](#defining-empty-array)
+  - [Multiple Types](#multiple-types)
+  - [String Index](#string-index)
+  - [Nth Dimentions](#nth-dimentions)
+  - [Spread Operator](#spread-operator)
+  - [Iteration: for, for..in, for..of](#iteration-for-forin-forof)
 
 ## Syntax
 
@@ -146,7 +146,7 @@ let numbers = [1, 2, 3];
 console.log([...numbers, 4, 5]); //=> [ 1, 2, 3, 4, 5 ]
 ```
 
-## Interaction: for, for..of, for..in, for([key, value] of [].entries())
+## Iteration: for, for..in, for..of
 
 ---
 

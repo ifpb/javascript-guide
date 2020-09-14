@@ -19,11 +19,11 @@
 | Primitive | [Undefined](../undefined/syntax.md) | `undefined`                                                                                       |
 | Primitive | [Null](../null/syntax.md)           | `null`                                                                                            |
 | Primitive | [Boolean](../boolean/syntax.md)     | `true`, `false`                                                                                   |
-| Primitive | [Number](../number/syntax.md)       | `-15`<br>`15`, `0b1111`, `0o17`, `0xf`<br>`-1234.5`<br>`1234.5`, `1.2345e3`<br>`0.0012`, `1.2E-3` |
+| Primitive | [Number](../number/syntax.md)       | `-15`<br>`15`, `0b1111`, `0o17`, `0xf`<br>`-123.45`<br>`123.45`, `1.2345e2`, `12345E-2` |
 | Primitive | [String](../string/syntax.md)       | `'Hello'`, `"Hello"`, `` `Hello` ``                                                               |
 | Primitive | [Symbol](../symbol/syntax.md)       | `Symbol("number")`                                                                                |
-| Object    | [Array](../array/syntax.md)         | `[]`<br>`[1, 2, 3]`<br>`[1, '2', true]`                                                           |
-| Object    | [Object](../object/syntax.md)       | `{name: Alice, email: alice@ifpb.edu}`                                                            |
+| Object    | [Array](../array/syntax.md)         | `[]`<br>`[1, 2, 3]`<br>`[1, '2', true, [3, false]]`<br>`["Alice", "alice@ifpb.edu.br"]`                                                           |
+| Object    | [Object](../object/syntax.md)       | `{name: "Alice", email: "alice@ifpb.edu"}`                                                            |
 | Object    | [Map](../map/syntax.md)             | `new Map([[0, 1],[2, 3], [1, 3]])`                                                                |
 | Object    | [Set](../set/syntax.md)             | `new Set([1, 1, 1, 2, 2, 3, 4, 5])`                                                               |
 | Object    | [Date](../date/object.md)           | `new Date()`                                                                                      |

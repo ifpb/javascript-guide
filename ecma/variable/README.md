@@ -1,14 +1,19 @@
 # Variable
 
-- [Declarations](#declaration): [var](#var), [let](#let), [const](#const)
-- [Automatic semicolon insertion (ASI)](#automatic-semicolon-insertion-asi)
-- [Dynamic Type](#dynamic-type)
-- [Case Sensitive](#case-sensitive)
-- [Identifier Pattern](#identifier-pattern)
-- [Multiple Declaration](#multiple-declaration)
-- [Hoisting](#hoisting)
+  - [Declarations](#declarations)
+    - [Other languages](#other-languages)
+    - [Keyword](#keyword)
+    - [Reassignable](#reassignable)
+    - [Scope](#scope)
+  - [Automatic semicolon insertion (ASI)](#automatic-semicolon-insertion-asi)
+  - [Dynamic Type](#dynamic-type)
+  - [Weak Typing](#weak-typing)
+  - [Case Sensitive](#case-sensitive)
+  - [Identifier Pattern](#identifier-pattern)
+  - [Multiple Declaration](#multiple-declaration)
+  - [Hoisting](#hoisting)
 
-## Declaration
+## Declarations
 
 ---
 
@@ -18,51 +23,61 @@
 | [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)     | Block    | Yes          | Yes     | Yes                |
 | [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)     | Function | Yes          | Yes     | No                 |
 
-### var
+### Other languages
+
+C:
+```c
+int number = 10;
+```
+
+Python:
+```py
+number = 10
+```
+
+### Keyword
 
 ```js
-// int number = 10; (C language)
-// number = 10      (Pyton language)
 var number = 10;
 console.log(number); //=> 10
 ```
 
 ```js
-var number;
-number = 10;
+let number = 10;
 console.log(number); //=> 10
 ```
 
-### let
+```js
+const number = 10;
+console.log(number); //=> 10
+```
+
+### Reassignable
 
 ```js
-let number = 10;
-console.log(number); //=> 10
+var number;
+number = 10;
+number = 100;
+console.log(number); //=> 100
 ```
 
 ```js
 let number;
 number = 10;
-console.log(number); //=> 10
+number = 100;
+console.log(number); //=> 100
 ```
 
 ```js
-let number = 10;
-console.log(number); //=> 10
-
-let number = 10; // SyntaxError: Identifier 'number' has already been declared
-```
-
-### const
-
-```js
-const number = 10;
-console.log(number); //=> 10
-```
-
-```js
+const number; // SyntaxError
 const number = 10;
 number = 100; // TypeError
+```
+
+```js
+const numbers = [];
+numbers.push(1);
+console.log(numbers); //=> [ 1 ]
 ```
 
 Reference:
@@ -74,8 +89,8 @@ Reference:
 ## Automatic semicolon insertion (ASI)
 
 ```js
-const number = 10;
-console.log(number); //=> 10
+const number = 10
+console.log(number) //=> 10
 ```
 
 ## Dynamic Type
@@ -83,13 +98,23 @@ console.log(number); //=> 10
 ---
 
 ```js
-let number = 10;
-console.log(number); //=> 10
-console.log(typeof number); //=> number
+let variable = 10;
+console.log(variable); //=> 10
+console.log(typeof variable); //=> number
 
-number = 'fulano';
-console.log(typeof number); //=> string
-console.log(number); //=> 'fulano'
+variable = 'fulano';
+console.log(variable); //=> 'fulano'
+console.log(typeof variable); //=> string
+```
+
+## Weak Typing
+
+---
+
+```js
+const x = 10;
+const y = '5';
+console.log(x - y); //=> 5
 ```
 
 ## Case Sensitive
@@ -98,7 +123,8 @@ console.log(number); //=> 'fulano'
 
 ```js
 const number = 8;
-const NUmber = 80;
+const Number = 80;
+const NUMBER = 800;
 ```
 
 ## Identifier Pattern
@@ -168,6 +194,7 @@ Reference:
 - [Variable hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types#Variable_hoisting)
 
 <!-- TODO
+Tipagem dinâmica, fraca e implícita
 You Don't Know JS: Up & Going https://github.com/getify/You-Dont-Know-JS/blob/master/up%20%26%20going/ch1.md
 Values & Types
 Converting Between Types (coercion, implicitly coerce) https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md

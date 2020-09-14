@@ -1,15 +1,16 @@
 # String
 
-- [Syntax](#syntax)
-- [String Literal](#string-literal)
-- [String Multiline](#string-multiline)
-- [Special Cases](#special-cases)
-- [Special Characters / Escape Sequences](#special-characters--escape-sequences)
-- [Template String (Ecma6)](#template-string-ecma6)
-- [Array of characters](#array-of-characters)
-- [Unicode and JavaScript](#unicode-and-javascript)
-- [Surrogate Pair <h,l>](#surrogate-pair-hl)
-- [Unicode problem](#unicode-problem)
+- [String](#string)
+  - [Syntax](#syntax)
+  - [String Literal](#string-literal)
+  - [String Multiline](#string-multiline)
+  - [Special Cases](#special-cases)
+  - [Special Characters / Escape Sequences](#special-characters--escape-sequences)
+  - [Template literals](#template-literals)
+  - [Array of characters](#array-of-characters)
+  - [Unicode and JavaScript](#unicode-and-javascript)
+  - [Surrogate Pair <h,l>](#surrogate-pair-hl)
+  - [Unicode problem](#unicode-problem)
 
 ## Syntax
 
@@ -19,7 +20,7 @@
 - [String Literal 1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#String_literals)
 - [String Literal 2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#String_literals)
 
-![String](http://json.org/string.gif)<br>
+![String](https://www.json.org/img/string.png)<br>
 Reference: [JSON ORG](http://json.org)
 
 ## String Literal
@@ -28,8 +29,9 @@ Reference: [JSON ORG](http://json.org)
 
 ```js
 console.log('h'); //=> 'h'
-console.log('hello world'); //=> 'hello world'
-console.log('hello world'); //=> 'hello world'
+console.log('hello world'); //=> hello world
+console.log("hello world"); //=> hello world
+console.log(`hello world`); //=> hello world
 ```
 
 ## String Multiline
@@ -66,11 +68,11 @@ otherwise my code is unreadable.`;
 ---
 
 ```js
-console.log('<img src="url">'); //=> '<img src="url">'
-console.log('<span class="ativa">10</span>'); //=> '<span class="ativa">10</span>'
-console.log('<span class="ativa">10</span>'); //=> '<span class="ativa">10</span>'
-console.log("hello' world"); //=> 'hello\' world'
-console.log('hello<br>world'); //=> 'hello<br>world'
+console.log('<img src="url">'); //=> <img src="url">
+console.log('<span class="ativa">10</span>'); //=> <span class="ativa">10</span>
+console.log("<span class=\"ativa\">10</span>"); //=> <span class="ativa">10</span>
+console.log("hello' world"); //=> hello\' world
+console.log('hello<br>world'); //=> hello<br>world
 ```
 
 ## Special Characters / Escape Sequences
@@ -83,7 +85,7 @@ console.log('hello\nworld'); //=> 'hello\nworld'
 console.log('I \u2661 JavaScript!'); //=> 'I ♡ JavaScript!'
 ```
 
-## Template String (Ecma6)
+## Template literals
 
 ---
 

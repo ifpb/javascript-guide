@@ -1,23 +1,30 @@
 # Function
 
-- [Defining Functions / Function Statement](#defining-functions--function-statement)
-- [Scope](#scope)
-- [Hoisting](#hoisting-1)
-- [Case Sensitive](#case-sensitive-1)
-- [Overload](#overload)
-- [Recursion](#recursion)
-- [Default Parameters](#default-parameters)
-- [Destructuring Assignment](#destructuring-assignment)
-- [Named Parameters / Keyword Parameters](#named-parameters--keyword-parameters)
-- [Arguments Object / es5](#arguments-object--es5)
-- [Rest parameters (spread operator) ES6](#rest-parameters-spread-operator-es6)
-- [Function Expression / Anonymous Function](#function-expression--anonymous-function)
-- [Immediately Invokable Function Expressions (IIFE)](#immediately-invokable-function-expressions-iife)
-- [Method / Callback](#method--callback)
-- [Closure](#closure)
-- [Nested functions and closures](#nested-functions-and-closures)
-- [ES6 Arrow Function `=>`](#es6-arrow-function-)
-- [Higher-Order Function](#higher-order-function)
+  - [Defining Functions / Function Statement](#defining-functions--function-statement)
+  - [Scope](#scope)
+    - [Scope (Global, Inside)](#scope-global-inside)
+    - [Scope (Global, Inside1, Inside2)](#scope-global-inside1-inside2)
+    - [Scope (Global, Outside, Inside)](#scope-global-outside-inside)
+  - [Hoisting](#hoisting)
+  - [Case Sensitive](#case-sensitive)
+  - [Redefining functions](#redefining-functions)
+  - [Recursion](#recursion)
+  - [Default Parameters](#default-parameters)
+  - [Destructuring Assignment](#destructuring-assignment)
+  - [Named Parameters / Keyword Parameters](#named-parameters--keyword-parameters)
+  - [Arguments Object / es5](#arguments-object--es5)
+  - [Rest parameters (spread operator) ES6](#rest-parameters-spread-operator-es6)
+  - [Function Expression / Anonymous Function](#function-expression--anonymous-function)
+  - [Immediately Invokable Function Expressions (IIFE)](#immediately-invokable-function-expressions-iife)
+  - [Method / Callback](#method--callback)
+  - [Closure](#closure)
+  - [Nested functions and closures](#nested-functions-and-closures)
+  - [ES6 Arrow Function `=>`](#es6-arrow-function-)
+    - [Syntax](#syntax)
+    - [One Expression](#one-expression)
+    - [Returning object literals](#returning-object-literals)
+    - [Callback](#callback)
+    - [Higher-Order Function](#higher-order-function)
 
 ## Defining Functions / Function Statement
 
@@ -241,7 +248,7 @@ console.log(Addition(1)); //=> 2
 console.log(Addition(1, 2)); //=> 2
 ```
 
-## Overload
+## Redefining functions
 
 ---
 
@@ -512,7 +519,7 @@ console.log(sum(2, 2)); //=> 4
 ```
 
 ```js
-const sum = (param1, param2) => 
+const sum = (param1, param2) =>
                 param1 + param2;
 console.log(sum(2, 2)); //=> 4
 ```
@@ -530,7 +537,7 @@ console.log(sum(2)); //=> 3
 ```
 
 ```js
-const sum = number => 
+const sum = number =>
                 number + 1;
 console.log(sum(2)); //=> 3
 ```
